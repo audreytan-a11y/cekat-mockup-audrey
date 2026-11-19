@@ -189,7 +189,7 @@
     function frame(t) {
       if (!t0) t0 = t;
       var p = Math.min(1, (t - t0) / dur);
-      var e = 1 - Math.pow(1 - p, 4);
+      var e = 1 - Math.pow(1 - p, 3);
       el.textContent = fmt(Math.round(target * e));
       if (p < 1) requestAnimationFrame(frame); else if (done) done();
     }
@@ -199,16 +199,27 @@
   var big = $('.big');
   if (big) {
     var num = $('.big__num', big), ind = $('.trust__ind b');
+    var chips = $$('.ind-chips li');
     var started = false;
+    // lock the final width so the number never jitters or clips while counting
+    num.textContent = fmt(3000);
+    num.style.display = 'inline-block';
+    num.style.minWidth = Math.ceil(num.getBoundingClientRect().width) + 'px';
+    num.style.textAlign = 'center';
+    var showChips = function () {
+      chips.forEach(function (li, i) { li.style.transitionDelay = (i * 60) + 'ms'; li.classList.add('chip-in'); });
+    };
     var start = function () {
       if (started) return; started = true;
-      countUp(num, 3000, 1800, function () { big.classList.add('done'); });
-      if (ind) countUp(ind, 15, 1600);
+      countUp(num, 3000, 1600, function () { big.classList.add('done'); setTimeout(showChips, 200); });
+      if (ind) countUp(ind, 15, 1400);
     };
-    if (reduce) { big.classList.add('done'); }
+    if (reduce) { big.classList.add('done'); chips.forEach(function (li) { li.classList.add('chip-in'); }); }
     else {
       num.textContent = '0';
       if (ind) ind.textContent = '0';
+      big.classList.add('anim');
+      chips.forEach(function (li) { li.classList.add('chip-pre'); });
     }
     whenVisible(big, start);
   }

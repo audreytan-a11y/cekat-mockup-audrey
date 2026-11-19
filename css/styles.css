@@ -1382,9 +1382,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hero__ch{display:flex;justify-content:center;align-items:center;gap:26px;margin:-8px 0 26px}
 .hero__ch img{width:24px;height:24px;object-fit:contain}
 @media (max-width:760px){.hero__ch{gap:18px;margin:-4px 0 18px}.hero__ch img{width:22px;height:22px}}
-.logoband{background:linear-gradient(180deg,#0b1f4d,#0f2a66);border-radius:0}
-.logoband .logo img,.logoband .logo:hover img{filter:brightness(0) invert(1)!important;opacity:.88}
-.logo--txt,.logoband .logo--txt{color:#fff;opacity:.88}
+.logoband{background:linear-gradient(180deg,#114BAF,#0F47A5);border-radius:0}
+.logoband .logo img,.logoband .logo:hover img{filter:brightness(0) invert(1)!important;opacity:1}
+.logo--txt,.logoband .logo--txt{color:#fff;opacity:1}
 .stage .chrow--card{position:relative;z-index:2;margin-top:18px;gap:12px;justify-content:center;width:100%}
 .stage .chrow--card .chi{width:34px;height:34px}
 /* v3 */
@@ -1413,3 +1413,89 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .mega__stage:has(.mv[data-panel=analytics].is-active){background:#fff;border-color:#e6edf8}
 @media (max-width:640px){.pin--m b{display:none}}
 .mv[data-panel=analytics] .win{background:#fff}
+/* trusted: logos card + map side by side */
+.trow{display:grid;grid-template-columns:5fr 7fr;gap:20px;margin-top:32px;align-items:stretch}
+.trow .map{margin-top:0;display:flex;flex-direction:column;justify-content:center;border-radius:22px}
+.lgcard{position:relative;border-radius:22px;background:linear-gradient(180deg,#114BAF,#0F47A5);padding:22px 0 24px;overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--sh-2)}
+.lgcard__k{margin:0 24px 14px;color:rgba(255,255,255,.82);font-size:13px;font-weight:600;letter-spacing:.02em}
+.lgcard__rows{flex:1;display:flex;flex-direction:column;justify-content:space-evenly;gap:14px;-webkit-mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent);mask-image:linear-gradient(90deg,transparent,#000 14%,#000 86%,transparent)}
+.lgrow{overflow:hidden}
+.lgcard .lgtrack{display:flex;gap:0;width:max-content;animation:lgmove 60s linear infinite}
+.lgcard .lgrow:nth-child(2) .lgtrack{animation-duration:68s}
+.lgcard .lgrow:nth-child(3) .lgtrack{animation-duration:56s}
+.lgcard .lgrow:nth-child(4) .lgtrack{animation-duration:74s}
+.lgcard .lgrow--rev .lgtrack{animation-direction:reverse}
+@keyframes lgmove{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.lgcard .logo,.lgcard .logo:hover{width:auto;height:40px;padding:0 22px;display:flex;align-items:center;background:none;border:0;border-radius:0;box-shadow:none;transform:none}
+.lgcard .logo img,.lgcard .logo:hover img{display:block;width:auto;height:auto;max-height:28px;max-width:112px;object-fit:contain;filter:brightness(0) invert(1)!important;opacity:1;transform:none}
+.lgcard .lg--pln img{max-height:36px}
+.lgcard .lg--healthy-go img,.lgcard .lg--kopi-kenangan img,.lgcard .lg--mnc img,.lgcard .lg--vio-optical-clinic img,.lgcard .lg--rata img,.lgcard .lg--politeknik-multimedia-nusantara img,.lgcard .lg--aice img{max-height:34px}
+.lgcard .lg--hachi-group img,.lgcard .lg--kb-insurance img,.lgcard .lg--sekolah-ciputra img,.lgcard .lg--siloam img{max-width:140px;max-height:22px}
+.lgcard .lg--moir-salon img,.lgcard .lg--dokterhub img,.lgcard .lg--mganik img,.lgcard .lg--rumah-zakat img{max-width:108px}
+@media (max-width:1024px){.trow{grid-template-columns:1fr}.lgcard{min-height:0}.lgcard__rows{gap:12px}}
+@media (max-width:760px){.trow{gap:14px;margin-top:24px}.lgcard{padding:18px 0 18px;border-radius:20px}.lgcard__k{margin:0 18px 10px;font-size:12px}.lgcard .logo{height:34px;padding:0 16px}.lgcard .logo img{max-height:24px!important;max-width:96px!important}.lgcard .lg--pln img,.lgcard .lg--healthy-go img{max-height:30px!important}.trow .map{border-radius:20px}}
+@media (prefers-reduced-motion:reduce){.lgcard .lgtrack{animation:none}.lgrow{overflow-x:auto}}
+.trow .map__canvas{width:100%;flex:none}
+.trow .map{padding:20px 22px 16px}
+@media (max-width:760px){.trow .map__canvas{width:100%;margin:0}.trow .map{padding:18px 14px 16px}}
+@media (max-width:760px){.trow .pin--lm b{left:50%;right:auto;top:auto;bottom:12px;transform:translateX(-50%)}}
+/* trust row v2: roomier, full map, no clipping */
+.big__num,.big__plus{padding:0 .1em 0 .04em;margin:0 -.1em 0 -.04em}
+.big__num{padding-bottom:.06em}
+.trow{grid-template-columns:4fr 8fr;gap:24px;margin-top:48px}
+.trow .map{padding:32px 36px 26px;justify-content:space-between}
+.trow .map__canvas{aspect-ratio:1000/372;overflow:visible;max-width:none;margin:0}
+.trow .map__inner{top:0!important;left:0!important;width:100%!important;aspect-ratio:1000/372}
+.trow .map__copy{margin-top:22px;padding-top:18px}
+.lgcard{padding:30px 0 30px}
+.lgcard__k{margin:0 30px 22px;font-size:13.5px}
+.lgcard__rows{gap:26px;justify-content:space-evenly;-webkit-mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.35) 8%,#000 26%,#000 74%,rgba(0,0,0,.35) 92%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,rgba(0,0,0,.35) 8%,#000 26%,#000 74%,rgba(0,0,0,.35) 92%,transparent 100%)}
+.lgcard .logo,.lgcard .logo:hover{height:46px;padding:0 30px}
+.lgcard .logo img,.lgcard .logo:hover img{max-height:32px;max-width:124px}
+.lgcard .lg--pln img{max-height:42px}
+.lgcard .lg--healthy-go img,.lgcard .lg--kopi-kenangan img,.lgcard .lg--mnc img,.lgcard .lg--vio-optical-clinic img,.lgcard .lg--rata img,.lgcard .lg--politeknik-multimedia-nusantara img,.lgcard .lg--aice img{max-height:38px}
+.lgcard .lg--hachi-group img,.lgcard .lg--kb-insurance img,.lgcard .lg--sekolah-ciputra img,.lgcard .lg--siloam img{max-width:150px;max-height:24px}
+.lgcard .lg--moir-salon img,.lgcard .lg--dokterhub img,.lgcard .lg--mganik img,.lgcard .lg--rumah-zakat img{max-width:118px}
+@media (max-width:1024px){.trow{grid-template-columns:1fr}.lgcard{min-height:340px}}
+@media (max-width:760px){.trow{margin-top:32px;gap:16px}.lgcard{min-height:0;padding:22px 0}.lgcard__k{margin:0 20px 16px}.lgcard__rows{gap:16px}.lgcard .logo,.lgcard .logo:hover{height:38px;padding:0 20px}.lgcard .logo img{max-height:26px!important;max-width:104px!important}.lgcard .lg--pln img,.lgcard .lg--healthy-go img{max-height:32px!important}.trow .map{padding:18px 14px 18px}.trow .map__copy{margin-top:14px;padding-top:14px}}
+.lgcard__rows{margin:0 10px;-webkit-mask-image:linear-gradient(90deg,transparent 0,transparent 3%,#000 30%,#000 70%,transparent 97%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,transparent 3%,#000 30%,#000 70%,transparent 97%,transparent 100%)}
+.trow .map{justify-content:center}
+/* clean 3,000+: solid colour, no glow/halo */
+.big__burst{display:none!important}
+.big__num,.big__plus{background:none!important;-webkit-background-clip:border-box;background-clip:border-box;color:#1A56DB;-webkit-text-fill-color:#1A56DB;filter:none!important;text-shadow:none;padding:0;margin:0}
+.big__plus{margin-left:.04em;margin-top:.06em}
+.big{letter-spacing:-.04em}
+/* 3,000+ count-up moment */
+.big__num{font-variant-numeric:tabular-nums}
+.big.anim .big__plus{opacity:0;transform:scale(.6);transition:none}
+.big.anim.done .big__plus{animation:plusPop .5s cubic-bezier(.34,1.56,.64,1) forwards}
+@keyframes plusPop{from{opacity:0;transform:scale(.6)}to{opacity:1;transform:scale(1)}}
+.ind-chips li.chip-pre{opacity:0;transform:translateY(8px);transition:opacity .4s ease-out,transform .4s ease-out}
+.ind-chips li.chip-pre.chip-in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.big .big__plus{opacity:1!important;transform:none!important;animation:none!important}.ind-chips li{opacity:1!important;transform:none!important}}
+/* stack v3: full-width royal-blue logo band + full map card below */
+.logoband2{position:relative;margin:48px 0 0;padding:40px 0;background:linear-gradient(180deg,#114BAF,#0F47A5);display:flex;flex-direction:column;gap:28px;-webkit-mask-image:none}
+.logoband2 .lgrow{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%)}
+.logoband2 .lgtrack{display:flex;gap:0;width:max-content;animation:lgmove 80s linear infinite}
+.logoband2 .lgrow--rev .lgtrack{animation-direction:reverse;animation-duration:90s}
+.logoband2 .logo,.logoband2 .logo:hover{width:auto;height:46px;padding:0 34px;display:flex;align-items:center;background:none;border:0;border-radius:0;box-shadow:none;transform:none}
+.logoband2 .logo img,.logoband2 .logo:hover img{display:block;width:auto;height:auto;max-height:32px;max-width:128px;object-fit:contain;filter:brightness(0) invert(1)!important;opacity:1;transform:none}
+.logoband2 .lg--pln img{max-height:42px}
+.logoband2 .lg--healthy-go img,.logoband2 .lg--kopi-kenangan img,.logoband2 .lg--mnc img,.logoband2 .lg--vio-optical-clinic img,.logoband2 .lg--rata img,.logoband2 .lg--politeknik-multimedia-nusantara img,.logoband2 .lg--aice img{max-height:38px}
+.logoband2 .lg--hachi-group img,.logoband2 .lg--kb-insurance img,.logoband2 .lg--sekolah-ciputra img,.logoband2 .lg--siloam img{max-width:156px;max-height:24px}
+.logoband2 .lg--moir-salon img,.logoband2 .lg--dokterhub img,.logoband2 .lg--mganik img,.logoband2 .lg--rumah-zakat img{max-width:120px}
+#map.map{margin-top:48px;padding:36px 48px 28px;border-radius:24px}
+#map .map__canvas{aspect-ratio:1000/372!important;overflow:visible!important;max-width:1000px;width:100%!important;margin:0 auto!important}
+#map .map__inner{top:0!important;left:0!important;width:100%!important}
+#map .map__copy{margin-top:24px;padding-top:20px}
+@media (max-width:760px){
+  .logoband2{margin-top:32px;padding:26px 0;gap:18px}
+  .logoband2 .logo,.logoband2 .logo:hover{height:36px;padding:0 20px}
+  .logoband2 .logo img{max-height:24px!important;max-width:100px!important}
+  .logoband2 .lg--pln img,.logoband2 .lg--healthy-go img{max-height:30px!important}
+  #map.map{margin-top:32px;padding:20px 14px 18px;border-radius:20px}
+  #map .pin--lm b{left:50%;right:auto;top:auto;bottom:12px;transform:translateX(-50%)}
+  #map .map__copy{margin-top:14px;padding-top:14px}
+}
+@media (prefers-reduced-motion:reduce){.logoband2 .lgtrack{animation:none}.logoband2 .lgrow{overflow-x:auto}}
+@media (max-width:760px){.logoband2 .lgrow{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 22%,#000 78%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 22%,#000 78%,transparent 100%)}}
