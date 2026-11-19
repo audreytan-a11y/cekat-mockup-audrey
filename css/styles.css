@@ -1377,3 +1377,39 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .fpill{background:#fff!important;color:#2b3a5c!important;box-shadow:0 10px 26px -10px rgba(19,82,191,.3),0 2px 6px rgba(16,40,90,.08)!important}
 .fpill .fp__in,.fpill span{color:#2b3a5c}
 .hnet__t{animation-duration:16s}
+
+/* hero logo row, plain net, navy logo band */
+.hero__ch{display:flex;justify-content:center;align-items:center;gap:26px;margin:-8px 0 26px}
+.hero__ch img{width:24px;height:24px;object-fit:contain}
+@media (max-width:760px){.hero__ch{gap:18px;margin:-4px 0 18px}.hero__ch img{width:22px;height:22px}}
+.logoband{background:linear-gradient(180deg,#0b1f4d,#0f2a66);border-radius:0}
+.logoband .logo img,.logoband .logo:hover img{filter:brightness(0) invert(1)!important;opacity:.88}
+.logo--txt,.logoband .logo--txt{color:#fff;opacity:.88}
+.stage .chrow--card{position:relative;z-index:2;margin-top:18px;gap:12px;justify-content:center;width:100%}
+.stage .chrow--card .chi{width:34px;height:34px}
+/* v3 */
+.hero__eyebrow{margin-bottom:22px}
+.hero__h .h1blue{color:#1E40AF}
+.ad-svg path.ad-l1{stroke:#1A56DB;stroke-width:2.5}
+.ad-svg path.ad-l2{stroke:#93B4F5;stroke-width:2}
+.ad-g line{stroke:#f1f4fa}
+.ad-area{filter:none}
+#adA stop:first-child{stop-opacity:.1}
+.ad-d circle.d1{fill:#1A56DB;stroke:#fff;stroke-width:2}
+.ad-leg .l1{background:#1A56DB}.ad-leg .l2{background:#93B4F5}
+.rot .chip{color:#1A56DB;background:#eef4ff}
+/* seamless hero -> trusted */
+.hero{background:transparent;border:0;box-shadow:none}
+.hnet{-webkit-mask-image:linear-gradient(180deg,#000 0,#000 55%,transparent 92%);mask-image:linear-gradient(180deg,#000 0,#000 55%,transparent 92%)}
+.trust{border:0;box-shadow:none;margin-top:-1px}
+.hero{overflow:visible}.hero__inner{position:relative}
+.trust{background:linear-gradient(180deg,rgba(255,255,255,0) 0%,var(--b50) 30%,#fff 100%)}
+.hero__glow{-webkit-mask-image:linear-gradient(180deg,#000 0,#000 40%,transparent 80%);mask-image:linear-gradient(180deg,#000 0,#000 40%,transparent 80%)}
+.pin--lm b{left:auto;right:18px}
+.mv[data-panel=analytics] .mv__art{background:linear-gradient(160deg,#fff,#f8fafd)}
+.pin .ps{display:none}
+@media (max-width:640px){.pin .pf{display:none}.pin .ps{display:inline}}
+.mv[data-panel=analytics] .mv__art{background:none}
+.mega__stage:has(.mv[data-panel=analytics].is-active){background:#fff;border-color:#e6edf8}
+@media (max-width:640px){.pin--m b{display:none}}
+.mv[data-panel=analytics] .win{background:#fff}
