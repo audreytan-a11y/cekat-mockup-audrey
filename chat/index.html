@@ -149,7 +149,7 @@
 </section>
 
 <!-- =====================================================================
-     USP BENTO GRID — 9 equal cards. Static by default; animate on hover/focus
+     USP BENTO GRID — 9 cards in mixed sizes. Static by default; animate on hover/focus
      (touch: in view). Multi-idea cards swap scenes (tiny dot indicator).
      ===================================================================== -->
 <section class="section" id="usps">
@@ -160,30 +160,34 @@
       <p class="section__lead"><span class="hint-hover">Hover a card to see it work.</span><span class="hint-touch">Scroll to see each one work.</span></p>
     </header>
 
+    <!-- Bento: 4 cols × 4 rows (desktop). 01 = 2×2 · 02 = 2×1 · 03 = 1×2 · 08, 09 = 2×1 · rest 1×1.
+         Accent (deep blue) tiles: 02, 06, 09 — never adjacent. -->
     <div class="usp-grid">
 
-      <!-- 01 Humanized replies -->
-      <article class="usp-card usp-card--t1 rv" tabindex="0" data-player data-loop="5000">
+      <!-- 01 Humanized replies — BIG 2×2 -->
+      <article class="usp-card usp-card--big usp-card--l1 rv" tabindex="0" data-player data-loop="6000">
         <div class="usp-card__head">
           <span class="usp-card__num">01</span>
           <h3 class="usp-card__title">Replies that sound human</h3>
-          <p class="usp-card__desc">Warm, natural answers in your brand’s tone.</p>
+          <p class="usp-card__desc">Warm, natural answers in your brand’s tone. Not robotic scripts.</p>
         </div>
         <div class="usp-card__art" aria-hidden="true">
           <div class="scene is-on">
-            <div class="mini-chat">
+            <div class="mini-chat mini-chat--lg">
+              <div class="mini-chat__who a" style="--d:0s"><span class="mini-chat__av">E</span><b>Emily</b><img src="./assets/integrations/instagram.svg" alt="" width="16" height="16"></div>
               <div class="bubble bubble--in a" style="--d:.1s">Is this serum okay for sensitive skin? 🥺</div>
               <div class="slot">
                 <div class="typing typing--ai a-typing" style="--d:.7s"><i></i><i></i><i></i></div>
-                <div class="bubble bubble--ai a" style="--d:1.9s">Hi Emily! Yes 💙 it’s fragrance-free and gentle. Want a simple routine?</div>
+                <div class="bubble bubble--ai a" style="--d:1.9s">Hi Emily! Yes 💙 it’s fragrance-free and super gentle. Want a simple routine to go with it?</div>
               </div>
+              <div class="bubble bubble--in a" style="--d:2.8s">Yes please! 🥰</div>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- 02 Voice notes & photos (2 scenes) -->
-      <article class="usp-card usp-card--t5 rv" style="--d:.06s" tabindex="0" data-player data-scenes="2" data-scene-ms="3400">
+      <!-- 02 Voice notes & photos — WIDE 2×1 (accent navy) -->
+      <article class="usp-card usp-card--wide usp-card--d2 rv" style="--d:.06s" tabindex="0" data-player data-scenes="2" data-scene-ms="3400">
         <div class="usp-card__head">
           <span class="usp-card__num">02</span>
           <h3 class="usp-card__title">Understands voice notes &amp; photos</h3>
@@ -192,12 +196,12 @@
         <div class="usp-card__art" aria-hidden="true">
           <div class="scene is-on" data-i="0">
             <div class="mini-chat">
-              <div class="vn bubble bubble--in a" style="--d:.1s"><span class="vn__play">▶</span><span class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><small>0:06</small></div>
+              <div class="vn bubble bubble--in a" style="--d:.1s"><span class="vn__play">▶</span><span class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><small>0:06</small></div>
               <div class="bubble bubble--ai a" style="--d:1.1s"><span class="transcript">🎙 “Do you deliver to Brooklyn?”</span>Yes! It arrives in 2–3 days 📦</div>
             </div>
           </div>
           <div class="scene" data-i="1">
-            <div class="mini-chat">
+            <div class="mini-chat mini-chat--row">
               <div class="photo bubble bubble--in a" style="--d:.1s"><img src="./assets/illus-serum.svg" alt=""><span class="scan"></span></div>
               <div class="bubble bubble--ai a" style="--d:1.2s">That’s our Hydra Serum 30ml ✨ Want to order?</div>
             </div>
@@ -206,8 +210,8 @@
         </div>
       </article>
 
-      <!-- 03 QR payment -->
-      <article class="usp-card usp-card--t2 rv" style="--d:.12s" tabindex="0" data-player data-loop="5000">
+      <!-- 03 QR payment — TALL 1×2 -->
+      <article class="usp-card usp-card--tall usp-card--l2 rv" style="--d:.12s" tabindex="0" data-player data-loop="5000">
         <div class="usp-card__head">
           <span class="usp-card__num">03</span>
           <h3 class="usp-card__title">Payment link, right in the chat</h3>
@@ -225,61 +229,58 @@
         </div>
       </article>
 
-      <!-- 04 Shipping & nearest location (2 scenes) -->
-      <article class="usp-card usp-card--t3 rv" tabindex="0" data-player data-scenes="2" data-scene-ms="3400">
+      <!-- 04 Shipping & nearest store — 1×1 (2 scenes) -->
+      <article class="usp-card usp-card--l3 rv" tabindex="0" data-player data-scenes="2" data-scene-ms="3200">
         <div class="usp-card__head">
           <span class="usp-card__num">04</span>
-          <h3 class="usp-card__title">Shipping costs &amp; nearest branch</h3>
-          <p class="usp-card__desc">Quotes delivery and finds your closest location.</p>
+          <h3 class="usp-card__title">Shipping &amp; nearest store</h3>
+          <p class="usp-card__desc">Delivery quotes, closest store.</p>
         </div>
         <div class="usp-card__art" aria-hidden="true">
           <div class="scene is-on" data-i="0">
-            <div class="map a" style="--d:.1s">
+            <div class="map map--sm a" style="--d:.1s">
               <img class="map__bg" src="./assets/illus-map.svg" alt="">
               <svg class="map__route" viewBox="0 0 300 160" preserveAspectRatio="none"><path class="a-draw" style="--d:.5s" d="M70 120 C 110 120, 120 70, 170 66 S 220 50, 228 44"/></svg>
               <span class="pin pin--me" style="left:23%;top:75%"></span>
-              <span class="pin pin--shop a" style="left:76%;top:27%;--d:.9s"><i></i></span>
-              <div class="map__card a" style="--d:1.4s"><b>Nearest store: Williamsburg · 1.2 mi</b></div>
+              <span class="pin pin--shop a" style="left:76%;top:40%;--d:.9s"><i></i></span>
+              <div class="map__card a" style="--d:1.3s"><b>Williamsburg · 1.2 mi</b></div>
             </div>
           </div>
           <div class="scene" data-i="1">
-            <div class="ship">
-              <div class="bubble bubble--in a" style="--d:.1s">Shipping to Brooklyn?</div>
-              <div class="ship__card a" style="--d:.8s">
-                <p class="ship__row is-best"><span class="ship__logo">UPS</span><span><b>Ground</b><small>2–3 days</small></span><b>$5.99</b></p>
-              </div>
+            <div class="ship__card a" style="--d:.1s">
+              <p class="ship__row is-best"><span class="ship__logo">UPS</span><span><b>Ground</b><small>2–3 days</small></span><b>$5.99</b></p>
             </div>
           </div>
           <span class="dots"><i></i><i></i></span>
         </div>
       </article>
 
-      <!-- 05 Event-based follow-up -->
-      <article class="usp-card usp-card--t1 rv" style="--d:.06s" tabindex="0" data-player data-loop="5000">
+      <!-- 05 Event-based follow-up — 1×1 -->
+      <article class="usp-card usp-card--l0 rv" style="--d:.06s" tabindex="0" data-player data-loop="5000">
         <div class="usp-card__head">
           <span class="usp-card__num">05</span>
           <h3 class="usp-card__title">Follow-ups that time themselves</h3>
-          <p class="usp-card__desc">Reaches out when customers are likely to reorder.</p>
+          <p class="usp-card__desc">Reaches out at reorder time.</p>
         </div>
         <div class="usp-card__art" aria-hidden="true">
           <div class="scene is-on">
-            <div class="fu">
+            <div class="fu fu--sm">
               <div class="fu__line">
-                <div class="fu__node a" style="--d:.1s"><span class="fu__day">Day 0</span><span class="fu__ic">🧴</span><b>Skincare A<br>purchased</b></div>
-                <div class="fu__track"><i class="fu__dot a-travel" style="--d:.6s"></i><span class="fu__est a" style="--d:.5s">runs out in ~30 days</span></div>
-                <div class="fu__node fu__node--end a" style="--d:1.9s"><span class="fu__day">Day 30</span><span class="fu__ic">💬</span><b>Follow-up<br>sent ✓</b></div>
+                <div class="fu__node a" style="--d:.1s"><span class="fu__ic">🧴</span><b>Day 0</b></div>
+                <div class="fu__track"><i class="fu__dot a-travel" style="--d:.6s"></i><span class="fu__est a" style="--d:.5s">~30 days</span></div>
+                <div class="fu__node fu__node--end a" style="--d:1.9s"><span class="fu__ic">💬</span><b>Day 30 ✓</b></div>
               </div>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- 06 Traffic share + day/night schedule (2 scenes) -->
-      <article class="usp-card usp-card--t6 rv" style="--d:.12s" tabindex="0" data-player data-scenes="2" data-scene-ms="3600">
+      <!-- 06 Traffic share + day/night — 1×1 (accent blue, 2 scenes) -->
+      <article class="usp-card usp-card--d1 rv" style="--d:.12s" tabindex="0" data-player data-scenes="2" data-scene-ms="3600">
         <div class="usp-card__head">
           <span class="usp-card__num">06</span>
-          <h3 class="usp-card__title">You decide the AI–human split</h3>
-          <p class="usp-card__desc">Set how much the AI handles, and when.</p>
+          <h3 class="usp-card__title">Your AI–human split</h3>
+          <p class="usp-card__desc">You choose the AI’s share.</p>
         </div>
         <div class="usp-card__art" aria-hidden="true">
           <div class="scene is-on" data-i="0">
@@ -298,26 +299,25 @@
         </div>
       </article>
 
-      <!-- 07 Guardrails -->
-      <article class="usp-card usp-card--t2 rv" tabindex="0" data-player data-loop="5000">
+      <!-- 07 Guardrails — 1×1 -->
+      <article class="usp-card usp-card--l1 rv" tabindex="0" data-player data-loop="4600">
         <div class="usp-card__head">
           <span class="usp-card__num">07</span>
           <h3 class="usp-card__title">Guardrails, not guesses</h3>
-          <p class="usp-card__desc">Checks your knowledge first. Unsure? It hands off.</p>
+          <p class="usp-card__desc">Unsure? It hands off.</p>
         </div>
         <div class="usp-card__art" aria-hidden="true">
           <div class="scene is-on">
             <div class="mini-chat">
               <div class="bubble bubble--in a" style="--d:.1s">Can I get a refund?</div>
-              <span class="chip chip--check a" style="--d:.8s"><span class="spin-check"></span>Checked against your knowledge</span>
-              <div class="bubble bubble--ai a" style="--d:1.6s">Let me connect you with our team for that 🙏</div>
+              <span class="chip chip--check a" style="--d:.9s"><span class="spin-check"></span>Checked · hands off</span>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- 08 Smart routing (3 states) -->
-      <article class="usp-card usp-card--t4 rv" style="--d:.06s" tabindex="0" data-player data-scenes="3" data-scene-ms="2200" data-mode="state">
+      <!-- 08 Smart routing — WIDE 2×1 (3 states) -->
+      <article class="usp-card usp-card--wide usp-card--l2 rv" style="--d:.06s" tabindex="0" data-player data-scenes="3" data-scene-ms="2200" data-mode="state">
         <div class="usp-card__head">
           <span class="usp-card__num">08</span>
           <h3 class="usp-card__title">Every chat to the right agent</h3>
@@ -345,8 +345,8 @@
         </div>
       </article>
 
-      <!-- 09 Team collaboration (3 scenes) -->
-      <article class="usp-card usp-card--t5 rv" style="--d:.12s" tabindex="0" data-player data-scenes="3" data-scene-ms="2800">
+      <!-- 09 Team collaboration — WIDE 2×1 (accent navy, 3 scenes) -->
+      <article class="usp-card usp-card--wide usp-card--d2 rv" style="--d:.12s" tabindex="0" data-player data-scenes="3" data-scene-ms="2800">
         <div class="usp-card__head">
           <span class="usp-card__num">09</span>
           <h3 class="usp-card__title">Built for teamwork</h3>

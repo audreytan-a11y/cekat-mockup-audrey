@@ -49,7 +49,7 @@ Every block uses the same skeleton, so it can be reused for any product:
 | Block | Classes | Notes |
 |---|---|---|
 | Hero | `.hero`, `.hero__copy`, `.hero__vis`, `.proofbar`, `.marquee` | Visual is product-specific; keep the copy column, CTAs and proof strip as they are. |
-| USP grid | `.usp-grid > .usp-card.usp-card--t1…t6` | 9 equal cards. Tones t1–t6 = blue-50, muted, sky, primary, navy, deepest. Head (`__num`, `__title`, `__desc`) on top, `__art` fills the rest. |
+| USP bento | `.usp-grid > .usp-card` + size `--big` (2×2) · `--wide` (2×1, text left / art right) · `--tall` (1×2) · default 1×1; tone `--l0…l3` (white → #e6eefb, hairline border) or `--d1`/`--d2` (deep blue accent) | Desktop: 4 columns × `--tile-h` (240px) rows. Chat layout = `01 01 02 02 / 01 01 03 04 / 05 06 03 07 / 08 08 09 09`, so auto-flow keeps 01→09 with no holes. Use only 2–3 deep accents and keep them apart. Tablet: 2 columns (big/wide span 2). Mobile: 1 column with fixed heights per size. Put the strongest hooks in the big tiles; 1×1 tiles need a one-line description and a compact illustration (≈80px). |
 | Feature → benefit → proof | `.feature-block[--reverse]` > `__copy` + `__visual` | Eyebrow = the feature, `__title` = the benefit, `__text` = one line, then a quiet `.proof-quote` (with an optional `.proof-stat`). The visual sits in a `.stage` (`.stage--night` = navy). |
 | Proof | `.proof-quote`, `.proof-stat`, `.proof-stat--line`, `.proof-quote--card`, `.stat--big` | **Only real data from `research/client-intel.json`, credited to that client.** |
 | Results | `.section--navy.results > .results__grid > .stat--big` | `<span data-count="40">40</span>` counts up from 0. |
