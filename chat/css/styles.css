@@ -676,3 +676,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .proofbar .marquee__track img{height:24px;max-width:116px}
 }
 .proofbar .marquee__track img{opacity:1}
+/* ===== Logo band v1.5: dark navy, white logos ===== */
+.proofbar{background:linear-gradient(180deg,#0B1F4D,#0F2A66);border-radius:0;border-top:0;border-bottom:0}
+.proofbar__label{color:rgba(255,255,255,.78)}
+.proofbar__label b{color:#fff}
+.proofbar .marquee__track img{filter:brightness(0) invert(1);opacity:.88}
+.proofbar .marquee__track img:hover{opacity:1}
+.proofbar .marquee__track span,.proofbar .marquee__track li:not(:has(img)){color:#fff;opacity:.88}
