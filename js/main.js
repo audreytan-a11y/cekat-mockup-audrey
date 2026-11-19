@@ -73,7 +73,13 @@
       if (mv && !r.closest('.dd.is-open')) return;
       if (!mv && !r.dataset.vis) return;
       var ss = $$('.rot__s', r), i = ss.findIndex(function (x) { return x.classList.contains('is-on'); });
-      ss[i].classList.remove('is-on'); ss[(i + 1) % ss.length].classList.add('is-on');
+      var hold = +ss[i].dataset.hold || 1;
+      r.__t = (r.__t || 0) + 1;
+      if (r.__t < hold) return;
+      r.__t = 0;
+      ss[i].classList.remove('is-on');
+      var nx = ss[(i + 1) % ss.length]; nx.classList.add('is-on');
+      $$('[data-seq]', nx).forEach(function (q) { if (q.__reset) q.__reset(); });
     });
   }
   if (!reduce) {
@@ -81,7 +87,7 @@
       if (r.closest('.mv')) return;
       if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { r.dataset.vis = en[0].isIntersecting ? '1' : ''; }).observe(r); else r.dataset.vis = '1';
     });
-    setInterval(tickRot, 2500);
+    setInterval(tickRot, 3000);
   }
 
   var cycleTimer = null;
@@ -95,7 +101,7 @@
       sceneIdx = (sceneIdx + 1) % scenes.length;
       scenes.forEach(function (s, i) { s.classList.toggle('is-active', i === sceneIdx); });
       sceneDots.forEach(function (d, i) { d.classList.toggle('is-active', i === sceneIdx); });
-    }, 2500);
+    }, 3000);
   }
 
   /* mini kanban inside the menu: loop always while menu open (cheap) */
@@ -127,8 +133,8 @@
   $$('[data-seq]').forEach(function (seq) {
     var steps = $$('[data-s]', seq);
     var max = steps.reduce(function (m, el) { return Math.max(m, +el.dataset.s); }, 0);
-    var interval = Math.round((+seq.dataset.interval || 1000) * 0.65);
-    var hold = Math.max(2, Math.round((+seq.dataset.hold || 3) * 0.7));
+    var interval = +seq.dataset.interval || 1000;
+    var hold = +seq.dataset.hold || 3;
     var start = Math.min(+seq.dataset.start || 1, max);
     var step = start, timer = null, fading = false;
     function render() {
@@ -138,6 +144,7 @@
         el.classList.toggle('on', step >= s && step < until);
       });
     }
+    seq.__reset = function () { step = start; fading = false; seq.classList.remove('seq-fade'); render(); };
     if (reduce) { step = max; render(); return; }
     render();
     function tick() {
@@ -149,7 +156,7 @@
           step = start; render();
           seq.classList.remove('seq-fade');
           fading = false;
-        }, 350);
+        }, 450);
         return;
       }
       step++;
@@ -236,36 +243,3 @@
   });
 })();
 
-/* ---------- chat card: rotating scenarios ---------- */
-(function () {
-  var card = document.querySelector('.omni__card');
-  var chips = document.querySelectorAll('.und span');
-  if (!card || !chips.length) return;
-  var qr = '<svg class="qr" viewBox="0 0 21 21" aria-hidden="true"><g fill="currentColor"><path d="M0 0h7v7H0zM14 0h7v7h-7zM0 14h7v7H0z" /></g><g fill="#fff"><path d="M1 1h5v5H1zM15 1h5v5h-5zM1 15h5v5H1z"/></g><g fill="currentColor"><path d="M2 2h3v3H2zM16 2h3v3h-3zM2 16h3v3H2zM9 1h2v2H9zM9 5h3v2H9zM8 9h2v2H8zM12 9h3v2h-3zM17 9h3v2h-3zM9 13h2v3H9zM13 13h3v2h-3zM17 14h3v3h-3zM12 17h2v3h-2zM16 19h4v2h-4z"/></g></svg>';
-  var voice = '<span class="mb__mic">🎙</span><span class="wf">' + [6,12,8,14,9,5,11,7,13,6,9,4].map(function (h) { return '<i style="height:' + h + 'px"></i>'; }).join('') + '</span><small>0:07</small>';
-  var photo = '<span class="ph"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 3l4 2 4-2 5 4-3 3v11H6V10L3 7z" fill="currentColor"/></svg></span><span>do you have this in blue?</span>';
-  var order = '<span class="ord"><b>Black sneakers</b><span>Qty 2</span><span>Total <b>$58.00</b></span><em>Order created ✓</em></span>';
-  var S = [
-    { c: 0, q: 'yo is this still in stock fr?', a: 'Yep, still got 3 left! Want me to hold one? \ud83d\ude4c' },
-    { c: 1, v: 1, q: voice, a: 'Got it! Your order ships today.' },
-    { c: 2, v: 1, q: photo, a: 'Yes! Blue is in stock, size M or L?' },
-    { c: 3, q: 'Can I pay now?', a: 'Sure! Scan to pay $49.00' + qr },
-    { c: -1, q: 'I\'ll take 2 in black', a: 'Done! Here\'s your order.' + order },
-    { c: 4, q: 'How much to ship to 5th Avenue, NYC?', a: '$6.50, arrives in 2 days \ud83d\udce6' },
-    { c: 5, q: 'Any store near Sunset Blvd?', a: '\ud83d\udccd 1.2 mi away, open till 9 PM' }
-  ];
-  var i = 0, t = null;
-  function render(n) {
-    var s = S[n];
-    card.innerHTML = '<div class="mb mb--in' + (s.v ? ' mb--voice' : '') + '">' + s.q + '</div><div class="mb mb--ai"><span class="ai-tag">AI</span>' + s.a + '</div>';
-    chips.forEach(function (c, k) { c.classList.toggle('is-active', k === s.c); });
-    card.setAttribute('data-scenario', n + 1);
-  }
-  function step() {
-    card.classList.add('is-out');
-    setTimeout(function () { i = (i + 1) % S.length; render(i); card.classList.remove('is-out'); }, 350);
-  }
-  render(0);
-  if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  t = setInterval(step, 2500);
-})();
