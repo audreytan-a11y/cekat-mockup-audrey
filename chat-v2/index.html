@@ -1,0 +1,658 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Cekat Chat — An AI agent that answers every chat, on every channel, 24/7</title>
+  <meta name="description" content="Cekat Chat is an AI agent that replies like your best CS, from your own data, on WhatsApp, Instagram, TikTok and more — and hands off to your team when it matters.">
+  <link rel="icon" href="./assets/logo-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<!-- =====================================================================
+     NAV  (shared with homepage-v1 — keep in sync)
+     ===================================================================== -->
+<header class="nav" id="nav">
+  <div class="wrap nav__row">
+    <a class="nav__logo" href="../" aria-label="Cekat.AI home"><img src="./assets/logo-full.svg" alt="Cekat.AI" width="120" height="28"></a>
+    <nav class="nav__menu" id="nav-menu" aria-label="Primary">
+      <ul class="nav__list">
+        <li class="dd">
+          <button class="dd__trigger" type="button" aria-expanded="false" aria-controls="mm-products">Products<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button>
+          <div class="dd__panel mega" id="mm-products">
+            <ul class="mega__list">
+              <li><a class="mega__item" href="../">
+                <span class="mega__ic"><img src="./assets/products/marketing.svg" alt="" width="22" height="22"></span>
+                <span><b>Marketing</b><small>Know which ad, creator or link brings revenue.</small></span></a></li>
+              <li><a class="mega__item is-current" href="./" aria-current="page">
+                <span class="mega__ic"><img src="./assets/products/chat.svg" alt="" width="22" height="22"></span>
+                <span><b>Chat <em>You're here</em></b><small>One inbox for every channel, answered by AI 24/7.</small></span></a></li>
+              <li><a class="mega__item" href="../">
+                <span class="mega__ic"><img src="./assets/products/crm.svg" alt="" width="22" height="22"></span>
+                <span><b>CRM</b><small>A CRM that fills itself and fits how you work.</small></span></a></li>
+              <li><a class="mega__item" href="../">
+                <span class="mega__ic"><img src="./assets/products/broadcasts.svg" alt="" width="22" height="22"></span>
+                <span><b>Broadcasts</b><small>Send template campaigns and see who read them.</small></span></a></li>
+              <li><a class="mega__item" href="../">
+                <span class="mega__ic"><img src="./assets/products/automation.svg" alt="" width="22" height="22"></span>
+                <span><b>Automation</b><small>Follow-ups and workflows that run themselves.</small></span></a></li>
+              <li><a class="mega__item" href="../">
+                <span class="mega__ic"><img src="./assets/products/analytics.svg" alt="" width="22" height="22"></span>
+                <span><b>Analytics</b><small>See what moves customers, end to end.</small></span></a></li>
+            </ul>
+          </div>
+        </li>
+        <li><a class="nav__link" href="https://cekat.ai/en/pricing">Pricing</a></li>
+      </ul>
+      <div class="nav__mobile-cta">
+        <a class="btn btn--outline" href="https://chat.cekat.ai/login">Log in</a>
+        <a class="btn btn--primary" href="https://chat.cekat.ai/register">Start Free Trial</a>
+      </div>
+    </nav>
+    <div class="nav__actions">
+      <a class="nav__link" href="https://chat.cekat.ai/login">Log in</a>
+      <a class="btn btn--primary btn--sm" href="https://chat.cekat.ai/register">Start Free Trial</a>
+    </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu"><span></span><span></span></button>
+  </div>
+</header>
+<main id="main">
+<!-- =====================================================================
+     HERO
+     ===================================================================== -->
+<section class="hero" id="top">
+  <div class="hero__bg" aria-hidden="true"></div>
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <h1 class="h1 rv">Every chat answered.<br><span class="grad">Every channel. 24/7.</span></h1>
+      <p class="lead hero__sub rv" style="--d:.08s">An AI agent that replies like your best CS, on every channel.</p>
+      <div class="hero__cta rv" style="--d:.18s">
+        <a class="btn btn--primary btn--lg btn--glow" href="https://chat.cekat.ai/register">Start Free Trial</a>
+        <a class="btn btn--outline btn--lg" href="#showcase">See how it works <svg class="ic ic--sm"><use href="./assets/usp-icons.svg#i-arrow"/></svg></a>
+      </div>
+    </div>
+    <div class="hero__vis rv" style="--d:.1s" aria-hidden="true">
+      <!-- Orbit: channels flow into the Cekat hub -->
+      <div class="orbit">
+        <div class="orbit__ring orbit__ring--outer"></div>
+        <div class="orbit__ring orbit__ring--inner"></div>
+        <div class="orbit__spin">
+          <div class="orbit__item" style="--a:110deg"><i class="orbit__beam"></i><span class="orbit__ic"><img src="./assets/integrations/whatsapp.svg" alt="" width="26" height="26"></span></div>
+          <div class="orbit__item" style="--a:150deg"><i class="orbit__beam"></i><span class="orbit__ic"><img src="./assets/integrations/instagram.svg" alt="" width="26" height="26"></span></div>
+          <div class="orbit__item" style="--a:190deg"><i class="orbit__beam"></i><span class="orbit__ic"><img src="./assets/integrations/tiktok.svg" alt="" width="26" height="26"></span></div>
+          <div class="orbit__item" style="--a:230deg"><i class="orbit__beam"></i><span class="orbit__ic"><img src="./assets/integrations/messenger.svg" alt="" width="26" height="26"></span></div>
+          <div class="orbit__item" style="--a:270deg"><i class="orbit__beam"></i><span class="orbit__ic"><img src="./assets/integrations/telegram.svg" alt="" width="26" height="26"></span></div>
+          <div class="orbit__item" style="--a:310deg"><i class="orbit__beam"></i><span class="orbit__ic"><img src="./assets/integrations/livechat.svg" alt="" width="26" height="26"></span></div>
+          <div class="orbit__item" style="--a:350deg"><i class="orbit__beam"></i><span class="orbit__ic"><img src="./assets/integrations/email.svg" alt="" width="26" height="26"></span></div>
+        </div>
+        <div class="orbit__hub"><img src="./assets/logo-mark.svg" alt="" width="46" height="39"></div>
+      </div>
+      <!-- Live chat loop -->
+      <div class="hchat anim" data-loop data-hold="4000" data-gap="650" data-start="6000">
+        <div class="hchat__head">
+          <span class="avatar avatar--brand"><img src="./assets/logo-mark.svg" alt="" width="18" height="15"></span>
+          <div><b>Glow Beauty</b><small><i class="dot-live"></i>AI agent · replies instantly</small></div>
+          <span class="hchat__ch"><img src="./assets/integrations/instagram.svg" alt="" width="16" height="16"></span>
+        </div>
+        <div class="hchat__body">
+          <span class="time-chip" data-step="1"><svg class="ic ic--xs"><use href="./assets/usp-icons.svg#i-moon"/></svg>11:04 PM</span>
+          <p class="mb mb--cust" data-step="1">Hi! Is the Hydra Serum still available? 🙏</p>
+          <div class="slot">
+            <span class="typing" data-step="2" data-until="3"><i></i><i></i><i></i></span>
+            <p class="mb mb--ai" data-step="3">Yes, it's in stock! 😊 Shall I send you a payment link?</p>
+          </div>
+          <p class="mb mb--cust" data-step="4">Yes please!</p>
+          <div class="slot">
+            <span class="typing" data-step="5" data-until="6"><i></i><i></i><i></i></span>
+            <p class="mb mb--ai" data-step="6">Done ✓ Here's your QR code — total $14.90.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Proof strip + logo marquee -->
+  <div class="proofstrip">
+    <p class="proofstrip__txt">Trusted by <b>3,000+ brands</b> across <b>15 industries</b></p>
+    <div class="marquee" aria-label="Some of the brands using Cekat">
+      <div class="marquee__track">
+        <ul class="marquee__list">
+          <li><img src="./assets/logos-mono/siloam.png" alt="Siloam" width="317" height="50" loading="lazy"></li>
+          <li><img src="./assets/logos-mono/kopi-kenangan.png" alt="Kopi Kenangan" width="325" height="160" loading="lazy"></li>
+          <li><img src="./assets/logos-mono/euromedica.png" alt="EuroMedica" width="240" height="68" loading="lazy"></li>
+          <li><img src="./assets/logos-mono/pln.png" alt="PLN" width="130" height="173" loading="lazy"></li>
+          <li><img src="./assets/logos-mono/rumah-zakat.png" alt="Rumah Zakat" width="445" height="160" loading="lazy"></li>
+          <li><img src="./assets/logos-mono/kb-insurance.png" alt="KB Insurance" width="280" height="31" loading="lazy"></li>
+          <li><img src="./assets/logos-mono/telkom-university.png" alt="Telkom University" width="208" height="73" loading="lazy"></li>
+          <li><img src="./assets/logos-mono/moir-salon.png" alt="Moir Salon" width="676" height="160" loading="lazy"></li>
+          <li><img src="./assets/logos-mono/mnc.png" alt="MNC" width="220" height="104" loading="lazy"></li>
+          <li><img src="./assets/logos-mono/dokterhub.png" alt="DokterHub" width="400" height="85" loading="lazy"></li>
+          <li><img src="./assets/logos-mono/asuransi-sinarmas.png" alt="Asuransi Sinarmas" width="240" height="58" loading="lazy"></li>
+          <li><img src="./assets/logos-mono/ancol.png" alt="Ancol" width="287" height="89" loading="lazy"></li>
+          <li><img src="./assets/logos-mono/vio-optical-clinic.png" alt="VIO Optical Clinic" width="324" height="160" loading="lazy"></li>
+          <li><img src="./assets/logos-mono/jago.png" alt="Jago" width="220" height="62" loading="lazy"></li>
+          <li><img src="./assets/logos-mono/tiki-logo.png" alt="TIKI" width="276" height="75" loading="lazy"></li>
+          <li><img src="./assets/logos-mono/sekolah-ciputra.png" alt="Sekolah Ciputra" width="320" height="40" loading="lazy"></li>
+          <li><img src="./assets/logos-mono/klik-indogrosir.png" alt="Klik Indogrosir" width="260" height="51" loading="lazy"></li>
+          <li><img src="./assets/logos-mono/politeknik-multimedia-nusantara.png" alt="Politeknik Multimedia Nusantara" width="354" height="160" loading="lazy"></li>
+          <li><img src="./assets/logos-mono/realfood.png" alt="Realfood" width="233" height="69" loading="lazy"></li>
+          <li><img src="./assets/logos-mono/mganik.png" alt="Mganik" width="431" height="110" loading="lazy"></li>
+          <li><img src="./assets/logos-mono/healthy-go.png" alt="Healthy Go" width="180" height="108" loading="lazy"></li>
+          <li><img src="./assets/logos-mono/aice.png" alt="AICE" width="122" height="56" loading="lazy"></li>
+          <li><img src="./assets/logos-mono/rata.png" alt="Rata" width="286" height="160" loading="lazy"></li>
+          <li><img src="./assets/logos-mono/hachi-group.png" alt="Hachi Group" width="196" height="20" loading="lazy"></li>
+        </ul>
+        <!-- JS clones the list once for a seamless loop -->
+      </div>
+    </div>
+  </div>
+</section>
+<!-- =====================================================================
+     USP SHOWCASE  (.usp-showcase = .usp-list + .usp-stage)
+     Each list item [data-scene] ↔ one .scene[data-scene] in the stage.
+     Scenes: [data-step="n"] appear in order, [data-until="n"] hide at step n,
+     [data-act="n"] only get .on (state change, never hidden).
+     .frame children alternate inside a scene.
+     ===================================================================== -->
+<section class="section section--glow usp-showcase" id="showcase">
+  <div class="wrap">
+    <header class="section__head rv">
+      <p class="section__eyebrow">What Cekat Chat does</p>
+      <h2 class="section__title">One AI agent.<br class="br-d"> <span class="grad">Nine jobs done right.</span></h2>
+      <p class="section__lead">Tap any item to watch it work.</p>
+    </header>
+    <div class="usp-showcase__grid">
+      <!-- LEFT: list -->
+      <div class="usp-list rv" role="tablist" aria-orientation="vertical" aria-label="Cekat Chat features">
+        <p class="usp-group">Talks like your best CS</p>
+        <button class="usp-item" role="tab" id="tab-humanized" aria-controls="scene-humanized" data-scene="humanized">
+          <span class="usp-item__ic"><svg class="ic"><use href="./assets/usp-icons.svg#i-smile"/></svg></span>
+          <span class="usp-item__txt"><b>Replies that sound human</b><small>Warm, natural answers in your brand's tone — not robotic scripts.</small></span>
+          <i class="usp-item__bar"></i>
+        </button>
+        <button class="usp-item" role="tab" id="tab-media" aria-controls="scene-media" data-scene="media">
+          <span class="usp-item__ic"><svg class="ic"><use href="./assets/usp-icons.svg#i-mic"/></svg></span>
+          <span class="usp-item__txt"><b>Understands voice notes &amp; photos</b><small>Customers talk or snap a picture. The AI gets it and replies.</small></span>
+          <i class="usp-item__bar"></i>
+        </button>
+        <button class="usp-item" role="tab" id="tab-guardrails" aria-controls="scene-guardrails" data-scene="guardrails">
+          <span class="usp-item__ic"><svg class="ic"><use href="./assets/usp-icons.svg#i-shield"/></svg></span>
+          <span class="usp-item__txt"><b>Never guesses</b><small>Every answer is checked against your knowledge. Unsure? It hands off.</small></span>
+          <i class="usp-item__bar"></i>
+        </button>
+        <p class="usp-group">Closes the sale in chat</p>
+        <button class="usp-item" role="tab" id="tab-shipping" aria-controls="scene-shipping" data-scene="shipping">
+          <span class="usp-item__ic"><svg class="ic"><use href="./assets/usp-icons.svg#i-pin"/></svg></span>
+          <span class="usp-item__txt"><b>Shipping cost &amp; nearest store</b><small>Instant delivery quotes and the closest branch, right in the chat.</small></span>
+          <i class="usp-item__bar"></i>
+        </button>
+        <button class="usp-item" role="tab" id="tab-payment" aria-controls="scene-payment" data-scene="payment">
+          <span class="usp-item__ic"><svg class="ic"><use href="./assets/usp-icons.svg#i-qr"/></svg></span>
+          <span class="usp-item__txt"><b>QR payment in the chat</b><small>Sends the order summary and a QR code. Customers pay on the spot.</small></span>
+          <i class="usp-item__bar"></i>
+        </button>
+        <button class="usp-item" role="tab" id="tab-followup" aria-controls="scene-followup" data-scene="followup">
+          <span class="usp-item__ic"><svg class="ic"><use href="./assets/usp-icons.svg#i-clock"/></svg></span>
+          <span class="usp-item__txt"><b>Follow-ups that time themselves</b><small>Reaches out right when a customer is about to run out.</small></span>
+          <i class="usp-item__bar"></i>
+        </button>
+        <p class="usp-group">Keeps you in control</p>
+        <button class="usp-item" role="tab" id="tab-share" aria-controls="scene-share" data-scene="share">
+          <span class="usp-item__ic"><svg class="ic"><use href="./assets/usp-icons.svg#i-sliders"/></svg></span>
+          <span class="usp-item__txt"><b>You set the AI / human split</b><small>Choose how much traffic the AI takes — and when. Night to AI, day to your team.</small></span>
+          <i class="usp-item__bar"></i>
+        </button>
+        <button class="usp-item" role="tab" id="tab-routing" aria-controls="scene-routing" data-scene="routing">
+          <span class="usp-item__ic"><svg class="ic"><use href="./assets/usp-icons.svg#i-route"/></svg></span>
+          <span class="usp-item__txt"><b>Smart routing</b><small>Each chat goes to the right AI agent — sales, support — or a human.</small></span>
+          <i class="usp-item__bar"></i>
+        </button>
+        <button class="usp-item" role="tab" id="tab-team" aria-controls="scene-team" data-scene="team">
+          <span class="usp-item__ic"><svg class="ic"><use href="./assets/usp-icons.svg#i-users"/></svg></span>
+          <span class="usp-item__txt"><b>Built for teamwork</b><small>AI summaries, private notes and assignments keep everyone in sync.</small></span>
+          <i class="usp-item__bar"></i>
+        </button>
+      </div>
+      <!-- RIGHT: stage -->
+      <div class="usp-stage rv" style="--d:.08s">
+        <div class="usp-stage__glow" aria-hidden="true"></div>
+        
+        <!-- 1 · Humanized -->
+        <div class="scene" id="scene-humanized" data-scene="humanized" role="tabpanel" aria-labelledby="tab-humanized">
+          <div class="cc">
+            <div class="cc__head"><span class="avatar avatar--brand"><img src="./assets/logo-mark.svg" alt="" width="18" height="15"></span><div><b>Glow Beauty</b><small>AI agent</small></div><span class="cc__ch"><img src="./assets/integrations/whatsapp.svg" alt="" width="16" height="16"></span></div>
+            <div class="cc__body">
+              <p class="mb mb--cust" data-step="1">Is the serum ok for sensitive skin? I'm a bit scared 🥺</p>
+              <div class="slot">
+                <span class="typing" data-step="2" data-until="3"><i></i><i></i><i></i></span>
+                <p class="mb mb--ai" data-step="3">Totally get it, Emily! 💙 Hydra Serum is fragrance-free and gentle — lots of our sensitive-skin customers love it. Want a simple routine to start?</p>
+              </div>
+              <p class="mb mb--cust" data-step="4">Yes please!! 😍</p>
+            </div>
+          </div>
+          <span class="chip chip--float chip--br" data-step="4"><svg class="ic ic--sm"><use href="./assets/usp-icons.svg#i-check"/></svg>Replied in 3 seconds</span>
+        </div>
+        <!-- 2 · Voice notes & photos (alternating frames) -->
+        <div class="scene" id="scene-media" data-scene="media" role="tabpanel" aria-labelledby="tab-media">
+          <div class="frame" data-label="Voice note">
+            <div class="cc">
+              <div class="cc__head"><span class="avatar avatar--brand"><img src="./assets/logo-mark.svg" alt="" width="18" height="15"></span><div><b>Urban Wear</b><small>AI agent</small></div><span class="cc__ch"><img src="./assets/integrations/whatsapp.svg" alt="" width="16" height="16"></span></div>
+              <div class="cc__body">
+                <div class="mb mb--cust vn" data-step="1"><span class="vn__play"></span><span class="vn__wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><small>0:06</small></div>
+                <p class="transcript" data-step="2"><svg class="ic ic--xs"><use href="./assets/usp-icons.svg#i-mic"/></svg><span>“Do you still have the blue jacket in size M?”</span></p>
+                <div class="slot">
+                  <span class="typing" data-step="3" data-until="4"><i></i><i></i><i></i></span>
+                  <p class="mb mb--ai" data-step="4">Yes! The blue jacket in M is in stock 👍 Want me to reserve one for you?</p>
+                </div>
+              </div>
+            </div>
+            <span class="chip chip--float chip--tl" data-step="2"><svg class="ic ic--sm"><use href="./assets/usp-icons.svg#i-mic"/></svg>Voice note understood</span>
+          </div>
+          <div class="frame" data-label="Photo">
+            <div class="cc">
+              <div class="cc__head"><span class="avatar avatar--brand"><img src="./assets/logo-mark.svg" alt="" width="18" height="15"></span><div><b>Glow Beauty</b><small>AI agent</small></div><span class="cc__ch"><img src="./assets/integrations/instagram.svg" alt="" width="16" height="16"></span></div>
+              <div class="cc__body">
+                <div class="photo" data-step="1"><span class="photo__bottle"><i></i></span><span class="photo__scan" data-act="2"></span><small>Is this one still available?</small></div>
+                <div class="slot">
+                  <span class="typing" data-step="2" data-until="3"><i></i><i></i><i></i></span>
+                  <p class="mb mb--ai" data-step="3">That's our <b>Hydra Serum 30ml</b> — $14.90, and yes, it's available ✨</p>
+                </div>
+              </div>
+            </div>
+            <span class="chip chip--float chip--tl" data-step="2"><svg class="ic ic--sm"><use href="./assets/usp-icons.svg#i-image"/></svg>Product recognized</span>
+          </div>
+        </div>
+        <!-- 3 · Guardrails -->
+        <div class="scene" id="scene-guardrails" data-scene="guardrails" role="tabpanel" aria-labelledby="tab-guardrails">
+          <div class="cc">
+            <div class="cc__head"><span class="avatar avatar--brand"><img src="./assets/logo-mark.svg" alt="" width="18" height="15"></span><div><b>Glow Beauty</b><small>AI agent</small></div><span class="cc__ch"><img src="./assets/integrations/whatsapp.svg" alt="" width="16" height="16"></span></div>
+            <div class="cc__body">
+              <p class="mb mb--cust" data-step="1">I already opened the serum. Can I get a refund?</p>
+              <div class="check" data-step="2">
+                <span class="check__spin" data-until="3"></span>
+                <span class="check__ok" data-step="3"><svg class="ic ic--xs"><use href="./assets/usp-icons.svg#i-check"/></svg></span>
+                <div><b>Refund policy</b><small>Refunds only for unopened items</small></div>
+              </div>
+              <p class="mb mb--ai" data-step="4">I don't want to give you the wrong answer, so let me connect you with our team 🙏</p>
+              <p class="sys" data-step="5"><svg class="ic ic--xs"><use href="./assets/usp-icons.svg#i-headset"/></svg>Handed over to Megan · Support team</p>
+            </div>
+          </div>
+          <span class="chip chip--float chip--tr" data-step="3"><svg class="ic ic--sm"><use href="./assets/usp-icons.svg#i-shield"/></svg>Checked against your knowledge</span>
+        </div>
+        <!-- 4 · Shipping & nearest store (alternating frames) -->
+        <div class="scene" id="scene-shipping" data-scene="shipping" role="tabpanel" aria-labelledby="tab-shipping">
+          <div class="frame" data-label="Nearest store">
+            <div class="stack">
+              <p class="mb mb--cust mb--solo" data-step="1">Where's your nearest store? I'm in Brooklyn 📍</p>
+              <div class="map" data-step="2">
+                <img src="./assets/map-demo.svg" alt="" width="340" height="220">
+                <span class="map__me"></span>
+                <span class="map__pin map__pin--far" style="left:14%;top:30%"></span>
+                <span class="map__pin map__pin--far" style="left:86%;top:22%"></span>
+                <span class="map__pin map__pin--near" data-step="3" style="left:66%;top:58%"><svg class="ic ic--xs"><use href="./assets/usp-icons.svg#i-pin"/></svg></span>
+                <svg class="map__route" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M45 52 L 60 52 L 60 66 L 66 66" data-act="3"/></svg>
+              </div>
+              <div class="infocard" data-step="4">
+                <span class="infocard__ic"><svg class="ic"><use href="./assets/usp-icons.svg#i-pin"/></svg></span>
+                <div><small>Nearest branch</small><b>Williamsburg · 1.2 mi</b></div>
+                <span class="infocard__tag">Open now</span>
+              </div>
+            </div>
+          </div>
+          <div class="frame" data-label="Shipping cost">
+            <div class="stack">
+              <p class="mb mb--cust mb--solo" data-step="1">Do you deliver to Austin? How much for 2 serums?</p>
+              <div class="ship" data-step="2">
+                <p class="ship__h"><svg class="ic ic--sm"><use href="./assets/usp-icons.svg#i-truck"/></svg>Shipping to Austin, TX · 14 oz</p>
+                <div class="ship__row ship__row--best" data-act="3"><b>UPS Ground</b><span>2–3 days</span><em>$5.99</em></div>
+                <div class="ship__row"><b>FedEx Express</b><span>1 day</span><em>$12.50</em></div>
+                <div class="ship__row"><b>USPS Priority</b><span>2–4 days</span><em>$7.80</em></div>
+              </div>
+              <p class="mb mb--ai mb--solo" data-step="4">Cheapest is UPS Ground: $5.99, arrives in 2–3 days 🚚</p>
+            </div>
+          </div>
+        </div>
+        <!-- 5 · QR payment -->
+        <div class="scene" id="scene-payment" data-scene="payment" role="tabpanel" aria-labelledby="tab-payment">
+          <div class="pay">
+            <div class="order" data-step="1">
+              <p class="order__h"><svg class="ic ic--sm"><use href="./assets/usp-icons.svg#i-cart"/></svg>Order summary</p>
+              <div class="order__row"><span>Hydra Serum 30ml × 2</span><b>$29.80</b></div>
+              <div class="order__row"><span>Shipping · UPS Ground</span><b>$5.99</b></div>
+              <div class="order__row order__row--total"><span>Total</span><b>$35.79</b></div>
+            </div>
+            <div class="qr" data-step="2">
+              <img src="./assets/qr-demo.svg" alt="" width="132" height="132">
+              <small>Scan to pay</small>
+              <span class="qr__paid" data-step="3"><svg class="ic"><use href="./assets/usp-icons.svg#i-check"/></svg>Paid</span>
+            </div>
+          </div>
+          <span class="chip chip--float chip--tl" data-step="2"><svg class="ic ic--sm"><use href="./assets/usp-icons.svg#i-qr"/></svg>Payment link sent by AI</span>
+        </div>
+        <!-- 6 · Event-based follow-up -->
+        <div class="scene" id="scene-followup" data-scene="followup" role="tabpanel" aria-labelledby="tab-followup">
+          <div class="fu">
+            <div class="fu__prod" data-step="1"><span class="fu__img"><i></i></span><div><b>Skincare A</b><small>Purchased · Day 0</small></div></div>
+            <div class="fu__line" data-step="2">
+              <span class="fu__node fu__node--start">Day 0</span>
+              <span class="fu__track"><i data-act="3"></i></span>
+              <span class="fu__mid"><svg class="ic ic--xs"><use href="./assets/usp-icons.svg#i-clock"/></svg>Runs out in ~30 days</span>
+              <span class="fu__node fu__node--end" data-act="4">Day 30</span>
+            </div>
+            <div class="fu__end" data-step="4">
+              <span class="fu__end-ic"><svg class="ic"><use href="./assets/usp-icons.svg#i-check"/></svg></span>
+              <div><b>Day 30 · Follow-up sent ✓</b><p class="fu__msg">“Hi Emily 👋 Running low on Skincare A? Reorder in one tap.”</p></div>
+            </div>
+          </div>
+          <span class="chip chip--float chip--br" data-step="4"><svg class="ic ic--sm"><use href="./assets/usp-icons.svg#i-check"/></svg>Sent on WhatsApp</span>
+        </div>
+        <!-- 7 · Traffic share + day/night (alternating frames) -->
+        <div class="scene" id="scene-share" data-scene="share" role="tabpanel" aria-labelledby="tab-share">
+          <div class="frame" data-label="Traffic share">
+            <div class="alloc" data-step="1">
+              <p class="alloc__h">Chat traffic share<span>You decide</span></p>
+              <div class="alloc__nums">
+                <div><small><svg class="ic ic--xs"><use href="./assets/usp-icons.svg#i-bot"/></svg>AI agent</small><b><span class="js-alloc-ai">50</span>%</b></div>
+                <div class="alloc__h2"><small><svg class="ic ic--xs"><use href="./assets/usp-icons.svg#i-users"/></svg>Your team</small><b><span class="js-alloc-hu">50</span>%</b></div>
+              </div>
+              <div class="alloc__bar" data-act="2" data-alloc-to="70"><i class="alloc__ai"></i><span class="alloc__knob"></span></div>
+              <div class="alloc__presets"><span>30%</span><span>50%</span><span class="is-on" data-act="2">70%</span><span>100%</span></div>
+            </div>
+            <span class="chip chip--float chip--br" data-step="3"><svg class="ic ic--sm"><use href="./assets/usp-icons.svg#i-check"/></svg>Change it any time</span>
+          </div>
+          <div class="frame" data-label="Day / night">
+            <div class="sched" data-step="1">
+              <p class="alloc__h">Working hours<span>Auto-switch</span></p>
+              <div class="sched__row" data-act="2"><span class="sched__ic sched__ic--sun"><svg class="ic"><use href="./assets/usp-icons.svg#i-sun"/></svg></span><div><b>Day · 8 AM–8 PM</b><small>Your team</small></div><span class="toggle"></span></div>
+              <div class="sched__row sched__row--night" data-act="3"><span class="sched__ic sched__ic--moon"><svg class="ic"><use href="./assets/usp-icons.svg#i-moon"/></svg></span><div><b>Night · 8 PM–8 AM</b><small>AI agent</small></div><span class="toggle"></span></div>
+            </div>
+            <span class="chip chip--float chip--tl" data-step="3"><svg class="ic ic--sm"><use href="./assets/usp-icons.svg#i-moon"/></svg>Night → AI</span>
+          </div>
+        </div>
+        <!-- 8 · Smart routing -->
+        <div class="scene" id="scene-routing" data-scene="routing" role="tabpanel" aria-labelledby="tab-routing">
+          <div class="route">
+            <div class="route__in" data-step="1">
+              <span class="route__ch"><img src="./assets/integrations/whatsapp.svg" alt="" width="16" height="16"></span>
+              <div><small>New chat</small><b>“My router keeps disconnecting…”</b></div>
+            </div>
+            <div class="route__intent" data-step="2"><svg class="ic ic--xs"><use href="./assets/usp-icons.svg#i-spark"/></svg>Intent: technical issue</div>
+            <svg class="route__lines" viewBox="0 0 300 90" preserveAspectRatio="none" aria-hidden="true">
+              <path d="M150 0 C150 45, 50 40, 50 90"/>
+              <path d="M150 0 L150 90" class="route__hot" data-act="3"/>
+              <path d="M150 0 C150 45, 250 40, 250 90"/>
+            </svg>
+            <div class="route__dests">
+              <div class="route__dest"><span><svg class="ic"><use href="./assets/usp-icons.svg#i-bot"/></svg></span><b>Sales agent</b><small>AI</small></div>
+              <div class="route__dest route__dest--hot" data-act="3"><span><svg class="ic"><use href="./assets/usp-icons.svg#i-bot"/></svg></span><b>Tech support agent</b><small>AI</small></div>
+              <div class="route__dest"><span><svg class="ic"><use href="./assets/usp-icons.svg#i-users"/></svg></span><b>Human team</b><small>CS</small></div>
+            </div>
+          </div>
+          <span class="chip chip--float chip--br" data-step="4"><svg class="ic ic--sm"><use href="./assets/usp-icons.svg#i-check"/></svg>Routed in under a second</span>
+        </div>
+        <!-- 9 · Team collaboration (alternating frames) -->
+        <div class="scene" id="scene-team" data-scene="team" role="tabpanel" aria-labelledby="tab-team">
+          <div class="frame" data-label="AI summary">
+            <div class="summary" data-step="1">
+              <p class="summary__h"><svg class="ic ic--sm"><use href="./assets/usp-icons.svg#i-spark"/></svg>AI summary</p>
+              <ul>
+                <li data-step="1">Wants to reschedule to Friday afternoon</li>
+                <li data-step="2">Already paid the deposit</li>
+                <li data-step="3">Mood: friendly, a bit in a hurry</li>
+              </ul>
+            </div>
+            <span class="chip chip--float chip--br" data-step="4"><svg class="ic ic--sm"><use href="./assets/usp-icons.svg#i-check"/></svg>Read in 5 seconds, not 5 minutes</span>
+          </div>
+          <div class="frame" data-label="Notes &amp; assign">
+            <div class="stack">
+              <div class="note" data-step="1"><p class="note__h"><svg class="ic ic--xs"><use href="./assets/usp-icons.svg#i-lock"/></svg>Private note · only your team sees this</p><p><b>@Megan</b> can you confirm the Friday 3 PM slot?</p></div>
+              <div class="note note--reply" data-step="2"><p><b>Megan:</b> Confirmed ✓</p></div>
+              <div class="assign" data-step="3"><span class="avatar avatar--b">J</span><div><small>Assigned to</small><b>Jake · Sales</b></div><span class="assign__ok"><svg class="ic ic--sm"><use href="./assets/usp-icons.svg#i-check"/></svg></span></div>
+            </div>
+            <span class="chip chip--float chip--tl" data-step="1"><svg class="ic ic--sm"><use href="./assets/usp-icons.svg#i-lock"/></svg>Notes stay internal</span>
+          </div>
+        </div>
+        <div class="usp-stage__dots" aria-hidden="true"></div>
+      </div>
+      <!-- Mobile-only caption, filled by JS from the active item -->
+      <p class="usp-caption" aria-live="polite"></p>
+    </div>
+  </div>
+</section>
+<!-- =====================================================================
+     FEATURE → BENEFIT → PROOF  (.feature-block, alternate with --rev)
+     ===================================================================== -->
+<section class="section features" id="features">
+  <div class="wrap">
+    <article class="feature-block">
+      <div class="feature-block__copy rv">
+        <p class="section__eyebrow">24/7 replies</p>
+        <h2 class="feature-block__title">Customers chat at 11&nbsp;PM.<br>Your AI still answers.</h2>
+        <p class="feature-block__text">Replies in seconds, day and night, in your brand’s voice.</p>
+        <figure class="proof-quote"><blockquote>“I sleep soundly — Cekat answers automatically. When I wake up, people are already lining up to schedule visits.”</blockquote><figcaption><b>Threeland Property</b> · Property · Developers</figcaption></figure>
+      </div>
+      <div class="feature-block__vis rv" style="--d:.08s" aria-hidden="true">
+        <div class="night anim" data-loop data-hold="3000">
+          <span class="night__moon"><svg class="ic "><use href="./assets/usp-icons.svg#i-moon"/></svg></span>
+          <div class="cc cc--wide">
+            <div class="cc__head"><span class="avatar avatar--brand"><img src="./assets/logo-mark.svg" alt="" width="18" height="15"></span><div><b>Green Residence</b><small><i class="dot-live"></i>AI agent · on duty</small></div><span class="cc__time">11:04 PM</span></div>
+            <div class="cc__body">
+              <p class="mb mb--cust" data-step="1">Is the 2-bedroom type still available? Can I visit this weekend?</p>
+              <div class="slot">
+                <span class="typing" data-step="2" data-until="3"><i></i><i></i><i></i></span>
+                <p class="mb mb--ai" data-step="3">Good evening! 🌙 Yes, the 2-bedroom type is available. Saturday 10 AM or 2 PM — which works better?</p>
+              </div>
+              <p class="mb mb--cust" data-step="4">10 AM please</p>
+              <p class="sys sys--ok" data-step="5"><svg class="ic ic--xs"><use href="./assets/usp-icons.svg#i-check"/></svg>Visit booked · Sat 10 AM</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="feature-block feature-block--rev">
+      <div class="feature-block__copy rv">
+        <p class="section__eyebrow">Guardrails &amp; handoff</p>
+        <h2 class="feature-block__title">Answers from your data.<br>Never a guess.</h2>
+        <p class="feature-block__text">Only your FAQs, prices and policies. Unsure? It hands off.</p>
+        <figure class="proof-quote"><blockquote>“Initial chats are handled by AI. Our customer service team only focuses on patients who are truly ready to book.”</blockquote><figcaption><b>Orange Dental</b> · Healthcare · Clinic (Dental)</figcaption></figure>
+      </div>
+      <div class="feature-block__vis rv" style="--d:.08s" aria-hidden="true">
+        <div class="kn anim" data-loop data-hold="3000">
+          <span class="kn__accent" data-step="3"><svg class="ic ic--xs"><use href="./assets/usp-icons.svg#i-doc"/></svg>Warranty policy</span>
+          <div class="kn__chat">
+            <p class="mb mb--cust" data-step="1">Is the warranty still valid after 13 months?</p>
+            <div class="slot">
+              <span class="typing" data-step="2" data-until="3"><i></i><i></i><i></i></span>
+              <p class="mb mb--ai" data-step="3">Our warranty covers 12 months, so it has ended. Let me connect you with our service team 🙏</p>
+            </div>
+            <p class="sys" data-step="4"><svg class="ic ic--xs"><use href="./assets/usp-icons.svg#i-route"/></svg>Handed to Service team</p>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <article class="feature-block">
+      <div class="feature-block__copy rv">
+        <p class="section__eyebrow">Order automation</p>
+        <h2 class="feature-block__title">From question to payment,<br>inside the chat.</h2>
+        <p class="feature-block__text">Voice notes, shipping, QR payment and reorders — all in chat.</p>
+        <div class="proof-stat"><b>+30–40%</b><span>revenue in 5 months</span><small><b>Putih Skin Clinic</b> · Healthcare · Clinic</small></div>
+      </div>
+      <div class="feature-block__vis rv" style="--d:.08s" aria-hidden="true">
+        <div class="flow anim" data-loop data-hold="3000" data-gap="800">
+          <div class="flow__row" data-act="1"><span class="flow__ic"><svg class="ic"><use href="./assets/usp-icons.svg#i-mic"/></svg></span><div><b>Voice note understood</b><small>“Two serums to Austin, please”</small></div><span class="flow__ok"><svg class="ic ic--xs"><use href="./assets/usp-icons.svg#i-check"/></svg></span></div>
+          <div class="flow__row" data-act="2"><span class="flow__ic"><svg class="ic"><use href="./assets/usp-icons.svg#i-truck"/></svg></span><div><b>Shipping quoted</b><small>UPS Ground · $5.99 · 2–3 days</small></div><span class="flow__ok"><svg class="ic ic--xs"><use href="./assets/usp-icons.svg#i-check"/></svg></span></div>
+          <div class="flow__row" data-act="3"><span class="flow__ic"><svg class="ic"><use href="./assets/usp-icons.svg#i-qr"/></svg></span><div><b>QR payment sent</b><small>$35.79 · Paid</small></div><span class="flow__ok"><svg class="ic ic--xs"><use href="./assets/usp-icons.svg#i-check"/></svg></span></div>
+          <div class="flow__row" data-act="4"><span class="flow__ic"><svg class="ic"><use href="./assets/usp-icons.svg#i-clock"/></svg></span><div><b>Follow-up scheduled</b><small>Day 30 · “Time to restock?”</small></div><span class="flow__ok"><svg class="ic ic--xs"><use href="./assets/usp-icons.svg#i-check"/></svg></span></div>
+        </div>
+      </div>
+    </article>
+
+    <article class="feature-block feature-block--rev">
+      <div class="feature-block__copy rv">
+        <p class="section__eyebrow">Control</p>
+        <h2 class="feature-block__title">You decide how much<br>the AI handles.</h2>
+        <p class="feature-block__text">Start with the night shift. Turn it up when you’re ready.</p>
+        <div class="proof-stat"><b>100+</b><span>chats a day, up from 30–40 per CS</span><small><b>Gamal Men</b> · Retail</small></div>
+      </div>
+      <div class="feature-block__vis rv" style="--d:.08s" aria-hidden="true">
+        <div class="ctrl anim" data-loop data-hold="3200">
+          <p class="alloc__h">AI settings</p>
+          <div class="alloc__nums">
+            <div><small><svg class="ic ic--xs"><use href="./assets/usp-icons.svg#i-bot"/></svg>AI agent</small><b><span class="js-alloc-ai">30</span>%</b></div>
+            <div class="alloc__h2"><small><svg class="ic ic--xs"><use href="./assets/usp-icons.svg#i-users"/></svg>Your team</small><b><span class="js-alloc-hu">70</span>%</b></div>
+          </div>
+          <div class="alloc__bar" data-act="1" data-alloc-from="30" data-alloc-to="70"><i class="alloc__ai"></i><span class="alloc__knob"></span></div>
+          <div class="ctrl__hours">
+            <div class="sched__row" data-act="2"><span class="sched__ic sched__ic--sun"><svg class="ic"><use href="./assets/usp-icons.svg#i-sun"/></svg></span><div><b>8 AM–8 PM</b><small>Your team</small></div><span class="toggle"></span></div>
+            <div class="sched__row sched__row--night" data-act="3"><span class="sched__ic sched__ic--moon"><svg class="ic"><use href="./assets/usp-icons.svg#i-moon"/></svg></span><div><b>8 PM–8 AM</b><small>AI agent</small></div><span class="toggle"></span></div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+<!-- =====================================================================
+     RESULTS  (navy, .stat count-up)
+     ===================================================================== -->
+<section class="section section--navy results" id="results">
+  <div class="results__glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <header class="section__head rv">
+      <p class="section__eyebrow">Results</p>
+      <h2 class="section__title">Faster replies. More closings.</h2>
+    </header>
+    <div class="results__grid">
+      <div class="stat rv"><b class="stat__num"><span class="stat__pre">&gt;</span><span data-count="40">40</span>%</b><p class="stat__label">closing rate, from under 20%</p><p class="stat__who">Nature Craft · Retail</p></div>
+      <div class="stat rv"><b class="stat__num"><span data-count="5">5</span>×</b><p class="stat__label">booking rate</p><p class="stat__who">EuroMedica · Healthcare · Clinic</p></div>
+      <div class="stat rv"><b class="stat__num">+<span data-count="90">90</span>%</b><p class="stat__label">response rate</p><p class="stat__who">Politeknik Multimedia Nusantara · Education</p></div>
+      <div class="stat rv"><b class="stat__num">+<span data-count="30">30</span>%</b><p class="stat__label">revenue</p><p class="stat__who">Lintas Jaringan Nusantara · Internet provider</p></div>
+      <div class="stat rv"><b class="stat__num">85–<span data-count="90">90</span>%</b><p class="stat__label">leads answered, from 65%</p><p class="stat__who">Threeland Property · Property</p></div>
+    </div>
+    <p class="results__note">Results reported by Cekat customers.</p>
+  </div>
+</section>
+<!-- =====================================================================
+     TESTIMONIALS
+     ===================================================================== -->
+<section class="section testimonials" id="testimonials">
+  <div class="wrap">
+    <header class="section__head rv">
+      <p class="section__eyebrow">Customer stories</p>
+      <h2 class="section__title">Teams sleep better with Cekat.</h2>
+    </header>
+    <div class="tgrid">
+      <figure class="tcard rv">
+        <img class="tcard__logo" src="./assets/logos-mono/rumah-zakat.png" alt="Rumah Zakat" width="445" height="160" loading="lazy">
+        <blockquote>“Say someone contacts Rumah Zakat at 12 midnight — there’s still someone answering. The one answering is the AI.”</blockquote>
+        <figcaption><img class="tcard__face" src="./assets/people/tantan-supriatna.png" alt="" width="40" height="40" loading="lazy"><span><b>Rumah Zakat</b><small>Services</small></span></figcaption>
+      </figure>
+      <figure class="tcard rv">
+        <img class="tcard__logo" src="./assets/logos-mono/moir-salon.png" alt="Moir Salon" width="676" height="160" loading="lazy">
+        <blockquote>“Our admins are actually really happy, because they get help — their Instagram workload has dropped, so they can focus on other platforms.”</blockquote>
+        <figcaption><img class="tcard__face" src="./assets/people/testimonial-silica-brenda.jpg" alt="" width="40" height="40" loading="lazy"><span><b>Moir Salon</b><small>Barbershops</small></span></figcaption>
+      </figure>
+      <figure class="tcard rv">
+        <img class="tcard__logo" src="./assets/logos-mono/dokterhub.png" alt="DokterHub" width="400" height="85" loading="lazy">
+        <blockquote>“There’s no point running ads if the leads have already gone cold — especially if they’re chatting with a competitor at the same time and end up buying there.”</blockquote>
+        <figcaption><span><b>DokterHub</b><small>Healthcare · Hospitals</small></span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+<!-- =====================================================================
+     CHANNELS
+     ===================================================================== -->
+<section class="section channels" id="channels">
+  <div class="wrap">
+    <header class="section__head rv">
+      <p class="section__eyebrow">Channels</p>
+      <h2 class="section__title">Connect every channel in minutes.</h2>
+      <p class="section__lead">One AI agent, one inbox, every conversation.</p>
+    </header>
+    <div class="rv">
+    <ul class="channels__list">
+      <li><span><img src="./assets/integrations/whatsapp.svg" alt="" width="28" height="28"></span>WhatsApp</li>
+      <li><span><img src="./assets/integrations/instagram.svg" alt="" width="28" height="28"></span>Instagram</li>
+      <li><span><img src="./assets/integrations/tiktok.svg" alt="" width="28" height="28"></span>TikTok</li>
+      <li><span><img src="./assets/integrations/messenger.svg" alt="" width="28" height="28"></span>Messenger</li>
+      <li><span><img src="./assets/integrations/telegram.svg" alt="" width="28" height="28"></span>Telegram</li>
+      <li><span><img src="./assets/integrations/livechat.svg" alt="" width="28" height="28"></span>Web chat</li>
+      <li><span><img src="./assets/integrations/email.svg" alt="" width="28" height="28"></span>Email</li>
+    </ul>
+    <p class="channels__meta"><img src="./assets/meta.svg" alt="Meta" width="62" height="13">Official Meta Business Partner</p>
+    </div>
+  </div>
+</section>
+<!-- =====================================================================
+     FAQ
+     ===================================================================== -->
+<section class="section faq" id="faq">
+  <div class="wrap faq__wrap">
+    <header class="section__head section__head--left rv">
+      <p class="section__eyebrow">FAQ</p>
+      <h2 class="section__title section__title--sm">Questions, answered.</h2>
+    </header>
+    <div class="faq__list rv">
+      <details class="faq__item" open>
+        <summary>Which channels does Cekat Chat work with?</summary>
+        <p>WhatsApp, Instagram, TikTok, Messenger, Telegram, web chat and email — in one inbox.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Can the AI hand a chat over to my team?</summary>
+        <p>Yes. It hands over with the full conversation, so nobody asks twice.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Does the AI only answer from my own data?</summary>
+        <p>Yes. It answers from the knowledge you give it. If unsure, it hands off.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Can I choose when the AI works?</summary>
+        <p>Yes. Set working hours and how much traffic goes to the AI.</p>
+      </details>
+      <details class="faq__item">
+        <summary>Is there a free trial?</summary>
+        <p>Yes, you can try Cekat free for 14 days.</p>
+      </details>
+    </div>
+  </div>
+</section>
+<!-- =====================================================================
+     FINAL CTA
+     ===================================================================== -->
+<section class="section section--navy cta" id="cta">
+  <div class="cta__glow" aria-hidden="true"></div>
+  <div class="wrap cta__inner rv">
+    <h2 class="section__title">Let your AI answer<br>the next chat.</h2>
+    <div class="cta__btns">
+      <a class="btn btn--light btn--lg" href="https://chat.cekat.ai/register">Start Free Trial</a>
+      <a class="btn btn--glass btn--lg" href="https://chat.cekat.ai/login">Log in</a>
+    </div>
+  </div>
+</section>
+</main>
+<!-- =====================================================================
+     FOOTER  (shared with homepage-v1 — keep in sync)
+     ===================================================================== -->
+<footer class="foot">
+  <div class="wrap foot__grid">
+    <div class="foot__brand">
+      <img src="./assets/logo-full.svg" alt="Cekat.AI" width="120" height="28">
+      <p>AI agents, CRM and marketing in one platform — built for businesses that run on conversations.</p>
+      <span class="foot__meta"><img src="./assets/integrations/meta.svg" alt="" width="14" height="14">Official Meta Business Partner</span>
+    </div>
+    <div><p class="foot__h">Product</p><a href="../">Marketing</a><a href="./" aria-current="page">Chat</a><a href="../">CRM</a><a href="../">Broadcasts</a><a href="../">Automation</a><a href="../">Analytics</a></div>
+    <div><p class="foot__h">Company</p><a href="https://cekat.ai/en/pricing">Pricing</a><a href="#testimonials">Customer stories</a><a href="https://www.youtube.com/@cekatai">YouTube</a><a href="https://cekat.ai/en/contact-us">Contact</a><a href="https://chat.cekat.ai/login">Log in</a></div>
+    <div><p class="foot__h">Offices</p><p class="foot__addr"><b>Indonesia</b> Prosperity Tower, SCBD Jakarta</p><p class="foot__addr"><b>Singapore</b></p><p class="foot__addr"><b>Malaysia</b></p></div>
+  </div>
+  <div class="wrap foot__bottom"><span>© 2026 PT Teknologi Cekat Indonesia. All rights reserved.</span><span>ISO/IEC 27001 · UU PDP compliant</span></div>
+</footer>
+<script src="js/main.js" defer></script>
+</body>
+</html>

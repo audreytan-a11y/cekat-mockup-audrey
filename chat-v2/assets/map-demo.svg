@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 220" preserveAspectRatio="xMidYMid slice">
+  <rect width="340" height="220" fill="#eef4fd"/>
+  <g fill="#e1ebfa"><rect x="14" y="14" width="70" height="52" rx="6"/><rect x="104" y="14" width="88" height="52" rx="6"/><rect x="212" y="14" width="114" height="52" rx="6"/><rect x="14" y="86" width="70" height="56" rx="6"/><rect x="212" y="86" width="52" height="56" rx="6"/><rect x="284" y="86" width="42" height="56" rx="6"/><rect x="14" y="162" width="110" height="46" rx="6"/><rect x="144" y="162" width="48" height="46" rx="6"/><rect x="212" y="162" width="114" height="46" rx="6"/></g>
+  <rect x="104" y="86" width="88" height="56" rx="10" fill="#d9f0e3"/>
+  <path d="M0 196 C 80 180, 120 214, 200 196 S 300 176, 340 190" stroke="#cfe0fa" stroke-width="10" fill="none"/>
+  <g stroke="#fff" stroke-width="8" fill="none" stroke-linecap="round"><path d="M0 76h340M0 152h340M94 0v220M202 0v220M274 76v76"/></g>
+  <path d="M0 76h340M202 0v220" stroke="#d3e0f6" stroke-width="1" stroke-dasharray="4 6" fill="none"/>
+</svg>
