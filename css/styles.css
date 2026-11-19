@@ -1251,3 +1251,54 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .mv .rot--stack{padding:14px 0 0}
 .mv .win--scene .win__body{padding:12px 14px;gap:6px}
 .mv .win--scene .mb{padding:6px 11px}
+
+/* hero tagline: rotating phrase */
+.hero__tag{flex-wrap:wrap;justify-content:center;gap:0 .3em;color:var(--sub)}
+.tw__pre{color:#667085}
+.tw{padding-right:5px;display:inline-grid;text-align:left;vertical-align:bottom;color:var(--primary);font-weight:550;white-space:nowrap}
+.tw__ghost{grid-area:1/1;visibility:hidden}
+.tw__t{grid-area:1/1}
+.tw__t::after{content:"";display:inline-block;width:1.5px;height:1.05em;margin-left:2px;vertical-align:-.15em;background:var(--primary);animation:twblink 1s steps(1) infinite}
+.tw.is-static .tw__t::after{display:none}
+@keyframes twblink{50%{opacity:0}}
+
+/* blue band with white logos */
+.logoband{position:relative;margin:40px 0 0;padding:34px 0 64px;background:linear-gradient(180deg,#1352bf 0%,#0b2f7a 100%);border-radius:0 0 50% 50% / 0 0 44px 44px}
+.logoband .marquee{margin:0;mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.logoband .marquee__track{gap:64px;animation-duration:70s}
+.logoband .logo{height:40px;display:flex;align-items:center}
+.logoband .logo img{height:auto;max-height:34px;width:auto;max-width:150px;opacity:1;filter:brightness(0) invert(1)}
+.logoband .logo:hover img{opacity:1;filter:brightness(0) invert(1)}
+.logo--txt{color:#fff;font-weight:650;font-size:17px;letter-spacing:-.01em;white-space:nowrap}
+@keyframes marquee{to{transform:translateX(calc(-50% - 32px))}}
+@media (max-width:760px){.logoband{padding:26px 0 48px;border-radius:0 0 50% 50% / 0 0 28px 28px}.logoband .marquee__track{gap:44px}.logoband .logo{height:32px}.logoband .logo img{max-height:26px;max-width:110px}.logo--txt{font-size:14px}}
+@media (max-width:900px){.map__inner{width:100%!important;left:0!important;top:-12%}.map__canvas{aspect-ratio:1000/330}}
+
+/* feature pill v2: light blue, delayed pop */
+.fpill{top:-2px!important;right:-30px!important;background:#e8f1ff!important;color:#1a56db!important;border:0!important;box-shadow:0 8px 20px -8px rgba(26,86,219,.35)!important;padding:0!important;opacity:1!important;transform:none!important;animation:none!important;display:grid}
+.mv .fpill{right:-20px!important;top:-4px!important}
+.fp__in{display:grid;padding:8px 14px;opacity:0}
+.fp__in>span{grid-area:1/1;white-space:nowrap}
+.fp__in .l2{opacity:0}
+.rot__s.is-on .fpill:not([data-b]) .fp__in{animation:fppop .4s 1s var(--ease) both,fpfloat 5s 1.6s ease-in-out infinite}
+.fpill[data-b] .fp__in{opacity:0}
+.fpill[data-b="1"] .fp__in,.fpill[data-b="2"] .fp__in{animation:fppop .4s var(--ease) both}
+.fpill[data-b="2"] .l1{opacity:0}.fpill[data-b="2"] .l2{opacity:1}
+.rot__s:not(.is-on) .fpill .fp__in{animation:none;opacity:0}
+.rot__s.is-on .fpill--t .fp__in{animation:fppop .4s 1.2s var(--ease) both}
+.rot__s.is-on .fpill--t .l1{animation:fpout .2s 2.7s both}
+.rot__s.is-on .fpill--t .l2{animation:fpin2 .3s 3s both}
+@keyframes fppop{from{opacity:0;transform:scale(.9)}60%{transform:scale(1.04)}to{opacity:1;transform:scale(1)}}
+@keyframes fpout{to{opacity:0}}@keyframes fpin2{to{opacity:1}}
+@keyframes bubin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.mv .rot__s.is-on:first-child .mb--voice{animation:bubin .35s .2s both}
+.mv .rot__s.is-on:first-child .sys--ok{animation:bubin .35s 1.2s both}
+.mv .rot__s.is-on:first-child .qr{animation:bubin .35s 2s both}
+
+/* testimonials polish */
+.tc--photo{background:linear-gradient(160deg,#f4f8ff,#e6f0ff)!important}
+.tc--hero.tc--photo blockquote,.tc--photo .tc__mid blockquote{font-size:clamp(20px,1.9vw,26px);line-height:1.3}
+.tc--photo::before{content:"“";position:absolute;top:56px;left:26px;font:700 90px/1 Georgia,serif;color:#1a56db;opacity:.12;pointer-events:none}
+.tc{transition:transform .35s var(--ease),box-shadow .35s}
+.tc:hover{transform:translateY(-4px);box-shadow:0 18px 40px -20px rgba(19,82,191,.45)}
+.tc__logo--w{filter:brightness(0) invert(1);height:26px;width:auto}

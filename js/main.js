@@ -140,6 +140,7 @@
     var step = start, timer = null, fading = false;
     function render() {
       seq.setAttribute('data-step', step);
+      seq.dispatchEvent(new CustomEvent('seqstep', { detail: step }));
       steps.forEach(function (el) {
         var s = +el.dataset.s, until = el.dataset.until ? +el.dataset.until : Infinity;
         el.classList.toggle('on', step >= s && step < until);
@@ -242,5 +243,41 @@
   window.addEventListener('resize', function () {
     if (isDesktop() && nav.classList.contains('menu-open')) toggle.click();
   });
-})();
 
+  /* ---------- hero tagline: typewriter ---------- */
+  (function () {
+    var el = $('.tw__t'), tw = $('.tw');
+    if (!el || reduce) { if (tw) tw.classList.add('is-static'); return; }
+    var phrases = ['Greater flexibility.', 'Faster replies.', 'Happier customers.'];
+    var p = 0, n = phrases[0].length, dir = -1; // start by showing first phrase, then delete
+    function render() { el.textContent = phrases[p].slice(0, n); }
+    function step() {
+      var t;
+      if (dir === 1) {
+        if (n < phrases[p].length) { n++; render(); t = 60 + Math.random() * 20; }
+        else { dir = -1; t = 1800; }
+      } else {
+        if (n > 0) { n--; render(); t = 35; }
+        else { dir = 1; p = (p + 1) % phrases.length; t = 350; }
+      }
+      setTimeout(step, t);
+    }
+    render();
+    setTimeout(step, 2200);
+  })();
+
+  /* ---------- chat pill beats (page card, scene 1) ---------- */
+  (function () {
+    var win = $('.pillar .rot__s .win[data-seq]');
+    if (!win) return;
+    var pill = win.parentNode.querySelector('.fpill');
+    if (!pill) return;
+    var t1, t2;
+    win.addEventListener('seqstep', function (e) {
+      var s = e.detail;
+      if (s <= 2) { clearTimeout(t1); clearTimeout(t2); pill.dataset.b = '0'; }
+      if (s === 3) { clearTimeout(t1); t1 = setTimeout(function () { pill.dataset.b = '1'; }, 1000); }
+      if (s === 5) { clearTimeout(t2); t2 = setTimeout(function () { pill.dataset.b = '2'; }, 1000); }
+    });
+  })();
+})();
