@@ -1487,11 +1487,23 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .cl__dot--1{left:62%;bottom:94px;animation:clPulse 2.4s infinite}.cl__dot--2{left:78%;top:36%;animation:clPulse 2.4s 1.2s infinite}
 @keyframes clPulse{50%{opacity:.15;transform:scale(1.6)}}
 /* bento */
-.cbento{display:grid;grid-template-columns:repeat(6,1fr);gap:20px}
-.bt{background:#fff;border-radius:22px;padding:22px;box-shadow:0 0 0 1px #e8eef9,0 18px 40px -28px rgba(19,82,191,.28);display:flex;flex-direction:column;overflow:hidden}
-.bt--3{grid-column:span 3}.bt--2{grid-column:span 2}
-.bt__vis{position:relative;height:210px;border-radius:14px;background:#f6f9fe;padding:16px;margin-bottom:18px;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:9px}
-.bt h3{font-size:19px;letter-spacing:-.02em;color:var(--cn);margin:0 0 6px;font-weight:600}.bt p{font-size:14.5px;color:var(--body);line-height:1.55;margin:0}
+.cbento{--tile-h:250px;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:var(--tile-h);grid-template-areas:"a a b b" "a a c d" "e f c d" "g g h h";gap:20px}
+.bt{--bg:#fff;--fg:var(--cn);--fg2:var(--body);--line:#e3eaf6;position:relative;display:flex;flex-direction:column;min-width:0;border-radius:24px;overflow:hidden;background:var(--bg);border:1px solid var(--line);isolation:isolate;transition:transform .45s var(--ease),box-shadow .45s var(--ease)}
+.bt:hover{transform:translateY(-3px);box-shadow:var(--sh-2)}
+.bt--ga{grid-area:a}.bt--gb{grid-area:b}.bt--gc{grid-area:c}.bt--gd{grid-area:d}.bt--ge{grid-area:e}.bt--gf{grid-area:f}.bt--gg{grid-area:g}.bt--gh{grid-area:h}
+.bt__head{flex:none;padding:24px 24px 0}
+.bt h3{font-size:18px;line-height:1.22;letter-spacing:-.018em;color:var(--fg);margin:0;font-weight:600}
+.bt p{margin:6px 0 0;font-size:14px;line-height:1.45;color:var(--fg2)}
+.bt__vis{position:relative;flex:1;min-height:0;min-width:0;padding:14px 24px 22px;overflow:hidden;display:flex;flex-direction:column;justify-content:center;gap:9px}
+.bt--big h3{font-size:26px;letter-spacing:-.025em}.bt--big p{font-size:16px;max-width:400px}
+.bt--big .bt__head{padding:32px 32px 0}.bt--big .bt__vis{padding:20px 36px 40px}
+.bt--wide{flex-direction:row}.bt--wide .bt__head{width:42%;padding-bottom:24px}.bt--wide .bt__vis{padding:22px 24px 22px 4px}
+.bt--wide h3,.bt--tall h3{font-size:20px}
+.bt--tall .bt__vis{padding:18px 22px 28px}
+/* tones (same system as Chat): light l0–l3 + two deep accents */
+.bt--l0{--bg:#fff}.bt--l1{--bg:#f5f8fe}.bt--l2{--bg:#eef4fd}.bt--l3{--bg:#e6eefb}
+.bt--d1{--bg:var(--cb);--line:transparent;--fg:#fff;--fg2:#dce7fb}
+.bt--d2{--bg:var(--cn);--line:transparent;--fg:#fff;--fg2:#bfcde6}
 .bt small{font-size:11px;color:var(--sub)}
 /* a */
 .bt-a{flex-direction:row;align-items:center;justify-content:space-between;gap:10px}
@@ -1575,18 +1587,66 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .csteps h3{font-size:19px;color:var(--cn);margin:0 0 6px;font-weight:600;letter-spacing:-.02em}.csteps p{margin:0;color:var(--body);font-size:15px;max-width:300px}
 .csec .faq{display:grid;grid-template-columns:.8fr 1.2fr;gap:64px;align-items:start}
 .cta .h1{background:none;color:#fff;-webkit-text-fill-color:#fff}
-@media (max-width:1000px){.ccap{grid-template-columns:1fr}.cbento{grid-template-columns:repeat(2,1fr)}.bt--3,.bt--2{grid-column:span 1}.csteps{grid-template-columns:1fr}.csec .faq{grid-template-columns:1fr;gap:28px}}
+@media (max-width:1000px){.ccap{grid-template-columns:1fr}.csteps{grid-template-columns:1fr}.csec .faq{grid-template-columns:1fr;gap:28px}}
 @media (max-width:640px){
  .chero{padding:96px 0 48px}.cboard{margin-top:36px}.cboard__cols{grid-template-columns:repeat(2,1fr);gap:10px;padding:12px}.ccol:nth-child(3){display:none}
  .ccard{padding:8px}.ccard b{font-size:12px}.cseg{display:none}
  .csec{padding:64px 0}.csec__head{margin-bottom:36px}
- .cbento{grid-template-columns:1fr}.cl{height:420px}.cl__ad{width:78%}.cl__card{width:76%}.cl__chs{right:0;bottom:auto;top:96px;grid-template-columns:1fr}.cl__dot{display:none}
+ .cl{height:420px}.cl__ad{width:78%}.cl__card{width:76%}.cl__chs{right:0;bottom:auto;top:96px;grid-template-columns:1fr}.cl__dot{display:none}
  .cacc details p{padding-left:20px}
  .bt-a{flex-direction:column;align-items:stretch}.bt-a__msg{max-width:100%}.bt-a__arrow{transform:rotate(90deg);align-self:center}
- .bt__vis{height:auto;min-height:200px}
 }
 @media (prefers-reduced-motion:reduce){.ccard--new,.ccard--mv,.cl__card,.cl__chs span,.cl__lines path,.cl__dot,.bt *{animation:none!important}.bt-a__arrow,.bt-a__card,.bt-d li,.bt-c__r--new,.bt-g__f--new,.bt-b__tag{opacity:1}.bt-e__lst{display:none}}
 .cl{height:470px}.cl__ad{width:66%}.cl__card{width:60%}.cl__chs{bottom:150px}.cl__dot--1{bottom:180px}
 @media (max-width:640px){.cl{height:480px}.cl__card{width:78%}.cl__chs{top:130px}}
 .cl{height:495px}
 @media (max-width:640px){.cl{height:540px}.cl__chs{top:150px}}
+
+/* ===== CRM bento — colour + sizes (Chat system) ===== */
+/* big: Auto Create */
+.bt--big .bt-a{flex-direction:column;align-items:stretch;justify-content:center;gap:14px}
+.bt--big .bt-a__msg{font-size:16px;line-height:1.45;padding:14px 18px;border-radius:18px;border-bottom-left-radius:6px;max-width:76%;gap:12px;align-items:center;align-self:flex-start}
+.bt--big .bt-a__arrow{width:40px;align-self:center;rotate:90deg}
+.bt--big .bt-a__card{align-self:flex-end;min-width:64%}
+.bt--big .bt-a__card{padding:20px 22px;gap:14px;border-radius:18px}
+.bt--big .bt-a__card b{font-size:17px}.bt--big .bt-a__card small{font-size:12.5px;margin:2px 0 10px}
+.bt--big .bt-a__card .cl__p{font-size:12px;padding:4px 12px}
+.bt--big .av{width:40px;height:40px;font-size:13px}
+/* tall: more air */
+.bt--tall .bt-c{gap:12px}.bt--tall .bt-c__r{padding:12px 14px;font-size:13.5px}
+.bt--tall .bt-d{justify-content:center;gap:12px}.bt--tall .bt-d ul{gap:9px}.bt--tall .bt-d li{padding:10px 12px;font-size:12.5px}
+/* light tiles: art sits on the tile colour */
+.bt--l0 .bt-c__r,.bt--l0 .bt-h__m,.bt--l0 .bt-h__s div{box-shadow:0 0 0 1px #e3eaf6}
+.bt--l0 .bt-c__r em{background:#eef3fb}
+/* dark tiles: white mini-UI, light ink for loose text */
+.bt--d1 .bt__vis>*,.bt--d2 .bt__vis>*{box-shadow:none}
+.bt--d2 .bt-b__evt{background:rgba(255,255,255,.1);color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.16)}
+.bt--d2 .bt-b__tabs span{box-shadow:none}
+.bt--d2 .bt-b__tabs span.on{background:var(--cb);color:#fff;box-shadow:none}.bt--d2 .bt-b__tabs span.on em{color:#dce7fb}
+.bt--d2 .bt-b__deals{animation-name:bDealsD}
+@keyframes bDealsD{0%,35%{color:var(--sub);box-shadow:none}45%,90%{color:var(--cb);box-shadow:0 0 0 2px #93B4F5}100%{color:var(--sub);box-shadow:none}}
+.bt--d2 .bt-b__row{box-shadow:none}
+.bt--d1 .bt-f__role{box-shadow:none}
+.bt--d1 .bt-f__role:last-child{animation-name:fPulseD}
+@keyframes fPulseD{50%{box-shadow:0 0 0 3px rgba(255,255,255,.35)}}
+.bt-b,.bt-f{align-items:stretch}.bt-b__evt,.bt-b__tabs,.bt-b__row{align-self:flex-start}
+.bt-f{gap:10px}
+.cbento .bt:not(.bt--big):not(.bt--tall):not(.bt--wide) .bt-e__kan i{height:14px}
+.cbento .bt:not(.bt--big):not(.bt--tall):not(.bt--wide) .bt-e__lst{gap:5px}
+.cbento .bt:not(.bt--big):not(.bt--tall):not(.bt--wide) .bt-e__lst i{height:14px}
+.cbento .bt:not(.bt--big):not(.bt--tall):not(.bt--wide) .bt-e__lst i::after{top:4px}
+@media (max-width:1000px){
+ .cbento{grid-template-columns:repeat(2,1fr);grid-template-areas:"a a" "a a" "b b" "c d" "c d" "e f" "g g" "h h"}
+}
+@media (max-width:640px){
+ .cbento{grid-template-columns:1fr;grid-template-areas:none;grid-auto-rows:auto;gap:14px}
+ .bt{grid-area:auto}
+ .bt--wide{flex-direction:column}.bt--wide .bt__head{width:auto;padding-bottom:0}
+ .bt__head,.bt--big .bt__head{padding:22px 22px 0}
+ .bt__vis,.bt--wide .bt__vis,.bt--tall .bt__vis,.bt--big .bt__vis{flex:none;min-height:190px;padding:18px 22px 24px}
+ .bt--big h3{font-size:23px}.bt--big p{font-size:15px}
+ .bt--big .bt-a__msg{max-width:92%;font-size:14px}.bt--big .bt-a__card{min-width:80%}
+ .bt-e__stack{min-height:110px}
+ .bt-b__evt,.bt-b__tabs,.bt-b__row{align-self:center}
+}
+.js .bt.rv.in:hover{transform:translateY(-3px)}
