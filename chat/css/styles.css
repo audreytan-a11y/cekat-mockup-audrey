@@ -665,3 +665,14 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 .chat-time__moon{font-size:11px}
 .hero__eyebrow{box-shadow:inset 0 0 0 1px #d3e3fb}
+/* ===== Logo band v1.4: light tint, navy monochrome logos ===== */
+.proofbar{margin-top:64px;padding:36px 0 40px;background:#EEF4FF;border-radius:0;border-top:1px solid rgba(26,86,219,.08);border-bottom:1px solid rgba(26,86,219,.08)}
+.proofbar__label{color:#475467;margin-bottom:24px}
+.proofbar__label b{color:#0B1F4D}
+.proofbar .marquee__track img{height:28px;width:auto;max-width:136px;object-fit:contain;filter:none;opacity:.88}
+.proofbar .marquee__track img:hover{opacity:1}
+@media (max-width:760px){
+  .proofbar{margin-top:44px;padding:28px 0 32px}
+  .proofbar .marquee__track img{height:24px;max-width:116px}
+}
+.proofbar .marquee__track img{opacity:1}
