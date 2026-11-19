@@ -1223,3 +1223,21 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .mini__vis .sched2__ai,.mini__vis .sched2__hu{padding:7px 7px;font-size:9px}
 .mini__vis .sched2__ai span,.mini__vis .sched2__hu span{white-space:nowrap}
 .mini__vis .sched2__ai b,.mini__vis .sched2__hu b{font-size:10.5px}
+/* feature pill on Chat card */
+.winwrap{position:relative;width:100%;max-width:365px}
+.winwrap>.win{max-width:none;width:100%}
+.fpill{position:absolute;z-index:3;top:-16px;right:-22px;display:inline-flex;align-items:center;white-space:nowrap;padding:8px 14px;border-radius:999px;background:#fff;border:0;box-shadow:0 10px 26px -10px rgba(19,82,191,.35),0 2px 6px rgba(16,40,90,.08);font-size:12.5px;font-weight:600;color:var(--navy);opacity:0;transform:translateY(6px)}
+.rot__s.is-on .fpill{animation:fpin .4s .1s var(--ease) both,fpfloat 5s 1s ease-in-out infinite}
+@keyframes fpin{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes fpfloat{50%{transform:translateY(-4px)}}
+@media (max-width:640px){.fpill{right:-6px;font-size:11.5px;padding:6px 11px}}
+/* omnichannel tiles around the Chat window */
+.chs{position:absolute;inset:0;pointer-events:none;z-index:2}
+.ch{position:absolute;width:38px;height:38px;border-radius:12px;background:#fff;box-shadow:0 8px 20px -8px rgba(19,82,191,.35),0 1px 3px rgba(16,40,90,.08);display:grid;place-items:center;animation:chdrift 7s ease-in-out var(--dl,0s) infinite;transition:box-shadow .4s,transform .4s}
+.ch img{width:22px;height:22px}
+@keyframes chdrift{0%,100%{transform:translate(0,0)}50%{transform:translate(3px,-6px)}}
+.stage[data-ch=whatsapp] .ch--whatsapp,.stage[data-ch=instagram] .ch--instagram,.stage[data-ch=tiktok] .ch--tiktok,.stage[data-ch=messenger] .ch--messenger,.stage[data-ch=livechat] .ch--livechat,.stage[data-ch=telegram] .ch--telegram{box-shadow:0 0 0 2px rgba(16,104,229,.35),0 10px 24px -8px rgba(16,104,229,.55)}
+@media (max-width:640px){.ch{width:30px;height:30px;border-radius:10px}.ch img{width:18px;height:18px}.ch--tiktok,.ch--livechat,.ch--instagram{display:none}.ch--whatsapp{left:-2px;top:4%}.ch--messenger{left:-2px;top:80%}.ch--telegram{right:-2px;top:80%}}
+@media (max-width:640px){.ch--whatsapp{left:2px;top:18%}.ch--messenger{left:2px;top:82%}.ch--telegram{right:2px;top:82%}}
+@keyframes chdrift{0%,100%{transform:translate(0,0)}50%{transform:translate(2px,-5px)}}
+@media (max-width:640px){.ch--whatsapp{left:2px!important;top:20%!important}.ch--messenger{left:2px!important;right:auto!important;top:84%!important}.ch--telegram{right:2px!important;left:auto!important;top:84%!important}}
