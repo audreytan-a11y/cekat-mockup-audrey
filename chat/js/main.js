@@ -67,6 +67,21 @@
     revealEls.forEach(function (el) { rio.observe(el); });
   }
 
+
+  /* ---------- SCROLL CUE ---------- */
+  (function(){
+    var cue=document.querySelector('.scroll-cue'); if(!cue) return;
+    var target=document.querySelector(cue.getAttribute('href'));
+    function upd(){ cue.classList.toggle('is-hidden', window.scrollY>40); }
+    window.addEventListener('scroll',upd,{passive:true}); upd();
+    cue.addEventListener('click',function(e){
+      if(!target) return; e.preventDefault();
+      var navH=(document.querySelector('.nav')||{offsetHeight:0}).offsetHeight||0;
+      var y=target.getBoundingClientRect().top+window.scrollY-navH+8;
+      window.scrollTo({top:y,behavior:reduce?'auto':'smooth'});
+    });
+  })();
+
   /* ---------- PLAYERS ----------
      [data-player]            element that animates
      data-scenes="n"          number of .scene children to cycle (default 1)

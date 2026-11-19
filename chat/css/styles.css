@@ -692,3 +692,41 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* v1.7: logo band removed — hero closes the first screen on its own */
 .hero{padding-bottom:24px}
 @media (max-width:760px){.hero{padding-bottom:8px}}
+
+/* ---------- Hero → first section: soft fade, scroll cue, entrance (r-transition) ---------- */
+.hero{overflow:visible;overflow-x:clip}
+.hero__bg{inset:0 0 -320px 0;overflow:hidden;z-index:0;-webkit-mask-image:linear-gradient(to bottom,#000 0%,#000 40%,rgba(0,0,0,.55) 70%,transparent 100%);mask-image:linear-gradient(to bottom,#000 0%,#000 40%,rgba(0,0,0,.55) 70%,transparent 100%)}
+.hero > .wrap{position:relative;z-index:1}
+#usps{padding-top:64px}
+.scroll-cue{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;width:40px;height:40px;margin:20px auto 0;border-radius:999px;color:#5B6B86;transition:opacity .4s ease,visibility .4s ease,color .2s ease}
+.scroll-cue:hover{color:var(--navy)}
+.scroll-cue:focus-visible{outline:2px solid var(--primary);outline-offset:2px}
+.scroll-cue svg{width:22px;height:22px;animation:cueBob 2.4s ease-in-out infinite}
+.scroll-cue.is-hidden{opacity:0;visibility:hidden;pointer-events:none}
+@keyframes cueBob{0%,100%{transform:translateY(0)}50%{transform:translateY(5px)}}
+@media (max-width:760px){.scroll-cue{display:none}#usps{padding-top:48px}}
+/* entrance: ~0.6s staggered fade-up, ease-out */
+.js .hero .rv{transform:translateY(14px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1)}
+.js .hero .hero__eyebrow.rv{transition-delay:0s}
+.js .hero .hero__title.rv{transition-delay:.04s}
+.js .hero .hero__sub.rv{transition-delay:.08s}
+.js .hero .hero__cta.rv{transition-delay:.12s}
+.js .hero .hero__vis.rv{transition-delay:.16s}
+.js .hero .rv.in{transform:none}
+.js #usps .section__head.rv{opacity:1;transform:none}
+.js #usps .section__head.rv > *{opacity:0;transform:translateY(12px);transition:opacity .6s cubic-bezier(.22,1,.36,1),transform .6s cubic-bezier(.22,1,.36,1)}
+.js #usps .section__head.rv > :nth-child(2){transition-delay:.08s}
+.js #usps .section__head.rv > :nth-child(3){transition-delay:.16s}
+.js #usps .section__head.rv.in > *{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){
+  .scroll-cue svg{animation:none}
+  .js .hero .rv,.js #usps .section__head.rv > *{transition:none;opacity:1;transform:none}
+}
+
+/* ---------- Hero fills one viewport on desktop (fold fix) ---------- */
+@media (min-width:761px){
+  .hero{display:flex;flex-direction:column;justify-content:center;min-height:calc(100vh - var(--nav-h));min-height:min(calc(100svh - var(--nav-h)),1000px);padding:40px 0 76px}
+  .hero > .wrap{width:100%}
+  .scroll-cue{position:absolute;left:50%;bottom:20px;margin:0 0 0 -20px}
+}
+@media (min-width:761px){#usps{padding-top:44px}}
