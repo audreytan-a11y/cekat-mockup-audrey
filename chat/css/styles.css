@@ -689,3 +689,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .proofbar__label b{color:#0B1F4D;font-weight:700}
 .proofbar__band{background:linear-gradient(180deg,#0B1F4D,#0F2A66);padding:30px 0}
 @media (max-width:760px){.proofbar{margin-top:44px;padding:0}.proofbar__band{padding:26px 0}}
+/* v1.7: logo band removed — hero closes the first screen on its own */
+.hero{padding-bottom:24px}
+@media (max-width:760px){.hero{padding-bottom:8px}}
