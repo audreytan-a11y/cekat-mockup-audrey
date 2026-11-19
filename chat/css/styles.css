@@ -683,3 +683,9 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .proofbar .marquee__track img{filter:brightness(0) invert(1);opacity:.88}
 .proofbar .marquee__track img:hover{opacity:1}
 .proofbar .marquee__track span,.proofbar .marquee__track li:not(:has(img)){color:#fff;opacity:.88}
+/* ===== Logo band v1.6: label outside on light bg, navy band holds logos only ===== */
+.proofbar{background:none;padding:0;margin-top:64px}
+.proofbar__label{color:#475467;margin-bottom:18px}
+.proofbar__label b{color:#0B1F4D;font-weight:700}
+.proofbar__band{background:linear-gradient(180deg,#0B1F4D,#0F2A66);padding:30px 0}
+@media (max-width:760px){.proofbar{margin-top:44px;padding:0}.proofbar__band{padding:26px 0}}
