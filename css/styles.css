@@ -1522,3 +1522,41 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   #map.map{margin-top:24px;padding:20px 14px}
 }
 @media (prefers-reduced-motion:reduce){.mapline .ww{opacity:1!important;transform:none!important;transition:none!important}}
+/* v5: MOIR as a normal quote card (no big photo) */
+.tc--moir{justify-content:flex-start}
+.tc--moir .tc__top{order:0}
+.tc--moir blockquote{order:1;font-size:clamp(20px,1.9vw,26px);line-height:1.3;max-width:94%}
+.tc--moir .tc__row{order:2;display:flex;flex-wrap:wrap;align-items:center;gap:12px}
+.tc--moir .tc__row .chip{margin:0}
+.tc--moir .tc__person{order:3;margin-top:auto}
+.tc--moir .tc__person img{width:56px;height:56px;object-position:50% 20%}
+.tc--moir .tc__ghost--q{font-family:Georgia,serif;font-size:300px;bottom:-150px;right:18px;letter-spacing:0}
+@media (max-width:760px){.tc--moir blockquote{font-size:21px}.tc--moir .tc__ghost--q{font-size:200px;bottom:-100px}}
+.tc--moir{justify-content:space-between;gap:22px}
+.tc--moir blockquote{font-size:clamp(24px,2.3vw,32px);line-height:1.25;letter-spacing:-.02em;margin-top:auto}
+.tc--moir .tc__row{margin-bottom:auto}
+.tc--moir .tc__person{margin-top:0}
+.tc--moir .tc__logo{height:30px;width:auto}
+.tc--moir .tc__ghost--q{color:#fff;opacity:.18}
+.tc--moir .tc__pill{background:#fff;border-color:#fff}
+.tc--moir .tc__row .chip{order:0}.tc--moir .tc__row .tc__pill{order:1}
+@media (max-width:760px){.tc--moir blockquote{font-size:22px;margin-top:0}.tc--moir .tc__row{margin-bottom:0}}
+/* v6: uniform story card headers: logo/wordmark left, tag right */
+.bento .tc__top{order:0;display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;min-height:30px;flex-wrap:nowrap}
+.bento .tc__top .tag{flex:none;margin-left:auto;font-size:11.5px;padding:4px 10px}
+.bento .tc__logo,.tc--moir .tc__logo{height:26px;width:auto;max-width:130px;object-fit:contain;object-position:left center;opacity:1;flex:none}
+.bento .tc--light .tc__logo,.bento .tc--soft .tc__logo{filter:url(#navy)}
+.bento .tc--blue .tc__logo,.bento .tc--sky .tc__logo,.bento .tc--navy .tc__logo,.bento .tc--deep .tc__logo{filter:brightness(0) invert(1)}
+.tc__wm{font-size:15px;line-height:26px;height:26px;font-weight:700;letter-spacing:-.02em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;color:var(--navy)}
+.tc--blue .tc__wm,.tc--sky .tc__wm,.tc--navy .tc__wm,.tc--deep .tc__wm{color:#fff}
+.tc__wm{font-size:15px;line-height:1.1;height:auto;max-height:2.2em;white-space:normal;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;text-overflow:clip}
+@media (max-width:760px){.tc__wm{font-size:15px}}
+.tc__wm{font-size:14.5px;line-height:1.1}
+.tc__wm--sm{font-size:13px;-webkit-line-clamp:unset;max-height:none;white-space:nowrap;display:block}
+@media (max-width:760px){.tc__wm--sm{font-size:14.5px}}
+.tc__wm--sm{overflow:visible;flex:0 1 auto;letter-spacing:-.025em}
+.bento .tc__top .tag{flex:none}
+@media (min-width:1025px){.tc__wm--sm{font-size:12.5px}.bento .tc__top{gap:8px}}
+.tc__wm--sm{flex:none}
+.tc__wm--sm .wmbr{display:none}
+@media (min-width:1025px){.tc__wm--sm{font-size:13px;line-height:1.08}.tc__wm--sm .wmbr{display:block}}
