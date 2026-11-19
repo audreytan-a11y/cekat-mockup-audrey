@@ -1302,3 +1302,36 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .tc{transition:transform .35s var(--ease),box-shadow .35s}
 .tc:hover{transform:translateY(-4px);box-shadow:0 18px 40px -20px rgba(19,82,191,.45)}
 .tc__logo--w{filter:brightness(0) invert(1);height:26px;width:auto}
+
+/* hero net background */
+.hero{padding-bottom:64px}
+.hero__inner{z-index:1}
+.hnet{position:absolute;inset:0;pointer-events:none;z-index:0;overflow:hidden}
+.hnet__svg{position:absolute;inset:0;width:100%;height:100%}
+.hnet__l path{fill:none;stroke:#b9c9e6;stroke-opacity:.45;stroke-width:1;vector-effect:non-scaling-stroke}
+.nd{fill:#6f94d6;opacity:.55}
+.hnet__t{position:absolute;width:28px;height:28px;border-radius:9px;background:#fff;box-shadow:0 6px 16px -8px rgba(19,82,191,.3);display:grid;place-items:center;opacity:0;transform:translate(-50%,-50%);animation:hnetT 26s ease-in-out var(--dl) infinite}
+.hnet__t img{width:16px;height:16px}
+@keyframes hnetT{0%,38%,100%{opacity:0;margin-top:0}6%,30%{opacity:.85}18%{margin-top:-8px}}
+@media (max-width:760px){.hnet__t{display:none}.hnet__t:nth-of-type(1),.hnet__t:nth-of-type(5){display:grid}.hnet__d{display:none}.hnet__l path{stroke-opacity:.3}}
+@media (prefers-reduced-motion:reduce){.hnet__d{display:none}.hnet__t{animation:none;opacity:.7}.hnet__t:nth-of-type(n+4){display:none}}
+/* light logo band */
+.logoband{margin:36px 0 0;padding:30px 0;background:rgba(26,86,219,.07);border-radius:0}
+.logoband .logo img{filter:url(#navy);opacity:1}
+.logoband .logo:hover img{filter:url(#navy)}
+.logo--txt{color:#0b1f4d}
+@media (max-width:760px){.logoband{padding:24px 0;border-radius:0}}
+
+/* two stacked pills + quiet channels */
+.fpills{position:absolute;z-index:3;top:-14px;right:-26px;display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.mv .fpills{right:-14px;top:-12px}
+.fpills .fpill{position:relative!important;top:auto!important;right:auto!important}
+.fpills .fp__in{padding:6px 12px;font-size:11.5px}
+.rot__s .fpills .fpill .fp__in{animation:none;opacity:0}
+.rot__s .fpills .fpill.show .fp__in{animation:fppop .4s var(--ease) both}
+.rot__s.is-on .fpills--t .p1 .fp__in{animation:fppop .4s 1.2s var(--ease) both}
+.rot__s.is-on .fpills--t .p2 .fp__in{animation:fppop .4s 3s var(--ease) both}
+.rot__s:not(.is-on) .fpills .fpill .fp__in{animation:none;opacity:0}
+.chrow .chi,.chrow[data-ch] .chi{opacity:1!important;box-shadow:0 4px 12px -6px rgba(19,82,191,.3)!important}
+.stage[data-ch] .ch{box-shadow:0 8px 20px -8px rgba(19,82,191,.35),0 1px 3px rgba(16,40,90,.08)!important}
+.mv .chrow{margin-top:-8px}

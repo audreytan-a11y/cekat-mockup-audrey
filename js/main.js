@@ -32,7 +32,7 @@
   function setOpen(dd, open) {
     dd.classList.toggle('is-open', open);
     $('.dd__trigger', dd).setAttribute('aria-expanded', String(open));
-    if (dd.classList.contains('dd--mega')) megaCycle(open);
+    if (dd.classList.contains('dd--mega')) { megaCycle(open); if (open && typeof showPanel === 'function') showPanel('chat'); }
   }
   function closeAll(except) { dds.forEach(function (d) { if (d !== except) setOpen(d, false); }); }
   // click-only: no hover listeners anywhere
@@ -270,14 +270,14 @@
   (function () {
     var win = $('.pillar .rot__s .win[data-seq]');
     if (!win) return;
-    var pill = win.parentNode.querySelector('.fpill');
-    if (!pill) return;
+    var ps = $$('.fpills .fpill', win.parentNode);
+    if (ps.length < 2) return;
     var t1, t2;
     win.addEventListener('seqstep', function (e) {
       var s = e.detail;
-      if (s <= 2) { clearTimeout(t1); clearTimeout(t2); pill.dataset.b = '0'; }
-      if (s === 3) { clearTimeout(t1); t1 = setTimeout(function () { pill.dataset.b = '1'; }, 1000); }
-      if (s === 5) { clearTimeout(t2); t2 = setTimeout(function () { pill.dataset.b = '2'; }, 1000); }
+      if (s <= 2) { clearTimeout(t1); clearTimeout(t2); ps[0].classList.remove('show'); ps[1].classList.remove('show'); }
+      if (s === 3) { clearTimeout(t1); t1 = setTimeout(function () { ps[0].classList.add('show'); }, 1000); }
+      if (s === 5) { clearTimeout(t2); t2 = setTimeout(function () { ps[1].classList.add('show'); }, 1000); }
     });
   })();
 })();
