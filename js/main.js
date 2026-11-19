@@ -79,7 +79,7 @@
       r.__t = 0;
       ss[i].classList.remove('is-on');
       var nx = ss[(i + 1) % ss.length]; nx.classList.add('is-on');
-      var stg = r.closest('.stage'); if (stg && nx.dataset.ch) stg.dataset.ch = nx.dataset.ch;
+      var stg = r.closest('.stage') || r.parentNode.querySelector('.chrow'); if (stg && nx.dataset.ch) stg.dataset.ch = nx.dataset.ch;
       $$('[data-seq]', nx).forEach(function (q) { if (q.__reset) q.__reset(); });
     });
   }

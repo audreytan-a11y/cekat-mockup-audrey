@@ -1241,3 +1241,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (max-width:640px){.ch--whatsapp{left:2px;top:18%}.ch--messenger{left:2px;top:82%}.ch--telegram{right:2px;top:82%}}
 @keyframes chdrift{0%,100%{transform:translate(0,0)}50%{transform:translate(2px,-5px)}}
 @media (max-width:640px){.ch--whatsapp{left:2px!important;top:20%!important}.ch--messenger{left:2px!important;right:auto!important;top:84%!important}.ch--telegram{right:2px!important;left:auto!important;top:84%!important}}
+/* mega-menu chat: pill + channel row */
+.mv .winwrap{max-width:380px}
+.mv .fpill{right:-12px;top:-14px;font-size:12px;padding:7px 12px}
+.chrow{display:flex;justify-content:center;gap:10px;flex:none}
+.chi{width:30px;height:30px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 4px 12px -6px rgba(19,82,191,.35);opacity:.85;transition:box-shadow .3s,opacity .3s}
+.chi img{width:17px;height:17px}
+.chrow[data-ch=whatsapp] .chi--whatsapp,.chrow[data-ch=instagram] .chi--instagram,.chrow[data-ch=tiktok] .chi--tiktok,.chrow[data-ch=messenger] .chi--messenger,.chrow[data-ch=livechat] .chi--livechat,.chrow[data-ch=telegram] .chi--telegram{opacity:1;box-shadow:0 0 0 2px rgba(16,104,229,.4),0 6px 14px -6px rgba(16,104,229,.5)}
+.mv .rot--stack{padding:14px 0 0}
+.mv .win--scene .win__body{padding:12px 14px;gap:6px}
+.mv .win--scene .mb{padding:6px 11px}
