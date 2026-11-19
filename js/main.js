@@ -280,4 +280,5 @@
       if (s === 5) { clearTimeout(t2); t2 = setTimeout(function () { ps[1].classList.add('show'); }, 1000); }
     });
   })();
+
 })();
