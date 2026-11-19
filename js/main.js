@@ -36,33 +36,52 @@
     if (dd.classList.contains('dd--mega')) megaCycle(open);
   }
   function closeAll(except) { dds.forEach(function (d) { if (d !== except) setOpen(d, false); }); }
+  var openTimer, hoverOpenedAt = 0;
+  var OPEN_DELAY = 220, CLOSE_DELAY = 300;
   dds.forEach(function (dd) {
     var trig = $('.dd__trigger', dd);
     trig.addEventListener('click', function () {
-      var open = !dd.classList.contains('is-open');
+      clearTimeout(openTimer); clearTimeout(closeTimer);
+      var isOpen = dd.classList.contains('is-open');
+      // a click right after hover-intent opened it should not immediately close it
+      if (isOpen && isDesktop() && Date.now() - hoverOpenedAt < 600) return;
       if (isDesktop()) closeAll(dd);
-      setOpen(dd, open);
+      setOpen(dd, !isOpen);
     });
+    // hover intent: only the trigger starts opening, after the cursor rests on it
+    trig.addEventListener('mouseenter', function () {
+      if (!isDesktop()) return;
+      clearTimeout(closeTimer); clearTimeout(openTimer);
+      if (dd.classList.contains('is-open')) return;
+      openTimer = setTimeout(function () {
+        closeAll(dd); setOpen(dd, true); hoverOpenedAt = Date.now();
+      }, OPEN_DELAY);
+    });
+    trig.addEventListener('mouseleave', function () { clearTimeout(openTimer); });
+    // moving between trigger and panel keeps it open
     dd.addEventListener('mouseenter', function () {
       if (!isDesktop()) return;
-      clearTimeout(closeTimer); closeAll(dd); setOpen(dd, true);
+      if (dd.classList.contains('is-open')) clearTimeout(closeTimer);
     });
     dd.addEventListener('mouseleave', function () {
       if (!isDesktop()) return;
-      closeTimer = setTimeout(function () { setOpen(dd, false); }, 180);
+      clearTimeout(openTimer); clearTimeout(closeTimer);
+      if (!dd.classList.contains('is-open')) return;
+      closeTimer = setTimeout(function () { setOpen(dd, false); }, CLOSE_DELAY);
     });
     dd.addEventListener('focusout', function (e) {
-      if (isDesktop() && !dd.contains(e.relatedTarget)) setOpen(dd, false);
+      if (isDesktop() && e.relatedTarget && !dd.contains(e.relatedTarget)) setOpen(dd, false);
     });
   });
   document.addEventListener('keydown', function (e) {
     if (e.key !== 'Escape') return;
     var open = $('.dd.is-open');
+    clearTimeout(openTimer); clearTimeout(closeTimer);
     if (open) { setOpen(open, false); $('.dd__trigger', open).focus(); }
     else if (nav.classList.contains('menu-open')) toggle.click();
   });
   document.addEventListener('click', function (e) {
-    if (isDesktop() && !e.target.closest('.dd')) closeAll();
+    if (isDesktop() && !e.target.closest('.dd')) { clearTimeout(openTimer); closeAll(); }
   });
 
   /* ---------- mega menu panels ---------- */
