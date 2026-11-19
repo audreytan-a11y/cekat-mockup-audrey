@@ -74,7 +74,7 @@
   <div class="hero__bg" aria-hidden="true"><i class="glow glow--1"></i><i class="glow glow--2"></i></div>
   <div class="wrap hero__grid">
     <div class="hero__copy">
-      <p class="section__eyebrow rv"><img src="./assets/products/chat.svg" alt="" width="20" height="20">Cekat Chat</p>
+      <p class="hero__eyebrow rv"><img src="./assets/products/chat.svg" alt="" width="20" height="20">Cekat Chat</p>
       <h1 class="hero__title rv" style="--d:.06s">Every chat answered.<br class="br-lg"> Every channel. <span class="grad nowrap">24/7.</span></h1>
       <p class="hero__sub rv" style="--d:.12s">An AI agent that replies like your best CS, on every channel.</p>
       <div class="hero__cta rv" style="--d:.18s">
@@ -83,7 +83,7 @@
       </div>
     </div>
 
-    <!-- Hero visual: channels flow into the Cekat hub, then a live AI chat -->
+    <!-- Hero visual: channels flow into the Cekat hub -->
     <div class="hero__vis rv" style="--d:.1s" aria-hidden="true">
       <div class="orbit">
         <div class="orbit__ring orbit__ring--outer"></div>
@@ -98,27 +98,6 @@
           <span class="orbit__ch" style="--i:6"><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/email.svg" alt=""></span></span>
         </div>
         <div class="orbit__hub"><img src="./assets/logo-mark.svg" alt=""></div>
-      </div>
-
-      <div class="hchat" id="hero-chat">
-        <div class="hchat__head">
-          <span class="hchat__av"><img src="./assets/logo-mark.svg" alt=""></span>
-          <span><b>Cekat AI agent</b><small><i class="live"></i>Online · replying on WhatsApp</small></span>
-          <img class="hchat__ch" src="./assets/integrations/whatsapp.svg" alt="">
-        </div>
-        <div class="hchat__body">
-          <div class="bubble bubble--in" data-step>Hi! Is the Hydra Serum still in stock? 😊</div>
-          <div class="bubble bubble--ai" data-step>Yes, it is! 💙 30ml is $14.90. Shall I send you a payment link?</div>
-          <div class="bubble bubble--in" data-step>Yes please 🙏</div>
-          <div class="typing" data-step data-typing><i></i><i></i><i></i></div>
-          <div class="bubble bubble--ai" data-step>Here you go — scan to pay. I’ll confirm once it’s through ✓</div>
-          <div class="bubble bubble--in" data-step>Paid! Can it arrive by Friday?</div>
-          <div class="typing" data-step data-typing><i></i><i></i><i></i></div>
-          <div class="bubble bubble--ai" data-step>Payment received ✓ UPS Ground gets it to Brooklyn in 2–3 days, so Friday works 📦</div>
-          <div class="bubble bubble--in" data-step>Perfect, thank you!</div>
-          <div class="typing" data-step data-typing><i></i><i></i><i></i></div>
-          <div class="bubble bubble--ai" data-step>You’re welcome, Emily! Message us anytime 💙</div>
-        </div>
       </div>
     </div>
   </div>
@@ -149,7 +128,7 @@
 </section>
 
 <!-- =====================================================================
-     USP BENTO GRID — 9 cards in mixed sizes. Static by default; animate on hover/focus
+     USP BENTO GRID — 10 cards in mixed sizes. Static by default; animate on hover/focus
      (touch: in view). Multi-idea cards swap scenes (tiny dot indicator).
      ===================================================================== -->
 <section class="section" id="usps">
@@ -210,20 +189,27 @@
         </div>
       </article>
 
-      <!-- 03 QR payment — TALL 1×2 -->
-      <article class="usp-card usp-card--tall usp-card--l2 rv" style="--d:.12s" tabindex="0" data-player data-loop="5000">
+      <!-- 03 QR payment in chat — TALL 1×2 -->
+      <article class="usp-card usp-card--tall usp-card--l2 rv" style="--d:.12s" tabindex="0" data-player data-loop="5600">
         <div class="usp-card__head">
           <span class="usp-card__num">03</span>
           <h3 class="usp-card__title">Payment link, right in the chat</h3>
-          <p class="usp-card__desc">Sends a QR payment link and confirms it’s paid.</p>
+          <p class="usp-card__desc">Even at 2 AM, it sends the QR and payment details instantly.</p>
         </div>
         <div class="usp-card__art" aria-hidden="true">
           <div class="scene is-on">
-            <div class="paycard a" style="--d:.1s">
-              <div class="paycard__top"><small>Order #2381</small><b>$35.79</b></div>
-              <img class="paycard__qr a" style="--d:.8s" src="./assets/illus-qr.svg" alt="">
-              <small class="paycard__cap">Scan to pay</small>
-              <span class="paycard__paid a-stamp" style="--d:1.9s">Paid ✓</span>
+            <div class="mini-chat mini-chat--pay">
+              <span class="chat-time a" style="--d:0s"><span class="chat-time__moon">🌙</span>2:04 AM</span>
+              <div class="bubble bubble--in a" style="--d:.1s">Ok I’ll take it! How do I pay?</div>
+              <div class="slot">
+                <div class="typing typing--ai a-typing" style="--d:.6s"><i></i><i></i><i></i></div>
+                <div class="qrbub a" style="--d:1.6s">
+                  <img class="qrbub__qr" src="./assets/illus-qr.svg" alt="">
+                  <span class="qrbub__info"><b>$35.79</b><small>Order #2381</small><small>Expires in 15 min</small></span>
+                </div>
+              </div>
+              <div class="bubble bubble--ai a" style="--d:2.2s">Scan to pay, I’ll confirm as soon as it’s in 🙌</div>
+              <span class="chip chip--ok chip--paid a-stamp" style="--d:3.2s">Paid ✓</span>
             </div>
           </div>
         </div>
@@ -346,7 +332,7 @@
       </article>
 
       <!-- 09 Team collaboration — WIDE 2×1 (accent navy, 3 scenes) -->
-      <article class="usp-card usp-card--wide usp-card--d2 rv" style="--d:.12s" tabindex="0" data-player data-scenes="3" data-scene-ms="2800">
+      <article class="usp-card usp-card--d2 rv" style="--d:.12s" tabindex="0" data-player data-scenes="3" data-scene-ms="2800">
         <div class="usp-card__head">
           <span class="usp-card__num">09</span>
           <h3 class="usp-card__title">Built for teamwork</h3>
@@ -372,6 +358,26 @@
             </div>
           </div>
           <span class="dots"><i></i><i></i><i></i></span>
+        </div>
+      </article>
+
+      <!-- 10 Slang & other languages — 1×1 -->
+      <article class="usp-card usp-card--l0 rv" style="--d:.18s" tabindex="0" data-player data-loop="4600">
+        <div class="usp-card__head">
+          <span class="usp-card__num">10</span>
+          <h3 class="usp-card__title">Understands slang &amp; other languages</h3>
+          <p class="usp-card__desc">Slang, typos or French. It replies in kind.</p>
+        </div>
+        <div class="usp-card__art" aria-hidden="true">
+          <div class="scene is-on">
+            <div class="mini-chat mini-chat--lang">
+              <div class="bubble bubble--in a" style="--d:.1s"><span class="lang-tag">FR</span>Bonjour ! Vous livrez à Paris ?</div>
+              <div class="slot">
+                <div class="typing typing--ai a-typing" style="--d:.7s"><i></i><i></i><i></i></div>
+                <div class="bubble bubble--ai a" style="--d:1.8s">Oui ! Livraison en 2–3 jours 📦</div>
+              </div>
+            </div>
+          </div>
         </div>
       </article>
 

@@ -612,3 +612,56 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .js .rv{opacity:1;transform:none}
   .orbit__pkt{display:none}
 }
+
+/* ===== Hero v1.3 (19 Nov): chat window removed, orbit centred, product pill, blue logo band ===== */
+.hero__eyebrow{display:inline-flex;align-items:center;gap:8px;margin:0 0 20px;padding:7px 16px 7px 10px;border-radius:999px;background:#E8F1FF;color:var(--primary);font-size:15.5px;font-weight:600;line-height:1.2;letter-spacing:0}
+.hero__eyebrow img{width:22px;height:22px}
+.hero__vis{height:auto;min-height:460px;display:grid;place-items:center}
+.hero__vis .orbit{--r:168px;position:relative;left:auto;top:auto;margin:0;width:440px;height:440px}
+.hero__vis .orbit__hub{width:104px;height:104px;margin:-52px 0 0 -52px;border-radius:30px}
+.hero__vis .orbit__hub img{width:52px}
+.proofbar{margin-top:72px;padding:40px 0 44px;background:linear-gradient(180deg,var(--primary),#0f46a8);}
+.proofbar__label{color:rgba(255,255,255,.82);margin-bottom:26px}
+.proofbar__label b{color:#fff}
+.marquee__track{gap:64px}
+.marquee__track img{height:30px;width:auto;max-width:140px;object-fit:contain;filter:brightness(0) invert(1);opacity:.92}
+.marquee__track img:hover{opacity:1}
+@media (max-width:1180px){.hero__vis .orbit{--r:150px;width:400px;height:400px}}
+@media (max-width:1024px){.hero__vis{min-height:0}}
+@media (max-width:760px){
+  .hero__eyebrow{font-size:15px}
+  .hero__vis{height:auto;min-height:0}
+  .hero__vis .orbit{--r:124px;width:316px;height:316px;margin:0 auto}
+  .hero__vis .orbit__hub{width:84px;height:84px;margin:-42px 0 0 -42px;border-radius:24px}
+  .hero__vis .orbit__hub img{width:42px}
+  .proofbar{margin-top:48px;padding:32px 0 36px}
+  .marquee__track{gap:40px}
+  .marquee__track img{height:26px;max-width:120px}
+}
+
+/* ===== Bento v1.3: 03 QR-in-chat, 10 languages tile, 09 as 1×1 ===== */
+.mini-chat--pay{gap:8px;max-width:260px}
+.mini-chat--pay .bubble{font-size:12.5px;padding:8px 12px;max-width:90%}
+.chat-time{align-self:center;display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;color:var(--sub)}
+.chat-time__moon{font-size:12px;color:var(--primary)}
+.qrbub{display:flex;align-items:center;gap:10px;padding:8px 12px 8px 8px;background:#fff;border:1px solid #dfe8f7;border-radius:14px;border-bottom-right-radius:5px;box-shadow:var(--sh-1)}
+.slot .qrbub{align-self:flex-end}
+.qrbub__qr{width:64px;height:64px;border-radius:6px;flex:none}
+.qrbub__info{display:flex;flex-direction:column;gap:1px;text-align:left}
+.qrbub__info b{font-size:15px;color:var(--primary);letter-spacing:-.01em}
+.qrbub__info small{font-size:10.5px;color:var(--sub);line-height:1.35;white-space:nowrap}
+.chip--paid{align-self:flex-end;font-size:12px;padding:5px 12px}
+.mini-chat--lang{gap:8px;max-width:250px}
+.mini-chat--lang .bubble{font-size:12.5px;padding:8px 12px;max-width:94%}
+.lang-tag{display:inline-block;margin-right:6px;padding:1px 5px;border-radius:5px;font-size:9.5px;font-weight:700;letter-spacing:.04em;color:var(--primary);background:#E8F1FF;vertical-align:1px}
+.usp-card--d2 .collab__card{max-width:100%}
+@media (max-width:760px){
+  .usp-card--tall{height:470px}
+  .usp-card--d2:not(.usp-card--wide) .collab__card{width:auto}
+}
+@media (min-width:1025px){
+  .usp-grid{grid-template-rows:repeat(3,var(--tile-h)) 290px}
+  .usp-card--d2:not(.usp-card--wide) .scene{padding-top:10px}
+}
+.chat-time__moon{font-size:11px}
+.hero__eyebrow{box-shadow:inset 0 0 0 1px #d3e3fb}

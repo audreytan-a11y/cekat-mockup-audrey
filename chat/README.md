@@ -77,7 +77,7 @@ Any element with `data-player` is static by default (its composed final state) a
 1. Copy this folder to e.g. `../crm-v1/`. Assets, CSS and JS stay as they are.
 2. In the nav dropdown (`.prod-menu`), move `is-current` and `aria-current="page"` to the new product. Point the other items to their pages (`../chat/`, `../crm/` …) once those exist. Today they point to `../` (home). Do the same in the footer "Product" column.
 3. Hero: change the eyebrow, H1, sub-line and the `.hero__vis` illustration. Keep the CTAs and the proof strip.
-4. USP grid: rewrite the 9 cards (keep 9 for an even 3×3). Reuse the existing mini-components where they fit (`.bubble`, `.chip`, `.share`, `.fu`, `.collab__card`, `.route`, `.paycard`, `.map`), or build new ones inside `.usp-card__art`.
+4. USP grid: rewrite the 10 bento cards (4-col layout: 01 big · 02 wide · 03 tall · 04–07 small · 08 wide · 09–10 small; no holes, deep tiles never touching). Reuse the existing mini-components where they fit (`.bubble`, `.chip`, `.share`, `.fu`, `.collab__card`, `.route`, `.paycard`, `.map`), or build new ones inside `.usp-card__art`.
 5. Feature blocks: 3–4 `.feature-block`, alternating `--reverse`. Each ends with real proof from `client-intel.json`.
 6. Results, testimonials, FAQ: choose clients and numbers that match the product. Never invent quotes or stats. The only allowed company-level claims are “3,000+ brands” and “15 industries”.
 7. Update `<title>` and `<meta name="description">`.
