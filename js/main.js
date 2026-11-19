@@ -293,3 +293,28 @@
   })();
 
 })();
+
+/* sparse dots on hero net lines */
+(function(){
+  var net=document.querySelector('.hnet'); if(!net) return;
+  var svg=net.querySelector('svg');
+  var spec=[[0,.3,0],[2,.2,1],[3,.45,0],[5,.35,1],[7,.25,0]];
+  function place(){
+    net.querySelectorAll('.hdot').forEach(function(d){d.remove();});
+    var r=net.getBoundingClientRect(), vb=svg.viewBox.baseVal;
+    var sx=r.width/vb.width, sy=r.height/vb.height;
+    spec.forEach(function(s,i){
+      var p=document.getElementById('np'+s[0]); if(!p) return;
+      var pt=p.getPointAtLength(p.getTotalLength()*s[1]);
+      var x = s[2] ? vb.width-pt.x : pt.x;
+      [x, vb.width-x].forEach(function(xx,side){
+        if(side && i%2) return;
+        var d=document.createElement('span'); d.className='hdot';
+        d.style.left=(xx*sx)+'px'; d.style.top=(pt.y*sy)+'px';
+        d.style.setProperty('--dl',(-(i*0.9+side*2.1))+'s');
+        net.appendChild(d);
+      });
+    });
+  }
+  place(); window.addEventListener('resize',place);
+})();
