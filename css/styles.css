@@ -1504,3 +1504,21 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @keyframes hdotP{0%,100%{opacity:.3}50%{opacity:.65}}
 @media (max-width:760px){.hdot{display:none}}
 @media (prefers-reduced-motion:reduce){.hdot{animation:none}}
+/* v4: single logo row, map headline above the map */
+.logoband2{padding:38px 0;gap:0}
+.mapline{margin:72px auto 0;max-width:880px;text-align:center;font-size:clamp(28px,3.4vw,46px);line-height:1.12;letter-spacing:-.03em;font-weight:650;color:var(--navy);text-wrap:balance}
+.mapline__a,.mapline__b{display:block}
+.mapline__b{color:#1A56DB}
+.mapline .ww{display:inline-block}
+.mapline.wa .ww{opacity:0;transform:translateY(18px);transition:opacity .55s ease-out,transform .6s cubic-bezier(.22,1,.36,1);transition-delay:calc(var(--i) * 70ms)}
+.mapline.wa.in .ww{opacity:1;transform:none}
+#map.map{margin-top:36px}
+#map.map::before{display:none}
+#map .map__copy{display:none}
+#map.map{padding:40px 48px}
+@media (max-width:760px){
+  .logoband2{padding:26px 0}
+  .mapline{margin-top:44px;font-size:27px;line-height:1.16;padding:0 4px}
+  #map.map{margin-top:24px;padding:20px 14px}
+}
+@media (prefers-reduced-motion:reduce){.mapline .ww{opacity:1!important;transform:none!important;transition:none!important}}

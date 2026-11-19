@@ -318,3 +318,14 @@
   }
   place(); window.addEventListener('resize',place);
 })();
+
+/* map headline: staggered word reveal, once */
+(function(){
+  var h=document.getElementById('mapline'); if(!h) return;
+  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  h.querySelectorAll('.ww').forEach(function(w,i){w.style.setProperty('--i',i);});
+  h.classList.add('wa');
+  if(!('IntersectionObserver' in window)){h.classList.add('in');return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){h.classList.add('in');io.disconnect();}});},{threshold:.4});
+  io.observe(h);
+})();
