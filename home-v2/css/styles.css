@@ -2222,3 +2222,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (max-width:560px){.ta-vid .ta-play{width:34px;height:34px;font-size:11px;box-shadow:0 0 0 3px rgba(255,255,255,.55)}.ta-meta{padding:20px 6px 8px;gap:4px}}
 @media (prefers-reduced-motion:reduce){.ta-v,.ta-v .ta-po,.pc-ads .ta-r,.ta-vid .ta-play{transition:none!important}}
 @media (max-width:560px){.ta-meta .ta-cap{font-size:9.5px;line-height:1.2;padding:0 2px}}
+/* v13h: bigger, eye-catching stat (~1.5x), still below the hero H1 */
+.trust .big{font-size:clamp(40px,4.86vw,70px);font-weight:700;letter-spacing:-.035em;line-height:1;margin:6px 0 12px}
+@media (max-width:760px){.trust .big{font-size:40px;margin:4px 0 10px}}
