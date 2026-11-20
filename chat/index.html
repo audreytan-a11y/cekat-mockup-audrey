@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=rev26">
+  <link rel="stylesheet" href="css/styles.css?v=rev27">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -37,13 +37,13 @@
               <li><a class="prod-menu__item" href="../">
                 <span class="prod-menu__ic"><img src="./assets/products/marketing.svg" alt="" width="22" height="22"></span>
                 <span><b>Marketing</b><small>Know which ad, creator or link brings revenue.</small></span></a></li>
-              <li><a class="prod-menu__item" href="../">
+              <li><a class="prod-menu__item" href="../#broadcasts">
                 <span class="prod-menu__ic"><img src="./assets/products/broadcasts.svg" alt="" width="22" height="22"></span>
                 <span><b>Broadcasts</b><small>Send template campaigns and see who read them.</small></span></a></li>
-              <li><a class="prod-menu__item" href="../">
+              <li><a class="prod-menu__item" href="../#automation">
                 <span class="prod-menu__ic"><img src="./assets/products/automation.svg" alt="" width="22" height="22"></span>
                 <span><b>Automation</b><small>Follow-ups and workflows that run themselves.</small></span></a></li>
-              <li><a class="prod-menu__item" href="../">
+              <li><a class="prod-menu__item" href="../#analytics">
                 <span class="prod-menu__ic"><img src="./assets/products/analytics.svg" alt="" width="22" height="22"></span>
                 <span><b>Analytics</b><small>See what moves customers, end to end.</small></span></a></li>
             </ul>
@@ -75,7 +75,7 @@
   <div class="wrap hero__grid">
     <div class="hero__copy">
       <p class="hero__eyebrow rv"><img src="./assets/products/chat.svg" alt="" width="20" height="20">Cekat Chat</p>
-      <h1 class="hero__title rv" style="--d:.06s">Every chat answered.<br class="br-lg"> Every channel. <span class="grad nowrap">24/7.</span></h1>
+      <h1 class="hero__title rv" style="--d:.06s" data-pre="AI that never sleeps. " aria-label="AI that never sleeps. Every channel. 24/7."><span class="hero__l1">AI that never sleeps.</span> <span class="hero-rot" aria-hidden="true"><span class="is-on">Every channel. 24/7.</span><span>Every answer checked.</span><span>Every voice note understood.</span><span>Every payment, in chat.</span></span></h1>
       <p class="hero__sub rv" style="--d:.12s">An AI agent that replies like your best CS, on every channel.</p>
       <div class="hero__cta rv" style="--d:.18s">
         <a class="btn btn--primary btn--lg btn--glow" href="https://chat.cekat.ai/register">Start Free Trial</a>
@@ -84,21 +84,53 @@
     </div>
 
     <!-- Hero visual: channels flow into the Cekat hub -->
-    <div class="hero__vis rv" style="--d:.1s" aria-hidden="true">
-      <div class="orbit">
-        <div class="orbit__ring orbit__ring--outer"></div>
-        <div class="orbit__ring orbit__ring--inner"></div>
-        <div class="orbit__spin">
-          <span class="orbit__ch" style="--i:0"><svg class="orbit__link" viewBox="0 0 100 8" preserveAspectRatio="none"><line x1="0" y1="4" x2="100" y2="4"/></svg><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/whatsapp.svg" alt=""></span></span>
-          <span class="orbit__ch" style="--i:1"><svg class="orbit__link" viewBox="0 0 100 8" preserveAspectRatio="none"><line x1="0" y1="4" x2="100" y2="4"/></svg><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/instagram.svg" alt=""></span></span>
-          <span class="orbit__ch" style="--i:2"><svg class="orbit__link" viewBox="0 0 100 8" preserveAspectRatio="none"><line x1="0" y1="4" x2="100" y2="4"/></svg><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/tiktok.svg" alt=""></span></span>
-          <span class="orbit__ch" style="--i:3"><svg class="orbit__link" viewBox="0 0 100 8" preserveAspectRatio="none"><line x1="0" y1="4" x2="100" y2="4"/></svg><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/messenger.svg" alt=""></span></span>
-          <span class="orbit__ch" style="--i:4"><svg class="orbit__link" viewBox="0 0 100 8" preserveAspectRatio="none"><line x1="0" y1="4" x2="100" y2="4"/></svg><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/telegram.svg" alt=""></span></span>
-          <span class="orbit__ch" style="--i:5"><svg class="orbit__link" viewBox="0 0 100 8" preserveAspectRatio="none"><line x1="0" y1="4" x2="100" y2="4"/></svg><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/livechat.svg" alt=""></span></span>
-          <span class="orbit__ch" style="--i:6"><svg class="orbit__link" viewBox="0 0 100 8" preserveAspectRatio="none"><line x1="0" y1="4" x2="100" y2="4"/></svg><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/email.svg" alt=""></span></span>
+    <div class="hero__vis rv" style="--d:.1s" data-hsync>
+      <div class="hv-s is-on" aria-hidden="true">
+        <div class="orbit">
+          <div class="orbit__ring orbit__ring--outer"></div>
+          <div class="orbit__ring orbit__ring--inner"></div>
+          <div class="orbit__spin">
+            <span class="orbit__ch" style="--i:0"><svg class="orbit__link" viewBox="0 0 100 8" preserveAspectRatio="none"><line x1="0" y1="4" x2="100" y2="4"/></svg><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/whatsapp.svg" alt=""></span></span>
+            <span class="orbit__ch" style="--i:1"><svg class="orbit__link" viewBox="0 0 100 8" preserveAspectRatio="none"><line x1="0" y1="4" x2="100" y2="4"/></svg><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/instagram.svg" alt=""></span></span>
+            <span class="orbit__ch" style="--i:2"><svg class="orbit__link" viewBox="0 0 100 8" preserveAspectRatio="none"><line x1="0" y1="4" x2="100" y2="4"/></svg><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/tiktok.svg" alt=""></span></span>
+            <span class="orbit__ch" style="--i:3"><svg class="orbit__link" viewBox="0 0 100 8" preserveAspectRatio="none"><line x1="0" y1="4" x2="100" y2="4"/></svg><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/messenger.svg" alt=""></span></span>
+            <span class="orbit__ch" style="--i:4"><svg class="orbit__link" viewBox="0 0 100 8" preserveAspectRatio="none"><line x1="0" y1="4" x2="100" y2="4"/></svg><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/telegram.svg" alt=""></span></span>
+            <span class="orbit__ch" style="--i:5"><svg class="orbit__link" viewBox="0 0 100 8" preserveAspectRatio="none"><line x1="0" y1="4" x2="100" y2="4"/></svg><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/livechat.svg" alt=""></span></span>
+            <span class="orbit__ch" style="--i:6"><svg class="orbit__link" viewBox="0 0 100 8" preserveAspectRatio="none"><line x1="0" y1="4" x2="100" y2="4"/></svg><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/email.svg" alt=""></span></span>
+          </div>
+          <div class="orbit__hub"><img src="./assets/logo-mark.svg" alt=""></div>
         </div>
-        <div class="orbit__hub"><img src="./assets/logo-mark.svg" alt=""></div>
       </div>
+      <div class="hv-s" aria-hidden="true">
+        <div class="pc-win">
+          <div class="pc-win__bar"><i></i><i></i><i></i><span>Inbox</span></div>
+          <div class="pc-win__body">
+            <div class="pc-mb pc-mb--in">Can I get a refund?</div>
+            <div class="pc-chk"><span class="pc-chk__i">✓</span>Checked · Refund policy</div>
+            <div class="pc-mb pc-mb--ai">I’ll check that with our team. Handing you to Megan now 🙏</div>
+          </div>
+        </div>
+      </div>
+      <div class="hv-s" aria-hidden="true">
+        <div class="pc-win">
+          <div class="pc-win__bar"><i></i><i></i><i></i><span>Inbox</span></div>
+          <div class="pc-win__body">
+            <div class="pc-mb pc-mb--in pc-voice"><span class="pc-play">▶</span><span class="pc-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><small>0:06</small></div>
+            <div class="pc-note">🎙 Understood: “Do you deliver to Brooklyn?”</div>
+            <div class="pc-mb pc-mb--ai">Yes! It arrives in 2–3 days 📦</div>
+          </div>
+        </div>
+      </div>
+      <div class="hv-s" aria-hidden="true">
+        <div class="pc-win">
+          <div class="pc-win__bar"><i></i><i></i><i></i><span>Inbox</span></div>
+          <div class="pc-win__body">
+            <div class="pc-mb pc-mb--in">Ok I’ll take it! How do I pay?</div>
+            <div class="qr-msg"><img src="./assets/illus-qr.svg" alt=""><span><b>$35.79</b><small>Scan to pay</small></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="hv-dots"><button type="button" class="on" aria-label="Show slide 1: Every channel, 24/7"></button><button type="button" aria-label="Show slide 2: Every answer checked"></button><button type="button" aria-label="Show slide 3: Every voice note understood"></button><button type="button" aria-label="Show slide 4: Every payment, in chat"></button></div>
     </div>
   </div>
   <a class="scroll-cue" href="#usps" aria-label="Scroll to next section"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"/></svg></a>
@@ -117,8 +149,8 @@
     </header>
 
     <!-- Bento: 4 cols × 4 rows (desktop), auto-flow in DOM order:
-         rev25b desktop areas: 01 01 02 03 / 04 04 05 06 / 07 08 11 11 / 09 09 10 10
-         01 04 09 10 11 = 2×1 (text left, art right) · rest 1×1. Deep tiles: 02, 07, 10 — never edge to edge. -->
+         rev27 desktop areas: 01 01 02 03 / 09 04 04 05 / 09 07 06 10 / 08 11 11 10
+         01 04 11 = 2×1 (text left, art right) · 09 10 = 1×2 portrait · rest 1×1. Deep tiles: 02, 07, 10 — never edge to edge. -->
     <div class="usp-grid">
 
       <!-- 01 Humanized replies — BIG 2×2 -->
@@ -131,7 +163,6 @@
         <div class="usp-card__art" aria-hidden="true">
           <div class="scene is-on">
             <div class="mini-chat mini-chat--lg">
-              <div class="mini-chat__who a" style="--d:0s"><span class="mini-chat__av">E</span><b>Emily</b><img src="./assets/integrations/instagram.svg" alt="" width="16" height="16"></div>
               <div class="bubble bubble--in a" style="--d:.1s">Is this serum okay for sensitive skin? 🥺</div>
               <div class="slot">
                 <div class="typing typing--ai a-typing" style="--d:.7s"><i></i><i></i><i></i></div>
@@ -288,7 +319,7 @@
       </article>
 
       <!-- 09 Smart routing — WIDE 2×1 (3 states) -->
-      <article class="usp-card usp-card--wide usp-card--l2 rv" style="--d:.06s" tabindex="0" data-player data-scenes="3" data-scene-ms="2200" data-mode="state">
+      <article data-art="route" class="usp-card usp-card--tall usp-card--l2 rv" style="--d:.06s" tabindex="0" data-player data-scenes="3" data-scene-ms="2200" data-mode="state">
         <div class="usp-card__head">
           <span class="usp-card__num">09</span>
           <h3 class="usp-card__title">Every chat to the right agent</h3>
@@ -301,10 +332,10 @@
               <span class="route__msg" data-for="1">“My login isn’t working”</span>
               <span class="route__msg" data-for="2">“Can I talk to a person?”</span>
             </div>
-            <svg class="route__lines" viewBox="0 0 100 120" preserveAspectRatio="none">
-              <path data-for="0" d="M0 60 C 50 60, 50 18, 100 18"/>
-              <path data-for="1" d="M0 60 C 50 60, 50 60, 100 60"/>
-              <path data-for="2" d="M0 60 C 50 60, 50 102, 100 102"/>
+            <svg class="route__lines" viewBox="0 0 40 188" preserveAspectRatio="none">
+              <path data-for="0" d="M12 0 V30 Q12 38 20 38 H40"/>
+              <path data-for="1" d="M12 0 V94 Q12 102 20 102 H40"/>
+              <path data-for="2" d="M12 0 V158 Q12 166 20 166 H40"/>
             </svg>
             <ul class="route__out">
               <li data-for="0"><b>Sales agent</b><small>AI</small></li>
@@ -317,7 +348,7 @@
       </article>
 
       <!-- 10 Team collaboration — 1×1 (accent navy): AI reply → summary + assign → private note -->
-      <article data-art="team" class="usp-card usp-card--wide usp-card--d2 rv" style="--d:.12s" tabindex="0" data-player data-loop="6000">
+      <article data-art="team" class="usp-card usp-card--tall usp-card--d2 rv" style="--d:.12s" tabindex="0" data-player data-loop="6000">
         <div class="usp-card__head">
           <span class="usp-card__num">10</span>
           <h3 class="usp-card__title">Built for teamwork</h3>
@@ -635,13 +666,13 @@
       <p>AI agents, CRM and marketing in one platform — built for businesses that run on conversations.</p>
       <span class="foot__meta"><img src="./assets/integrations/meta.svg" alt="" width="14" height="14">Official Meta Business Partner</span>
     </div>
-    <div><p class="foot__h">Product</p><a href="./" aria-current="page">Chat</a><a href="../">CRM</a><a href="../">Marketing</a><a href="../">Broadcasts</a><a href="../">Automation</a><a href="../">Analytics</a></div>
+    <div><p class="foot__h">Product</p><a href="./" aria-current="page">Chat</a><a href="../">CRM</a><a href="../">Marketing</a><a href="../#broadcasts">Broadcasts</a><a href="../#automation">Automation</a><a href="../#analytics">Analytics</a></div>
     <div><p class="foot__h">Company</p><a href="https://cekat.ai/en/pricing">Pricing</a><a href="#stories">Customer stories</a><a href="https://www.youtube.com/@cekatai">YouTube</a><a href="https://cekat.ai/en/contact-us">Contact</a><a href="https://chat.cekat.ai/login">Log in</a></div>
     <div><p class="foot__h">Offices</p><p class="foot__addr"><b>Indonesia</b> Prosperity Tower, SCBD Jakarta</p><p class="foot__addr"><b>Singapore</b></p><p class="foot__addr"><b>Malaysia</b></p></div>
   </div>
   <div class="wrap foot__bottom"><span>© 2026 PT Teknologi Cekat Indonesia. All rights reserved.</span><span>ISO/IEC 27001 · UU PDP compliant</span></div>
 </footer>
 
-<script src="js/main.js?v=rev26" defer></script>
+<script src="js/main.js?v=rev27" defer></script>
 </body>
 </html>

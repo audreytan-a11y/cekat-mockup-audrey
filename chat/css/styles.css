@@ -1037,3 +1037,113 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (min-width:761px) and (max-width:1024px){
   .usp-grid{grid-template-rows:264px 250px 250px 272px 256px 256px 264px 240px}
 }
+
+/* ==========================================================================
+   rev27 — hero: fixed line + rotating blue line, synced illustration + dots (3.0s)
+   ========================================================================== */
+.hero__title{font-size:clamp(36px,4vw,58px)}
+.hero__l1{display:block}
+.hero-rot{display:grid;color:var(--primary)}
+.hero-rot>span{grid-area:1/1;visibility:hidden;opacity:0;transform:translateY(40%);transition:opacity .3s ease,transform .35s ease,visibility 0s linear .35s}
+.hero-rot>span.is-on{visibility:visible;opacity:1;transform:none;transition:opacity .35s ease .25s,transform .4s cubic-bezier(.22,1,.36,1) .25s,visibility 0s linear .25s}
+.hero-rot>span.is-out{visibility:visible;opacity:0;transform:translateY(-40%);transition:opacity .25s ease,transform .3s ease,visibility 0s linear .3s}
+@media (min-width:1025px){.hero-rot>span{white-space:nowrap}}
+/* synced illustration */
+.hero__vis[data-hsync]{display:grid;place-items:center;padding-bottom:36px}
+.hv-s{grid-area:1/1;width:100%;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .35s ease,transform .45s cubic-bezier(.22,1,.36,1),visibility 0s linear .35s}
+.hv-s.is-on{opacity:1;visibility:visible;transform:none;transition:opacity .4s ease .25s,transform .45s cubic-bezier(.22,1,.36,1) .25s,visibility 0s linear .25s}
+.hv-dots{position:absolute;left:0;right:0;bottom:4px;display:flex;justify-content:center;gap:7px;z-index:2}
+.hv-dots button{appearance:none;border:0;padding:0;cursor:pointer;width:7px;height:7px;border-radius:999px;background:#bcd0f3;transition:width .3s,background .3s;position:relative}
+.hv-dots button::before{content:"";position:absolute;inset:-9px -5px}
+.hv-dots button.on{width:20px;background:#1A56DB}
+.hv-dots button:focus-visible{outline:2px solid #1A56DB;outline-offset:3px}
+/* chat windows (same pattern as homepage product cards) */
+.hero__vis .pc-win{width:100%;max-width:430px;background:#fff;border:1px solid #e1e9f7;border-radius:18px;box-shadow:var(--sh-3);overflow:hidden;text-align:left}
+.hero__vis .pc-win__bar{display:flex;align-items:center;gap:5px;padding:12px 16px;border-bottom:1px solid #eef2f8;font-size:13px;font-weight:600;color:var(--navy)}
+.hero__vis .pc-win__bar i{width:8px;height:8px;border-radius:50%;background:#e3e8f0}
+.hero__vis .pc-win__bar span{margin-left:6px}
+.hero__vis .pc-win__bar .pc-tag{margin-left:auto;font-style:normal;font-size:12px;font-weight:600;color:var(--navy);background:#fff;border:1px solid #dfe8f7;border-radius:999px;padding:3px 10px}
+.hero__vis .pc-win__ch{margin-left:auto;width:20px;height:20px}
+.hero__vis .pc-win__body{padding:20px;display:flex;flex-direction:column;gap:12px;background:linear-gradient(180deg,#fafcff,#f2f6fe)}
+.hero__vis .pc-mb{max-width:86%;font-size:15px;line-height:1.45;padding:11px 15px;border-radius:16px}
+.hero__vis .pc-mb--in{align-self:flex-start;background:#fff;border:1px solid #e3eaf6;color:var(--text);border-bottom-left-radius:5px}
+.hero__vis .pc-mb--ai{align-self:flex-end;background:#1A56DB;color:#fff;border-bottom-right-radius:5px}
+.hero__vis .pc-chk{align-self:center;display:inline-flex;align-items:center;gap:7px;font-size:13px;font-weight:600;color:#0f7a4f;background:#e8f8f0;border:1px solid #c7eedb;border-radius:999px;padding:5px 12px 5px 6px}
+.hero__vis .pc-chk__i{width:18px;height:18px;border-radius:50%;background:#16a36a;color:#fff;display:grid;place-items:center;font-size:10px}
+.hero__vis .pc-sys{align-self:center;font-size:12.5px;font-weight:500;color:var(--navy);background:#fff;border:1px solid #dfe8f7;border-radius:999px;padding:5px 12px;text-align:center}
+.hero__vis .pc-sys--hand{align-self:flex-end;color:#5b6b85;background:transparent;border:0;padding:0 2px;font-size:12px}
+.hero__vis .pc-voice{display:flex;align-items:center;gap:10px}
+.hero__vis .pc-play{flex:none;width:28px;height:28px;border-radius:50%;background:#1A56DB;color:#fff;font-size:10px;display:grid;place-items:center}
+.hero__vis .pc-wave{display:flex;align-items:center;gap:3px}
+.hero__vis .pc-wave i{width:3px;border-radius:2px;background:#93B4F5;height:8px}
+.hero__vis .pc-wave i:nth-child(3n){height:16px}.hero__vis .pc-wave i:nth-child(4n+1){height:12px}.hero__vis .pc-wave i:nth-child(5n){height:20px}
+.hero__vis .pc-voice small{font-size:12px;color:var(--sub)}
+.hero__vis .qr-msg{align-self:flex-end;margin-right:10px}
+.hero__vis .qr-msg img{width:76px;height:76px}
+.hero__vis .qr-msg em{right:-10px}
+@media (max-width:760px){
+  .hero__vis[data-hsync]{padding-bottom:30px;min-height:0}
+  .hero__vis .pc-mb{font-size:14px}
+  .hero__vis .pc-win__body{padding:16px}
+}
+@media (prefers-reduced-motion:reduce){.hv-s,.hero-rot>span{transition:none}}
+.hero__vis .pc-note{align-self:flex-start;margin:-4px 0 0 4px;font-size:12.5px;font-style:italic;color:var(--sub)}
+
+/* ==========================================================================
+   rev27 — bento: 2 portrait cards (09 routing, 10 teamwork), 4 equal rows
+   desktop: 01 01 02 03 / 09 04 04 05 / 09 07 06 10 / 08 11 11 10
+   ========================================================================== */
+/* 09 routing, vertical tree (all sizes): message on top, branches down to 3 agents */
+.usp-card[data-art="route"] .route{position:absolute;inset:6px 20px 30px;display:grid;grid-template-columns:40px 1fr;grid-template-rows:auto auto;align-content:center}
+.usp-card[data-art="route"] .route__in{grid-column:1/-1;height:54px}
+.usp-card[data-art="route"] .route__lines{grid-column:1;grid-row:2;width:40px;height:164px;align-self:start}
+.usp-card[data-art="route"] .route__out{grid-column:2;grid-row:2;padding-top:12px;gap:10px;list-style:none;margin:0}
+.usp-card[data-art="route"] .route__out li{height:44px;display:flex;align-items:center;justify-content:space-between;gap:8px;padding:0 12px}
+.usp-card[data-art="route"] .route__out small{font-size:10.5px}
+/* 10 teamwork in portrait: a bit larger so it fills the height */
+.usp-card--tall[data-art="team"] .team{max-width:none;gap:10px}
+.usp-card--tall[data-art="team"] .team .bubble{font-size:12.5px;padding:8px 12px}
+.usp-card--tall[data-art="team"] .team__sum,.usp-card--tall[data-art="team"] .team__note{padding:10px 12px}
+.usp-card--tall[data-art="team"] .team__txt{font-size:12px}
+.usp-card--tall .usp-card__title{font-size:19px}
+@media (min-width:1025px){
+  .usp-grid{--row:232px;grid-template-areas:"c1 c1 c2 c3" "c9 c4 c4 c5" "c9 c7 c6 c10" "c8 c11 c11 c10";grid-template-rows:repeat(4,var(--row));gap:16px}
+  .usp-card__head,.usp-card--wide .usp-card__head{padding:20px 20px 0}
+  .usp-card--wide .usp-card__head{padding-bottom:20px}
+  .usp-card__num{margin-bottom:5px}
+  .usp-card__title{font-size:16.5px}
+  .usp-card__desc{font-size:13px;margin-top:4px}
+  .usp-card .scene,.usp-card:not(.usp-card--big):not(.usp-card--wide):not(.usp-card--tall) .scene{padding:8px 18px 10px}
+  .usp-card--wide .scene{padding:14px 20px 14px 4px}
+  .usp-card--tall .scene{padding:10px 18px 18px}
+  .usp-grid .usp-card[data-art="store"]:not(.usp-card--big):not(.usp-card--wide) .scene{padding:2px 12px 4px}
+}
+@media (min-width:1025px) and (max-width:1279px){
+  .usp-grid{--row:250px}
+}
+@media (min-width:761px) and (max-width:1024px){
+  .usp-grid{grid-template-areas:none;grid-template-rows:none;grid-auto-rows:240px}
+  .usp-grid>.usp-card{grid-area:auto}
+  .usp-card--wide{grid-column:span 2}
+  .usp-card--tall{grid-row:span 2}
+}
+@media (max-width:760px){
+  .usp-card.usp-card--tall[data-art="route"]{height:400px}
+  .usp-card.usp-card--tall[data-art="team"]{height:390px}
+}
+@media (min-width:761px) and (max-width:1024px){
+  .usp-grid>.usp-card--wide{grid-column:span 2}
+  .usp-grid>.usp-card--tall{grid-row:span 2}
+}
+.usp-card--tall[data-art="team"] .team{gap:14px}
+.usp-card--tall[data-art="team"] .team .bubble{font-size:13.5px;padding:10px 14px}
+.usp-card--tall[data-art="team"] .team__sum,.usp-card--tall[data-art="team"] .team__note{padding:12px 14px;border-radius:14px}
+.usp-card--tall[data-art="team"] .team__h{font-size:11px;margin-bottom:4px}
+.usp-card--tall[data-art="team"] .team__txt{font-size:13px;line-height:1.45}
+.usp-card--tall[data-art="team"] .team__assign{font-size:12px;margin-top:9px;padding-top:9px}
+.usp-card[data-art="route"] .route{inset:0 20px 26px}
+.usp-card[data-art="route"] .route__in{height:58px}
+.usp-card[data-art="route"] .route__msg{font-size:13px}
+.usp-card[data-art="route"] .route__lines{height:188px}
+.usp-card[data-art="route"] .route__out{padding-top:14px;gap:12px}
+.usp-card[data-art="route"] .route__out li{height:52px;font-size:13.5px;padding:0 14px}

@@ -302,3 +302,50 @@
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
   layout();
 })();
+
+/* rev27 — hero: one shared timer for the rotating line + illustration + dots.
+   Loops forever (i+1 mod n); pauses only while a mouse is over the hero visual/title or keyboard focus is inside;
+   always resumes on leave, after a dot click, when the hero scrolls back into view and when the tab is shown again. */
+(function () {
+  var vis = document.querySelector('.hero__vis[data-hsync]'), rot = document.querySelector('.hero-rot');
+  if (!vis || !rot) return;
+  var hero = vis.closest('.hero') || vis;
+  var title = rot.closest('.hero__title');
+  var sl = [].slice.call(vis.querySelectorAll('.hv-s')), txt = [].slice.call(rot.children),
+      dots = [].slice.call(vis.querySelectorAll('.hv-dots button'));
+  var n = Math.min(sl.length, txt.length), i = 0, t = null, MS = 3000;
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var hover = false, kfocus = false, seen = true;
+  function set(k, instant) {
+    var prevT = txt[i];
+    sl.forEach(function (s, j) { s.classList.toggle('is-on', j === k); });
+    txt.forEach(function (s, j) { s.classList.toggle('is-on', j === k); s.classList.remove('is-out'); });
+    dots.forEach(function (d, j) { d.classList.toggle('on', j === k); d.setAttribute('aria-pressed', j === k ? 'true' : 'false'); });
+    if (!instant && prevT && prevT !== txt[k]) { prevT.classList.add('is-out'); setTimeout(function () { prevT.classList.remove('is-out'); }, 320); }
+    i = k;
+    if (title) title.setAttribute('aria-label', (title.getAttribute('data-pre') || '') + txt[k].textContent);
+    hero.setAttribute('data-slide', String(k));
+  }
+  function paused() { return hover || kfocus || !seen || document.hidden; }
+  function tick() { if (!paused()) set((i + 1) % n); }
+  function start() { clearInterval(t); if (!reduce) t = setInterval(tick, MS); }
+  set(0, true);
+  dots.forEach(function (d, j) {
+    d.addEventListener('click', function () { if (j !== i) set(j); start(); });
+    d.addEventListener('pointerup', function () { d.blur(); kfocus = false; });
+  });
+  if (reduce) return;
+  [vis, title].forEach(function (el) {
+    if (!el) return;
+    el.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') hover = true; });
+    el.addEventListener('pointerleave', function () { if (hover) { hover = false; start(); } });
+  });
+  vis.addEventListener('focusin', function (e) { kfocus = !!(e.target.matches && e.target.matches(':focus-visible')); });
+  vis.addEventListener('focusout', function () { kfocus = false; start(); });
+  if ('IntersectionObserver' in window) {
+    new IntersectionObserver(function (es) { es.forEach(function (e) { var was = seen; seen = e.isIntersecting; if (seen && !was) start(); }); }, { threshold: 0.15 }).observe(vis);
+  }
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) start(); });
+  window.cekatHero = { get: function () { return i; }, n: n, ms: MS };
+  start();
+})();
