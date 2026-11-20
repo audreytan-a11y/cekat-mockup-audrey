@@ -109,3 +109,6 @@
   .ht--wa{left:-6px;top:-26px}
 }
 @media (max-width:360px){.hv2__cta{flex-wrap:wrap}}
+/* v12: headline +~15% */
+.hv2__h{font-size:clamp(50px,min(7.1vw,10.8vh),100px)}
+@media (max-width:560px){.hv2__h{font-size:clamp(40px,12.2vw,48px)}}

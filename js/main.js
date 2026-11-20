@@ -338,7 +338,7 @@
         dots=[].slice.call(card.querySelectorAll('.wv-dots button')),
         rotW=card.querySelector('.pc-rot__w'),
         txt=[].slice.call(card.querySelectorAll(rotW?'.pc-rot__w>span':'.wide__sub>span')),
-        line=card.querySelector('.pc-rot'), i=0, paused=false, t=null, MS=3800;
+        line=card.querySelector('.pc-rot'), i=0, paused=false, t=null, MS=3000;
     if(sl.length<2) return;
     function set(k,instant){
       var prevS=sl[i], prevT=txt[i];
@@ -355,10 +355,16 @@
     set(0,true);
     dots.forEach(function(d,j){d.addEventListener('click',function(){if(j!==i) set(j);if(!reduce) start();});});
     if(reduce) return;
-    card.addEventListener('mouseenter',function(){paused=true;});
-    card.addEventListener('mouseleave',function(){paused=false;});
-    card.addEventListener('focusin',function(){paused=true;});
-    card.addEventListener('focusout',function(){paused=false;});
+    /* pause only while a mouse is over the card or keyboard focus is inside; always resume */
+    var hover=false, kfocus=false, seen=true;
+    function upd(){paused=hover||kfocus||!seen;}
+    card.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse'){hover=true;upd();}});
+    card.addEventListener('pointerleave',function(){hover=false;upd();});
+    card.addEventListener('focusin',function(e){kfocus=!!(e.target.matches&&e.target.matches(':focus-visible'));upd();});
+    card.addEventListener('focusout',function(){kfocus=false;upd();});
+    dots.forEach(function(d){d.addEventListener('pointerup',function(){d.blur();kfocus=false;upd();});});
+    if('IntersectionObserver' in window){new IntersectionObserver(function(es){es.forEach(function(e){seen=e.isIntersecting;upd();if(seen)start();});},{threshold:.15}).observe(card);}
+    document.addEventListener('visibilitychange',function(){if(!document.hidden)start();});
     setTimeout(start,n*500);
   });
 })();
