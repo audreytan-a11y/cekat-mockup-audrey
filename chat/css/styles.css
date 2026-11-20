@@ -883,3 +883,71 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .fx__ico{width:26px;height:26px}
 }
 @media (prefers-reduced-motion:reduce){.fx{animation:none}}
+
+/* ==========================================================================
+   rev24 (20 Nov) — feature blocks flow: one surface, dotted connector, side reveal
+   ========================================================================== */
+#features{background:linear-gradient(180deg,#fff 0%,#f3f7fe 9%,#edf3fd 50%,#f3f7fe 91%,#fff 100%);overflow-x:clip}
+#features>.wrap{position:relative}
+#features .feature-block{position:relative;z-index:1}
+#features .feature-block+.feature-block{margin-top:96px}
+.flow{position:absolute;left:0;top:0;z-index:2;pointer-events:none;overflow:visible}
+.flow__line{fill:none;stroke:#93B4F5;stroke-width:2;stroke-linecap:round;stroke-dasharray:1 8}
+.flow__mask{fill:none;stroke:#fff;stroke-width:8;stroke-linecap:round}
+.flow__nodes circle{fill:#fff;stroke:#1A56DB;stroke-width:2}
+/* side reveal: visual slides in from its own side */
+.js #features .feature-block__visual.rv{transform:translateX(32px);transition:opacity .5s cubic-bezier(.22,1,.36,1),transform .5s cubic-bezier(.22,1,.36,1);transition-delay:.06s}
+.js #features .feature-block--reverse .feature-block__visual.rv{transform:translateX(-32px)}
+.js #features .feature-block__copy.rv{transition-duration:.5s}
+.js #features .feature-block__visual.rv.in{transform:none}
+@media (max-width:900px){
+  .flow{display:none}
+}
+@media (max-width:900px){
+  #features .feature-block+.feature-block{margin-top:72px}
+  #features>.wrap::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:0;border-left:2px dotted #93B4F5}
+  #features .feature-block__eyebrow{position:relative}
+  #features .feature-block__eyebrow::before{content:"";position:absolute;left:-17px;top:50%;width:10px;height:10px;margin-top:-5px;border-radius:50%;background:#fff;border:2px solid #1A56DB;box-sizing:border-box}
+}
+@media (prefers-reduced-motion:reduce){
+  .js #features .feature-block__visual.rv,.js #features .feature-block--reverse .feature-block__visual.rv{opacity:1;transform:none;transition:none}
+}
+/* rev24 — 11:42 PM label aligned to the chat card's left edge, sitting just above it */
+.stage--night .stage__main .night-clock{left:0;top:auto;bottom:calc(100% + 22px)}
+@media (max-width:640px){.stage--night .stage__main .night-clock{left:0;top:auto;bottom:calc(100% + 18px)}}
+
+/* ==========================================================================
+   rev24 — compact bento: cards hug their content (desktop ≥1025)
+   ========================================================================== */
+@media (min-width:1025px){
+  .usp-grid{gap:18px}
+  .usp-card__head{padding:20px 22px 0}
+  .usp-card__num{margin-bottom:6px}
+  .usp-card__title{font-size:17px}
+  .usp-card__desc{font-size:13.5px;margin-top:5px}
+  .usp-card--wide .usp-card__title,.usp-card--tall .usp-card__title{font-size:19px}
+  .usp-card--big .usp-card__head{padding:26px 28px 0}
+  .usp-card--big .usp-card__title{font-size:24px}
+  .usp-card--big .usp-card__desc{font-size:15px}
+  .usp-card--big .scene{padding:8px 36px 30px}
+  .usp-card--big .mini-chat--lg{max-width:460px;gap:14px}
+  .usp-card--big .mini-chat--lg .bubble{font-size:15.5px;padding:12px 17px}
+  .usp-card:not(.usp-card--big):not(.usp-card--wide):not(.usp-card--tall) .scene{padding:8px 18px 16px}
+  .usp-card--tall .scene{padding:8px 20px 22px}
+  .usp-grid{--tile-h:auto;grid-template-rows:250px 276px 252px 356px}
+  .usp-card--big .mini-chat--lg{gap:22px;max-width:380px}
+  .usp-card--big .scene{padding:10px 36px 10px}
+  .usp-card--big .mini-chat--lg .bubble{font-size:17px;line-height:1.5;padding:14px 19px;border-radius:20px}
+  .usp-card--big .mini-chat__who{font-size:14px}
+  .usp-card--big .mini-chat__av{width:30px;height:30px;font-size:13px}
+  .usp-card--tall .mini-chat--pay{gap:16px;max-width:236px}
+  .usp-card--tall .qrbub__qr{width:78px;height:78px}
+  .usp-card--tall .scene{padding:8px 18px 8px}
+  .usp-card--tall .mini-chat--pay .bubble{font-size:13.5px;line-height:1.45;padding:10px 14px}
+  .usp-card--tall .chip--paid{font-size:12.5px;padding:6px 13px}
+}
+@media (min-width:1025px) and (max-width:1279px){
+  .usp-grid{grid-template-rows:262px 292px 266px 372px}
+}
+@media (max-width:760px){.usp-card.usp-card--tall{height:420px}}
+@media (min-width:1025px){.usp-card--big .mini-chat--lg .bubble--in{max-width:94%}}

@@ -238,3 +238,67 @@
     counters.forEach(function (c) { cio.observe(c); });
   }
 })();
+
+/* rev24 — feature-flow connector: a dotted line weaving from one block's visual to the next.
+   Drawn in SVG over #features .wrap (desktop only), revealed with scroll progress. */
+(function () {
+  var wrap = document.querySelector('#features > .wrap');
+  if (!wrap) return;
+  var NS = 'http://www.w3.org/2000/svg';
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('class', 'flow');
+  svg.setAttribute('aria-hidden', 'true');
+  wrap.insertBefore(svg, wrap.firstChild);
+  var segs = [], total = 0, forced = null;
+
+  function layout() {
+    var stages = [].slice.call(wrap.querySelectorAll('.feature-block__visual .stage'));
+    var wr = wrap.getBoundingClientRect();
+    svg.setAttribute('width', wr.width); svg.setAttribute('height', wr.height);
+    svg.setAttribute('viewBox', '0 0 ' + wr.width + ' ' + wr.height);
+    if (getComputedStyle(svg).display === 'none' || stages.length < 2) { segs = []; return; }
+    var defs = '', body = '', dots = '';
+    var ds = [];
+    for (var i = 0; i < stages.length - 1; i++) {
+      var a = stages[i].getBoundingClientRect(), b = stages[i + 1].getBoundingClientRect();
+      var sx = a.left + a.width / 2 - wr.left, sy = a.bottom - wr.top;
+      var ex = b.left + b.width / 2 - wr.left, ey = b.top - wr.top;
+      var k = (ey - sy) * 0.75;
+      var d = 'M' + sx + ' ' + sy + ' C' + sx + ' ' + (sy + k) + ' ' + ex + ' ' + (ey - k) + ' ' + ex + ' ' + ey;
+      ds.push(d);
+      defs += '<mask id="flowM' + i + '" maskUnits="userSpaceOnUse"><path class="flow__mask" d="' + d + '"/></mask>';
+      body += '<path class="flow__line" d="' + d + '" mask="url(#flowM' + i + ')"/>';
+      dots += '<circle cx="' + sx + '" cy="' + sy + '" r="4.5"/><circle cx="' + ex + '" cy="' + ey + '" r="4.5"/>';
+    }
+    svg.innerHTML = '<defs>' + defs + '</defs>' + body + '<g class="flow__nodes">' + dots + '</g>';
+    segs = [].slice.call(svg.querySelectorAll('.flow__mask')).map(function (m) {
+      var l = m.getTotalLength(); m.style.strokeDasharray = l + ' ' + l; return { el: m, len: l };
+    });
+    total = segs.reduce(function (t, s) { return t + s.len; }, 0);
+    draw();
+  }
+  function draw() {
+    if (!segs.length) return;
+    var p;
+    if (forced != null) p = forced;
+    else if (reduce) p = 1;
+    else {
+      var r = wrap.getBoundingClientRect(), vh = window.innerHeight;
+      p = Math.max(0, Math.min(1, ((vh * 0.62 - r.top) / r.height) * 1.08));
+    }
+    // each segment draws while the viewport travels its own stretch of the section
+    var n = segs.length;
+    segs.forEach(function (s, i) {
+      var q = Math.max(0, Math.min(1, p * (n + 1) - (i + 0.5)));
+      s.el.style.strokeDashoffset = (s.len * (1 - q)).toFixed(1);
+    });
+  }
+  window.cekatFlow = { set: function (p) { forced = p; draw(); }, layout: layout };
+  var raf = 0;
+  window.addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(function () { raf = 0; draw(); }); }, { passive: true });
+  window.addEventListener('resize', function () { clearTimeout(layout._t); layout._t = setTimeout(layout, 120); });
+  window.addEventListener('load', layout);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
+  layout();
+})();
