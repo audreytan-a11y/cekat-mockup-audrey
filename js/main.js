@@ -330,32 +330,36 @@
   io.observe(h);
 })();
 
-/* v10: rotating "AI that ..." line in the Chat card (one phrase visible at a time) */
-(function(){
-  var w=document.querySelector('.pc-rot__w'); if(!w) return;
-  var items=[].slice.call(w.children), i=0;
-  items.forEach(function(el,k){el.classList.toggle('is-on',k===0);el.classList.remove('is-out');});
-  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-  setInterval(function(){
-    var cur=items[i]; cur.classList.remove('is-on'); cur.classList.add('is-out');
-    setTimeout(function(){cur.classList.remove('is-out');},350);
-    i=(i+1)%items.length; items[i].classList.add('is-on');
-    w.parentNode.setAttribute('aria-label','AI that '+items[i].textContent);
-  },2800);
-})();
-
-/* v10: one-illustration-at-a-time mini carousels in the wide product cards */
+/* v11: wide product cards, one shared timer per card (text + illustration + dots in sync) */
 (function(){
   var reduce=window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  document.querySelectorAll('[data-wv]').forEach(function(box,n){
-    var sl=[].slice.call(box.querySelectorAll('.wv-s')), dots=[].slice.call(box.querySelectorAll('.wv-dots i'));
+  document.querySelectorAll('[data-sync]').forEach(function(card,n){
+    var sl=[].slice.call(card.querySelectorAll('.wv-s')),
+        dots=[].slice.call(card.querySelectorAll('.wv-dots button')),
+        rotW=card.querySelector('.pc-rot__w'),
+        txt=[].slice.call(card.querySelectorAll(rotW?'.pc-rot__w>span':'.wide__sub>span')),
+        line=card.querySelector('.pc-rot'), i=0, paused=false, t=null, MS=3800;
     if(sl.length<2) return;
-    var i=0, paused=false;
-    function go(k){sl[i].classList.remove('is-on');if(dots[i])dots[i].classList.remove('on');i=k;sl[i].classList.add('is-on');if(dots[i])dots[i].classList.add('on');}
+    function set(k,instant){
+      var prevS=sl[i], prevT=txt[i];
+      sl.forEach(function(s,j){s.classList.toggle('is-on',j===k);});
+      txt.forEach(function(s,j){s.classList.toggle('is-on',j===k);s.classList.remove('is-out');});
+      dots.forEach(function(d,j){d.classList.toggle('on',j===k);d.setAttribute('aria-pressed',j===k?'true':'false');});
+      if(!instant && prevS && prevS!==sl[k]){prevS.classList.add('is-leaving');setTimeout(function(){prevS.classList.remove('is-leaving');},420);}
+      if(!instant && prevT && prevT!==txt[k] && rotW){prevT.classList.add('is-out');setTimeout(function(){prevT.classList.remove('is-out');},350);}
+      i=k;
+      if(line&&txt[k]) line.setAttribute('aria-label',(line.getAttribute('data-pre')||'')+txt[k].textContent);
+    }
+    function tick(){if(!paused&&!document.hidden) set((i+1)%sl.length);}
+    function start(){clearInterval(t);t=setInterval(tick,MS);}
+    set(0,true);
+    dots.forEach(function(d,j){d.addEventListener('click',function(){if(j!==i) set(j);if(!reduce) start();});});
     if(reduce) return;
-    box.addEventListener('mouseenter',function(){paused=true;});
-    box.addEventListener('mouseleave',function(){paused=false;});
-    setTimeout(function(){setInterval(function(){if(!paused&&!document.hidden) go((i+1)%sl.length);},3500);},n*400);
+    card.addEventListener('mouseenter',function(){paused=true;});
+    card.addEventListener('mouseleave',function(){paused=false;});
+    card.addEventListener('focusin',function(){paused=true;});
+    card.addEventListener('focusout',function(){paused=false;});
+    setTimeout(start,n*500);
   });
 })();
 

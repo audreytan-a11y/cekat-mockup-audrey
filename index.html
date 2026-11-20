@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=v10">
+  <link rel="stylesheet" href="css/styles.css?v=v11b">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -295,11 +295,15 @@
 <!-- ============ SHOWCASE ============ -->
 <section class="show" id="showcase">
   <div class="wrap">
+    <div class="sec-head sec-head--products rv">
+      <h2 class="h2">Our products</h2>
+      <p class="lead">Chat, CRM and Marketing in one platform, plus Broadcasts, Automation and Analytics.</p>
+    </div>
     <!-- Product cards: Chat, CRM, Marketing (wide, one per row, one illustration at a time) -->
     <div class="wides">
-      <article class="wide rv" id="pc-chat">
-        <div class="wide__vis" data-wv aria-hidden="true">
-          <div class="wv-s is-on pcv--chat">
+      <article class="wide rv" id="pc-chat" data-sync>
+        <div class="wide__vis" data-wv>
+          <div class="wv-s is-on pcv--chat" aria-hidden="true">
             <div class="pc-chrow"><span class="pc-ch"><img src="./assets/integrations/whatsapp.svg" alt=""></span><span class="pc-ch"><img src="./assets/integrations/instagram.svg" alt=""></span><span class="pc-ch"><img src="./assets/integrations/tiktok.svg" alt=""></span><span class="pc-ch"><img src="./assets/integrations/messenger.svg" alt=""></span><span class="pc-ch"><img src="./assets/integrations/telegram.svg" alt=""></span><span class="pc-ch"><img src="./assets/integrations/livechat.svg" alt=""></span></div>
             <div class="pc-win">
               <div class="pc-win__bar"><i></i><i></i><i></i><span>Inbox</span></div>
@@ -309,7 +313,35 @@
               </div>
             </div>
           </div>
-          <div class="wv-s pcv--chat">
+          <div class="wv-s pcv--chat" aria-hidden="true">
+            <div class="pc-win">
+              <div class="pc-win__bar"><i></i><i></i><i></i><span>Inbox</span><em class="pc-tag pc-tag--night">🌙 Night → AI agent</em></div>
+              <div class="pc-win__body">
+                <div class="pc-mb pc-mb--in">Are you open on Sunday? <small class="pc-t">2:14 AM</small></div>
+                <div class="pc-mb pc-mb--ai">Yes, 10 AM to 6 PM. Want me to book you a slot? <small class="pc-t">2:14 AM</small></div>
+              </div>
+            </div>
+          </div>
+          <div class="wv-s pcv--chat" aria-hidden="true">
+            <div class="pc-win">
+              <div class="pc-win__bar"><i></i><i></i><i></i><span>Inbox</span><em class="pc-tag">🛡 Guardrails on</em></div>
+              <div class="pc-win__body">
+                <div class="pc-mb pc-mb--in">Can I get a refund?</div>
+                <div class="pc-chk"><span class="pc-chk__i">✓</span>Checked · Refund policy</div>
+                <div class="pc-mb pc-mb--ai">I'll check that with our team. Handing you to Megan now 🙏</div>
+                <div class="pc-sys pc-sys--hand">Handed to Megan</div>
+              </div>
+            </div>
+          </div>
+          <div class="wv-s pcv--chat" aria-hidden="true">
+            <div class="pc-panel pc-share">
+              <p class="pc-panel__t">Traffic share</p>
+              <div class="pc-share__l"><span><b>AI agent</b>30%</span><span><b>Your team</b>70%</span></div>
+              <div class="pc-share__bar"><i></i><em></em></div>
+              <div class="pc-share__who"><span class="pc-share__ai"><img src="./assets/products/chat.svg" alt="">AI agent</span><span class="pc-share__hu"><span class="av">S</span><span class="av">M</span><span class="av">J</span>Your team</span></div>
+            </div>
+          </div>
+          <div class="wv-s pcv--chat" aria-hidden="true">
             <div class="pc-win">
               <div class="pc-win__bar"><i></i><i></i><i></i><span>Inbox</span></div>
               <div class="pc-win__body">
@@ -319,58 +351,55 @@
               </div>
             </div>
           </div>
-          <div class="wv-dots"><i class="on"></i><i></i></div>
+          <div class="wv-dots"><button type="button" class="on" aria-label="Show slide 1"></button><button type="button" aria-label="Show slide 2"></button><button type="button" aria-label="Show slide 3"></button><button type="button" aria-label="Show slide 4"></button><button type="button" aria-label="Show slide 5"></button></div>
         </div>
         <div class="wide__txt">
           <h3><img src="./assets/products/chat.svg" alt="" width="20" height="20">Chat</h3>
-          <p class="wide__line pc-rot" aria-label="AI that sounds human">AI that <span class="pc-rot__w" aria-hidden="true"><span class="is-on">sounds human.</span><span>never sleeps.</span><span>won't make things up.</span><span>lets you start small.</span><span>gets your voice notes.</span></span></p>
+          <p class="wide__line pc-rot" data-pre="AI that " aria-label="AI that sounds human">AI that <span class="pc-rot__w" aria-hidden="true"><span class="is-on">sounds human.</span><span>never sleeps.</span><span>won't make things up.</span><span>lets you start small.</span><span>gets your voice notes.</span></span></p>
           <a class="more" href="chat/">Explore Cekat Chat <span>→</span></a>
         </div>
       </article>
 
-      <article class="wide wide--rev rv" id="pc-crm">
-        <div class="wide__vis" data-wv aria-hidden="true">
-          <div class="wv-s is-on">
-            <div class="pc-panel pc-board">
-              <p class="pc-panel__t">Board · Deals</p>
-              <div class="pc-cols">
-                <div class="pc-col"><p>Leads</p><div class="pc-k"><img src="./assets/integrations/whatsapp.svg" alt=""><b>Ben S.</b><em>$20</em></div><div class="pc-k"><img src="./assets/integrations/tiktok.svg" alt=""><b>Amy P.</b><em>$30</em></div></div>
-                <div class="pc-col"><p>Hot</p><div class="pc-k pc-k--move"><img src="./assets/integrations/instagram.svg" alt=""><b>Dan K.</b><em>$75</em></div><div class="pc-k"><img src="./assets/integrations/whatsapp.svg" alt=""><b>Hannah R.</b><em>$45</em></div></div>
-                <div class="pc-col"><p>Paid</p><div class="pc-k"><img src="./assets/integrations/whatsapp.svg" alt=""><b>Ella L.</b><em>$30</em></div><div class="pc-k"><img src="./assets/integrations/instagram.svg" alt=""><b>Finn</b><em>$60</em></div></div>
+      <article data-sync class="wide wide--rev rv" id="pc-crm">
+        <div class="wide__vis" data-wv>
+          <div class="wv-s is-on" aria-hidden="true">
+            <div class="pc-panel pc-board kb">
+              <div class="kb-top"><span class="kb-tab is-on">Custom View</span><span class="kb-tab">View 2</span><span class="kb-new">+ New contact</span></div>
+              <div class="kb-cols">
+                <div class="kb-col kb-col--1"><p class="kb-h"><span>Leads</span><em>2 <i>+</i></em></p><div class="kb-c"><div class="kb-c__t"><img src="./assets/integrations/whatsapp.svg" alt=""><b>Ben</b><span class="kb-av">B</span></div><span class="kb-pill">$20</span></div><div class="kb-c"><div class="kb-c__t"><img src="./assets/integrations/tiktok.svg" alt=""><b>Amy</b><span class="kb-av">A</span></div><span class="kb-pill">Acme Co.</span></div></div>
+                <div class="kb-col kb-col--2"><p class="kb-h"><span>Hot</span><em><span class="kb-ns"><span class="kb-n kb-n--a">2</span><span class="kb-n kb-n--b">1</span></span> <i>+</i></em></p><div class="kb-c"><div class="kb-c__t"><img src="./assets/integrations/whatsapp.svg" alt=""><b>Hannah</b><span class="kb-av">H</span></div><span class="kb-pill">$45</span></div><div class="kb-c kb-drag"><div class="kb-c__t"><img src="./assets/integrations/instagram.svg" alt=""><b>Dan</b><span class="kb-av">D</span></div><span class="kb-pill">$75</span></div></div>
+                <div class="kb-col kb-col--3"><p class="kb-h"><span>Booked</span><em><span class="kb-ns"><span class="kb-n kb-n--a">1</span><span class="kb-n kb-n--b">2</span></span> <i>+</i></em></p><div class="kb-c"><div class="kb-c__t"><img src="./assets/integrations/whatsapp.svg" alt=""><b>Ella</b><span class="kb-av">E</span></div><span class="kb-pill">$30</span></div></div>
+                <div class="kb-col kb-col--4"><p class="kb-h"><span>Paid</span><em>0 <i>+</i></em></p><p class="kb-empty">No items</p></div>
               </div>
             </div>
           </div>
-          <div class="wv-s">
-            <div class="pc-panel pc-act">
-              <p class="pc-panel__t">Activity</p>
-              <ul>
-                <li><span class="av">S</span><span><b>Sarah</b> moved Dan K. to Hot</span><em>2m</em></li>
-                <li><span class="av">M</span><span><b>Mike</b> replied to Ben S.</span><em>9m</em></li>
-                <li><span class="av">J</span><span><b>Jess</b> marked Ella L. as Paid</span><em>1h</em></li>
-              </ul>
+          <div class="wv-s" aria-hidden="true">
+            <div class="pc-panel pc-tl">
+              <div class="tl-who"><span class="kb-av tl-av">E</span><b>Emily Carter</b><span class="tl-ch"><img src="./assets/integrations/instagram.svg" alt="">Instagram</span></div>
+              <ul class="tl"><li><span class="tl-d"><img src="./assets/integrations/meta.svg" alt=""></span><span class="tl-x">Clicked Spring Sale ad</span><em>Mon 9:02 AM</em></li><li><span class="tl-d"><img src="./assets/integrations/instagram.svg" alt=""></span><span class="tl-x">Messaged on Instagram</span><em>9:04 AM</em></li><li><span class="tl-d"></span><span class="tl-x">AI agent replied</span><em>9:04 AM</em></li><li><span class="tl-d"></span><span class="tl-x">Moved to Meeting booked</span><em>9:20 AM</em></li><li><span class="tl-d tl-d--ok"></span><span class="tl-x">Order placed · $128.00</span><em>Tue 4:15 PM</em></li></ul>
             </div>
           </div>
-          <div class="wv-dots"><i class="on"></i><i></i></div>
+          <div class="wv-dots"><button type="button" class="on" aria-label="Show slide 1"></button><button type="button" aria-label="Show slide 2"></button></div>
         </div>
         <div class="wide__txt">
           <h3><img src="./assets/products/crm.svg" alt="" width="20" height="20">CRM</h3>
-          <p class="wide__line">Every chat captured.<br><span class="pc-b">Every deal on track.</span></p>
+          <p class="wide__line pc-rot" data-pre="Every chat captured. " aria-label="Every chat captured. Every deal on track.">Every chat captured.<br><span class="pc-rot__w" aria-hidden="true"><span class="is-on">Every deal on track.</span><span>Every lead activity tracked.</span></span></p>
           <a class="more" href="crm/">Explore Cekat CRM <span>→</span></a>
         </div>
       </article>
 
-      <article class="wide rv" id="pc-mkt">
-        <div class="wide__vis" data-wv aria-hidden="true">
-          <div class="wv-s is-on">
+      <article data-sync class="wide rv" id="pc-mkt">
+        <div class="wide__vis" data-wv>
+          <div class="wv-s is-on" aria-hidden="true">
             <div class="pc-panel pc-jr">
               <div class="pc-jr__n"><span><img src="./assets/integrations/meta.svg" alt=""></span>Ad</div><i></i>
               <div class="pc-jr__n"><span><img src="./assets/integrations/whatsapp.svg" alt=""></span>Chat</div><i></i>
               <div class="pc-jr__n"><span class="pc-jr__d">✓</span>Booked</div>
             </div>
           </div>
-          <div class="wv-s">
+          <div class="wv-s" aria-hidden="true">
             <div class="pc-panel pc-src">
-              <p class="pc-panel__t">Meetings booked by source</p>
+              <div class="pc-src__h"><span>Source</span><span>Meetings booked</span></div>
               <ul>
                 <li><span>Paid ads</span><i style="--w:100%"></i><b>186</b></li>
                 <li><span>Organic</span><i style="--w:40%"></i><b>74</b></li>
@@ -379,11 +408,11 @@
               </ul>
             </div>
           </div>
-          <div class="wv-dots"><i class="on"></i><i></i></div>
+          <div class="wv-dots"><button type="button" class="on" aria-label="Show slide 1"></button><button type="button" aria-label="Show slide 2"></button></div>
         </div>
         <div class="wide__txt">
           <h3><img src="./assets/products/marketing.svg" alt="" width="20" height="20">Marketing</h3>
-          <p class="wide__line">Scale what works.<br><span class="pc-b">Stop redoing what doesn't.</span></p>
+          <p class="wide__line pc-rot" data-pre="Scale what works. " aria-label="Scale what works. Stop redoing what doesn't.">Scale what works.<br><span class="pc-rot__w" aria-hidden="true"><span class="is-on">Stop redoing what doesn't.</span><span>Know which source books most.</span></span></p>
           <a class="more" href="marketing/">Explore Cekat Marketing <span>→</span></a>
         </div>
       </article>
@@ -604,6 +633,6 @@
   <div class="wrap foot__bottom"><span>© 2026 PT Teknologi Cekat Indonesia. All rights reserved.</span><span>ISO/IEC 27001 · UU PDP compliant</span></div>
 </footer>
 
-<script src="js/main.js?v=v10" defer></script>
+<script src="js/main.js?v=v11b" defer></script>
 </body>
 </html>
