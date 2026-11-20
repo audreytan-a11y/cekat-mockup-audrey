@@ -2225,3 +2225,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* v13h: bigger, eye-catching stat (~1.5x), still below the hero H1 */
 .trust .big{font-size:clamp(40px,4.86vw,70px);font-weight:700;letter-spacing:-.035em;line-height:1;margin:6px 0 12px}
 @media (max-width:760px){.trust .big{font-size:40px;margin:4px 0 10px}}
+/* v13i: stat = hero H1 size exactly (v1 .hero__h clamps; v2 overrides in hero-v2.css) */
+.trust .big{font-size:clamp(46px,5.8vw,80px);margin:8px 0 14px}
+@media (max-width:760px){.trust .big{font-size:clamp(46px,5.8vw,80px);margin:6px 0 12px}}
+@media (max-width:560px){.trust .big{font-size:clamp(40px,11.8vw,47px)}}

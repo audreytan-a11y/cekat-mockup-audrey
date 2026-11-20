@@ -112,3 +112,6 @@
 /* v12: headline +~15% */
 .hv2__h{font-size:clamp(50px,min(7.1vw,10.8vh),100px)}
 @media (max-width:560px){.hv2__h{font-size:clamp(40px,12.2vw,48px)}}
+/* v13i: trust stat = this hero H1 size exactly */
+.trust .big{font-size:clamp(50px,min(7.1vw,10.8vh),100px)}
+@media (max-width:560px){.trust .big{font-size:clamp(40px,12.2vw,48px)}}
