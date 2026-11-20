@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=crm3">
+  <link rel="stylesheet" href="css/styles.css?v=crm5">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -82,7 +82,7 @@
   <div class="wrap chero__grid">
     <div class="chero__copy">
       <p class="chero__pill rv"><img src="./assets/products/crm.svg" alt="" width="20" height="20">Cekat CRM</p>
-      <h1 class="chero__title rv">Capture every lead.<br><span class="acc">Track every deal.</span></h1>
+      <h1 class="chero__title rv pc-rot" data-pre="Every chat captured. " aria-label="Every chat captured. Every deal on track.">Every chat captured.<br><span class="pc-rot__w" aria-hidden="true"><span class="is-on">Every deal on track.</span><span>Every lead activity tracked.</span></span></h1>
       <p class="chero__sub rv">Every chat lands in your CRM automatically. Shape the stages, fields and views around how your team sells.</p>
       <div class="chero__cta rv">
         <a class="btn btn--primary btn--lg btn--glow" href="https://chat.cekat.ai/register">Start Free Trial <span aria-hidden="true">→</span></a>
@@ -90,75 +90,28 @@
       </div>
     </div>
 
-    <!-- Hero visual: one white card, 3 views (Kanban · List · Activity). Illustrative demo data. -->
+    <!-- Hero visual (crm4): homepage #pc-crm pattern — 2 slides in sync with H1 line 2, one shared timer.
+         (The old 3-tab Kanban / List / Activity card and its JS were removed in crm4.) Illustrative demo data. -->
     <div class="chero__vis rv">
-      <div class="hs" id="hero-scenes">
-        <div class="hs__card">
-
-          <!-- 1–2 · DEALS BOARD (Kanban | List) -->
-          <div class="hs__scene hs-board is-on" data-view="kanban">
-            <div class="hs__h">
-              <span class="hs__logo" aria-hidden="true"><svg class="ci"><use href="#ci-board"/></svg></span>
-              <span class="hs__ttl" aria-hidden="true"><b>Deals board</b><small>4 stages · 9 deals</small></span>
-              <span class="hs__add" aria-hidden="true"><span class="k">+ Add stage</span><span class="l">+ Add field</span></span>
-              <span class="vseg" role="group" aria-label="Board view"><button type="button" data-view="kanban" aria-pressed="true">Kanban</button><button type="button" data-view="list" aria-pressed="false">List</button></span>
-            </div>
-            <div class="hs__body hs-board__body" aria-hidden="true">
-              <div class="kb2">
-                <div class="kb2__col"><div class="kb2__hd">New lead <small>3</small></div>
-                  <div class="kc3"><b>Jake Miller</b><span><img src="./assets/integrations/whatsapp.svg" alt="">WhatsApp</span></div>
-                  <div class="kc3"><b>Megan Ross</b><span><img src="./assets/integrations/instagram.svg" alt="">Instagram</span></div>
-                  <div class="kc3"><b>Olivia Park</b><span><img src="./assets/integrations/livechat.svg" alt="">Web chat</span></div>
-                </div>
-                <div class="kb2__col"><div class="kb2__hd">In contact <small class="cnt"><span class="a">2</span><span class="b">1</span></small></div>
-                  <div class="kc3"><b>Daniel Wright</b><span><img src="./assets/integrations/messenger.svg" alt="">$640</span></div>
-                  <div class="kc3 kc3--mv"><b>Emily Carter</b><span><img src="./assets/integrations/instagram.svg" alt="">$1,200</span></div>
-                </div>
-                <div class="kb2__col kb2__col--to"><div class="kb2__hd">Meeting booked <small class="cnt"><span class="a">1</span><span class="b">2</span></small></div>
-                  <div class="kc3"><b>Sofia Perez</b><span><img src="./assets/integrations/livechat.svg" alt="">$860</span></div>
-                </div>
-                <div class="kb2__col"><div class="kb2__hd">Won <small>2</small></div>
-                  <div class="kc3 kc3--won"><b>Tyler Brooks</b><span><img src="./assets/integrations/whatsapp.svg" alt="">$420</span></div>
-                  <div class="kc3 kc3--won"><b>Amy Kim</b><span><img src="./assets/integrations/instagram.svg" alt="">$1,180</span></div>
-                </div>
-              </div>
-              <div class="ls2">
-                <div class="ls2__r ls2__r--h"><span>Name</span><span>Stage</span><span class="ls2__ch">Channel</span><span>Value</span><span class="lc">Last contact</span></div>
-                <div class="ls2__r"><span class="nm"><i class="av av--c">EC</i>Emily Carter</span><span><em class="st st--mb">Meeting booked</em></span><span><img src="./assets/integrations/instagram.svg" alt=""></span><span>$1,200</span><span class="lc">2m ago</span></div>
-                <div class="ls2__r"><span class="nm"><i class="av">JM</i>Jake Miller</span><span><em class="st">New lead</em></span><span><img src="./assets/integrations/whatsapp.svg" alt=""></span><span class="mu">—</span><span class="lc">5m ago</span></div>
-                <div class="ls2__r"><span class="nm"><i class="av av--b">MR</i>Megan Ross</span><span><em class="st">New lead</em></span><span><img src="./assets/integrations/instagram.svg" alt=""></span><span class="mu">—</span><span class="lc">18m ago</span></div>
-                <div class="ls2__r"><span class="nm"><i class="av">DW</i>Daniel Wright</span><span><em class="st st--ic">In contact</em></span><span><img src="./assets/integrations/messenger.svg" alt=""></span><span>$640</span><span class="lc">1h ago</span></div>
-                <div class="ls2__r"><span class="nm"><i class="av av--b">SP</i>Sofia Perez</span><span><em class="st st--mb">Meeting booked</em></span><span><img src="./assets/integrations/livechat.svg" alt=""></span><span>$860</span><span class="lc">3h ago</span></div>
-                <div class="ls2__r"><span class="nm"><i class="av">TB</i>Tyler Brooks</span><span><em class="st st--won">Won</em></span><span><img src="./assets/integrations/whatsapp.svg" alt=""></span><span>$420</span><span class="lc">Yesterday</span></div>
-              </div>
+      <div class="chv" data-wv>
+        <div class="wv-s is-on" aria-hidden="true">
+          <div class="pc-panel pc-board">
+            <div class="kb-top"><span class="kb-tab is-on">Custom View</span><span class="kb-tab">View 2</span><span class="kb-new">+ New contact</span></div>
+            <div class="kb-cols">
+              <div class="kb-col kb-col--1"><p class="kb-h"><span>Leads</span><em>2 <i>+</i></em></p><div class="kb-c"><div class="kb-c__t"><img src="./assets/integrations/whatsapp.svg" alt=""><b>Ben</b><span class="kb-av">B</span></div><span class="kb-pill">$20</span></div><div class="kb-c"><div class="kb-c__t"><img src="./assets/integrations/tiktok.svg" alt=""><b>Amy</b><span class="kb-av">A</span></div><span class="kb-pill">Acme Co.</span></div></div>
+              <div class="kb-col kb-col--2"><p class="kb-h"><span>Hot</span><em><span class="kb-ns"><span class="kb-n kb-n--a">2</span><span class="kb-n kb-n--b">1</span></span> <i>+</i></em></p><div class="kb-c"><div class="kb-c__t"><img src="./assets/integrations/whatsapp.svg" alt=""><b>Hannah</b><span class="kb-av">H</span></div><span class="kb-pill">$45</span></div><div class="kb-c kb-drag"><div class="kb-c__t"><img src="./assets/integrations/instagram.svg" alt=""><b>Dan</b><span class="kb-av">D</span></div><span class="kb-pill">$75</span></div></div>
+              <div class="kb-col kb-col--3"><p class="kb-h"><span>Booked</span><em><span class="kb-ns"><span class="kb-n kb-n--a">1</span><span class="kb-n kb-n--b">2</span></span> <i>+</i></em></p><div class="kb-c"><div class="kb-c__t"><img src="./assets/integrations/whatsapp.svg" alt=""><b>Ella</b><span class="kb-av">E</span></div><span class="kb-pill">$30</span></div></div>
+              <div class="kb-col kb-col--4"><p class="kb-h"><span>Paid</span><em>0 <i>+</i></em></p><p class="kb-empty">No items</p></div>
             </div>
           </div>
-
-          <!-- 3 · CUSTOMER ACTIVITY -->
-          <div class="hs__scene hs-act" aria-hidden="true">
-            <div class="hs__h">
-              <span class="av av--c av--hs">EC</span>
-              <span class="hs__ttl"><b>Emily Carter</b><small><img src="./assets/integrations/instagram.svg" alt="">Captured from an Instagram ad</small></span>
-            </div>
-            <div class="hs__body hs-act__body">
-              <div class="lcy"><span class="lcy__l">Lifecycle</span><em>Lead</em><i>›</i><em>Opportunity</em><i>›</i><em class="on">Customer</em></div>
-              <ul class="tl">
-                <li style="--i:0"><span class="tl__ic tl__ic--hi"><svg class="ci"><use href="#ci-bag"/></svg></span><span class="tl__t"><b>Order placed · $128.00</b><small>Order</small></span><time>2:41 PM</time></li>
-                <li style="--i:1"><span class="tl__ic"><svg class="ci"><use href="#ci-move"/></svg></span><span class="tl__t"><b>Moved to Meeting booked</b><small>Deal stage</small></span><time>10:15 AM</time></li>
-                <li style="--i:2"><span class="tl__ic"><svg class="ci"><use href="#ci-bot"/></svg></span><span class="tl__t"><b>AI agent replied</b><small>Chat</small></span><time>10:12 AM</time></li>
-                <li style="--i:3"><span class="tl__ic"><svg class="ci"><use href="#ci-msg"/></svg></span><span class="tl__t"><b>Message received · Instagram</b><small>Chat</small></span><time>10:12 AM</time></li>
-                <li style="--i:4"><span class="tl__ic"><svg class="ci"><use href="#ci-ad"/></svg></span><span class="tl__t"><b>Clicked Spring Sale ad</b><small>Marketing event</small></span><time>10:09 AM</time></li>
-                <li style="--i:5"><span class="tl__ic"><svg class="ci"><use href="#ci-globe"/></svg></span><span class="tl__t"><b>Viewed pricing page</b><small>Website activity</small></span><time>Yesterday</time></li>
-              </ul>
-            </div>
+        </div>
+        <div class="wv-s" aria-hidden="true">
+          <div class="pc-panel pc-tl">
+            <div class="tl-who"><span class="kb-av tl-av">E</span><b>Emily Carter</b><span class="tl-ch"><img src="./assets/integrations/instagram.svg" alt="">Instagram</span></div>
+            <ul class="tl"><li><span class="tl-d"><img src="./assets/integrations/meta.svg" alt=""></span><span class="tl-x">Clicked Spring Sale ad</span><em>Mon 9:02 AM</em></li><li><span class="tl-d"><img src="./assets/integrations/instagram.svg" alt=""></span><span class="tl-x">Messaged on Instagram</span><em>9:04 AM</em></li><li><span class="tl-d"></span><span class="tl-x">AI agent replied</span><em>9:04 AM</em></li><li><span class="tl-d"></span><span class="tl-x">Moved to Meeting booked</span><em>9:20 AM</em></li><li><span class="tl-d tl-d--ok"></span><span class="tl-x">Order placed · $128.00</span><em>Tue 4:15 PM</em></li></ul>
           </div>
-
         </div>
-        <div class="hs__steps" role="group" aria-label="Illustration views">
-          <button class="hs__dot is-on" type="button" data-go="0" aria-pressed="true"><i>1</i>Kanban<span class="hs__bar"></span></button>
-          <button class="hs__dot" type="button" data-go="1" aria-pressed="false"><i>2</i>List<span class="hs__bar"></span></button>
-          <button class="hs__dot" type="button" data-go="2" aria-pressed="false"><i>3</i>Activity<span class="hs__bar"></span></button>
-        </div>
+        <div class="wv-dots"><button type="button" class="on" aria-label="Show slide 1" aria-pressed="true"></button><button type="button" aria-label="Show slide 2" aria-pressed="false"></button></div>
       </div>
     </div>
   </div>
@@ -245,11 +198,11 @@
         </ul>
       </div></article>
 
-      <article class="bt bt--ge bt--l3 rv"><div class="bt__head"><h3>Customized View</h3><p>Kanban to see the pipeline, List to scan it fast. Switch anytime.</p></div><div class="bt__vis bt-e" aria-hidden="true">
-        <div class="bt-e__seg"><b class="k">Kanban</b><b class="l">List</b></div>
-        <div class="bt-e__stack">
-          <div class="bt-e__kan"><div><i></i><i></i></div><div><i></i></div><div><i></i><i></i><i></i></div></div>
-          <div class="bt-e__lst"><i></i><i></i><i></i><i></i></div>
+      <article class="bt bt--ge bt--l3 rv"><div class="bt__head"><h3>Kanban View</h3><p>See every deal by stage. Drag to move it.</p></div><div class="bt__vis bkb" aria-hidden="true">
+        <div class="bkb__cols">
+          <div class="bkb__col bkb__col--1"><p class="bkb__h">Leads<em>1</em></p><div class="bkb__c"><img src="./assets/integrations/whatsapp.svg" alt=""><b>Ben</b><span>$20</span></div></div>
+          <div class="bkb__col bkb__col--2"><p class="bkb__h">Hot<em class="bkb__n"><i>1</i><i>0</i></em></p><div class="bkb__c bkb__c--drag"><img src="./assets/integrations/instagram.svg" alt=""><b>Dan</b><span>$75</span></div></div>
+          <div class="bkb__col bkb__col--3"><p class="bkb__h">Booked<em class="bkb__n"><i>0</i><i>1</i></em></p><div class="bkb__drop"></div></div>
         </div>
       </div></article>
 
@@ -332,6 +285,6 @@
 </footer>
 
 
-<script src="js/main.js?v=crm3" defer></script>
+<script src="js/main.js?v=crm5" defer></script>
 </body>
 </html>

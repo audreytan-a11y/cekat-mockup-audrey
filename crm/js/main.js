@@ -281,60 +281,47 @@
     });
   })();
 
-  /* ---------- HERO CARD (crm2) ----------
-     3 views in one card: 0 Kanban · 1 List (same board scene, toggled) · 2 Activity.
-     Auto-rotates every 3.5s; hover pauses (remaining time kept). Step tabs and the
-     Kanban | List toggle jump to a view. Reduced motion: view 1 static, controls still work. */
+  /* ---------- HERO (crm4) — homepage "[data-sync]" pattern ----------
+     NOTE: the crm2 3-tab hero card (Kanban / List / Activity, #hero-scenes, .hs__dot step tabs,
+     .vseg toggle, 3.5s timer) and its JS were removed in crm4.
+     Now ONE shared timer drives H1 line 2 + illustration slide + dots (MS = 3000), looping forever.
+     Pauses while a mouse is over the card or headline, or keyboard focus is inside; resumes on leave.
+     Dot click jumps + restarts the timer. Paused while the hero is off-screen (IntersectionObserver).
+     Reduced motion: first pair static, dots still switch. */
   (function () {
-    var root = $('#hero-scenes'); if (!root) return;
-    var board = $('.hs-board', root), act = $('.hs-act', root);
-    var dots = $$('.hs__dot', root), segs = $$('.vseg button', root);
-    var N = 3, idx = 0, DUR = 3500, t = null, t0 = 0, left = DUR, paused = false;
-    root.style.setProperty('--hs-ms', DUR + 'ms');
-    function show(i) {
-      var prevEl = idx === 2 ? act : board, el = i === 2 ? act : board;
-      if (el !== prevEl) {
-        prevEl.classList.remove('is-on'); prevEl.classList.add('is-prev');
-        el.classList.remove('is-prev'); el.classList.add('is-on');
-      }
-      var view = i === 1 ? 'list' : 'kanban';
-      board.setAttribute('data-view', view);
-      segs.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.view === view)); });
-      el.classList.remove('is-play'); void el.offsetWidth; // restart CSS animations
-      if (!reduce) el.classList.add('is-play');
-      dots.forEach(function (d, k) {
-        d.classList.remove('is-on'); void d.offsetWidth;
-        d.classList.toggle('is-on', k === i);
-        d.setAttribute('aria-pressed', String(k === i));
-      });
-      idx = i;
+    var hero = $('#top'), vis = hero && $('.chv', hero), title = hero && $('.chero__title', hero);
+    if (!vis || !title) return;
+    var sl = $$('.wv-s', vis), dots = $$('.wv-dots button', vis),
+        rotW = $('.pc-rot__w', title), txt = rotW ? $$(':scope > span', rotW) : [],
+        i = 0, paused = false, t = null, MS = 3000;
+    if (sl.length < 2) return;
+    function set(k, instant) {
+      var prevS = sl[i], prevT = txt[i];
+      sl.forEach(function (s, j) { s.classList.toggle('is-on', j === k); });
+      txt.forEach(function (s, j) { s.classList.toggle('is-on', j === k); s.classList.remove('is-out'); });
+      dots.forEach(function (d, j) { d.classList.toggle('on', j === k); d.setAttribute('aria-pressed', j === k ? 'true' : 'false'); });
+      if (!instant && prevS && prevS !== sl[k]) { prevS.classList.add('is-leaving'); setTimeout(function () { prevS.classList.remove('is-leaving'); }, 420); }
+      if (!instant && prevT && prevT !== txt[k]) { prevT.classList.add('is-out'); setTimeout(function () { prevT.classList.remove('is-out'); }, 350); }
+      i = k;
+      if (txt[k]) title.setAttribute('aria-label', (title.getAttribute('data-pre') || '') + txt[k].textContent);
     }
-    function schedule(ms) {
-      clearTimeout(t); left = ms;
-      if (reduce || paused) return;
-      t0 = Date.now();
-      t = setTimeout(function () { show((idx + 1) % N); schedule(DUR); }, ms);
-    }
-    function pause() {
-      if (paused || reduce) return;
-      paused = true; clearTimeout(t);
-      left = Math.max(0, left - (Date.now() - t0));
-      root.classList.add('is-paused');
-    }
-    function resume() {
-      if (!paused) return;
-      paused = false; root.classList.remove('is-paused');
-      schedule(left);
-    }
-    dots.forEach(function (d, k) { d.addEventListener('click', function () { show(k); schedule(DUR); }); });
-    segs.forEach(function (b) {
-      b.addEventListener('click', function () { show(b.dataset.view === 'list' ? 1 : 0); schedule(DUR); });
-    });
+    function tick() { if (!paused && !document.hidden) set((i + 1) % sl.length); }
+    function start() { clearInterval(t); t = setInterval(tick, MS); }
+    set(0, true);
+    dots.forEach(function (d, j) { d.addEventListener('click', function () { if (j !== i) set(j); if (!reduce) start(); }); });
     if (reduce) return;
-    root.classList.add('is-auto');
-    root.addEventListener('mouseenter', pause);
-    root.addEventListener('mouseleave', resume);
-    show(0); schedule(DUR);
+    var hover = 0, kfocus = false, seen = true;
+    function upd() { var was = paused; paused = hover > 0 || kfocus || !seen; if (was && !paused) start(); }
+    [vis, title].forEach(function (el) {
+      el.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { hover++; upd(); } });
+      el.addEventListener('pointerleave', function (e) { if (e.pointerType === 'mouse') { hover = Math.max(0, hover - 1); upd(); } });
+    });
+    vis.addEventListener('focusin', function (e) { kfocus = !!(e.target.matches && e.target.matches(':focus-visible')); upd(); });
+    vis.addEventListener('focusout', function () { kfocus = false; upd(); });
+    dots.forEach(function (d) { d.addEventListener('pointerup', function () { d.blur(); kfocus = false; upd(); }); });
+    if ('IntersectionObserver' in window) new IntersectionObserver(function (es) { es.forEach(function (e) { seen = e.isIntersecting; upd(); }); }, { threshold: 0.15 }).observe(hero);
+    document.addEventListener('visibilitychange', function () { if (!document.hidden) start(); });
+    start();
   })();
 
   /* ---------- #capture loop: runs only while in view (default = every lead shown saved) ---------- */
