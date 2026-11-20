@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=v8b">
+  <link rel="stylesheet" href="css/styles.css?v=v10">
   <link rel="stylesheet" href="css/hero-v2.css?v=3">
   <script>document.documentElement.classList.add('js')</script>
 </head>
@@ -336,74 +336,97 @@
 <!-- ============ SHOWCASE ============ -->
 <section class="show" id="showcase">
   <div class="wrap">
-    <!-- Product cards: Chat, CRM, Marketing (same card pattern as the small row) -->
-    <div class="minis minis--big">
-      <article class="mini mini--big rv" id="pc-chat">
-        <div class="mini__vis pcv pcv--chat" aria-hidden="true">
-          <div class="pc-chrow"><span class="pc-ch"><img src="./assets/integrations/whatsapp.svg" alt=""></span><span class="pc-ch"><img src="./assets/integrations/instagram.svg" alt=""></span><span class="pc-ch"><img src="./assets/integrations/tiktok.svg" alt=""></span><span class="pc-ch"><img src="./assets/integrations/messenger.svg" alt=""></span><span class="pc-ch"><img src="./assets/integrations/telegram.svg" alt=""></span><span class="pc-ch"><img src="./assets/integrations/livechat.svg" alt=""></span></div>
-          <div class="pc-winwrap">
-            <span class="pc-float">💬 Talks like a human</span>
+    <!-- Product cards: Chat, CRM, Marketing (wide, one per row, one illustration at a time) -->
+    <div class="wides">
+      <article class="wide rv" id="pc-chat">
+        <div class="wide__vis" data-wv aria-hidden="true">
+          <div class="wv-s is-on pcv--chat">
+            <div class="pc-chrow"><span class="pc-ch"><img src="./assets/integrations/whatsapp.svg" alt=""></span><span class="pc-ch"><img src="./assets/integrations/instagram.svg" alt=""></span><span class="pc-ch"><img src="./assets/integrations/tiktok.svg" alt=""></span><span class="pc-ch"><img src="./assets/integrations/messenger.svg" alt=""></span><span class="pc-ch"><img src="./assets/integrations/telegram.svg" alt=""></span><span class="pc-ch"><img src="./assets/integrations/livechat.svg" alt=""></span></div>
             <div class="pc-win">
               <div class="pc-win__bar"><i></i><i></i><i></i><span>Inbox</span></div>
               <div class="pc-win__body">
                 <div class="pc-mb pc-mb--in">Do you have the black sneakers in US size 9?</div>
-                <div class="pc-mb pc-mb--ai">Yes, 3 pairs left at $89. Want me to reserve one? 🙌<span class="pc-ver">✓ Verified</span></div>
+                <div class="pc-mb pc-mb--ai">Yes, 3 pairs left at $89. Want me to reserve one?</div>
               </div>
             </div>
           </div>
-        </div>
-        <h3><img src="./assets/products/chat.svg" alt="" width="20" height="20"><span class="pc-rot" aria-label="AI that sounds human">AI that <span class="pc-rot__w" aria-hidden="true"><span class="is-on">sounds human.</span><span>never sleeps.</span><span>won't make things up.</span><span>lets you start small.</span><span>gets your voice notes.</span></span></span></h3>
-        <p>Every channel in one inbox, answered 24/7 from your own knowledge, with a human one tap away.</p>
-        <ul class="chips"><li>Talks like a human</li><li>Data guardrails</li><li>Human handoff</li></ul>
-        <a class="more" href="../chat/">Explore Cekat Chat <span>→</span></a>
-      </article>
-
-      <article class="mini mini--big rv" style="--d:.08s" id="pc-crm">
-        <div class="mini__vis pcv pcv--crm" aria-hidden="true">
-          <div class="pc-panel pc-board">
-            <p class="pc-panel__t">Board · Deals</p>
-            <div class="pc-cols">
-              <div class="pc-col"><p>Leads</p><div class="pc-k"><img src="./assets/integrations/whatsapp.svg" alt=""><b>Ben S.</b><em>$20</em></div><div class="pc-k"><img src="./assets/integrations/tiktok.svg" alt=""><b>Amy P.</b><em>$30</em></div></div>
-              <div class="pc-col"><p>Hot</p><div class="pc-k pc-k--move"><img src="./assets/integrations/instagram.svg" alt=""><b>Dan K.</b><em>$75</em></div><div class="pc-k"><img src="./assets/integrations/whatsapp.svg" alt=""><b>Hannah R.</b><em>$45</em></div></div>
-              <div class="pc-col"><p>Paid</p><div class="pc-k"><img src="./assets/integrations/whatsapp.svg" alt=""><b>Ella L.</b><em>$30</em></div><div class="pc-k"><img src="./assets/integrations/instagram.svg" alt=""><b>Finn</b><em>$60</em></div></div>
+          <div class="wv-s pcv--chat">
+            <div class="pc-win">
+              <div class="pc-win__bar"><i></i><i></i><i></i><span>Inbox</span></div>
+              <div class="pc-win__body">
+                <div class="pc-mb pc-mb--in pc-voice"><span class="pc-play">▶</span><span class="pc-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><small>0:06</small></div>
+                <div class="pc-sys">🎙 Voice note understood: “Can I pay with QR?”</div>
+                <div class="pc-mb pc-mb--ai">Sure! Here's your QR payment link for $89.00.</div>
+              </div>
             </div>
           </div>
-          <div class="pc-panel pc-act">
-            <p class="pc-panel__t">Activity</p>
-            <ul>
-              <li><span class="av">S</span><span><b>Sarah</b> moved Dan K. to Hot</span><em>2m</em></li>
-              <li><span class="av">M</span><span><b>Mike</b> replied to Amy P.</span><em>9m</em></li>
-              <li><span class="av">J</span><span><b>Jess</b> marked Ella L. as Paid</span><em>1h</em></li>
-            </ul>
-          </div>
+          <div class="wv-dots"><i class="on"></i><i></i></div>
         </div>
-        <h3><img src="./assets/products/crm.svg" alt="" width="20" height="20"><span>Every chat captured. <span class="pc-b">Every deal on track.</span></span></h3>
-        <p>Keep every lead in one place, move deals through your own stages, and see who did what.</p>
-        <ul class="chips"><li>Customized boards</li><li>Role-based access</li><li>Activity tracker</li></ul>
-        <a class="more" href="../crm/">Explore Cekat CRM <span>→</span></a>
+        <div class="wide__txt">
+          <h3><img src="./assets/products/chat.svg" alt="" width="20" height="20">Chat</h3>
+          <p class="wide__line pc-rot" aria-label="AI that sounds human">AI that <span class="pc-rot__w" aria-hidden="true"><span class="is-on">sounds human.</span><span>never sleeps.</span><span>won't make things up.</span><span>lets you start small.</span><span>gets your voice notes.</span></span></p>
+          <a class="more" href="../chat/">Explore Cekat Chat <span>→</span></a>
+        </div>
       </article>
 
-      <article class="mini mini--big rv" style="--d:.16s" id="pc-mkt">
-        <div class="mini__vis pcv pcv--mkt" aria-hidden="true">
-          <div class="pc-panel pc-jr">
-            <div class="pc-jr__n"><span><img src="./assets/integrations/meta.svg" alt=""></span>Ad</div><i></i>
-            <div class="pc-jr__n"><span><img src="./assets/integrations/whatsapp.svg" alt=""></span>Chat</div><i></i>
-            <div class="pc-jr__n"><span class="pc-jr__d">✓</span>Booked</div>
+      <article class="wide wide--rev rv" id="pc-crm">
+        <div class="wide__vis" data-wv aria-hidden="true">
+          <div class="wv-s is-on">
+            <div class="pc-panel pc-board">
+              <p class="pc-panel__t">Board · Deals</p>
+              <div class="pc-cols">
+                <div class="pc-col"><p>Leads</p><div class="pc-k"><img src="./assets/integrations/whatsapp.svg" alt=""><b>Ben S.</b><em>$20</em></div><div class="pc-k"><img src="./assets/integrations/tiktok.svg" alt=""><b>Amy P.</b><em>$30</em></div></div>
+                <div class="pc-col"><p>Hot</p><div class="pc-k pc-k--move"><img src="./assets/integrations/instagram.svg" alt=""><b>Dan K.</b><em>$75</em></div><div class="pc-k"><img src="./assets/integrations/whatsapp.svg" alt=""><b>Hannah R.</b><em>$45</em></div></div>
+                <div class="pc-col"><p>Paid</p><div class="pc-k"><img src="./assets/integrations/whatsapp.svg" alt=""><b>Ella L.</b><em>$30</em></div><div class="pc-k"><img src="./assets/integrations/instagram.svg" alt=""><b>Finn</b><em>$60</em></div></div>
+              </div>
+            </div>
           </div>
-          <div class="pc-panel pc-src">
-            <p class="pc-panel__t">Meetings booked by source</p>
-            <ul>
-              <li><span>Paid ads</span><i style="--w:100%"></i><b>186</b></li>
-              <li><span>Organic</span><i style="--w:40%"></i><b>74</b></li>
-              <li><span>Creators</span><i style="--w:28%"></i><b>52</b></li>
-              <li><span>Links</span><i style="--w:17%"></i><b>31</b></li>
-            </ul>
+          <div class="wv-s">
+            <div class="pc-panel pc-act">
+              <p class="pc-panel__t">Activity</p>
+              <ul>
+                <li><span class="av">S</span><span><b>Sarah</b> moved Dan K. to Hot</span><em>2m</em></li>
+                <li><span class="av">M</span><span><b>Mike</b> replied to Ben S.</span><em>9m</em></li>
+                <li><span class="av">J</span><span><b>Jess</b> marked Ella L. as Paid</span><em>1h</em></li>
+              </ul>
+            </div>
           </div>
+          <div class="wv-dots"><i class="on"></i><i></i></div>
         </div>
-        <h3><img src="./assets/products/marketing.svg" alt="" width="20" height="20"><span>Scale what works. <span class="pc-b">Stop redoing what doesn't.</span></span></h3>
-        <p>See exactly which ad, creator or link converts to meetings booked.</p>
-        <ul class="chips"><li>1-click sync to ad platforms</li><li>Lookalike audiences via Meta CAPI</li><li>Creator links</li></ul>
-        <a class="more" href="../marketing/">Explore Cekat Marketing <span>→</span></a>
+        <div class="wide__txt">
+          <h3><img src="./assets/products/crm.svg" alt="" width="20" height="20">CRM</h3>
+          <p class="wide__line">Every chat captured.<br><span class="pc-b">Every deal on track.</span></p>
+          <a class="more" href="../crm/">Explore Cekat CRM <span>→</span></a>
+        </div>
+      </article>
+
+      <article class="wide rv" id="pc-mkt">
+        <div class="wide__vis" data-wv aria-hidden="true">
+          <div class="wv-s is-on">
+            <div class="pc-panel pc-jr">
+              <div class="pc-jr__n"><span><img src="./assets/integrations/meta.svg" alt=""></span>Ad</div><i></i>
+              <div class="pc-jr__n"><span><img src="./assets/integrations/whatsapp.svg" alt=""></span>Chat</div><i></i>
+              <div class="pc-jr__n"><span class="pc-jr__d">✓</span>Booked</div>
+            </div>
+          </div>
+          <div class="wv-s">
+            <div class="pc-panel pc-src">
+              <p class="pc-panel__t">Meetings booked by source</p>
+              <ul>
+                <li><span>Paid ads</span><i style="--w:100%"></i><b>186</b></li>
+                <li><span>Organic</span><i style="--w:40%"></i><b>74</b></li>
+                <li><span>Creators</span><i style="--w:28%"></i><b>52</b></li>
+                <li><span>Links</span><i style="--w:17%"></i><b>31</b></li>
+              </ul>
+            </div>
+          </div>
+          <div class="wv-dots"><i class="on"></i><i></i></div>
+        </div>
+        <div class="wide__txt">
+          <h3><img src="./assets/products/marketing.svg" alt="" width="20" height="20">Marketing</h3>
+          <p class="wide__line">Scale what works.<br><span class="pc-b">Stop redoing what doesn't.</span></p>
+          <a class="more" href="../marketing/">Explore Cekat Marketing <span>→</span></a>
+        </div>
       </article>
     </div>
 
@@ -476,10 +499,10 @@
         <p class="eyebrow">Testimonials</p>
         <h2 class="h2">Customer stories.<br><span class="grad">Real results.</span></h2>
       </div>
-      <div class="st-nav"><a class="more" href="https://www.youtube.com/@cekatai" target="_blank" rel="noopener">Watch success stories <span>→</span></a><div class="st-arrows"><button class="st-arr st-arr--prev" type="button" aria-label="Previous stories"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button><button class="st-arr st-arr--next" type="button" aria-label="More stories"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button></div></div>
+      <div class="st-nav"><a class="more" href="https://www.youtube.com/@cekatai" target="_blank" rel="noopener">Watch success stories <span>→</span></a></div>
     </div>
 
-    <div class="bento bento--car" tabindex="0" aria-label="Customer stories">
+    <div class="bento bento--car bento--two">
       <article class="tc tc--hero tc--blue tc--moir rv" style="--d:0s">
         <div class="tc__top"><img class="tc__logo" src="./assets/logos-mono/moir-salon.png" width="127" height="30" alt="Moir Salon"><span class="tag">Salon · 11 branches</span></div>
         <blockquote>“Our admins are actually really happy, because they're getting help and their workload has gone down.”</blockquote>
@@ -508,26 +531,12 @@
         <span class="chip">2x revenue; 3–4x in high season</span>
         <span class="tc__ghost">2x</span>
       </article>
-      <article class="tc tc--light rv" style="--d:.24s">
-        <div class="tc__top"><span class="tc__wm">Threeland Property</span><span class="tag">Property</span></div>
-        <blockquote>“I sleep soundly while Cekat answers automatically. By the time I wake up, people are already lining up to schedule a visit.”</blockquote>
-        <div class="tc__who"><b>Adam Sulaiman</b><small>Threeland Property</small></div>
-        <span class="chip">Lead response 65% → 85–90%</span>
-        <span class="tc__ghost">90%</span>
-      </article>
       <article class="tc tc--hero tc--navy rv" style="--d:.06s">
         <div class="tc__top"><img class="tc__logo" src="./assets/logos-mono/rumah-zakat.png" alt="Rumah Zakat"><span class="tag">Non-profit</span></div>
         <blockquote>“Whenever someone contacts Rumah Zakat, even at midnight, someone still answers. The one answering is AI.”</blockquote>
         <div class="tc__person"><img src="./assets/people/tantan-supriatna.png" alt="Tantan Supriatna, Rumah Zakat" width="56" height="56"><div><b>Tantan Supriatna</b><small>Rumah Zakat</small></div></div>
         <span class="chip chip--glass">24/7 (was Mon–Fri 8–5) · Zakat Award winner</span>
         <span class="tc__ghost">24/7</span>
-      </article>
-      <article class="tc tc--deep rv" style="--d:.12s">
-        <div class="tc__top"><span class="tc__wm">Nature Craft</span><span class="tag">Retail</span></div>
-        <blockquote>“Our closing rate was still below 20%. Last week I reviewed it with the team, and it's above 40%, when the standard is 30%.”</blockquote>
-        <div class="tc__who"><b>Hariyudi</b><small>Director, Nature Craft</small></div>
-        <span class="chip">Closing rate &lt;20% → &gt;40%</span>
-        <span class="tc__ghost">40%</span>
       </article>
       <article class="tc tc--soft rv" style="--d:.18s">
         <div class="tc__top"><span class="tc__wm tc__wm--sm">Lintas <span class="wmbr"></span>Jaringan<br>Nusantara</span><span class="tag">Internet provider</span></div>
@@ -536,6 +545,21 @@
         <span class="chip">+30% revenue</span>
         <span class="tc__ghost">+30%</span>
       </article>
+      <article class="tc tc--light rv" style="--d:.24s">
+        <div class="tc__top"><span class="tc__wm">Threeland Property</span><span class="tag">Property</span></div>
+        <blockquote>“I sleep soundly while Cekat answers automatically. By the time I wake up, people are already lining up to schedule a visit.”</blockquote>
+        <div class="tc__who"><b>Adam Sulaiman</b><small>Threeland Property</small></div>
+        <span class="chip">Lead response 65% → 85–90%</span>
+        <span class="tc__ghost">90%</span>
+      </article>
+      <article class="tc tc--deep rv" style="--d:.12s">
+        <div class="tc__top"><span class="tc__wm">Nature Craft</span><span class="tag">Retail</span></div>
+        <blockquote>“Our closing rate was still below 20%. Last week I reviewed it with the team, and it's above 40%, when the standard is 30%.”</blockquote>
+        <div class="tc__who"><b>Hariyudi</b><small>Director, Nature Craft</small></div>
+        <span class="chip">Closing rate &lt;20% → &gt;40%</span>
+        <span class="tc__ghost">40%</span>
+      </article>
+    
     </div>
   </div>
 </section>
@@ -621,6 +645,6 @@
   <div class="wrap foot__bottom"><span>© 2026 PT Teknologi Cekat Indonesia. All rights reserved.</span><span>ISO/IEC 27001 · UU PDP compliant</span></div>
 </footer>
 
-<script src="js/main.js?v=v8" defer></script>
+<script src="js/main.js?v=v10" defer></script>
 </body>
 </html>

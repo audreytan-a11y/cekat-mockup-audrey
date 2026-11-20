@@ -1674,3 +1674,152 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (max-width:760px){.mini--big .mini__vis{height:auto}}
 .hero{overflow-x:clip}
 @media (max-width:760px){.bento.bento--car{margin:0 -20px;padding:6px 20px 14px;scroll-padding:0 20px}}
+
+/* ===== v9: wide product cards (Chat, CRM, Marketing) ===== */
+.wides{display:grid;gap:24px;margin-bottom:24px}
+.wide{display:grid;grid-template-columns:1.25fr 1fr;align-items:center;gap:40px;background:#fff;border:1px solid #e3eaf7;border-radius:24px;padding:20px 40px 20px 20px;box-shadow:var(--sh-1);transition:transform .3s var(--ease),box-shadow .3s}
+.wide:hover{transform:translateY(-3px);box-shadow:var(--sh-2)}
+.wide--rev{grid-template-columns:1fr 1.25fr;padding:20px 20px 20px 40px}
+.wide--rev .wide__vis{order:2}
+.wide__vis{height:230px;border-radius:16px;background:linear-gradient(160deg,#f3f7fe,#e6effd);border:1px solid #dfe8f8;padding:22px 28px;display:flex;align-items:center;justify-content:center;gap:16px;overflow:hidden}
+.wide__txt h3{display:flex;align-items:center;gap:10px;font-size:19px;letter-spacing:-.015em;margin-bottom:10px;color:var(--navy)}
+.wide__txt h3 img{width:30px;height:30px;margin:-4px -4px -4px -6px}
+.wide__line{font-size:clamp(20px,1.9vw,26px);line-height:1.25;letter-spacing:-.02em;font-weight:600;color:var(--navy);margin:0 0 18px}
+.wide__txt .more{font-size:15px}
+.pc-rot__w{display:inline-grid!important;width:auto}
+.wide .pc-rot__w>span{white-space:nowrap}
+/* chat */
+.wide .pcv--chat{flex-direction:column;gap:14px}
+.wide .pcv--chat .pc-win{width:100%;max-width:420px}
+/* crm */
+.wide .pcv--crm{display:grid;grid-template-columns:1.25fr 1fr;align-items:center;gap:14px}
+.wide .pc-board,.wide .pc-act{height:auto}
+.wide .pc-act li{grid-template-columns:20px 1fr}
+/* marketing */
+.wide .pcv--mkt{display:grid;grid-template-columns:1fr 1.1fr;align-items:center;gap:14px}
+.wide .pc-jr{padding:16px 14px}
+@media (max-width:900px){
+  .wide,.wide--rev{grid-template-columns:1fr;gap:20px;padding:16px 16px 24px}
+  .wide--rev .wide__vis{order:0}
+  .wide__txt{padding:0 6px}
+  .wide__vis{height:auto;min-height:200px;padding:18px}
+}
+@media (max-width:560px){
+  .wide .pcv--crm,.wide .pcv--mkt{grid-template-columns:1fr}
+  .wide__line{font-size:20px}
+  .wide .pc-rot__w>span{white-space:normal}
+}
+
+/* ===== v9: stories mosaic ===== */
+.bento.bento--mosaic{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-flow:row;grid-auto-rows:minmax(230px,auto);gap:28px;overflow:visible;padding:0;margin:0;
+  grid-template-areas:"moir moir euro wse" "puffy rz rz wse" "puffy nc three lintas"}
+.bento--mosaic .tc{grid-column:auto!important;grid-row:auto!important;min-height:0;padding:28px;gap:16px}
+.bento--mosaic .st-moir{grid-area:moir}.bento--mosaic .st-euro{grid-area:euro}.bento--mosaic .st-wse{grid-area:wse}.bento--mosaic .st-puffy{grid-area:puffy}
+.bento--mosaic .st-rz{grid-area:rz}.bento--mosaic .st-nc{grid-area:nc}.bento--mosaic .st-three{grid-area:three}.bento--mosaic .st-lintas{grid-area:lintas}
+.bento--mosaic .tc__ghost{display:none}
+.bento--mosaic blockquote,.bento--mosaic .tc--hero blockquote,.bento--mosaic .tc--moir blockquote{font-size:17px!important;line-height:1.45;max-width:none;margin:0}
+.bento--mosaic .st--wide blockquote{font-size:clamp(18px,1.6vw,21px)!important;line-height:1.38}
+.bento--mosaic .tc--moir{justify-content:flex-start}
+.bento--mosaic .tc--moir .tc__row{margin:0;flex-direction:row}
+.bento--mosaic .tc--moir .tc__person{margin-top:auto}
+.bento--mosaic .tc__person img{width:44px!important;height:44px!important}
+.bento--mosaic .st--wide .tc__person{margin-top:auto}
+/* small tiles: logo + stat + result pill + person (no long quote) */
+.bento--mosaic .st--sm blockquote{display:none}
+.bento--mosaic .st--sm .tc__ghost{display:block;position:static;order:1;font-size:46px;line-height:1;letter-spacing:-.04em;font-weight:700;-webkit-text-stroke:0;color:#1A56DB;opacity:1;margin-top:6px}
+.bento--mosaic .st--sm.tc--blue .tc__ghost,.bento--mosaic .st--sm.tc--navy .tc__ghost{color:#fff}
+.bento--mosaic .st--sm .chip{order:2;align-self:flex-start}
+.bento--mosaic .st--sm .tc__who{order:3;margin-top:auto}
+.bento--mosaic .tc__who,.bento--mosaic .tc__person{position:relative;z-index:1}
+@media (max-width:1024px){.bento.bento--mosaic{grid-template-columns:repeat(2,1fr);grid-template-areas:"moir moir" "euro wse" "puffy wse" "puffy three" "rz rz" "nc lintas";gap:20px}}
+@media (max-width:640px){.bento.bento--mosaic{grid-template-columns:1fr;grid-template-areas:none;grid-auto-rows:auto;gap:16px}.bento--mosaic .tc{grid-area:auto!important;padding:22px}.bento--mosaic .st--sm .tc__ghost{font-size:40px}}
+.wide__line.pc-rot{display:block}
+.bento--mosaic .st-moir{grid-area:moir!important}.bento--mosaic .st-euro{grid-area:euro!important}.bento--mosaic .st-wse{grid-area:wse!important}.bento--mosaic .st-puffy{grid-area:puffy!important}
+.bento--mosaic .st-rz{grid-area:rz!important}.bento--mosaic .st-nc{grid-area:nc!important}.bento--mosaic .st-three{grid-area:three!important}.bento--mosaic .st-lintas{grid-area:lintas!important}
+@media (max-width:640px){.bento--mosaic .tc[class*="st-"]{grid-area:auto!important}}
+.bento--mosaic .st--tall .tc__ghost{display:block;position:static;order:3;margin-top:auto;font-size:72px;line-height:1;letter-spacing:-.04em;font-weight:700;-webkit-text-stroke:0;color:#1A56DB;opacity:.9}
+.bento--mosaic .st--tall .tc__who{order:4;margin-top:0}
+@media (max-width:640px){.bento--mosaic .st--tall .tc__ghost{font-size:44px;margin-top:4px}}
+
+/* ===== v10: taller wide cards, one illustration at a time ===== */
+.wide{padding:22px 48px 22px 22px;gap:48px}
+.wide--rev{padding:22px 22px 22px 48px}
+.wide__vis{position:relative;height:360px;padding:0;display:block}
+.wv-s{position:absolute;inset:0;padding:36px 40px 44px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .5s ease,transform .6s cubic-bezier(.22,1,.36,1),visibility 0s linear .6s}
+.wv-s.is-on{opacity:1;visibility:visible;transform:none;transition:opacity .5s ease .15s,transform .6s cubic-bezier(.22,1,.36,1) .15s,visibility 0s}
+.wv-dots{position:absolute;left:0;right:0;bottom:14px;display:flex;justify-content:center;gap:6px;z-index:2}
+.wv-dots i{width:6px;height:6px;border-radius:999px;background:#bcd0f3;transition:width .3s,background .3s}
+.wv-dots i.on{width:18px;background:#1A56DB}
+/* larger content */
+.wide .pc-chrow{gap:12px}
+.wide .pc-ch{width:42px;height:42px;border-radius:12px}
+.wide .pc-ch img{width:22px;height:22px}
+.wide .pc-win{width:100%;max-width:460px}
+.wide .pc-win__bar{font-size:13px;padding:11px 14px}
+.wide .pc-win__body{padding:16px;gap:10px}
+.wide .pc-mb{font-size:14px;padding:10px 14px}
+.pc-voice{display:flex;align-items:center;gap:10px}
+.pc-play{width:26px;height:26px;border-radius:50%;background:#1A56DB;color:#fff;font-size:10px;display:grid;place-items:center}
+.pc-wave{display:flex;align-items:center;gap:3px}
+.pc-wave i{width:3px;border-radius:2px;background:#93B4F5;height:8px}
+.pc-wave i:nth-child(3n){height:16px}.pc-wave i:nth-child(4n+1){height:12px}.pc-wave i:nth-child(5n){height:20px}
+.pc-voice small{font-size:11px;color:#667085}
+.pc-sys{align-self:center;font-size:12px;color:#1A56DB;background:#eef4ff;border-radius:999px;padding:5px 12px}
+.wide .pc-panel{width:100%;max-width:480px;padding:18px 20px;border-radius:16px}
+.wide .pc-panel__t{font-size:13px;margin-bottom:12px}
+.wide .pc-cols{gap:10px}
+.wide .pc-col p{font-size:12.5px;margin-bottom:8px}
+.wide .pc-k{grid-template-columns:16px 1fr;padding:9px 10px;margin-bottom:8px;border-radius:10px}
+.wide .pc-k img{width:15px;height:15px}
+.wide .pc-k b{font-size:13px}.wide .pc-k em{font-size:12px}
+.wide .pc-act ul{gap:14px}
+.wide .pc-act li{grid-template-columns:30px 1fr auto;font-size:14px;gap:12px}
+.wide .pc-act .av{width:30px;height:30px;font-size:12px}
+.wide .pc-act li em{font-size:12px}
+.wide .pc-jr{padding:28px 30px}
+.wide .pc-jr__n{font-size:13.5px;gap:8px}
+.wide .pc-jr__n span{width:52px;height:52px}
+.wide .pc-jr__n img{width:24px;height:24px}
+.wide .pc-jr__d{font-size:20px}
+.wide .pc-jr>i{height:3px;margin-bottom:24px}
+.wide .pc-src ul{gap:14px}
+.wide .pc-src li{grid-template-columns:80px 1fr 36px;font-size:13.5px;gap:12px}
+.wide .pc-src li i{height:12px;border-radius:6px}
+.wide .pc-src li b{font-size:13.5px}
+.wide__line{font-size:clamp(22px,2.1vw,30px);line-height:1.22}
+/* rotating phrase: only the active one is ever visible */
+.pc-rot__w{display:inline-grid!important;vertical-align:bottom;overflow:hidden}
+.pc-rot__w>span{grid-area:1/1;visibility:hidden;opacity:0;transform:translateY(60%);transition:opacity .3s ease,transform .35s ease,visibility 0s linear .35s}
+.pc-rot__w>span.is-on{visibility:visible;opacity:1;transform:none;transition:opacity .35s ease .3s,transform .4s cubic-bezier(.22,1,.36,1) .3s,visibility 0s linear .3s}
+.pc-rot__w>span.is-out{visibility:visible;opacity:0;transform:translateY(-60%);transition:opacity .3s ease,transform .3s ease,visibility 0s linear .3s}
+@media (max-width:900px){.wide__vis{height:330px}.wide,.wide--rev{padding:16px 16px 26px;gap:22px}}
+@media (max-width:560px){.wide__vis{height:300px}.wv-s{padding:22px 16px 36px}.wide .pc-cols{gap:6px}.wide .pc-k{padding:7px}.wide .pc-k b{font-size:11.5px}.wide .pc-act li{font-size:12.5px;grid-template-columns:26px 1fr auto}.wide .pc-jr{padding:20px 16px}.wide .pc-jr__n span{width:42px;height:42px}.wide .pc-src li{grid-template-columns:62px 1fr 30px;font-size:12px}.wide .pc-mb{font-size:13px}.wide__line{font-size:22px}}
+@media (prefers-reduced-motion:reduce){.wv-s{transition:none}}
+
+/* ===== v10: stories = pre-v8 bento, MOIR reduced to a normal wide tile ===== */
+.bento .tc--moir{grid-column:span 2;grid-row:span 1}
+.bento .st10-wide{grid-column:span 2}
+.bento .tc--moir blockquote{font-size:clamp(19px,1.7vw,23px)!important;margin-top:0}
+.bento .tc--moir .tc__row{margin-bottom:0}
+.bento .tc--moir .tc__person{margin-top:auto}
+.bento .tc--moir .tc__ghost--q{font-size:160px;bottom:-80px;right:16px}
+.bento .tc__ghost,.bento .tc--hero .tc__ghost{font-size:76px;bottom:-14px;right:-2px}
+.bento .tc__who,.bento .tc__person{position:relative;z-index:1;max-width:56%}
+.bento .st10-wide .tc__who,.bento .tc--hero .tc__person{max-width:70%}
+@media (max-width:1024px){.bento .tc--moir,.bento .st10-wide{grid-column:span 2}}
+@media (max-width:760px){.bento .tc--moir,.bento .st10-wide,.bento .tc--hero{grid-column:auto;grid-row:auto}.bento .tc__ghost,.bento .tc--hero .tc__ghost{font-size:64px}}
+
+/* ===== v10 Option A: 8 equal story cards in two rows ===== */
+.bento.bento--two{grid-auto-flow:row;grid-template-columns:repeat(4,1fr);grid-auto-columns:auto;grid-template-rows:none;grid-auto-rows:1fr;gap:32px 20px;overflow:visible;scroll-snap-type:none;padding:0;margin:0}
+.bento--two .tc{min-height:400px}
+.bento--two .tc__ghost,.bento--two .tc--hero .tc__ghost{font-size:84px;bottom:-16px;right:-4px}
+.bento--two .tc--moir .tc__ghost--q{font-size:170px;bottom:-86px;right:8px}
+.bento--two .tc__who,.bento--two .tc__person{position:relative;z-index:1;max-width:58%}
+.bento--two .tc--moir .tc__person{max-width:100%}
+@media (max-width:1180px){.bento.bento--two{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:640px){.bento.bento--two{grid-template-columns:1fr;gap:16px}.bento--two .tc{min-height:0}.bento--two .tc__ghost,.bento--two .tc--hero .tc__ghost{font-size:68px}}
+.bento--two .tc__ghost,.bento--two .tc--hero .tc__ghost{position:static;order:3;margin-top:auto;align-self:flex-end;font-size:60px;line-height:.9;margin-bottom:-4px;pointer-events:none}
+.bento--two .tc__who,.bento--two .tc__person{order:4;margin-top:0!important;max-width:100%}
+.bento--two .tc--moir .tc__ghost--q{display:none}
+.bento--two .tc--moir .tc__person{margin-top:auto!important}
+@media (max-width:640px){.bento--two .tc__ghost,.bento--two .tc--hero .tc__ghost{font-size:52px}}
