@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=rev24">
+  <link rel="stylesheet" href="css/styles.css?v=rev25b">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -117,12 +117,12 @@
     </header>
 
     <!-- Bento: 4 cols × 4 rows (desktop), auto-flow in DOM order:
-         01 01 02 03 / 01 01 04 05 / 06 07 04 08 / 09 09 10 11
-         01 = 2×2 · 04 = 1×2 · 09 = 2×1 · rest 1×1. Deep tiles: 02, 07, 10 — never edge to edge. -->
+         rev25b desktop areas: 01 01 02 03 / 04 04 05 06 / 07 08 11 11 / 09 09 10 10
+         01 04 09 10 11 = 2×1 (text left, art right) · rest 1×1. Deep tiles: 02, 07, 10 — never edge to edge. -->
     <div class="usp-grid">
 
       <!-- 01 Humanized replies — BIG 2×2 -->
-      <article class="usp-card usp-card--big usp-card--l1 rv" tabindex="0" data-player data-loop="6000">
+      <article data-art="human" class="usp-card usp-card--wide usp-card--l1 rv" tabindex="0" data-player data-loop="6000">
         <div class="usp-card__head">
           <span class="usp-card__num">01</span>
           <h3 class="usp-card__title">Replies that sound human</h3>
@@ -178,7 +178,7 @@
       </article>
 
       <!-- 04 QR payment in chat — TALL 1×2 -->
-      <article class="usp-card usp-card--tall usp-card--l2 rv" style="--d:.12s" tabindex="0" data-player data-loop="5600">
+      <article data-art="pay" class="usp-card usp-card--wide usp-card--l2 rv" style="--d:.12s" tabindex="0" data-player data-loop="5600">
         <div class="usp-card__head">
           <span class="usp-card__num">04</span>
           <h3 class="usp-card__title">Payment link, right in the chat</h3>
@@ -317,7 +317,7 @@
       </article>
 
       <!-- 10 Team collaboration — 1×1 (accent navy): AI reply → summary + assign → private note -->
-      <article data-art="team" class="usp-card usp-card--d2 rv" style="--d:.12s" tabindex="0" data-player data-loop="6000">
+      <article data-art="team" class="usp-card usp-card--wide usp-card--d2 rv" style="--d:.12s" tabindex="0" data-player data-loop="6000">
         <div class="usp-card__head">
           <span class="usp-card__num">10</span>
           <h3 class="usp-card__title">Built for teamwork</h3>
@@ -342,7 +342,7 @@
       </article>
 
       <!-- 11 Guardrails — 1×1 -->
-      <article data-art="guard" class="usp-card usp-card--l0 rv" style="--d:.18s" tabindex="0" data-player data-loop="5000">
+      <article data-art="guard" class="usp-card usp-card--wide usp-card--l0 rv" style="--d:.18s" tabindex="0" data-player data-loop="5000">
         <div class="usp-card__head">
           <span class="usp-card__num">11</span>
           <h3 class="usp-card__title">Guardrails, not guesses</h3>
@@ -350,11 +350,14 @@
         </div>
         <div class="usp-card__art" aria-hidden="true">
           <div class="scene is-on">
-            <div class="mini-chat mini-chat--sm mini-chat--guard">
-              <span class="guard-tag a" style="--d:0s">🛡 Guardrails on · No hallucination</span>
-              <div class="bubble bubble--in a" style="--d:.2s">Can I get a refund?</div>
-              <span class="chip chip--check a" style="--d:.9s"><span class="spin-check"></span>Checked · Refund policy</span>
-              <span class="chip chip--handoff a" style="--d:1.7s">Not sure → handing to Megan</span>
+            <div class="mini-chat mini-chat--sm mini-chat--guard2">
+              <div class="bubble bubble--in a" style="--d:.1s">Can I get a refund?</div>
+              <span class="chip chip--check a" style="--d:.8s"><span class="spin-check"></span>Checked · Refund policy</span>
+              <div class="slot">
+                <div class="typing typing--ai a-typing" style="--d:1.2s"><i></i><i></i><i></i></div>
+                <div class="bubble bubble--ai a" style="--d:2.1s">I’ll check that with our team. Handing you to Megan now 🙏</div>
+              </div>
+              <span class="sysline a" style="--d:2.9s">Handed to Megan</span>
             </div>
           </div>
         </div>
@@ -639,6 +642,6 @@
   <div class="wrap foot__bottom"><span>© 2026 PT Teknologi Cekat Indonesia. All rights reserved.</span><span>ISO/IEC 27001 · UU PDP compliant</span></div>
 </footer>
 
-<script src="js/main.js?v=rev24" defer></script>
+<script src="js/main.js?v=rev25b" defer></script>
 </body>
 </html>

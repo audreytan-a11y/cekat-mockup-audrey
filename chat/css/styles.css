@@ -951,3 +951,47 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 @media (max-width:760px){.usp-card.usp-card--tall{height:420px}}
 @media (min-width:1025px){.usp-card--big .mini-chat--lg .bubble--in{max-width:94%}}
+
+/* rev25 — card 11 guardrails as a two-way chat */
+.mini-chat--guard2{width:100%;max-width:250px}
+.mini-chat--guard2 .bubble--in{align-self:flex-start}
+.mini-chat--guard2 .chip--check{align-self:center;font-size:11px;padding:4px 10px}
+.mini-chat--guard2 .slot .bubble--ai{max-width:92%}
+.sysline{align-self:flex-end;margin-top:-2px;font-size:10.5px;font-weight:500;color:var(--sub);line-height:1.2}
+
+/* ==========================================================================
+   rev25b — bento re-flow: no 2×2 / 1×2 tiles; 01 & 04 become short wide cards
+   desktop: 01 01 02 03 / 04 04 05 06 / 07 08 11 11 / 09 09 10 10
+   ========================================================================== */
+.usp-card[data-art="human"] .mini-chat>.bubble--in:last-child{display:none}
+.usp-card[data-art="pay"] .chat-time,.usp-card[data-art="pay"] .mini-chat--pay>.bubble--ai{display:none}
+.usp-card[data-art="pay"] .mini-chat--pay{gap:10px}
+.usp-card[data-art="pay"] .chip--paid{align-self:flex-end}
+.usp-card[data-art="human"] .mini-chat--lg{max-width:300px;gap:10px}
+.usp-card[data-art="human"] .mini-chat--lg .bubble{font-size:14px;padding:10px 14px;border-radius:16px;max-width:92%}
+@media (min-width:1025px){
+  .usp-grid{grid-template-areas:"c1 c1 c2 c3" "c4 c4 c5 c6" "c7 c8 c11 c11" "c9 c9 c10 c10";grid-template-rows:280px 280px 262px 340px}
+  .usp-grid>.usp-card:nth-of-type(1){grid-area:c1}.usp-grid>.usp-card:nth-of-type(2){grid-area:c2}.usp-grid>.usp-card:nth-of-type(3){grid-area:c3}
+  .usp-grid>.usp-card:nth-of-type(4){grid-area:c4}.usp-grid>.usp-card:nth-of-type(5){grid-area:c5}.usp-grid>.usp-card:nth-of-type(6){grid-area:c6}
+  .usp-grid>.usp-card:nth-of-type(7){grid-area:c7}.usp-grid>.usp-card:nth-of-type(8){grid-area:c8}.usp-grid>.usp-card:nth-of-type(9){grid-area:c9}
+  .usp-grid>.usp-card:nth-of-type(10){grid-area:c10}.usp-grid>.usp-card:nth-of-type(11){grid-area:c11}
+  .usp-card--wide .usp-card__head{padding:24px 8px 24px 24px}
+  .usp-card[data-art="human"] .usp-card__title{font-size:22px;letter-spacing:-.022em}
+  .usp-card[data-art="human"] .usp-card__desc{font-size:14.5px}
+  .usp-card--wide .scene{padding:18px 22px 22px 6px}
+}
+@media (min-width:1025px) and (max-width:1279px){
+  .usp-grid{grid-template-rows:290px 292px 270px 362px}
+}
+@media (min-width:761px) and (max-width:1024px){
+  .usp-grid{grid-template-rows:280px 264px 264px 280px 264px 340px 300px 264px}
+}
+@media (max-width:760px){
+  .usp-card[data-art="human"] .usp-card__art{--art-h:230px}
+  .usp-card[data-art="pay"] .usp-card__art{--art-h:210px}
+}
+@media (min-width:1025px){
+  .usp-card--wide[data-art="team"] .team{max-width:290px;gap:9px}
+  .usp-card--wide[data-art="team"] .team .bubble{font-size:12.5px}
+  .usp-card--wide[data-art="team"] .team__txt{font-size:12px}
+}
