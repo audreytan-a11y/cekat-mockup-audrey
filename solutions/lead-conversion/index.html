@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Lead conversion — From ad click to closed deal | Cekat.AI</title>
+  <meta name="description" content="Turn Meta ad clicks into closed deals: AI welcomes every lead, your CRM qualifies them, and Meta learns who converts — all in one flow.">
+  <link rel="icon" href="./assets/logo-mark.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=lc1">
+  <link rel="stylesheet" href="css/flow.css?v=lc1">
+  <script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- NAV (same as chat-v1, plus Solutions; paths are relative to /solutions/lead-conversion/ → site root is ../../) -->
+<header class="nav" id="nav">
+  <div class="wrap nav__row">
+    <a class="nav__logo" href="../../" aria-label="Cekat.AI home"><img src="./assets/logo-full.svg" alt="Cekat.AI" width="120" height="28"></a>
+
+    <nav class="nav__menu" id="nav-menu" aria-label="Primary">
+      <ul class="nav__list">
+        <li class="dd">
+          <button class="dd__trigger" type="button" aria-expanded="false" aria-controls="dd-products">Products<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button>
+          <div class="dd__panel prod-menu" id="dd-products">
+            <ul class="prod-menu__list">
+              <li><a class="prod-menu__item" href="../../chat/">
+                <span class="prod-menu__ic"><img src="./assets/products/chat.svg" alt="" width="22" height="22"></span>
+                <span><b>Chat</b><small>One inbox for every channel, answered by AI 24/7.</small></span></a></li>
+              <li><a class="prod-menu__item" href="../../crm/">
+                <span class="prod-menu__ic"><img src="./assets/products/crm.svg" alt="" width="22" height="22"></span>
+                <span><b>CRM</b><small>A CRM that fills itself and fits how you work.</small></span></a></li>
+              <li><a class="prod-menu__item" href="../../marketing/">
+                <span class="prod-menu__ic"><img src="./assets/products/marketing.svg" alt="" width="22" height="22"></span>
+                <span><b>Marketing</b><small>Know which ad, creator or link brings revenue.</small></span></a></li>
+              <li><a class="prod-menu__item" href="../../#broadcasts">
+                <span class="prod-menu__ic"><img src="./assets/products/broadcasts.svg" alt="" width="22" height="22"></span>
+                <span><b>Broadcasts</b><small>Send template campaigns and see who read them.</small></span></a></li>
+              <li><a class="prod-menu__item" href="../../#automation">
+                <span class="prod-menu__ic"><img src="./assets/products/automation.svg" alt="" width="22" height="22"></span>
+                <span><b>Automation</b><small>Follow-ups and workflows that run themselves.</small></span></a></li>
+              <li><a class="prod-menu__item" href="../../#analytics">
+                <span class="prod-menu__ic"><img src="./assets/products/analytics.svg" alt="" width="22" height="22"></span>
+                <span><b>Analytics</b><small>See what moves customers, end to end.</small></span></a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="dd">
+          <button class="dd__trigger" type="button" aria-expanded="false" aria-controls="mm-solutions">Solutions<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button>
+          <div class="dd__panel simple simple--2" id="mm-solutions">
+            <div class="simple__col"><p class="simple__h">By industry</p>
+              <a href="https://cekat.ai/en">Healthcare &amp; clinics</a><a href="https://cekat.ai/en">Retail &amp; e-commerce</a><a href="https://cekat.ai/en">Food &amp; beverage</a><a href="https://cekat.ai/en">Education</a><a href="https://cekat.ai/en">Property</a><a href="https://cekat.ai/en">Banking &amp; insurance</a></div>
+            <div class="simple__col"><p class="simple__h">By flow</p>
+              <a class="is-current" href="./" aria-current="page">Lead conversion</a><a href="#">Customer support</a><a href="#">Marketing campaigns</a><a href="#">Internal team (HR)</a><a href="#">OTP verification</a></div>
+          </div>
+        </li>
+        <li><a class="nav__link" href="https://cekat.ai/en/pricing">Pricing</a></li>
+      </ul>
+      <div class="nav__mobile-cta">
+        <a class="btn btn--outline" href="https://chat.cekat.ai/login">Log in</a>
+        <a class="btn btn--primary" href="https://chat.cekat.ai/register">Start Free Trial</a>
+      </div>
+    </nav>
+
+    <div class="nav__actions">
+      <a class="nav__link" href="https://chat.cekat.ai/login">Log in</a>
+      <a class="btn btn--primary btn--sm" href="https://chat.cekat.ai/register">Start Free Trial</a>
+    </div>
+    <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- =====================================================================
+     HERO — rotating illustration, 4 stages, 3.0s each (see js/flow.js)
+     ===================================================================== -->
+<section class="hero" id="top">
+  <div class="hero__bg" aria-hidden="true"><i class="glow glow--1"></i><i class="glow glow--2"></i></div>
+  <div class="wrap hero__grid">
+    <div class="hero__copy">
+      <p class="hero__eyebrow rv"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 5h18l-7 8v5l-4 2v-7z"/></svg>Lead conversion</p>
+      <h1 class="hero__title rv" style="--d:.06s">From ad click to closed deal.<br class="br-lg"> <span class="grad">All in one flow.</span></h1>
+      <p class="hero__sub rv" style="--d:.12s">Turn every Meta ad click into a conversation, a qualified lead and a sale.</p>
+      <div class="hero__cta rv" style="--d:.18s">
+        <a class="btn btn--primary btn--lg btn--glow" href="https://chat.cekat.ai/register">Start Free Trial</a>
+        <a class="btn btn--outline btn--lg" href="#how">See how it works <span aria-hidden="true">↓</span></a>
+      </div>
+    </div>
+
+    <div class="hero__vis rv" style="--d:.1s" data-hsync>
+      <!-- 1 Attract -->
+      <div class="hv-s is-on" aria-hidden="true">
+        <span class="hv-pill">1 · Attract</span>
+        <div class="lc-ad a" style="--d:0s">
+          <div class="lc-ad__head"><span class="lc-ad__av">B</span><span><b>Brightside Shop</b><small>Sponsored · <img src="./assets/integrations/meta.svg" alt="" width="12" height="12"></small></span></div>
+          <div class="lc-ad__img"><i class="lc-ad__sun"></i><i class="lc-ad__bag"></i></div>
+          <div class="lc-ad__foot"><span><b>New spring collection</b><small>Shop now</small></span><span class="lc-ad__btn a-press" style="--d:.8s">Send message</span></div>
+          <svg class="lc-cursor a-tap" style="--d:.3s" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3l14 7-6 2-2 6z"/></svg>
+        </div>
+      </div>
+      <!-- 2 Engage -->
+      <div class="hv-s" aria-hidden="true">
+        <span class="hv-pill">2 · Engage</span>
+        <div class="pc-win">
+          <div class="pc-win__bar"><i></i><i></i><i></i><span>Inbox</span><img class="pc-win__ch" src="./assets/integrations/whatsapp.svg" alt=""></div>
+          <div class="pc-win__body">
+            <div class="pc-mb pc-mb--in a" style="--d:0s">Hi! I saw your ad. Can you tell me more?</div>
+            <div class="lc-slot">
+              <div class="typing typing--ai a-typing" style="--d:.3s;--td:.6s"><i></i><i></i><i></i></div>
+              <div class="pc-mb pc-mb--ai a" style="--d:.9s">Hi Emily! 👋 Thanks for reaching out. What are you looking for?</div>
+            </div>
+            <span class="pc-sys a" style="--d:1.5s"><span class="lc-av">JM</span>AI agent assigned this chat to Jake Miller</span>
+          </div>
+        </div>
+      </div>
+      <!-- 3 Qualify -->
+      <div class="hv-s" aria-hidden="true">
+        <span class="hv-pill">3 · Qualify</span>
+        <div class="pc-win">
+          <div class="pc-win__bar"><i></i><i></i><i></i><span>CRM · Leads</span></div>
+          <div class="pc-win__body lc-boardwrap">
+            <div class="lc-board lc-board--s">
+              <div class="lc-col"><p><i class="lc-dot lc-dot--n"></i>New leads</p><span class="lc-ghost"></span><span class="lc-ghost lc-ghost--s"></span></div>
+              <div class="lc-col"><p><i class="lc-dot lc-dot--i"></i>Interested</p><span class="lc-ghost"></span></div>
+              <div class="lc-col"><p><i class="lc-dot lc-dot--h"></i>Hot leads</p></div>
+              <div class="lc-lead a-move" style="--d:0s"><b>Emily Carter</b><small class="lc-tags"><em class="t1">New</em><em class="t2">Interested</em><em class="t3">Hot</em></small></div>
+            </div>
+            <span class="lc-meta a" style="--d:1.6s"><img src="./assets/integrations/meta.svg" alt="" width="16" height="16">Sent to Meta via CAPI<i>✓</i></span>
+          </div>
+        </div>
+      </div>
+      <!-- 4 Convert -->
+      <div class="hv-s" aria-hidden="true">
+        <span class="hv-pill">4 · Convert</span>
+        <div class="pc-win">
+          <div class="pc-win__bar"><i></i><i></i><i></i><span>Ads performance</span></div>
+          <div class="pc-win__body">
+            <div class="lc-camp a" style="--d:0s"><span class="lc-camp__n"><img src="./assets/integrations/meta.svg" alt="" width="16" height="16">Spring collection · Meta</span><span class="lc-bars"><i style="height:40%"></i><i style="height:62%"></i><i style="height:48%"></i><i style="height:80%"></i><i style="height:70%"></i></span></div>
+            <div class="lc-journey">
+              <div class="lc-j a" style="--d:.3s"><i class="lc-j__d"></i><b>Ad click</b><small>9:41 AM</small></div>
+              <div class="lc-j a" style="--d:.75s"><i class="lc-j__d"></i><b>Chat started</b><small>9:42 AM</small></div>
+              <div class="lc-j lc-j--paid a" style="--d:1.2s"><i class="lc-j__d">✓</i><b>Paid $129.00</b><small>Emily Carter</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="hv-dots"><button type="button" class="on" aria-label="Show stage 1: Attract"></button><button type="button" aria-label="Show stage 2: Engage"></button><button type="button" aria-label="Show stage 3: Qualify"></button><button type="button" aria-label="Show stage 4: Convert"></button></div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     HOW IT WORKS — 4-step stepper
+     ===================================================================== -->
+<section class="section" id="how">
+  <div class="wrap">
+    <header class="section__head rv">
+      <p class="section__eyebrow">How it works</p>
+      <h2 class="section__title">Four stages. One flow.</h2>
+      <p class="section__lead">From the first ad click to the closed deal.</p>
+    </header>
+
+    <ol class="steps" data-steps>
+      <li class="step">
+        <span class="step__num">1</span>
+        <div class="step__card">
+          <div class="step__art" aria-hidden="true">
+            <div class="m-ad"><div class="m-ad__img"><i></i></div><div class="m-ad__row"><span></span><b>Send message</b></div></div>
+          </div>
+          <h3>Attract</h3>
+          <p>A customer clicks your ad from Meta.</p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step__num">2</span>
+        <div class="step__card">
+          <div class="step__art" aria-hidden="true">
+            <div class="m-chat"><span class="m-b m-b--in">Hi! I saw your ad.</span><span class="m-b m-b--ai">Welcome, Emily! 👋</span><span class="m-sys">Assigned to Jake Miller</span></div>
+          </div>
+          <h3>Engage</h3>
+          <p>A welcome message, auto-replied by AI. Your team sees it in one omnichannel inbox.</p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step__num">3</span>
+        <div class="step__card">
+          <div class="step__art" aria-hidden="true">
+            <div class="m-labels"><span class="m-l m-l--n">New leads</span><span class="m-l m-l--i">Interested</span><span class="m-l m-l--h">Hot leads</span><span class="m-capi"><img src="./assets/integrations/meta.svg" alt="" width="14" height="14">Sent to Meta</span></div>
+          </div>
+          <h3>Qualify</h3>
+          <p>Leads are captured in CRM by label. Qualified leads go to Meta via CAPI.</p>
+        </div>
+      </li>
+      <li class="step">
+        <span class="step__num">4</span>
+        <div class="step__card">
+          <div class="step__art" aria-hidden="true">
+            <div class="m-path"><span><i></i>Click</span><span><i></i>Chat</span><span class="is-end"><i>✓</i>Paid</span></div>
+          </div>
+          <h3>Convert</h3>
+          <p>See full ads performance and track the journey from click to conversion.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- =====================================================================
+     STAGE BLOCKS — alternating, each with its own looping illustration
+     ===================================================================== -->
+<section class="section section--soft" id="stages">
+  <div class="wrap">
+
+    <!-- 1 · Attract -->
+    <article class="feature-block">
+      <div class="feature-block__copy rv">
+        <p class="feature-block__eyebrow">1 · Attract</p>
+        <h2 class="feature-block__title">Your Meta ad gets the click.<br> <span class="grad">The chat starts there.</span></h2>
+        <p class="feature-block__text">When a customer clicks your ad from Meta, they reach you in a conversation.</p>
+      </div>
+      <div class="feature-block__visual rv" style="--d:.1s" aria-hidden="true">
+        <div class="stage pl" data-pl data-loop="5200">
+          <div class="pl__in">
+            <div class="lc-ad lc-ad--lg">
+              <div class="lc-ad__head"><span class="lc-ad__av">B</span><span><b>Brightside Shop</b><small>Sponsored · <img src="./assets/integrations/meta.svg" alt="" width="12" height="12"></small></span></div>
+              <div class="lc-ad__img"><i class="lc-ad__sun"></i><i class="lc-ad__bag"></i></div>
+              <div class="lc-ad__foot"><span><b>New spring collection</b><small>Shop now</small></span><span class="lc-ad__btn a-press" style="--d:1.2s">Send message</span></div>
+              <svg class="lc-cursor a-tap" style="--d:.6s" viewBox="0 0 24 24"><path d="M5 3l14 7-6 2-2 6z"/></svg>
+            </div>
+            <span class="lc-note a" style="--d:2s"><img src="./assets/integrations/whatsapp.svg" alt="" width="16" height="16">New conversation from your ad</span>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 2 · Engage -->
+    <article class="feature-block feature-block--reverse">
+      <div class="feature-block__copy rv">
+        <p class="feature-block__eyebrow">2 · Engage</p>
+        <h2 class="feature-block__title">Welcomed by AI.<br> <span class="grad">Followed by your team.</span></h2>
+        <p class="feature-block__text">Leads get a welcome message and an auto-reply from AI. Your team follows every chat in one omnichannel inbox, and the AI agent can assign a conversation to a teammate.</p>
+      </div>
+      <div class="feature-block__visual rv" style="--d:.1s" aria-hidden="true">
+        <div class="stage pl" data-pl data-loop="7000">
+          <div class="pl__in lc-two">
+            <div class="lc-panel">
+              <p class="lc-panel__h">Lead’s view</p>
+              <div class="lc-panel__b">
+                <div class="bubble bubble--in a" style="--d:.2s">Hi! I saw your ad. Can you tell me more?</div>
+                <div class="lc-slot">
+                  <div class="typing typing--ai a-typing" style="--d:.8s;--td:.8s"><i></i><i></i><i></i></div>
+                  <div class="bubble bubble--ai a" style="--d:1.6s">Hi Emily! 👋 Thanks for reaching out. What are you looking for?</div>
+                </div>
+              </div>
+            </div>
+            <div class="lc-panel">
+              <p class="lc-panel__h">Your inbox <small>Omnichannel</small></p>
+              <div class="lc-inbox">
+                <div class="lc-row lc-row--on a" style="--d:2.4s"><img src="./assets/integrations/whatsapp.svg" alt=""><span><b>Emily Carter</b><small>Hi! I saw your ad. Can you tell me more?</small></span><i class="lc-row__t">Now</i></div>
+                <div class="lc-row a" style="--d:2.6s"><img src="./assets/integrations/instagram.svg" alt=""><span><b>Mia Torres</b><small>Is this still available?</small></span><i class="lc-row__t">2m</i></div>
+                <div class="lc-row a" style="--d:2.8s"><img src="./assets/integrations/messenger.svg" alt=""><span><b>Chris Walker</b><small>Thanks, that works!</small></span><i class="lc-row__t">8m</i></div>
+              </div>
+              <span class="lc-assign a" style="--d:3.6s"><img src="./assets/logo-mark.svg" alt="" width="16" height="16"><span>AI agent assigned this conversation to <b>Jake Miller</b></span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 3 · Qualify -->
+    <article class="feature-block">
+      <div class="feature-block__copy rv">
+        <p class="feature-block__eyebrow">3 · Qualify</p>
+        <h2 class="feature-block__title">Leads sort themselves.<br> <span class="grad">Meta learns who converts.</span></h2>
+        <p class="feature-block__text">Leads are auto-captured in CRM from your labels: New leads, Interested, Hot leads. Qualified leads are sent to Meta via CAPI to find lookalike audiences.</p>
+      </div>
+      <div class="feature-block__visual rv" style="--d:.1s" aria-hidden="true">
+        <div class="stage pl" data-pl data-loop="7000">
+          <div class="pl__in lc-two">
+            <div class="lc-panel lc-panel--board">
+              <p class="lc-panel__h">CRM · Leads</p>
+              <div class="lc-board">
+                <div class="lc-col"><p><i class="lc-dot lc-dot--n"></i>New leads</p><span class="lc-ghost"></span><span class="lc-ghost lc-ghost--s"></span></div>
+                <div class="lc-col"><p><i class="lc-dot lc-dot--i"></i>Interested</p><span class="lc-ghost"></span></div>
+                <div class="lc-col"><p><i class="lc-dot lc-dot--h"></i>Hot leads</p></div>
+                <div class="lc-lead lc-lead--slow a-move" style="--d:.3s"><b>Emily Carter</b><small class="lc-tags"><em class="t1">New</em><em class="t2">Interested</em><em class="t3">Hot</em></small></div>
+              </div>
+            </div>
+            <div class="lc-sendrow">
+              <span class="lc-meta a" style="--d:3.5s"><img src="./assets/integrations/meta.svg" alt="" width="16" height="16">Sent to Meta via CAPI<i>✓</i></span>
+              <span class="lc-meta lc-meta--soft a" style="--d:4.3s">Finds lookalike audiences</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+    <!-- 4 · Convert -->
+    <article class="feature-block feature-block--reverse">
+      <div class="feature-block__copy rv">
+        <p class="feature-block__eyebrow">4 · Convert</p>
+        <h2 class="feature-block__title">Every click, conversation<br> <span class="grad">and conversion, tracked.</span></h2>
+        <p class="feature-block__text">See full ads performance and follow the whole journey, from the first click to the sale.</p>
+      </div>
+      <div class="feature-block__visual rv" style="--d:.1s" aria-hidden="true">
+        <div class="stage pl" data-pl data-loop="6500">
+          <div class="pl__in lc-two">
+            <div class="lc-panel">
+              <p class="lc-panel__h">Ads performance</p>
+              <div class="lc-chart a" style="--d:.2s">
+                <div class="lc-legend"><span><i class="k1"></i>Clicks</span><span><i class="k2"></i>Conversions</span></div>
+                <div class="lc-cols">
+                  <span><i class="b1" style="height:58%"></i><i class="b2" style="height:20%"></i></span>
+                  <span><i class="b1" style="height:72%"></i><i class="b2" style="height:30%"></i></span>
+                  <span><i class="b1" style="height:50%"></i><i class="b2" style="height:24%"></i></span>
+                  <span><i class="b1" style="height:86%"></i><i class="b2" style="height:42%"></i></span>
+                  <span><i class="b1" style="height:78%"></i><i class="b2" style="height:38%"></i></span>
+                </div>
+              </div>
+            </div>
+            <div class="lc-panel">
+              <p class="lc-panel__h">Journey · Emily Carter</p>
+              <div class="lc-journey lc-journey--lg">
+                <div class="lc-j a" style="--d:1s"><i class="lc-j__d"></i><b>Ad click</b><small>9:41 AM</small></div>
+                <div class="lc-j a" style="--d:1.8s"><i class="lc-j__d"></i><b>Chat started</b><small>9:42 AM</small></div>
+                <div class="lc-j lc-j--paid a" style="--d:2.6s"><i class="lc-j__d">✓</i><b>Paid $129.00</b><small>Order confirmed</small></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<!-- =====================================================================
+     RESULTS
+     ===================================================================== -->
+<section class="section section--navy results" id="results">
+  <div class="results__glow" aria-hidden="true"></div>
+  <div class="wrap">
+    <header class="section__head rv">
+      <p class="section__eyebrow section__eyebrow--dark">Results</p>
+      <h2 class="section__title section__title--light">Faster replies. More closings.</h2>
+    </header>
+    <ul class="results__grid results__grid--4">
+      <li class="stat stat--big rv"><b>900×</b><span class="stat__label">Faster response time, from 30 mins to 2 secs per chat</span></li>
+      <li class="stat stat--big rv" style="--d:.06s"><b>+80%</b><span class="stat__label">Increase in qualified leads</span></li>
+      <li class="stat stat--big rv" style="--d:.12s"><b>100%</b><span class="stat__label">Leads handled without increasing headcount</span></li>
+      <li class="stat stat--big rv" style="--d:.18s"><b>3–4×</b><span class="stat__label">Higher closing rate</span></li>
+    </ul>
+    <p class="results__note">*Results may vary based on implementation, business conditions, and usage.</p>
+  </div>
+</section>
+
+<!-- FINAL CTA -->
+<section class="cta">
+  <div class="cta__glow" aria-hidden="true"></div>
+  <div class="wrap cta__inner rv">
+    <h2 class="cta__title">Turn your next ad click into a closed deal.</h2>
+    <div class="cta__btns">
+      <a class="btn btn--primary btn--lg btn--glow" href="https://chat.cekat.ai/register">Start Free Trial</a>
+      <a class="btn btn--glass btn--lg" href="https://chat.cekat.ai/login">Log in</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<!-- FOOTER (from chat-v1) -->
+<footer class="foot">
+  <div class="wrap foot__grid">
+    <div class="foot__brand">
+      <img src="./assets/logo-full.svg" alt="Cekat.AI" width="120" height="28">
+      <p>AI agents, CRM and marketing in one platform — built for businesses that run on conversations.</p>
+      <span class="foot__meta"><img src="./assets/integrations/meta.svg" alt="" width="14" height="14">Official Meta Business Partner</span>
+    </div>
+    <div><p class="foot__h">Product</p><a href="../../chat/">Chat</a><a href="../../crm/">CRM</a><a href="../../marketing/">Marketing</a><a href="../../#broadcasts">Broadcasts</a><a href="../../#automation">Automation</a><a href="../../#analytics">Analytics</a></div>
+    <div><p class="foot__h">Company</p><a href="https://cekat.ai/en/pricing">Pricing</a><a href="https://www.youtube.com/@cekatai">YouTube</a><a href="https://cekat.ai/en/contact-us">Contact</a><a href="https://chat.cekat.ai/login">Log in</a></div>
+    <div><p class="foot__h">Offices</p><p class="foot__addr"><b>Indonesia</b> Prosperity Tower, SCBD Jakarta</p><p class="foot__addr"><b>Singapore</b></p><p class="foot__addr"><b>Malaysia</b></p></div>
+  </div>
+  <div class="wrap foot__bottom"><span>© 2026 PT Teknologi Cekat Indonesia. All rights reserved.</span><span>ISO/IEC 27001 · UU PDP compliant</span></div>
+</footer>
+
+<script src="js/flow.js?v=lc1" defer></script>
+</body>
+</html>
