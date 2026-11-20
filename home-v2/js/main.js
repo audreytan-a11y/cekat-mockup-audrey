@@ -370,7 +370,7 @@
       if(line&&txt[k]) line.setAttribute('aria-label',(line.getAttribute('data-pre')||'')+txt[k].textContent);
     }
     function tick(){if(!paused&&!document.hidden) set((i+1)%sl.length);}
-    function start(){clearInterval(t);t=setInterval(tick,MS);}
+    function start(){clearTimeout(t);t=setTimeout(function(){tick();start();},+(sl[i].getAttribute('data-ms')||MS));}
     set(0,true);
     dots.forEach(function(d,j){d.addEventListener('click',function(){if(j!==i) set(j);if(!reduce) start();});});
     if(reduce) return;
@@ -408,4 +408,41 @@
   if(!('IntersectionObserver' in window)){m.classList.add('go');return;}
   var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){m.classList.add('in','go');io.disconnect();}});},{threshold:.25});
   io.observe(m);
+})();
+
+/* v13g: Top paid ads phone, real videos: ad 1 poster → play → ad 2 poster → play → loop */
+(function(){
+  var reduce=window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  document.querySelectorAll('.pc-ads').forEach(function(box){
+    var vids=[].slice.call(box.querySelectorAll('.ta-v video')); if(!vids.length) return;
+    box.setAttribute('data-ad','0');
+    if(reduce) return;                       /* poster + row 1, static */
+    var slide=box.closest('.wv-s'), seen=false, active=false, ad=0, tm=[], cur=null;
+    vids.forEach(function(v){v.muted=true;v.preload='auto';try{v.load();}catch(e){}});
+    function clr(){tm.forEach(clearTimeout);tm=[];if(cur){cur.onended=null;}}
+    function stopAll(){clr();box.classList.remove('is-playing');vids.forEach(function(v){try{v.pause();v.currentTime=0;}catch(e){}});}
+    function show(k){
+      clr(); ad=k; box.classList.remove('is-playing'); box.setAttribute('data-ad',String(k));
+      vids.forEach(function(v,j){if(j!==k){try{v.pause();v.currentTime=0;}catch(e){}}});
+      var v=vids[k]; cur=v; try{v.currentTime=0;}catch(e){}
+      tm.push(setTimeout(function(){
+        if(!active) return;
+        box.classList.add('is-playing');
+        var p=v.play(); if(p&&p.catch) p.catch(function(){});
+        var done=false; function next(){if(done||!active) return; done=true; clr();
+          if(k+1<vids.length) show(k+1); else tm.push(setTimeout(function(){if(active) show(0);},1000));}
+        v.onended=next;
+        tm.push(setTimeout(next,((v.duration&&isFinite(v.duration))?v.duration:4.1)*1000+1500)); /* fallback if 'ended' never fires */
+      },600));
+    }
+    function upd(){
+      var on=seen && !document.hidden && (!slide || slide.classList.contains('is-on'));
+      if(on===active) return; active=on;
+      if(on) show(0); else stopAll();
+    }
+    if(slide) new MutationObserver(upd).observe(slide,{attributes:true,attributeFilter:['class']});
+    if('IntersectionObserver' in window) new IntersectionObserver(function(es){es.forEach(function(e){seen=e.isIntersecting;upd();});},{threshold:.15}).observe(box.closest('[data-sync]')||box);
+    else { seen=true; upd(); }
+    document.addEventListener('visibilitychange',upd);
+  });
 })();

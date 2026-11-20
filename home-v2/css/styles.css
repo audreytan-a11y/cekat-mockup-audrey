@@ -2193,3 +2193,32 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .btn--wline{background:#fff;color:var(--navy);border:1px solid #d5e0f2;box-shadow:0 6px 16px -12px rgba(8,33,76,.3)}
 .btn--wline:hover{border-color:#1A56DB;color:#1A56DB}
 @media (max-width:640px){.cta.cta--light{padding:40px 0 56px}.cta--light .cta__inner{margin:0 16px;padding:48px 20px 52px;border-radius:22px}}
+/* v13f: stat = 1.0x the map heading (same scale) */
+.trust .big{font-size:clamp(28px,3.4vw,46px)}
+@media (max-width:760px){.trust .big{font-size:27px}}
+/* v13f: product labels as the Chat page hero pill */
+.wide__txt h3{display:inline-flex;align-items:center;gap:8px;width:max-content;max-width:100%;margin:0 0 18px;padding:7px 16px 7px 10px;border-radius:999px;background:#E8F1FF;box-shadow:inset 0 0 0 1px #d3e3fb;color:#1A56DB;font-size:15.5px;font-weight:600;line-height:1.2;letter-spacing:0}
+.wide__txt h3 img{width:22px;height:22px;margin:0}
+@media (max-width:640px){.wide__txt h3{font-size:15px}}
+/* ===== v13g: Top paid ads phone plays the real ad videos (2 ads) ===== */
+.pc-ads .ta-r,.pc-ads .ta-r .ta-pl,.pc-ads .ta-cap>span,.pc-ads .ta-clk>span{animation:none!important}
+.pc-ads .ta-r{background:transparent;box-shadow:inset 0 0 0 transparent;transition:background .35s var(--ease),box-shadow .35s var(--ease)}
+.pc-ads .ta-r .ta-pl{background:#eef4ff;color:#1A56DB;transition:background .35s var(--ease),color .35s var(--ease)}
+.pc-ads[data-ad="0"] .ta-r:nth-child(1),.pc-ads[data-ad="1"] .ta-r:nth-child(2){background:#eaf1ff;box-shadow:inset 3px 0 0 #1A56DB}
+.pc-ads[data-ad="0"] .ta-r:nth-child(1) .ta-pl,.pc-ads[data-ad="1"] .ta-r:nth-child(2) .ta-pl{background:#1A56DB;color:#fff}
+.ta-ph__scr.ta-vid{display:block;padding:0;background:#0b1f4d}
+.ta-v{position:absolute;inset:0;opacity:0;transition:opacity .35s var(--ease)}
+.ta-v video,.ta-v .ta-po{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;border-radius:inherit}
+.ta-v .ta-po{transition:opacity .3s var(--ease)}
+.pc-ads[data-ad="0"] .ta-v[data-i="0"],.pc-ads[data-ad="1"] .ta-v[data-i="1"]{opacity:1}
+.pc-ads.is-playing .ta-v .ta-po{opacity:0}
+.ta-vid .ta-play{position:absolute;left:50%;top:42%;z-index:2;margin:0;width:44px;height:44px;font-size:14px;background:rgba(26,86,219,.92);box-shadow:0 0 0 4px rgba(255,255,255,.55),0 10px 20px -8px rgba(8,33,76,.7);transform:translate(-50%,-50%);transition:opacity .3s var(--ease),transform .3s var(--ease)}
+.pc-ads.is-playing .ta-play{opacity:0;transform:translate(-50%,-50%) scale(.8)}
+.ta-meta{position:absolute;left:0;right:0;bottom:0;z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;padding:26px 8px 10px;background:linear-gradient(180deg,rgba(8,20,50,0),rgba(8,20,50,.72))}
+.ta-meta .ta-cap{margin:0;color:#fff;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+.ta-meta .ta-clk{margin:0}
+.pc-ads .ta-cap>span,.pc-ads .ta-clk>span{opacity:0;transition:opacity .3s var(--ease)}
+.pc-ads[data-ad="0"] .ta-cap>span:nth-child(1),.pc-ads[data-ad="0"] .ta-clk>span:nth-child(1),.pc-ads[data-ad="1"] .ta-cap>span:nth-child(2),.pc-ads[data-ad="1"] .ta-clk>span:nth-child(2){opacity:1}
+@media (max-width:560px){.ta-vid .ta-play{width:34px;height:34px;font-size:11px;box-shadow:0 0 0 3px rgba(255,255,255,.55)}.ta-meta{padding:20px 6px 8px;gap:4px}}
+@media (prefers-reduced-motion:reduce){.ta-v,.ta-v .ta-po,.pc-ads .ta-r,.ta-vid .ta-play{transition:none!important}}
+@media (max-width:560px){.ta-meta .ta-cap{font-size:9.5px;line-height:1.2;padding:0 2px}}
