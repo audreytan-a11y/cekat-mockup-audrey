@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=mk2">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -92,58 +92,102 @@
 <main id="main">
 
 <!-- =====================================================================
-     HERO — plain navy H1 · one line · 2 CTAs · dashboard illustration
+     HERO — navy + solid-blue H1 · one line · 2 CTAs · 4-scene rotating illustration
      ===================================================================== -->
 <section class="hero" id="top">
   <div class="hero__bg" aria-hidden="true"><i class="glow glow--1"></i><i class="glow glow--2"></i></div>
   <div class="wrap hero__grid">
     <div class="hero__copy">
       <p class="hero__eyebrow rv"><img src="./assets/products/marketing.svg" alt="" width="20" height="20">Cekat Marketing</p>
-      <h1 class="hero__title rv" style="--d:.06s">Stop guessing.<br>Start growing.</h1>
-      <p class="hero__sub rv" style="--d:.12s">See which ad, creator or link brings revenue, from first click to paid.</p>
+      <h1 class="hero__title rv" style="--d:.06s">Stop guessing.<br><span class="grad">Start growing.</span></h1>
+      <p class="hero__sub rv" style="--d:.12s">See which source brings revenue. Fund the winners, cut the rest.</p>
       <div class="hero__cta rv" style="--d:.18s">
         <a class="btn btn--primary btn--lg btn--glow" href="https://chat.cekat.ai/register">Start Free Trial</a>
         <a class="btn btn--outline btn--lg" href="https://cekat.ai/en/contact-us">Book a demo</a>
       </div>
     </div>
 
-    <!-- Hero visual: one dashboard card + one attribution accent (illustrative demo data) -->
-    <div class="hero__vis rv" style="--d:.1s" aria-hidden="true">
-      <div class="dash" id="hero-dash">
-        <div class="dash__head">
-          <span class="dash__title">Marketing overview</span>
-          <span class="dash__range">Last 30 days</span>
-        </div>
-        <div class="kpis">
-          <div class="kpi"><small>Ad spend</small><b>$<span data-count="4200">4,200</span></b></div>
-          <div class="kpi"><small>Cost per lead</small><b>$<span data-count="18.40" data-dec="2">18.40</span></b></div>
-          <div class="kpi"><small>ROAS</small><b><span data-count="3.1" data-dec="1">3.1</span>×</b></div>
-        </div>
-        <div class="lc">
-          <div class="lc__legend"><span class="lg lg--a">Revenue</span><span class="lg lg--b">Ad spend</span></div>
-          <div class="lc__plot">
-            <svg class="lc__svg" viewBox="0 0 400 160" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="lcFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1A56DB" stop-opacity=".16"/><stop offset="1" stop-color="#1A56DB" stop-opacity="0"/></linearGradient>
-              </defs>
-              <path class="lc__area" d="M0 126 C6.7 124.7 26.7 118.7 40 118 C53.3 117.3 66.7 124 80 122 C93.3 120 106.7 108 120 106 C133.3 104 146.7 112 160 110 C173.3 108 186.7 98 200 94 C213.3 90 226.7 86.7 240 86 C253.3 85.3 266.7 92.7 280 90 C293.3 87.3 306.7 75.3 320 70 C333.3 64.7 346.7 63 360 58 C373.3 53 393.3 43 400 40 V160 H0Z" fill="url(#lcFill)"/>
-              <path class="lc__line lc__line--b" d="M0 140 C6.7 139.7 26.7 138.2 40 138 C53.3 137.8 66.7 139.5 80 139 C93.3 138.5 106.7 135.5 120 135 C133.3 134.5 146.7 136.3 160 136 C173.3 135.7 186.7 133.7 200 133 C213.3 132.3 226.7 132 240 132 C253.3 132 266.7 133.3 280 133 C293.3 132.7 306.7 130.7 320 130 C333.3 129.3 346.7 129.5 360 129 C373.3 128.5 393.3 127.3 400 127"/>
-              <path class="lc__line lc__line--a" d="M0 126 C6.7 124.7 26.7 118.7 40 118 C53.3 117.3 66.7 124 80 122 C93.3 120 106.7 108 120 106 C133.3 104 146.7 112 160 110 C173.3 108 186.7 98 200 94 C213.3 90 226.7 86.7 240 86 C253.3 85.3 266.7 92.7 280 90 C293.3 87.3 306.7 75.3 320 70 C333.3 64.7 346.7 63 360 58 C373.3 53 393.3 43 400 40"/>
-            </svg>
-            <span class="lc__dot" style="left:100%;top:25%"></span>
+    <!-- Hero visual: 4 auto-rotating scenes (Connect · Compare · Watch · Teach Meta). Illustrative demo data (deck slides 3, 6, 7). -->
+    <div class="hero__vis rv">
+      <div class="hs" id="hero-scenes">
+        <div class="hs__card" aria-hidden="true">
+
+          <!-- 1 · CONNECT -->
+          <div class="hs__scene is-on" data-i="0">
+            <div class="hs__h"><span class="hs__logo"><img src="./assets/integrations/meta.svg" alt="" width="20" height="20"></span><span><b>Ads Manager</b><small>Connect your ad account</small></span></div>
+            <div class="hs__body">
+              <div class="acct">
+                <span class="acct__av">A</span>
+                <span class="acct__txt"><b>Acme Store</b><small>Ad account · USD</small></span>
+                <span class="hs-btn"><span class="hs-btn__a">Connect</span><span class="hs-btn__b"><svg class="ic"><use href="#i-check"/></svg>Connected</span></span>
+              </div>
+              <div class="acct-more">
+                <span class="acct-more__l">Also synced</span>
+                <span class="sync__logo a" style="--d:1.5s"><img src="./assets/integrations/tiktok.svg" alt="" width="18" height="18"><i class="sync__ok"></i></span>
+                <span class="sync__logo a" style="--d:1.75s"><img src="./assets/integrations/googleads.svg" alt="" width="18" height="18"><i class="sync__ok"></i></span>
+              </div>
+              <p class="hs__note a" style="--d:2s"><svg class="ic"><use href="#i-zap"/></svg>1–2 steps · no developer</p>
+            </div>
           </div>
-          <div class="lc__x"><span>Oct 21</span><span>Oct 31</span><span>Nov 9</span><span>Nov 19</span></div>
+
+          <!-- 2 · COMPARE -->
+          <div class="hs__scene" data-i="1">
+            <div class="hs__h"><span><b>Which source books the most meetings?</b><small>Meetings booked · Last 30 days</small></span></div>
+            <div class="hs__body">
+              <div class="hb">
+                <div class="hb__row is-top"><span>Paid Ads</span><span class="hb__track"><i style="--w:100%;--d:.1s"></i></span><b>186</b></div>
+                <div class="hb__row"><span>Organic</span><span class="hb__track"><i style="--w:39.8%;--d:.25s"></i></span><b>74</b></div>
+                <div class="hb__row"><span>Creators</span><span class="hb__track"><i style="--w:28%;--d:.4s"></i></span><b>52</b></div>
+                <div class="hb__row"><span>Links</span><span class="hb__track"><i style="--w:16.7%;--d:.55s"></i></span><b>31</b></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3 · WATCH -->
+          <div class="hs__scene" data-i="2">
+            <div class="hs__h"><span><b>Top paid ads · by clicks</b><small>Click to watch</small></span></div>
+            <div class="hs__body">
+              <div class="hw">
+                <div class="hw__list">
+                  <div class="hw__row is-top a" style="--d:.05s"><svg class="ic"><use href="#i-play"/></svg><span>Reel · AI replies in 3s</span><b>3,420</b></div>
+                  <div class="hw__row a" style="--d:.15s"><svg class="ic"><use href="#i-play"/></svg><span>Reel · Demo walkthrough</span><b>2,610</b></div>
+                  <div class="hw__row a" style="--d:.25s"><svg class="ic"><use href="#i-play"/></svg><span>Carousel · Pricing</span><b>1,480</b></div>
+                  <div class="hw__row a" style="--d:.35s"><svg class="ic"><use href="#i-play"/></svg><span>Static · Free trial</span><b>940</b></div>
+                </div>
+                <div class="hw__phone a" style="--d:.5s">
+                  <span class="phone__b phone__b--1"></span><span class="phone__b phone__b--2"></span><span class="phone__b phone__b--3"></span>
+                  <span class="hw__play"><svg><use href="#i-play"/></svg></span>
+                  <span class="hw__cap">AI replies in 3s</span>
+                  <span class="hw__bar"><i></i></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4 · TEACH META (CAPI) -->
+          <div class="hs__scene" data-i="3">
+            <div class="hs__h"><span class="hs__logo"><img src="./assets/integrations/meta.svg" alt="" width="20" height="20"></span><span><b>Send buyers back to Meta</b><small>Conversions API</small></span></div>
+            <div class="hs__body">
+              <div class="hc">
+                <div class="hc__row"><span>Lead in</span><i class="tog"></i></div>
+                <div class="hc__row"><span>In contact</span><i class="tog"></i></div>
+                <div class="hc__row is-on"><span>Meetings booked</span><i class="tog tog--on" style="--d:.3s"></i></div>
+                <div class="hc__row is-on"><span>Executed meeting</span><i class="tog tog--on" style="--d:.7s"></i></div>
+              </div>
+              <div class="hc__out">
+                <span class="chip chip--ok a" style="--d:1.2s"><span class="tick"><svg><use href="#i-check"/></svg></span>Sent via Conversions API</span>
+                <span class="lal a" style="--d:1.7s"><i><svg class="ic"><use href="#i-users"/></svg></i><span><b>Lookalike audience</b><small>People who bought, not just clicked</small></span></span>
+              </div>
+            </div>
+          </div>
+
         </div>
-      </div>
-      <div class="attr">
-        <div class="attr__flow">
-          <span class="attr__step"><img src="./assets/integrations/meta.svg" alt="" width="14" height="14">Ad</span>
-          <i class="attr__arrow"></i>
-          <span class="attr__step"><svg class="ic"><use href="#i-chat"/></svg>Chat</span>
-          <i class="attr__arrow"></i>
-          <span class="attr__step attr__step--paid"><svg class="ic"><use href="#i-card"/></svg>Paid</span>
+        <div class="hs__steps" role="group" aria-label="Illustration steps">
+          <button class="hs__dot is-on" type="button" data-go="0" aria-pressed="true"><i>1</i>Connect<span class="hs__bar"></span></button>
+          <button class="hs__dot" type="button" data-go="1" aria-pressed="false"><i>2</i>Compare<span class="hs__bar"></span></button>
+          <button class="hs__dot" type="button" data-go="2" aria-pressed="false"><i>3</i>Watch<span class="hs__bar"></span></button>
+          <button class="hs__dot" type="button" data-go="3" aria-pressed="false"><i>4</i>Teach Meta<span class="hs__bar"></span></button>
         </div>
-        <p class="attr__tag"><span class="tick"><svg><use href="#i-check"/></svg></span>Credited to Meta ad</p>
       </div>
     </div>
   </div>
@@ -151,287 +195,254 @@
 </section>
 
 <!-- =====================================================================
-     BENTO — 10 tiles. 4 cols × 4 rows desktop:
-     01 01 02 02 / 01 01 03 04 / 05 06 03 07 / 08 08 09 10
-     Deep accents: 02 (navy) · 06 (blue) · 09 (navy) — never touching.
+     FEATURES — bento grouped into the deck's 3 steps: Unify · Analyze · Act.
+     A thin rail on the left (desktop/tablet) fills as you scroll.
+     Unify   4 cols: src src sync crt / src src qr qr        (deep: qr, blue)
+     Analyze 4 cols: org org org bars / ads ads ads bars     (deep: org, navy)
+     Act     4 cols: capi capi jrny seg                      (deep: jrny, navy)
      All numbers inside illustrations are illustrative demo data.
      ===================================================================== -->
 <section class="section" id="features">
   <div class="wrap">
     <header class="section__head rv">
       <p class="section__eyebrow">What Cekat Marketing does</p>
-      <h2 class="section__title">Every sale, traced back to where it started.</h2>
-      <p class="section__lead"><span class="hint-hover">Hover a card to see it work.</span><span class="hint-touch">Scroll to see each one work.</span></p>
+      <h2 class="section__title">Scale what works.<br> <span class="grad">Stop redoing what doesn’t.</span></h2>
+      <p class="section__lead">More revenue from the budget you already spend.</p>
     </header>
 
-    <div class="usp-grid">
-
-      <!-- 01 Every source, one dashboard — BIG 2×2 -->
-      <article class="usp-card usp-card--big usp-card--l1 rv" tabindex="0" data-player data-loop="6000">
-        <div class="usp-card__head">
-          <span class="usp-card__num">01</span>
-          <h3 class="usp-card__title">Every source, one dashboard</h3>
-          <p class="usp-card__desc">Ads, organic, creators and links side by side. No more jumping between platforms.</p>
-        </div>
-        <div class="usp-card__art" aria-hidden="true">
-          <div class="scene is-on">
-            <div class="srct">
-              <div class="srct__top"><b>All sources</b><small>Last 30 days</small></div>
-              <div class="srct__row srct__row--h"><span>Source</span><span class="c-imp">Impressions</span><span>Clicks</span><span>CTR</span><span>Booked</span></div>
-              <div class="srct__row is-top a" style="--d:.15s"><span class="srct__src"><i class="sic"><svg><use href="#i-megaphone"/></svg></i>Paid Ads</span><span class="c-imp">412,000</span><span>9,270</span><span>2.25%</span><b>186</b></div>
-              <div class="srct__row a" style="--d:.35s"><span class="srct__src"><i class="sic"><svg><use href="#i-globe"/></svg></i>Organic</span><span class="c-imp">96,500</span><span>3,860</span><span>4.00%</span><b>74</b></div>
-              <div class="srct__row a" style="--d:.55s"><span class="srct__src"><i class="sic"><svg><use href="#i-users"/></svg></i>Creators</span><span class="c-imp">158,000</span><span>4,108</span><span>2.60%</span><b>52</b></div>
-              <div class="srct__row a" style="--d:.75s"><span class="srct__src"><i class="sic"><svg><use href="#i-link"/></svg></i>Links</span><span class="c-imp">21,400</span><span>1,284</span><span>6.00%</span><b>31</b></div>
-              <div class="srct__row srct__row--t a" style="--d:1s"><span>Total</span><span class="c-imp">687,900</span><span>18,522</span><span>2.69%</span><b>343</b></div>
+    <div class="flow" id="flow">
+      <span class="flow__rail" aria-hidden="true"><i></i></span>
+      <div class="grp grp--unify">
+        <header class="grp__head rv">
+          <span class="grp__n" aria-hidden="true">01</span>
+          <h3 class="grp__t">Unify</h3>
+          <p class="grp__d">Every source, one dashboard.</p>
+        </header>
+        <div class="usp-grid usp-grid--unify">
+          <article class="usp-card usp-card--big usp-card--l1 u-src rv" tabindex="0" data-player data-loop="6000">
+            <div class="usp-card__head">
+              <h4 class="usp-card__title">All sources, side by side</h4>
+              <p class="usp-card__desc">Ads, organic, creators and links. No more jumping between platforms.</p>
             </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 02 Ad-driven sales don't hide as organic — WIDE 2×1 (accent navy) -->
-      <article class="usp-card usp-card--wide usp-card--stack usp-card--d2 rv" style="--d:.06s" tabindex="0" data-player data-loop="5600">
-        <div class="usp-card__head">
-          <span class="usp-card__num">02</span>
-          <h3 class="usp-card__title">Ad-driven sales don’t hide as “organic”</h3>
-          <p class="usp-card__desc">Shared office Wi-Fi? The sale still goes to the ad.</p>
-        </div>
-        <div class="usp-card__art" aria-hidden="true">
-          <div class="scene is-on">
-            <div class="wifi">
-              <div class="wifi__row">
-                <span class="wifi__node a" style="--d:.1s"><i><svg><use href="#i-eye"/></svg></i><small>Sees the ad</small></span>
-                <span class="wifi__link a" style="--d:.5s"></span>
-                <span class="wifi__node a" style="--d:.7s"><i><svg><use href="#i-users"/></svg></i><small>Tells a coworker</small></span>
-                <span class="wifi__link wifi__link--net a" style="--d:1.1s"><em><svg><use href="#i-wifi"/></svg></em></span>
-                <span class="wifi__node a" style="--d:1.4s"><i><svg><use href="#i-bag"/></svg></i><small>Coworker buys</small></span>
-              </div>
-              <span class="wifi__tag a-stamp" style="--d:2.1s"><span class="tick"><svg><use href="#i-check"/></svg></span>Credited to the ad</span>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 03 Teach Meta who actually buys — TALL 1×2 -->
-      <article class="usp-card usp-card--tall usp-card--l2 rv" style="--d:.12s" tabindex="0" data-player data-loop="5600">
-        <div class="usp-card__head">
-          <span class="usp-card__num">03</span>
-          <h3 class="usp-card__title">Teach Meta who actually buys</h3>
-          <p class="usp-card__desc">Send booked meetings back to Meta via the Conversions API.</p>
-        </div>
-        <div class="usp-card__art" aria-hidden="true">
-          <div class="scene is-on">
-            <div class="capi">
-              <div class="capi__head"><span class="capi__logo"><img src="./assets/integrations/meta.svg" alt="" width="20" height="20"></span><span><b>Meta</b><small>Conversions API</small></span></div>
-              <p class="capi__label">Send these stages</p>
-              <div class="capi__row"><span>Lead in</span><i class="tog"></i></div>
-              <div class="capi__row"><span>In contact</span><i class="tog"></i></div>
-              <div class="capi__row is-on"><span>Meetings booked</span><i class="tog tog--on" style="--d:.6s"></i></div>
-              <div class="capi__row is-on"><span>Executed meeting</span><i class="tog tog--on" style="--d:1.2s"></i></div>
-              <span class="chip chip--ok capi__sent a" style="--d:2s"><span class="tick"><svg><use href="#i-check"/></svg></span>Sent to Meta</span>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 04 Sync ads — 1×1 -->
-      <article class="usp-card usp-card--l0 rv" tabindex="0" data-player data-loop="4600">
-        <div class="usp-card__head">
-          <span class="usp-card__num">04</span>
-          <h3 class="usp-card__title">Sync Meta, TikTok &amp; Google</h3>
-          <p class="usp-card__desc">Connect your ad accounts in a click.</p>
-        </div>
-        <div class="usp-card__art" aria-hidden="true">
-          <div class="scene is-on">
-            <div class="sync">
-              <div class="sync__logos">
-                <span class="sync__logo a" style="--d:.1s"><img src="./assets/integrations/meta.svg" alt="" width="22" height="22"><i class="sync__ok"></i></span>
-                <span class="sync__logo a" style="--d:.45s"><img src="./assets/integrations/tiktok.svg" alt="" width="20" height="20"><i class="sync__ok"></i></span>
-                <span class="sync__logo a" style="--d:.8s"><img src="./assets/integrations/googleads.svg" alt="" width="20" height="20"><i class="sync__ok"></i></span>
-              </div>
-              <span class="chip chip--ok a" style="--d:1.3s"><span class="tick"><svg><use href="#i-check"/></svg></span>Connected</span>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 05 Track every creator — 1×1 -->
-      <article class="usp-card usp-card--l3 rv" style="--d:.06s" tabindex="0" data-player data-loop="5000">
-        <div class="usp-card__head">
-          <span class="usp-card__num">05</span>
-          <h3 class="usp-card__title">Track every creator</h3>
-          <p class="usp-card__desc">Paste a creator link. Every engagement is tracked.</p>
-        </div>
-        <div class="usp-card__art" aria-hidden="true">
-          <div class="scene is-on">
-            <div class="paste">
-              <div class="paste__field"><span class="paste__txt">tiktok.com/@jakecooks</span><b class="paste__btn">Add</b></div>
-              <span class="chip chip--ok a" style="--d:1.7s"><span class="tick"><svg><use href="#i-check"/></svg></span>Tracking @jakecooks</span>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 06 Links & QR — 1×1 (accent blue) -->
-      <article class="usp-card usp-card--d1 rv" style="--d:.12s" tabindex="0" data-player data-loop="4600">
-        <div class="usp-card__head">
-          <span class="usp-card__num">06</span>
-          <h3 class="usp-card__title">Links &amp; QR codes</h3>
-          <p class="usp-card__desc">Share a link or QR. See every scan and click.</p>
-        </div>
-        <div class="usp-card__art" aria-hidden="true">
-          <div class="scene is-on">
-            <div class="qrc">
-              <span class="qrc__qr a" style="--d:.1s"><img src="./assets/illus-qr.svg" alt=""><i class="qrc__scan"></i></span>
-              <span class="qrc__num"><b class="tick-n"></b><small>scans &amp; clicks</small></span>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 07 Meetings booked by source — 1×1 bar chart -->
-      <article class="usp-card usp-card--l1 rv" tabindex="0" data-player data-loop="4600">
-        <div class="usp-card__head">
-          <span class="usp-card__num">07</span>
-          <h3 class="usp-card__title">Which source books the most?</h3>
-          <p class="usp-card__desc">Meetings booked, by source.</p>
-        </div>
-        <div class="usp-card__art" aria-hidden="true">
-          <div class="scene is-on">
-            <div class="hbars">
-              <div class="hbar is-top"><span>Paid Ads</span><i style="--w:100%;--d:.1s"></i><b>186</b></div>
-              <div class="hbar"><span>Organic</span><i style="--w:39.8%;--d:.25s"></i><b>74</b></div>
-              <div class="hbar"><span>Creators</span><i style="--w:28%;--d:.4s"></i><b>52</b></div>
-              <div class="hbar"><span>Links</span><i style="--w:16.7%;--d:.55s"></i><b>31</b></div>
-            </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 08 Top ads + watch it — WIDE 2×1 -->
-      <article class="usp-card usp-card--wide usp-card--ads usp-card--l2 rv" style="--d:.06s" tabindex="0" data-player data-loop="5600">
-        <div class="usp-card__head">
-          <span class="usp-card__num">08</span>
-          <h3 class="usp-card__title">See which ad works. Then watch it.</h3>
-          <p class="usp-card__desc">Replicate what performs. Stop what doesn’t.</p>
-        </div>
-        <div class="usp-card__art" aria-hidden="true">
-          <div class="scene is-on">
-            <div class="ads">
-              <div class="ads__list">
-                <p class="ads__cap">Top paid ads · clicks</p>
-                <div class="ads__row is-top a" style="--d:.1s"><svg class="ic"><use href="#i-play"/></svg><span>Reel · AI replies in 3s</span><b>3,420</b></div>
-                <div class="ads__row a" style="--d:.25s"><svg class="ic"><use href="#i-play"/></svg><span>Reel · Demo walkthrough</span><b>2,610</b></div>
-                <div class="ads__row a" style="--d:.4s"><svg class="ic"><use href="#i-play"/></svg><span>Carousel · Pricing</span><b>1,480</b></div>
-                <div class="ads__row a" style="--d:.55s"><svg class="ic"><use href="#i-play"/></svg><span>Static · Free trial</span><b>940</b></div>
-              </div>
-              <div class="phone a" style="--d:.9s">
-                <span class="phone__b phone__b--1"></span><span class="phone__b phone__b--2"></span><span class="phone__b phone__b--3"></span>
-                <span class="phone__play"><svg><use href="#i-play"/></svg></span>
-                <span class="phone__cap">AI replies in 3s</span>
-                <span class="phone__bar"><i></i></span>
+            <div class="usp-card__art" aria-hidden="true">
+              <div class="scene is-on">
+                <div class="srct">
+                  <div class="srct__top"><b>All sources</b><small>Last 30 days</small></div>
+                  <div class="srct__row srct__row--h"><span>Source</span><span class="c-imp">Impressions</span><span>Clicks</span><span>CTR</span><span>Booked</span></div>
+                  <div class="srct__row is-top a" style="--d:.15s"><span class="srct__src"><i class="sic"><svg><use href="#i-megaphone"/></svg></i>Paid Ads</span><span class="c-imp">412,000</span><span>9,270</span><span>2.25%</span><b>186</b></div>
+                  <div class="srct__row a" style="--d:.35s"><span class="srct__src"><i class="sic"><svg><use href="#i-globe"/></svg></i>Organic</span><span class="c-imp">96,500</span><span>3,860</span><span>4.00%</span><b>74</b></div>
+                  <div class="srct__row a" style="--d:.55s"><span class="srct__src"><i class="sic"><svg><use href="#i-users"/></svg></i>Creators</span><span class="c-imp">158,000</span><span>4,108</span><span>2.60%</span><b>52</b></div>
+                  <div class="srct__row a" style="--d:.75s"><span class="srct__src"><i class="sic"><svg><use href="#i-link"/></svg></i>Links</span><span class="c-imp">21,400</span><span>1,284</span><span>6.00%</span><b>31</b></div>
+                  <div class="srct__row srct__row--t a" style="--d:1s"><span>Total</span><span class="c-imp">687,900</span><span>18,522</span><span>2.69%</span><b>343</b></div>
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 09 Click a lead, see the journey — 1×1 (accent navy) -->
-      <article class="usp-card usp-card--d2 usp-card--roomy rv" style="--d:.12s" tabindex="0" data-player data-loop="5000">
-        <div class="usp-card__head">
-          <span class="usp-card__num">09</span>
-          <h3 class="usp-card__title">Click a lead, see the journey</h3>
-          <p class="usp-card__desc">From first touch to purchase.</p>
-        </div>
-        <div class="usp-card__art" aria-hidden="true">
-          <div class="scene is-on">
-            <div class="jrny">
-              <div class="jrny__who"><span class="av">E</span><b>Emily R.</b><em>Booked</em></div>
-              <ol class="jrny__steps">
-                <li class="a" style="--d:.2s">Button click</li>
-                <li class="a" style="--d:.55s">Page view</li>
-                <li class="a" style="--d:.9s">Add to cart</li>
-                <li class="a is-end" style="--d:1.25s">Purchase</li>
-              </ol>
+          </article>
+          <article class="usp-card usp-card--l0 u-sync rv" style="--d:.06s" tabindex="0" data-player data-loop="4600">
+            <div class="usp-card__head">
+              <h4 class="usp-card__title">Sync Meta, TikTok &amp; Google</h4>
+              <p class="usp-card__desc">Connect in a click.</p>
             </div>
-          </div>
-        </div>
-      </article>
-
-      <!-- 10 Reach them personally — 1×1 (2 scenes) -->
-      <article class="usp-card usp-card--l0 usp-card--roomy rv" style="--d:.18s" tabindex="0" data-player data-scenes="2" data-scene-ms="3400">
-        <div class="usp-card__head">
-          <span class="usp-card__num">10</span>
-          <h3 class="usp-card__title">Reach them personally</h3>
-          <p class="usp-card__desc">A message that fits what they did.</p>
-        </div>
-        <div class="usp-card__art" aria-hidden="true">
-          <div class="scene is-on" data-i="0">
-            <div class="seg">
-              <span class="seg__tag a" style="--d:.05s"><svg class="ic"><use href="#i-pointer"/></svg>Clicked only</span>
-              <p class="seg__msg a" style="--d:.4s">“Still deciding? Here’s what to know before you book.”</p>
-              <span class="seg__send a" style="--d:.9s"><svg class="ic"><use href="#i-send"/></svg>Send</span>
+            <div class="usp-card__art" aria-hidden="true">
+              <div class="scene is-on">
+                <div class="sync">
+                  <div class="sync__logos">
+                    <span class="sync__logo a" style="--d:.1s"><img src="./assets/integrations/meta.svg" alt="" width="22" height="22"><i class="sync__ok"></i></span>
+                    <span class="sync__logo a" style="--d:.45s"><img src="./assets/integrations/tiktok.svg" alt="" width="20" height="20"><i class="sync__ok"></i></span>
+                    <span class="sync__logo a" style="--d:.8s"><img src="./assets/integrations/googleads.svg" alt="" width="20" height="20"><i class="sync__ok"></i></span>
+                  </div>
+                  <span class="chip chip--ok a" style="--d:1.3s"><span class="tick"><svg><use href="#i-check"/></svg></span>Connected</span>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="scene" data-i="1">
-            <div class="seg">
-              <span class="seg__tag a" style="--d:.05s"><svg class="ic"><use href="#i-cal"/></svg>Booked a meeting</span>
-              <p class="seg__msg a" style="--d:.4s">“Looking forward to our meeting! Here’s what to prepare.”</p>
-              <span class="seg__send a" style="--d:.9s"><svg class="ic"><use href="#i-send"/></svg>Send</span>
+          </article>
+          <article class="usp-card usp-card--l3 u-crt rv" style="--d:.12s" tabindex="0" data-player data-loop="5000">
+            <div class="usp-card__head">
+              <h4 class="usp-card__title">Track every creator</h4>
+              <p class="usp-card__desc">Paste a creator link. Every engagement is tracked.</p>
             </div>
-          </div>
-          <span class="dots"><i></i><i></i></span>
+            <div class="usp-card__art" aria-hidden="true">
+              <div class="scene is-on">
+                <div class="paste">
+                  <div class="paste__field"><span class="paste__txt">tiktok.com/@jake</span><b class="paste__btn">Add</b></div>
+                  <span class="chip chip--ok a" style="--d:1.7s"><span class="tick"><svg><use href="#i-check"/></svg></span>Tracking @jake</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="usp-card usp-card--wide usp-card--d1 u-qr rv" style="--d:.12s" tabindex="0" data-player data-loop="4600">
+            <div class="usp-card__head">
+              <h4 class="usp-card__title">Links &amp; QR codes</h4>
+              <p class="usp-card__desc">Share a link or QR. See every scan and click.</p>
+            </div>
+            <div class="usp-card__art" aria-hidden="true">
+              <div class="scene is-on">
+                <div class="qrc">
+                  <span class="qrc__qr a" style="--d:.1s"><img src="./assets/illus-qr.svg" alt=""><i class="qrc__scan"></i></span>
+                  <span class="qrc__num"><b class="tick-n"></b><small>scans &amp; clicks</small></span>
+                </div>
+              </div>
+            </div>
+          </article>
         </div>
-      </article>
-
+      </div>
+      <div class="grp grp--analyze">
+        <header class="grp__head rv">
+          <span class="grp__n" aria-hidden="true">02</span>
+          <h3 class="grp__t">Analyze</h3>
+          <p class="grp__d">See exactly what sells.</p>
+        </header>
+        <div class="usp-grid usp-grid--analyze">
+          <article class="usp-card usp-card--wide usp-card--d2 a-org rv" tabindex="0" data-player data-loop="5600">
+            <div class="usp-card__head">
+              <h4 class="usp-card__title">Ad-driven sales don’t hide as “organic”</h4>
+              <p class="usp-card__desc">Shared office Wi-Fi? The sale still goes to the ad.</p>
+            </div>
+            <div class="usp-card__art" aria-hidden="true">
+              <div class="scene is-on">
+                <div class="wifi">
+                  <div class="wifi__row">
+                    <span class="wifi__node a" style="--d:.1s"><i><svg><use href="#i-eye"/></svg></i><small>Sees the ad</small></span>
+                    <span class="wifi__link a" style="--d:.5s"></span>
+                    <span class="wifi__node a" style="--d:.7s"><i><svg><use href="#i-users"/></svg></i><small>Tells a coworker</small></span>
+                    <span class="wifi__link wifi__link--net a" style="--d:1.1s"><em><svg><use href="#i-wifi"/></svg></em></span>
+                    <span class="wifi__node a" style="--d:1.4s"><i><svg><use href="#i-bag"/></svg></i><small>Coworker buys</small></span>
+                  </div>
+                  <span class="wifi__tag a-stamp" style="--d:2.1s"><span class="tick"><svg><use href="#i-check"/></svg></span>Credited to the ad</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="usp-card usp-card--tall usp-card--l1 a-bars rv" style="--d:.06s" tabindex="0" data-player data-loop="4600">
+            <div class="usp-card__head">
+              <h4 class="usp-card__title">Which source books the most?</h4>
+              <p class="usp-card__desc">Meetings booked, by source.</p>
+            </div>
+            <div class="usp-card__art" aria-hidden="true">
+              <div class="scene is-on">
+                <div class="hbars">
+                  <div class="hbar is-top"><span>Paid Ads</span><i style="--w:100%;--d:.1s"></i><b>186</b></div>
+                  <div class="hbar"><span>Organic</span><i style="--w:39.8%;--d:.25s"></i><b>74</b></div>
+                  <div class="hbar"><span>Creators</span><i style="--w:28%;--d:.4s"></i><b>52</b></div>
+                  <div class="hbar"><span>Links</span><i style="--w:16.7%;--d:.55s"></i><b>31</b></div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="usp-card usp-card--wide usp-card--ads usp-card--l2 a-ads rv" style="--d:.12s" tabindex="0" data-player data-loop="5600">
+            <div class="usp-card__head">
+              <h4 class="usp-card__title">See which ad works, then watch it</h4>
+              <p class="usp-card__desc">Replicate what performs. Stop what doesn’t.</p>
+            </div>
+            <div class="usp-card__art" aria-hidden="true">
+              <div class="scene is-on">
+                <div class="ads">
+                  <div class="ads__list">
+                    <p class="ads__cap">Top paid ads · clicks</p>
+                    <div class="ads__row is-top a" style="--d:.1s"><svg class="ic"><use href="#i-play"/></svg><span>Reel · AI replies in 3s</span><b>3,420</b></div>
+                    <div class="ads__row a" style="--d:.25s"><svg class="ic"><use href="#i-play"/></svg><span>Reel · Demo walkthrough</span><b>2,610</b></div>
+                    <div class="ads__row a" style="--d:.4s"><svg class="ic"><use href="#i-play"/></svg><span>Carousel · Pricing</span><b>1,480</b></div>
+                    <div class="ads__row a" style="--d:.55s"><svg class="ic"><use href="#i-play"/></svg><span>Static · Free trial</span><b>940</b></div>
+                  </div>
+                  <div class="phone a" style="--d:.9s">
+                    <span class="phone__b phone__b--1"></span><span class="phone__b phone__b--2"></span><span class="phone__b phone__b--3"></span>
+                    <span class="phone__play"><svg><use href="#i-play"/></svg></span>
+                    <span class="phone__cap">AI replies in 3s</span>
+                    <span class="phone__bar"><i></i></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="grp grp--act">
+        <header class="grp__head rv">
+          <span class="grp__n" aria-hidden="true">03</span>
+          <h3 class="grp__t">Act</h3>
+          <p class="grp__d">Know exactly who buys.</p>
+        </header>
+        <div class="usp-grid usp-grid--act">
+          <article class="usp-card usp-card--wide usp-card--l2 x-capi rv" tabindex="0" data-player data-loop="5600">
+            <div class="usp-card__head">
+              <h4 class="usp-card__title">Teach Meta who actually buys</h4>
+              <p class="usp-card__desc">Send booked meetings back to Meta via the Conversions API.</p>
+            </div>
+            <div class="usp-card__art" aria-hidden="true">
+              <div class="scene is-on">
+                <div class="capi">
+                  <div class="capi__head"><span class="capi__logo"><img src="./assets/integrations/meta.svg" alt="" width="20" height="20"></span><span><b>Meta</b><small>Conversions API</small></span></div>
+                  <p class="capi__label">Send these stages</p>
+                  <div class="capi__row"><span>Lead in</span><i class="tog"></i></div>
+                  <div class="capi__row"><span>In contact</span><i class="tog"></i></div>
+                  <div class="capi__row is-on"><span>Meetings booked</span><i class="tog tog--on" style="--d:.6s"></i></div>
+                  <div class="capi__row is-on"><span>Executed meeting</span><i class="tog tog--on" style="--d:1.2s"></i></div>
+                  <span class="chip chip--ok capi__sent a" style="--d:2s"><span class="tick"><svg><use href="#i-check"/></svg></span>Sent to Meta</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="usp-card usp-card--d2 x-jrny rv" style="--d:.06s" tabindex="0" data-player data-loop="5000">
+            <div class="usp-card__head">
+              <h4 class="usp-card__title">Click a lead, see the journey</h4>
+              <p class="usp-card__desc">From first touch to purchase.</p>
+            </div>
+            <div class="usp-card__art" aria-hidden="true">
+              <div class="scene is-on">
+                <div class="jrny">
+                  <div class="jrny__who"><span class="av">E</span><b>Emily R.</b><em>Booked</em></div>
+                  <ol class="jrny__steps">
+                    <li class="a" style="--d:.2s">Button click</li>
+                    <li class="a" style="--d:.55s">Page view</li>
+                    <li class="a" style="--d:.9s">Add to cart</li>
+                    <li class="a is-end" style="--d:1.25s">Purchase</li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </article>
+          <article class="usp-card usp-card--l0 x-seg rv" style="--d:.12s" tabindex="0" data-player data-scenes="2" data-scene-ms="3400">
+            <div class="usp-card__head">
+              <h4 class="usp-card__title">Reach them personally</h4>
+              <p class="usp-card__desc">A message that fits what they did.</p>
+            </div>
+            <div class="usp-card__art" aria-hidden="true">
+              <div class="scene is-on" data-i="0">
+                <div class="seg">
+                  <span class="seg__tag a" style="--d:.05s"><svg class="ic"><use href="#i-pointer"/></svg>Clicked only</span>
+                  <p class="seg__msg a" style="--d:.4s">“Still deciding? Here’s what to know before you book.”</p>
+                  <span class="seg__send a" style="--d:.9s"><svg class="ic"><use href="#i-send"/></svg>Send</span>
+                </div>
+              </div>
+              <div class="scene" data-i="1">
+                <div class="seg">
+                  <span class="seg__tag a" style="--d:.05s"><svg class="ic"><use href="#i-cal"/></svg>Booked a meeting</span>
+                  <p class="seg__msg a" style="--d:.4s">“Looking forward to our meeting! Here’s what to prepare.”</p>
+                  <span class="seg__send a" style="--d:.9s"><svg class="ic"><use href="#i-send"/></svg>Send</span>
+                </div>
+              </div>
+              <span class="dots"><i></i><i></i></span>
+            </div>
+          </article>
+        </div>
+      </div>
     </div>
+    <p class="flow__note rv">No developer. No manual data set-up. No IT team needed.</p>
   </div>
 </section>
 
 <!-- =====================================================================
-     HOW IT WORKS — Unify → Analyze → Act (deck slide 2)
+     FEATURE → BENEFIT → PROOF blocks (same shape as chat-v1 #features)
+     title with solid-blue accent · one line · quiet proof (quote + attribution)
      ===================================================================== -->
-<section class="section section--soft" id="how">
-  <div class="wrap">
-    <header class="section__head rv">
-      <p class="section__eyebrow">How it works</p>
-      <h2 class="section__title">Three steps. One clean view of every sale.</h2>
-    </header>
-    <ol class="steps">
-      <li class="step rv">
-        <span class="step__ic"><svg><use href="#i-layers"/></svg></span>
-        <span class="step__n">Step 1</span>
-        <h3 class="step__t">Unify</h3>
-        <p class="step__d">Website, ads, creators and links in one dashboard.</p>
-      </li>
-      <li class="step rv" style="--d:.08s">
-        <span class="step__ic"><svg><use href="#i-bars"/></svg></span>
-        <span class="step__n">Step 2</span>
-        <h3 class="step__t">Analyze</h3>
-        <p class="step__d">See exactly which ad, creator or link converts to meetings booked.</p>
-      </li>
-      <li class="step rv" style="--d:.16s">
-        <span class="step__ic"><svg><use href="#i-zap"/></svg></span>
-        <span class="step__n">Step 3</span>
-        <h3 class="step__t">Act</h3>
-        <p class="step__d">Scale what works. Stop redoing what doesn’t.</p>
-      </li>
-    </ol>
-    <p class="steps__note rv">No developer. No manual data set-up. No IT team needed.</p>
-  </div>
-</section>
-
-<!-- =====================================================================
-     FEATURE → BENEFIT → PROOF blocks
-     ===================================================================== -->
-<section class="section" id="stories">
+<section class="section section--soft" id="stories">
   <div class="wrap">
 
     <!-- A · Attribution -->
     <article class="feature-block">
       <div class="feature-block__copy rv">
-        <p class="section__eyebrow">Paid ads attribution</p>
-        <h2 class="feature-block__title">Ad-driven sales don’t hide as “organic”.</h2>
-        <p class="feature-block__text">Cekat detects the shared network and ties the purchase back to the ad.</p>
+        <h2 class="feature-block__title">Ad-driven sales don’t hide <span class="grad nowrap">as “organic”.</span></h2>
+        <p class="feature-block__text">Cekat spots the shared network and credits the ad.</p>
         <figure class="proof-quote">
           <blockquote>“It doubled our revenue, and our ROAS went up too.”</blockquote>
           <figcaption><b>Puffy Cotton Candy</b> · Retail · Food brands</figcaption>
@@ -462,8 +473,7 @@
     <!-- B · Meta CAPI -->
     <article class="feature-block feature-block--reverse">
       <div class="feature-block__copy rv">
-        <p class="section__eyebrow">Meta Conversions API</p>
-        <h2 class="feature-block__title">Teach Meta who actually buys.</h2>
+        <h2 class="feature-block__title">Teach Meta <span class="grad">who actually buys.</span></h2>
         <p class="feature-block__text">Meta finds look-alikes of people who bought, not just clicked.</p>
         <figure class="proof-quote">
           <blockquote>“Our booking rate went up almost more than 5×. We’re now at 25% to 30%.”</blockquote>
@@ -488,8 +498,7 @@
     <!-- C · Lead visibility -->
     <article class="feature-block">
       <div class="feature-block__copy rv">
-        <p class="section__eyebrow">Full lead visibility</p>
-        <h2 class="feature-block__title">Meta shows 10 people booked. Cekat shows who.</h2>
+        <h2 class="feature-block__title">Meta shows 10 booked.<br> <span class="grad">Cekat shows who.</span></h2>
         <p class="feature-block__text">Click the number, see the leads. Click a lead, see the journey.</p>
       </div>
       <div class="feature-block__visual rv" style="--d:.1s" aria-hidden="true">
@@ -603,6 +612,6 @@
   <div class="wrap foot__bottom"><span>© 2026 PT Teknologi Cekat Indonesia. All rights reserved.</span></div>
 </footer>
 
-<script src="js/main.js" defer></script>
+<script src="js/main.js?v=mk2" defer></script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 /* Cekat.AI — product landing page (Marketing v1) — vanilla JS, no build.
-   Modules: nav · reveal · players (hover/focus/in-view animations) · count-up (ints, decimals, thousands) */
+   Modules: nav · reveal · hero scenes (mk2) · flow rail (mk2) · players (hover/focus/in-view animations) · count-up */
 (function () {
   'use strict';
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -67,6 +67,74 @@
     revealEls.forEach(function (el) { rio.observe(el); });
   }
 
+
+  /* ---------- HERO SCENES (mk2) ----------
+     4 scenes rotate every 3.2s with a soft crossfade/slide. Step dots jump to a scene.
+     Hover pauses (remaining time is kept). Reduced motion: scene 1 static, dots still switch. */
+  (function () {
+    var root = $('#hero-scenes'); if (!root) return;
+    var scenes = $$('.hs__scene', root), dots = $$('.hs__dot', root);
+    var n = scenes.length, idx = 0, DUR = 3200, t = null, t0 = 0, left = DUR, paused = false;
+    root.style.setProperty('--hs-ms', DUR + 'ms');
+    function show(i) {
+      var prev = idx;
+      scenes.forEach(function (s, k) {
+        s.classList.toggle('is-on', k === i);
+        s.classList.toggle('is-prev', k === prev && k !== i);
+        s.classList.remove('play');
+      });
+      idx = i;
+      void scenes[i].offsetWidth; // restart CSS animations
+      if (!reduce) scenes[i].classList.add('play');
+      dots.forEach(function (d, k) {
+        d.classList.remove('is-on'); void d.offsetWidth;
+        d.classList.toggle('is-on', k === i);
+        d.setAttribute('aria-pressed', String(k === i));
+      });
+    }
+    function schedule(ms) {
+      clearTimeout(t); left = ms;
+      if (reduce || paused) return;
+      t0 = Date.now();
+      t = setTimeout(function () { show((idx + 1) % n); schedule(DUR); }, ms);
+    }
+    function pause() {
+      if (paused || reduce) return;
+      paused = true; clearTimeout(t);
+      left = Math.max(0, left - (Date.now() - t0));
+      root.classList.add('is-paused');
+    }
+    function resume() {
+      if (!paused) return;
+      paused = false; root.classList.remove('is-paused');
+      schedule(left);
+    }
+    dots.forEach(function (d, k) {
+      d.addEventListener('click', function () { show(k); schedule(DUR); });
+    });
+    if (reduce) return;
+    root.classList.add('is-auto');
+    root.addEventListener('mouseenter', pause);
+    root.addEventListener('mouseleave', resume);
+    setTimeout(function () { show(0); schedule(DUR); }, 350);
+  })();
+
+  /* ---------- FLOW RAIL (mk2) ----------
+     The thin line beside Unify · Analyze · Act fills with scroll; each step dot turns blue once reached. */
+  (function () {
+    var flow = $('#flow'); if (!flow) return;
+    var grps = $$('.grp', flow), ticking = false;
+    function upd() {
+      ticking = false;
+      var r = flow.getBoundingClientRect(), mark = window.innerHeight * 0.6;
+      var p = Math.min(1, Math.max(0, (mark - r.top) / r.height));
+      flow.style.setProperty('--p', p.toFixed(4));
+      grps.forEach(function (g) { g.classList.toggle('is-reached', g.getBoundingClientRect().top < mark); });
+    }
+    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(upd); } }, { passive: true });
+    window.addEventListener('resize', upd);
+    upd();
+  })();
 
   /* ---------- SCROLL CUE ---------- */
   (function(){

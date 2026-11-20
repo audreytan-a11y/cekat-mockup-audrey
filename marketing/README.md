@@ -9,46 +9,40 @@ python3 -m http.server 8834   # or the shared server: http://localhost:8834/mark
 ```
 
 Hosted at a GitHub Pages **sub-path** (`…/cekat-mockup-audrey/marketing/`), so every path is **relative**
-(`./assets/…`, `css/styles.css`, `js/main.js`). No `<base>`, no leading `/`. The only CDN is Google Fonts.
+(`./assets/…`, `css/styles.css?v=mk2`, `js/main.js?v=mk2`; bump the `v=` param on every release). No `<base>`, no leading `/`. The only CDN is Google Fonts.
 
 ```
 index.html        markup, one <section> per block + an inline SVG icon sprite (<symbol id="i-…">)
-css/styles.css    tokens → base → nav → section → hero → micro-UI → players → bento tiles → how-it-works
+css/styles.css    tokens → base → nav → section → hero → micro-UI → players → bento tiles
                   → feature blocks → results → FAQ → CTA → footer → responsive → reduced motion
-js/main.js        nav (click-only dropdowns) · reveal-on-scroll · players · count-up (ints, decimals, thousands)
+js/main.js        nav (click-only dropdowns) · reveal-on-scroll · hero scenes · flow rail · players · count-up
 assets/           logo, product icons, meta/tiktok/googleads icons, illus-qr.svg (Chat-only assets removed)
 ```
 
-## Page structure
+## Page structure (mk2 — Audrey review, deck slides 28–31)
 
 | # | Block | Notes |
 |---|---|---|
-| 1 | Nav | Same as Chat. Marketing is `is-current` (“You’re here”, `./`). Chat → `../chat/`, others → `../`. |
-| 2 | Hero | “Cekat Marketing” pill, plain navy H1 “Stop guessing. Start growing.”, one line, Start Free Trial + Book a demo. Visual: a dashboard card (Ad spend $4,200 · Cost per lead $18.40 · ROAS 3.1×, plus a Revenue/Ad spend line chart) and one accent card (Ad → Chat → Paid, “Credited to Meta ad”). Motion: the line wipes in, the KPIs count up, the end dot pulses. |
-| 3 | Bento `#features` | 10 tiles. Layout `01 01 02 02 / 01 01 03 04 / 05 06 03 07 / 08 08 09 10`. Deep accents are 02 (navy), 06 (blue) and 09 (navy), and none of them touch. |
-| 4 | How it works `#how` | Unify → Analyze → Act cards on a thin line, plus “No developer…” line. |
-| 5 | Feature blocks `#stories` | A: Ad-driven sales don’t hide as “organic” (Puffy Cotton Candy quote) · B: Teach Meta who actually buys (EuroMedica quote) · C: Meta shows 10 booked, Cekat shows who (no proof). |
-| 6 | Results `#results` | EuroMedica 5× booking rate, 3× CTR · Puffy Cotton Candy 2× revenue (ROAS up), 3–4× in high season. |
-| 7 | FAQ, CTA, footer | The CTA is “Decide with data, not feeling.” The ISO/UU PDP footer line is removed. |
+| 1 | Nav | Same as Chat. Marketing is `is-current`. Chat → `../chat/`, CRM → `../crm/`, others → `../`. Click-only dropdown. |
+| 2 | Hero | H1 “Stop guessing. <span class=grad>Start growing.</span>” (solid blue), sub “See which source brings revenue. Fund the winners, cut the rest.” Visual: `.hs` white card with 4 scenes rotating every 3.2s (Connect · Compare · Watch · Teach Meta), clickable step dots, pause on hover. Reduced motion: scene 1 static, dots still switch. |
+| 3 | Features `#features` | “Scale what works. Stop what doesn’t.” Bento grouped in `.flow` → 3 `.grp` (01 Unify · 02 Analyze · 03 Act), each with its own named-area `.usp-grid--*`, one deep tile per group, and a left rail that fills on scroll. Quiet line under the groups: “No developer…”. The old `#how` section is gone. |
+| 4 | Feature blocks `#stories` | `section--soft`, same shape as chat-v1 `#features`: no eyebrows, title + solid-blue `.grad` span, one line, quote + “Client · Vertical”. |
+| 5 | Results, FAQ, CTA, footer | Unchanged. |
 
-### Bento tiles
+### Bento groups
 
-| # | Size | Tile | Illustration (`.usp-card__art`) |
-|---|---|---|---|
-| 01 | big | Every source, one dashboard | `.srct` All-sources table (the Impressions column is hidden on mobile) |
-| 02 | wide, navy | Ad sales don’t hide as “organic” | `.wifi` see ad → coworker → buys, with a Wi-Fi badge and “Credited to the ad” |
-| 03 | tall | Teach Meta who actually buys | `.capi` stage toggles (`.tog--on` animates on) and “Sent to Meta” |
-| 04 | 1×1 | Sync Meta, TikTok & Google | `.sync` logos + ✓ Connected |
-| 05 | 1×1 | Track every creator | `.paste` link types in → Add → Tracking |
-| 06 | 1×1, blue | Links & QR codes | `.qrc` QR scan line + CSS `@property` counter (1,180 → 1,284) |
-| 07 | 1×1 | Which source books the most? | `.hbars` horizontal bars (Paid Ads #1A56DB, rest #93B4F5) |
-| 08 | wide | See which ad works. Then watch it. | `.ads` top-ads list + `.phone` play + progress |
-| 09 | 1×1, navy | Click a lead, see the journey | `.jrny` timeline |
-| 10 | 1×1, 2 scenes | Reach them personally | `.seg` Clicked only / Booked a meeting → message → Send |
+| Group | Desktop areas (4 cols) | Cards |
+|---|---|---|
+| Unify | `src src sync crt / src src qr qr` | All sources (table) · Sync Meta, TikTok & Google · Track every creator · Links & QR (blue) |
+| Analyze | `org org org bars / ads ads ads bars` | Ad-driven sales don’t hide as “organic” (navy) · Which source books the most? (tall bars) · See which ad works, then watch it |
+| Act | `capi capi jrny seg` (330px row) | Teach Meta who actually buys · Click a lead, see the journey (navy) · Reach them personally |
+
+Tablet (761–1024) uses 2-col areas; mobile is one column with fixed per-card heights (see the mk2 block at the end of `styles.css`).
+Card numbers were dropped: the group step numbers replace them.
 
 ## Style rules (kept from Chat, plus Marketing-specific)
 
-- Clean and minimal: white and navy with lots of air. No gradient text anywhere (the `.grad` helper is gone). No dot grids, no logo band or “Trusted by” line, no trial microcopy, no “2M+”, no ISO/UU PDP badges.
+- Clean and minimal: white and navy with lots of air. No gradient text anywhere: `.grad` is solid `color:var(--primary)`, as in chat-v1. No dot grids, no logo band or “Trusted by” line, no trial microcopy, no “2M+”, no ISO/UU PDP badges.
 - **Charts:** Cekat blue `--c1:#1A56DB` for the primary series, pale blue `--c2:#93B4F5` for the secondary one, hairline grid `--grid:#EEF2F8`, white cards and minimal dots. No near-black lines and no teal/orange. Two-series charts carry a legend, and the pale series is never the only signal (it always has a label or value next to it).
 - Every section is a headline plus at most one short line. Every illustration is one main card plus at most one accent (`.faccent` in the feature stages).
 - Nav dropdowns open **on click only**. `prefers-reduced-motion` turns off every animation and reveals everything.
