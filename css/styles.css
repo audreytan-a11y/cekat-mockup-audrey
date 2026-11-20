@@ -2182,3 +2182,14 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* v13d: final CTA back on the earlier navy background (pre-v8), no subtitle */
 .cta--navy .h1{background:none!important;-webkit-text-fill-color:#fff;color:#fff;letter-spacing:-.035em;margin-bottom:28px}
 .cta--navy .btn--white{color:#1352bf}
+
+/* ===== v13e: final CTA, white card with soft light-blue gradient ===== */
+.cta.cta--light{background:#fff;color:var(--navy);padding:72px 0 88px}
+.cta--light::before,.cta--light::after{display:none!important}
+.cta--light .cta__inner{max-width:1120px;margin:0 auto;padding:72px 32px 76px;border-radius:28px;border:1px solid #dfe8f7;background:radial-gradient(60% 80% at 50% 120%,rgba(147,180,245,.45),transparent 70%),radial-gradient(40% 60% at 0% 0%,rgba(234,241,255,.95),transparent 70%),radial-gradient(40% 60% at 100% 0%,rgba(234,241,255,.95),transparent 70%),linear-gradient(180deg,#fff 0%,#f5f8ff 55%,#EAF1FF 100%);box-shadow:0 24px 48px -32px rgba(8,33,76,.28)}
+.cta--light .h1{background:none!important;-webkit-text-fill-color:var(--navy);color:var(--navy);letter-spacing:-.035em;margin-bottom:28px}
+.cta--light .cta__easy{background:#fff;color:var(--navy);border:1px solid #dfe8f7;box-shadow:0 6px 16px -10px rgba(8,33,76,.25)}
+.cta--light .btn--primary{background:#1A56DB;color:#fff}
+.btn--wline{background:#fff;color:var(--navy);border:1px solid #d5e0f2;box-shadow:0 6px 16px -12px rgba(8,33,76,.3)}
+.btn--wline:hover{border-color:#1A56DB;color:#1A56DB}
+@media (max-width:640px){.cta.cta--light{padding:40px 0 56px}.cta--light .cta__inner{margin:0 16px;padding:48px 20px 52px;border-radius:22px}}
