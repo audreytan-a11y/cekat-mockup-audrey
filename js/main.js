@@ -65,6 +65,11 @@
     i.addEventListener('focus', function () { showPanel(i.dataset.panel); });
   });
 
+  /* mega-anchor: close menu when jumping to an on-page product card */
+  $$('.dd a[href^="#"]').forEach(function (i) {
+    i.addEventListener('click', function () { setTimeout(closeAll, 0); if (nav.classList.contains('menu-open')) toggle.click(); });
+  });
+
   /* generic rotating scenes (.rot) */
   function tickRot() {
     $$('.rot').forEach(function (r) {
