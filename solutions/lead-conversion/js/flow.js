@@ -108,27 +108,52 @@
     }, { threshold: 0.35 }).observe(pl);
   });
 
-  /* ---------- STEPPER: light up in sequence on scroll ---------- */
+  /* ---------- FLOW TABS: swap panels in place, hash deep-links ---------- */
   (function () {
-    var wrap = $('[data-steps]');
-    if (!wrap) return;
-    var steps = $$('.step', wrap), lit = -1, queue = Promise.resolve();
-    function light(k) {
-      steps[k].classList.add('is-lit');
-      if (k > 0) steps[k - 1].classList.add('link-next');
-      lit = Math.max(lit, k);
+    var tabs = $$('.flow-tab'), panels = $$('.flow-panel');
+    if (!tabs.length) return;
+    var keys = tabs.map(function (t) { return t.getAttribute('data-flow'); });
+    var cur = null, timers = [];
+    function light(p) {
+      timers.forEach(clearTimeout); timers = [];
+      var steps = $$('.step', p);
+      steps.forEach(function (s) { s.classList.remove('is-lit', 'link-next'); });
+      steps.forEach(function (s, k) {
+        function on() { s.classList.add('is-lit'); if (k > 0) steps[k - 1].classList.add('link-next'); }
+        if (reduce) on(); else timers.push(setTimeout(on, 180 + k * 260));
+      });
     }
-    if (reduce || !hasIO) { steps.forEach(function (_, k) { light(k); }); return; }
-    var queued = -1;
-    function enqueue(k) {
-      for (var j = queued + 1; j <= k; j++) {
-        (function (j) { queue = queue.then(function () { return new Promise(function (r) { setTimeout(function () { light(j); r(); }, 520); }); }); })(j);
+    function show(key, instant) {
+      if (keys.indexOf(key) < 0) key = keys[0];
+      if (key === cur) return;
+      var next = $('#p-' + key), prev = cur ? $('#p-' + cur) : null;
+      cur = key;
+      tabs.forEach(function (t) {
+        var on = t.getAttribute('data-flow') === key;
+        t.classList.toggle('is-on', on); t.setAttribute('aria-selected', String(on));
+      });
+      $$('[data-flow-link]').forEach(function (a) { a.classList.toggle('is-current', a.getAttribute('data-flow-link') === key); });
+      function enter() {
+        panels.forEach(function (p) { if (p !== next) { p.hidden = true; p.classList.remove('is-on', 'leave'); } });
+        next.hidden = false; next.classList.remove('leave'); void next.offsetWidth; next.classList.add('is-on');
+        light(next);
       }
-      queued = Math.max(queued, k);
+      if (prev && !instant && !reduce) { prev.classList.add('leave'); setTimeout(enter, 180); } else enter();
     }
-    var io = new IntersectionObserver(function (es) {
-      es.forEach(function (e) { if (e.isIntersecting) { enqueue(steps.indexOf(e.target)); io.unobserve(e.target); } });
-    }, { threshold: 0.55, rootMargin: '0px 0px -8% 0px' });
-    steps.forEach(function (s) { io.observe(s); });
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () {
+        var k = t.getAttribute('data-flow');
+        if (history.replaceState) history.replaceState(null, '', '#' + k); else location.hash = k;
+        show(k);
+      });
+      t.addEventListener('keydown', function (e) {
+        var i = tabs.indexOf(t), n = e.key === 'ArrowRight' ? i + 1 : e.key === 'ArrowLeft' ? i - 1 : null;
+        if (n === null) return;
+        n = (n + tabs.length) % tabs.length; tabs[n].focus(); tabs[n].click(); e.preventDefault();
+      });
+    });
+    function fromHash() { show((location.hash || '').replace('#', '') || keys[0]); }
+    window.addEventListener('hashchange', fromHash);
+    fromHash();
   })();
 })();
