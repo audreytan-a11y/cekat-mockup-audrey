@@ -303,27 +303,23 @@
   layout();
 })();
 
-/* rev27 — hero: one shared timer for the rotating line + illustration + dots.
+/* rev28 — hero: one shared timer for the illustration slides + dots (headline is static).
    Loops forever (i+1 mod n); pauses only while a mouse is over the hero visual/title or keyboard focus is inside;
    always resumes on leave, after a dot click, when the hero scrolls back into view and when the tab is shown again. */
 (function () {
-  var vis = document.querySelector('.hero__vis[data-hsync]'), rot = document.querySelector('.hero-rot');
-  if (!vis || !rot) return;
+  var vis = document.querySelector('.hero__vis[data-hsync]');
+  if (!vis) return;
   var hero = vis.closest('.hero') || vis;
-  var title = rot.closest('.hero__title');
-  var sl = [].slice.call(vis.querySelectorAll('.hv-s')), txt = [].slice.call(rot.children),
+  var title = null;
+  var sl = [].slice.call(vis.querySelectorAll('.hv-s')), 
       dots = [].slice.call(vis.querySelectorAll('.hv-dots button'));
-  var n = Math.min(sl.length, txt.length), i = 0, t = null, MS = 3000;
+  var n = sl.length, i = 0, t = null, MS = 3000;
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hover = false, kfocus = false, seen = true;
   function set(k, instant) {
-    var prevT = txt[i];
     sl.forEach(function (s, j) { s.classList.toggle('is-on', j === k); });
-    txt.forEach(function (s, j) { s.classList.toggle('is-on', j === k); s.classList.remove('is-out'); });
     dots.forEach(function (d, j) { d.classList.toggle('on', j === k); d.setAttribute('aria-pressed', j === k ? 'true' : 'false'); });
-    if (!instant && prevT && prevT !== txt[k]) { prevT.classList.add('is-out'); setTimeout(function () { prevT.classList.remove('is-out'); }, 320); }
     i = k;
-    if (title) title.setAttribute('aria-label', (title.getAttribute('data-pre') || '') + txt[k].textContent);
     hero.setAttribute('data-slide', String(k));
   }
   function paused() { return hover || kfocus || !seen || document.hidden; }

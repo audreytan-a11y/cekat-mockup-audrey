@@ -1039,15 +1039,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 
 /* ==========================================================================
-   rev27 — hero: fixed line + rotating blue line, synced illustration + dots (3.0s)
+   rev27/28 — hero: synced illustration slides + dots (3.0s)
    ========================================================================== */
-.hero__title{font-size:clamp(36px,4vw,58px)}
-.hero__l1{display:block}
-.hero-rot{display:grid;color:var(--primary)}
-.hero-rot>span{grid-area:1/1;visibility:hidden;opacity:0;transform:translateY(40%);transition:opacity .3s ease,transform .35s ease,visibility 0s linear .35s}
-.hero-rot>span.is-on{visibility:visible;opacity:1;transform:none;transition:opacity .35s ease .25s,transform .4s cubic-bezier(.22,1,.36,1) .25s,visibility 0s linear .25s}
-.hero-rot>span.is-out{visibility:visible;opacity:0;transform:translateY(-40%);transition:opacity .25s ease,transform .3s ease,visibility 0s linear .3s}
-@media (min-width:1025px){.hero-rot>span{white-space:nowrap}}
 /* synced illustration */
 .hero__vis[data-hsync]{display:grid;place-items:center;padding-bottom:36px}
 .hv-s{grid-area:1/1;width:100%;display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .35s ease,transform .45s cubic-bezier(.22,1,.36,1),visibility 0s linear .35s}
@@ -1086,7 +1079,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .hero__vis .pc-mb{font-size:14px}
   .hero__vis .pc-win__body{padding:16px}
 }
-@media (prefers-reduced-motion:reduce){.hv-s,.hero-rot>span{transition:none}}
+@media (prefers-reduced-motion:reduce){.hv-s{transition:none}}
 .hero__vis .pc-note{align-self:flex-start;margin:-4px 0 0 4px;font-size:12.5px;font-style:italic;color:var(--sub)}
 
 /* ==========================================================================
@@ -1147,3 +1140,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .usp-card[data-art="route"] .route__lines{height:188px}
 .usp-card[data-art="route"] .route__out{padding-top:14px;gap:12px}
 .usp-card[data-art="route"] .route__out li{height:52px;font-size:13.5px;padding:0 14px}
+
+/* rev28 — static headline again; small white pill on scenes 2–4 (part of the slide, fades in with it) */
+.hero__vis .hv-s{flex-direction:column}
+.hero__vis .hv-pill{display:inline-flex;align-items:center;gap:6px;margin:0 0 14px;font-size:13px;font-weight:600;color:var(--navy);background:#fff;border:1px solid #dfe8f7;border-radius:999px;padding:6px 14px;box-shadow:0 6px 16px rgba(15,35,80,.07);white-space:nowrap}
+/* rev28 — restore rev26 hero visual placement: no extra bottom padding, dots sit just under the visual */
+@media (min-width:1025px){
+  .hero__vis[data-hsync]{padding-bottom:0}
+  .hero__vis .hv-dots{bottom:-16px}
+}
