@@ -9,7 +9,7 @@ python3 -m http.server 8834   # or the shared server: http://localhost:8834/mark
 ```
 
 Hosted at a GitHub Pages **sub-path** (`…/cekat-mockup-audrey/marketing/`), so every path is **relative**
-(`./assets/…`, `css/styles.css?v=mk2`, `js/main.js?v=mk2`; bump the `v=` param on every release). No `<base>`, no leading `/`. The only CDN is Google Fonts.
+(`./assets/…`, `css/styles.css?v=mk5`, `js/main.js?v=mk5`; bump the `v=` param on every release). No `<base>`, no leading `/`. The only CDN is Google Fonts.
 
 ```
 index.html        markup, one <section> per block + an inline SVG icon sprite (<symbol id="i-…">)
@@ -24,7 +24,7 @@ assets/           logo, product icons, meta/tiktok/googleads icons, illus-qr.svg
 | # | Block | Notes |
 |---|---|---|
 | 1 | Nav | Same as Chat. Marketing is `is-current`. Chat → `../chat/`, CRM → `../crm/`, others → `../`. Click-only dropdown. |
-| 2 | Hero | H1 “Stop guessing. <span class=grad>Start growing.</span>” (solid blue), sub “See which source brings revenue. Fund the winners, cut the rest.” Visual: `.hs` white card with 4 scenes rotating every 3.2s (Connect · Compare · Watch · Teach Meta), clickable step dots, pause on hover. Reduced motion: scene 1 static, dots still switch. |
+| 2 | Hero | mk5: homepage product-card pattern. H1 “Scale what works.” (navy) + rotating solid-blue line 2 (“Stop redoing what doesn’t.” / “See CTR, conversion and sales by source.”, fixed reserved height). Sub “See which ad, creator or link brings revenue, from first click to paid.” Visual `.hx` card: slide 1 Ad → Chat → Booked journey, slide 2 CTR/Conversion/Sales by source (`[data-metric]`, same as the Analyze tile). ONE 3s timer (main.js “HERO SYNC”), dots, pause on hover/focus/out of view. Reduced motion: first pair static, dots still switch. Old 4-scene card: `../backups/marketing-v1-pre-mk5-hero`. |
 | 3 | Features `#features` | “Scale what works. Stop what doesn’t.” Bento grouped in `.flow` → 3 `.grp` (01 Unify · 02 Analyze · 03 Act), each with its own named-area `.usp-grid--*`, one deep tile per group, and a left rail that fills on scroll. Quiet line under the groups: “No developer…”. The old `#how` section is gone. |
 | 4 | Feature blocks `#stories` | `section--soft`, same shape as chat-v1 `#features`: no eyebrows, title + solid-blue `.grad` span, one line, quote + “Client · Vertical”. |
 | 5 | Results, FAQ, CTA, footer | Unchanged. |

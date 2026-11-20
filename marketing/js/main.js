@@ -1,5 +1,5 @@
 /* Cekat.AI — product landing page (Marketing v1) — vanilla JS, no build.
-   Modules: nav · reveal · hero scenes (mk2) · flow rail (mk2) · players (hover/focus/in-view animations) · count-up */
+   Modules: nav · reveal · metric tiles · hero sync (mk5) · flow rail (mk2) · players (hover/focus/in-view animations) · count-up */
 (function () {
   'use strict';
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -68,55 +68,90 @@
   }
 
 
-  /* ---------- HERO SCENES (mk2) ----------
-     4 scenes rotate every 3.2s with a soft crossfade/slide. Step dots jump to a scene.
-     Hover pauses (remaining time is kept). Reduced motion: scene 1 static, dots still switch. */
+  /* ---------- HERO SCENES (mk2/mk4) — removed in mk5 ----------
+     The 4-scene hero card (Connect · Compare · Watch · Teach Meta) and its watch-clip module live in
+     ../backups/marketing-v1-pre-mk5-hero. Their CSS (.hs*, .hw*, .clip*) is left dormant in styles.css. */
+
+  /* ---------- METRIC TILE (mk4 → mk5: every [data-metric] root) ----------
+     CTR · Conversion · Sales tabs, clickable. Values match the All sources table (conversion = booked ÷ clicks).
+     Sales are demo USD. Top source = --c1 (#1A56DB), others --c2 (#93B4F5).
+     data-auto="0": no own cycling (the hero instance is driven by HERO SYNC); default: auto-cycle 3s, pause on hover. */
+  var METRICS = [
+    { v: ['2.25%', '4.00%', '2.60%', '6.00%'], n: [2.25, 4, 2.6, 6] },
+    { v: ['2.0%', '1.9%', '1.3%', '2.4%'], n: [2.0, 1.9, 1.3, 2.4] },
+    { v: ['$18,600', '$7,400', '$5,200', '$3,100'], n: [18600, 7400, 5200, 3100] }
+  ];
+  var SRC_NAMES = ['Paid Ads', 'Organic', 'Creators', 'Links'];
+  $$('[data-metric]').forEach(function (root) {
+    var tabs = $$('.mx__tab', root), bars = $$('.hbar', root), top = $('.mx__top b', root);
+    var auto = root.getAttribute('data-auto') !== '0';
+    var cur = 0, tm = null, hover = false;
+    function set(m) {
+      cur = m; var d = METRICS[m], max = Math.max.apply(null, d.n), ti = d.n.indexOf(max);
+      bars.forEach(function (b, k) {
+        $('i', b).style.setProperty('--w', (d.n[k] / max * 100).toFixed(1) + '%');
+        $('b', b).textContent = d.v[k];
+        b.classList.toggle('is-top', k === ti);
+      });
+      if (top) top.textContent = SRC_NAMES[ti];
+      tabs.forEach(function (t, k) { t.classList.toggle('is-on', k === m); t.setAttribute('aria-pressed', String(k === m)); });
+    }
+    function loop() { clearTimeout(tm); if (!auto || reduce || hover) return; tm = setTimeout(function () { set((cur + 1) % 3); loop(); }, 3000); }
+    tabs.forEach(function (t, k) { t.addEventListener('click', function () { set(k); loop(); }); });
+    if (auto) {
+      var card = root.closest('.usp-card') || root;
+      card.addEventListener('mouseenter', function () { hover = true; clearTimeout(tm); });
+      card.addEventListener('mouseleave', function () { hover = false; loop(); });
+    }
+    root.mxSet = set; // HERO SYNC resets the hero instance to CTR each time slide 2 comes in
+    set(0); loop();
+  });
+
+  /* ---------- HERO SYNC (mk5) ----------
+     Same pattern as homepage-v1 "[data-sync]" (v11): ONE shared timer (MS=3000) drives H1 line 2,
+     the illustration slide and the dots. Loops forever. Pauses while the mouse is over the card or the
+     headline, or keyboard focus is inside the card, and while the hero is out of view; resumes after.
+     A dot click jumps and restarts the timer. Reduced motion: first pair static, dots still switch. */
   (function () {
-    var root = $('#hero-scenes'); if (!root) return;
-    var scenes = $$('.hs__scene', root), dots = $$('.hs__dot', root);
-    var n = scenes.length, idx = 0, DUR = 3200, t = null, t0 = 0, left = DUR, paused = false;
-    root.style.setProperty('--hs-ms', DUR + 'ms');
-    function show(i) {
-      var prev = idx;
-      scenes.forEach(function (s, k) {
-        s.classList.toggle('is-on', k === i);
-        s.classList.toggle('is-prev', k === prev && k !== i);
-        s.classList.remove('play');
+    var vis = $('#hero-sync'), h1 = $('.hero__title'); if (!vis || !h1) return;
+    var sl = $$('.hx__s', vis), dots = $$('.hx__dots button', vis), txt = $$('.hero__rot > span', h1);
+    var hero = vis.closest('.hero') || vis, i = 0, t = null, MS = 3000;
+    var hover = { card: false, h1: false }, kfocus = false, seen = true;
+    if (sl.length < 2) return;
+    function set(k, instant) {
+      var prevS = sl[i], prevT = txt[i];
+      sl.forEach(function (s, j) {
+        s.classList.toggle('is-on', j === k);
+        // decorative slides stay hidden from AT; the metric slide (real buttons) is exposed while shown
+        s.setAttribute('aria-hidden', String(j !== k || !$('[data-metric]', s)));
       });
-      idx = i;
-      void scenes[i].offsetWidth; // restart CSS animations
-      if (!reduce) scenes[i].classList.add('play');
-      dots.forEach(function (d, k) {
-        d.classList.remove('is-on'); void d.offsetWidth;
-        d.classList.toggle('is-on', k === i);
-        d.setAttribute('aria-pressed', String(k === i));
-      });
+      txt.forEach(function (s, j) { s.classList.toggle('is-on', j === k); s.classList.remove('is-out'); });
+      dots.forEach(function (d, j) { d.classList.toggle('on', j === k); d.setAttribute('aria-pressed', String(j === k)); });
+      if (!instant && prevT && prevT !== txt[k]) { prevT.classList.add('is-out'); setTimeout(function () { prevT.classList.remove('is-out'); }, 400); }
+      if (!instant && prevS && prevS !== sl[k]) { prevS.classList.add('is-leaving'); setTimeout(function () { prevS.classList.remove('is-leaving'); }, 450); }
+      var mx = $('[data-metric]', sl[k]); if (mx && mx.mxSet) mx.mxSet(0);
+      i = k;
+      if (txt[k]) h1.setAttribute('aria-label', (h1.getAttribute('data-pre') || '') + txt[k].textContent);
     }
-    function schedule(ms) {
-      clearTimeout(t); left = ms;
-      if (reduce || paused) return;
-      t0 = Date.now();
-      t = setTimeout(function () { show((idx + 1) % n); schedule(DUR); }, ms);
+    function paused() { return hover.card || hover.h1 || kfocus || !seen || document.hidden; }
+    function start() {
+      clearInterval(t); t = null;
+      if (reduce || paused()) return;
+      t = setInterval(function () { if (!paused()) set((i + 1) % sl.length); }, MS);
     }
-    function pause() {
-      if (paused || reduce) return;
-      paused = true; clearTimeout(t);
-      left = Math.max(0, left - (Date.now() - t0));
-      root.classList.add('is-paused');
-    }
-    function resume() {
-      if (!paused) return;
-      paused = false; root.classList.remove('is-paused');
-      schedule(left);
-    }
-    dots.forEach(function (d, k) {
-      d.addEventListener('click', function () { show(k); schedule(DUR); });
-    });
+    set(0, true);
+    dots.forEach(function (d, j) { d.addEventListener('click', function () { if (j !== i) set(j); start(); }); });
     if (reduce) return;
-    root.classList.add('is-auto');
-    root.addEventListener('mouseenter', pause);
-    root.addEventListener('mouseleave', resume);
-    setTimeout(function () { show(0); schedule(DUR); }, 350);
+    [['card', vis], ['h1', h1]].forEach(function (p) {
+      p[1].addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { hover[p[0]] = true; start(); } });
+      p[1].addEventListener('pointerleave', function () { if (hover[p[0]]) { hover[p[0]] = false; start(); } });
+    });
+    vis.addEventListener('focusin', function (e) { kfocus = !!(e.target.matches && e.target.matches(':focus-visible')); start(); });
+    vis.addEventListener('focusout', function () { kfocus = false; start(); });
+    dots.forEach(function (d) { d.addEventListener('pointerup', function () { d.blur(); kfocus = false; start(); }); });
+    if (hasIO) new IntersectionObserver(function (es) { es.forEach(function (e) { seen = e.isIntersecting; start(); }); }, { threshold: 0.15 }).observe(hero);
+    document.addEventListener('visibilitychange', start);
+    start();
   })();
 
   /* ---------- FLOW RAIL (mk2) ----------
@@ -253,4 +288,68 @@
     }, { threshold: 0.6 });
     counters.forEach(function (c) { cio.observe(c); });
   }
+})();
+
+/* mk5 — feature-flow connector for #stories (ported from chat-v1 rev24): dotted line weaving
+   from one block's stage to the next; SVG over #stories .wrap (desktop only), drawn with scroll progress. */
+(function () {
+  var wrap = document.querySelector('#stories > .wrap');
+  if (!wrap) return;
+  var NS = 'http://www.w3.org/2000/svg';
+  var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var svg = document.createElementNS(NS, 'svg');
+  svg.setAttribute('class', 'flow');
+  svg.setAttribute('aria-hidden', 'true');
+  wrap.insertBefore(svg, wrap.firstChild);
+  var segs = [], total = 0, forced = null;
+
+  function layout() {
+    var stages = [].slice.call(wrap.querySelectorAll('.feature-block__visual .stage'));
+    var wr = wrap.getBoundingClientRect();
+    svg.setAttribute('width', wr.width); svg.setAttribute('height', wr.height);
+    svg.setAttribute('viewBox', '0 0 ' + wr.width + ' ' + wr.height);
+    if (getComputedStyle(svg).display === 'none' || stages.length < 2) { segs = []; return; }
+    var defs = '', body = '', dots = '';
+    var ds = [];
+    for (var i = 0; i < stages.length - 1; i++) {
+      var a = stages[i].getBoundingClientRect(), b = stages[i + 1].getBoundingClientRect();
+      var sx = a.left + a.width / 2 - wr.left, sy = a.bottom - wr.top;
+      var ex = b.left + b.width / 2 - wr.left, ey = b.top - wr.top;
+      var k = (ey - sy) * 0.75;
+      var d = 'M' + sx + ' ' + sy + ' C' + sx + ' ' + (sy + k) + ' ' + ex + ' ' + (ey - k) + ' ' + ex + ' ' + ey;
+      ds.push(d);
+      defs += '<mask id="flowM' + i + '" maskUnits="userSpaceOnUse"><path class="flow__mask" d="' + d + '"/></mask>';
+      body += '<path class="flow__line" d="' + d + '" mask="url(#flowM' + i + ')"/>';
+      dots += '<circle cx="' + sx + '" cy="' + sy + '" r="4.5"/><circle cx="' + ex + '" cy="' + ey + '" r="4.5"/>';
+    }
+    svg.innerHTML = '<defs>' + defs + '</defs>' + body + '<g class="flow__nodes">' + dots + '</g>';
+    segs = [].slice.call(svg.querySelectorAll('.flow__mask')).map(function (m) {
+      var l = m.getTotalLength(); m.style.strokeDasharray = l + ' ' + l; return { el: m, len: l };
+    });
+    total = segs.reduce(function (t, s) { return t + s.len; }, 0);
+    draw();
+  }
+  function draw() {
+    if (!segs.length) return;
+    var p;
+    if (forced != null) p = forced;
+    else if (reduce) p = 1;
+    else {
+      var r = wrap.getBoundingClientRect(), vh = window.innerHeight;
+      p = Math.max(0, Math.min(1, ((vh * 0.62 - r.top) / r.height) * 1.08));
+    }
+    // each segment draws while the viewport travels its own stretch of the section
+    var n = segs.length;
+    segs.forEach(function (s, i) {
+      var q = Math.max(0, Math.min(1, p * (n + 1) - (i + 0.5)));
+      s.el.style.strokeDashoffset = (s.len * (1 - q)).toFixed(1);
+    });
+  }
+  window.cekatFlow = { set: function (p) { forced = p; draw(); }, layout: layout };
+  var raf = 0;
+  window.addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(function () { raf = 0; draw(); }); }, { passive: true });
+  window.addEventListener('resize', function () { clearTimeout(layout._t); layout._t = setTimeout(layout, 120); });
+  window.addEventListener('load', layout);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
+  layout();
 })();
