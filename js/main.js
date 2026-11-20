@@ -345,6 +345,19 @@
         txt=[].slice.call(card.querySelectorAll(rotW?'.pc-rot__w>span':'.wide__sub>span')),
         line=card.querySelector('.pc-rot'), i=0, paused=false, t=null, MS=3000;
     if(sl.length<2) return;
+    function countUp(slide){
+      var lk=slide.querySelector('.lk-n[data-to]');
+      if(lk){ var to=+lk.getAttribute('data-to'), pf=lk.getAttribute('data-pre')||'', t1=null; if(lk._raf) cancelAnimationFrame(lk._raf); lk.textContent=pf+'0';
+        (function g(ts){ if(t1===null) t1=ts; var q=Math.min(1,Math.max(0,(ts-t1-350)/1000)), e1=1-Math.pow(1-q,3); lk.textContent=pf+Math.round(to*e1).toLocaleString('en-US'); if(q<1) lk._raf=requestAnimationFrame(g); })(performance.now()); }
+      var src=slide.querySelector('.pc-src'); if(!src) return;
+      var bs=[].slice.call(src.querySelectorAll('li b')), vals=bs.map(function(b){return b.getAttribute('data-v')||(b.setAttribute('data-v',b.textContent.replace(/[^0-9]/g,'')),b.getAttribute('data-v'));}).map(Number);
+      var t0=null, D=1000; if(src._raf) cancelAnimationFrame(src._raf);
+      src.style.setProperty('--k',0); bs.forEach(function(b){b.textContent='0';});
+      function f(ts){ if(t0===null) t0=ts; var p=Math.min(1,(ts-t0-300)/D); if(p<0) p=0; var e=1-Math.pow(1-p,3);
+        src.style.setProperty('--k',e); bs.forEach(function(b,j){b.textContent=Math.round(vals[j]*e).toLocaleString('en-US');});
+        if(p<1) src._raf=requestAnimationFrame(f); }
+      src._raf=requestAnimationFrame(f);
+    }
     function set(k,instant){
       var prevS=sl[i], prevT=txt[i];
       sl.forEach(function(s,j){s.classList.toggle('is-on',j===k);});
@@ -353,6 +366,7 @@
       if(!instant && prevS && prevS!==sl[k]){prevS.classList.add('is-leaving');setTimeout(function(){prevS.classList.remove('is-leaving');},420);}
       if(!instant && prevT && prevT!==txt[k] && rotW){prevT.classList.add('is-out');setTimeout(function(){prevT.classList.remove('is-out');},350);}
       i=k;
+      if(!instant && !reduce) countUp(sl[k]);
       if(line&&txt[k]) line.setAttribute('aria-label',(line.getAttribute('data-pre')||'')+txt[k].textContent);
     }
     function tick(){if(!paused&&!document.hidden) set((i+1)%sl.length);}
