@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css?v=rev22">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -34,7 +34,7 @@
               <li><a class="prod-menu__item" href="../">
                 <span class="prod-menu__ic"><img src="./assets/products/crm.svg" alt="" width="22" height="22"></span>
                 <span><b>CRM</b><small>A CRM that fills itself and fits how you work.</small></span></a></li>
-              <li><a class="prod-menu__item" href="../marketing/">
+              <li><a class="prod-menu__item" href="../">
                 <span class="prod-menu__ic"><img src="./assets/products/marketing.svg" alt="" width="22" height="22"></span>
                 <span><b>Marketing</b><small>Know which ad, creator or link brings revenue.</small></span></a></li>
               <li><a class="prod-menu__item" href="../">
@@ -89,13 +89,13 @@
         <div class="orbit__ring orbit__ring--outer"></div>
         <div class="orbit__ring orbit__ring--inner"></div>
         <div class="orbit__spin">
-          <span class="orbit__ch" style="--i:0"><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/whatsapp.svg" alt=""></span></span>
-          <span class="orbit__ch" style="--i:1"><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/instagram.svg" alt=""></span></span>
-          <span class="orbit__ch" style="--i:2"><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/tiktok.svg" alt=""></span></span>
-          <span class="orbit__ch" style="--i:3"><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/messenger.svg" alt=""></span></span>
-          <span class="orbit__ch" style="--i:4"><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/telegram.svg" alt=""></span></span>
-          <span class="orbit__ch" style="--i:5"><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/livechat.svg" alt=""></span></span>
-          <span class="orbit__ch" style="--i:6"><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/email.svg" alt=""></span></span>
+          <span class="orbit__ch" style="--i:0"><svg class="orbit__link" viewBox="0 0 100 8" preserveAspectRatio="none"><line x1="0" y1="4" x2="100" y2="4"/></svg><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/whatsapp.svg" alt=""></span></span>
+          <span class="orbit__ch" style="--i:1"><svg class="orbit__link" viewBox="0 0 100 8" preserveAspectRatio="none"><line x1="0" y1="4" x2="100" y2="4"/></svg><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/instagram.svg" alt=""></span></span>
+          <span class="orbit__ch" style="--i:2"><svg class="orbit__link" viewBox="0 0 100 8" preserveAspectRatio="none"><line x1="0" y1="4" x2="100" y2="4"/></svg><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/tiktok.svg" alt=""></span></span>
+          <span class="orbit__ch" style="--i:3"><svg class="orbit__link" viewBox="0 0 100 8" preserveAspectRatio="none"><line x1="0" y1="4" x2="100" y2="4"/></svg><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/messenger.svg" alt=""></span></span>
+          <span class="orbit__ch" style="--i:4"><svg class="orbit__link" viewBox="0 0 100 8" preserveAspectRatio="none"><line x1="0" y1="4" x2="100" y2="4"/></svg><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/telegram.svg" alt=""></span></span>
+          <span class="orbit__ch" style="--i:5"><svg class="orbit__link" viewBox="0 0 100 8" preserveAspectRatio="none"><line x1="0" y1="4" x2="100" y2="4"/></svg><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/livechat.svg" alt=""></span></span>
+          <span class="orbit__ch" style="--i:6"><svg class="orbit__link" viewBox="0 0 100 8" preserveAspectRatio="none"><line x1="0" y1="4" x2="100" y2="4"/></svg><span class="orbit__pkt"></span><span class="orbit__icon"><img src="./assets/integrations/email.svg" alt=""></span></span>
         </div>
         <div class="orbit__hub"><img src="./assets/logo-mark.svg" alt=""></div>
       </div>
@@ -105,7 +105,7 @@
 </section>
 
 <!-- =====================================================================
-     USP BENTO GRID — 10 cards in mixed sizes. Static by default; animate on hover/focus
+     USP BENTO GRID — 11 cards in mixed sizes. Static by default; animate on hover/focus
      (touch: in view). Multi-idea cards swap scenes (tiny dot indicator).
      ===================================================================== -->
 <section class="section" id="usps">
@@ -116,8 +116,9 @@
       <p class="section__lead"><span class="hint-hover">Hover a card to see it work.</span><span class="hint-touch">Scroll to see each one work.</span></p>
     </header>
 
-    <!-- Bento: 4 cols × 4 rows (desktop). 01 = 2×2 · 02 = 2×1 · 03 = 1×2 · 08, 09 = 2×1 · rest 1×1.
-         Accent (deep blue) tiles: 02, 06, 09 — never adjacent. -->
+    <!-- Bento: 4 cols × 4 rows (desktop), auto-flow in DOM order:
+         01 01 02 03 / 01 01 04 05 / 06 07 04 08 / 09 09 10 11
+         01 = 2×2 · 04 = 1×2 · 09 = 2×1 · rest 1×1. Deep tiles: 02, 07, 10 — never edge to edge. -->
     <div class="usp-grid">
 
       <!-- 01 Humanized replies — BIG 2×2 -->
@@ -142,34 +143,44 @@
         </div>
       </article>
 
-      <!-- 02 Voice notes & photos — WIDE 2×1 (accent navy) -->
-      <article class="usp-card usp-card--wide usp-card--d2 rv" style="--d:.06s" tabindex="0" data-player data-scenes="2" data-scene-ms="3400">
+      <!-- 02 Voice notes — 1×1 (accent navy) -->
+      <article class="usp-card usp-card--d2 rv" style="--d:.06s" tabindex="0" data-player data-loop="5000">
         <div class="usp-card__head">
           <span class="usp-card__num">02</span>
-          <h3 class="usp-card__title">Understands voice notes &amp; photos</h3>
-          <p class="usp-card__desc">Customers send a voice note or a picture. It gets it.</p>
+          <h3 class="usp-card__title">Understands voice notes</h3>
+          <p class="usp-card__desc">Customers send a voice note. It gets it.</p>
         </div>
         <div class="usp-card__art" aria-hidden="true">
-          <div class="scene is-on" data-i="0">
-            <div class="mini-chat">
+          <div class="scene is-on">
+            <div class="mini-chat mini-chat--sm">
               <div class="vn bubble bubble--in a" style="--d:.1s"><span class="vn__play">▶</span><span class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><small>0:06</small></div>
               <div class="bubble bubble--ai a" style="--d:1.1s"><span class="transcript">🎙 “Do you deliver to Brooklyn?”</span>Yes! It arrives in 2–3 days 📦</div>
             </div>
           </div>
-          <div class="scene" data-i="1">
-            <div class="mini-chat mini-chat--row">
-              <div class="photo bubble bubble--in a" style="--d:.1s"><img src="./assets/illus-serum.svg" alt=""><span class="scan"></span></div>
-              <div class="bubble bubble--ai a" style="--d:1.2s">That’s our Hydra Serum 30ml ✨ Want to order?</div>
-            </div>
-          </div>
-          <span class="dots"><i></i><i></i></span>
         </div>
       </article>
 
-      <!-- 03 QR payment in chat — TALL 1×2 -->
-      <article class="usp-card usp-card--tall usp-card--l2 rv" style="--d:.12s" tabindex="0" data-player data-loop="5600">
+      <!-- 03 Photos — 1×1 -->
+      <article class="usp-card usp-card--l0 rv" style="--d:.12s" tabindex="0" data-player data-loop="5000">
         <div class="usp-card__head">
           <span class="usp-card__num">03</span>
+          <h3 class="usp-card__title">Understands photos</h3>
+          <p class="usp-card__desc">Send a product photo. It knows what it is.</p>
+        </div>
+        <div class="usp-card__art" aria-hidden="true">
+          <div class="scene is-on">
+            <div class="mini-chat mini-chat--sm">
+              <div class="photo-msg bubble bubble--in a" style="--d:.1s"><span class="photo-msg__img"><img src="./assets/illus-serum.svg" alt=""><span class="scan"></span></span><span>Do you have this one?</span></div>
+              <div class="bubble bubble--ai a" style="--d:1.3s">That’s our Hydra Serum 30ml ✨ <b class="nowrap">$14.90</b>, 12 in stock.</div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 04 QR payment in chat — TALL 1×2 -->
+      <article class="usp-card usp-card--tall usp-card--l2 rv" style="--d:.12s" tabindex="0" data-player data-loop="5600">
+        <div class="usp-card__head">
+          <span class="usp-card__num">04</span>
           <h3 class="usp-card__title">Payment link, right in the chat</h3>
           <p class="usp-card__desc">Even at 2 AM, it sends the QR and payment details instantly.</p>
         </div>
@@ -192,58 +203,52 @@
         </div>
       </article>
 
-      <!-- 04 Shipping & nearest store — 1×1 (2 scenes) -->
-      <article class="usp-card usp-card--l3 rv" tabindex="0" data-player data-scenes="2" data-scene-ms="3200">
-        <div class="usp-card__head">
-          <span class="usp-card__num">04</span>
-          <h3 class="usp-card__title">Shipping &amp; nearest store</h3>
-          <p class="usp-card__desc">Delivery quotes, closest store.</p>
-        </div>
-        <div class="usp-card__art" aria-hidden="true">
-          <div class="scene is-on" data-i="0">
-            <div class="map map--sm a" style="--d:.1s">
-              <img class="map__bg" src="./assets/illus-map.svg" alt="">
-              <svg class="map__route" viewBox="0 0 300 160" preserveAspectRatio="none"><path class="a-draw" style="--d:.5s" d="M70 120 C 110 120, 120 70, 170 66 S 220 50, 228 44"/></svg>
-              <span class="pin pin--me" style="left:23%;top:75%"></span>
-              <span class="pin pin--shop a" style="left:76%;top:40%;--d:.9s"><i></i></span>
-              <div class="map__card a" style="--d:1.3s"><b>Williamsburg · 1.2 mi</b></div>
-            </div>
-          </div>
-          <div class="scene" data-i="1">
-            <div class="ship__card a" style="--d:.1s">
-              <p class="ship__row is-best"><span class="ship__logo">UPS</span><span><b>Ground</b><small>2–3 days</small></span><b>$5.99</b></p>
-            </div>
-          </div>
-          <span class="dots"><i></i><i></i></span>
-        </div>
-      </article>
-
-      <!-- 05 Event-based follow-up — 1×1 -->
-      <article class="usp-card usp-card--l0 rv" style="--d:.06s" tabindex="0" data-player data-loop="5000">
+      <!-- 05 Shipping & nearest store — 1×1 chat -->
+      <article data-art="store" class="usp-card usp-card--l3 rv" tabindex="0" data-player data-loop="5000">
         <div class="usp-card__head">
           <span class="usp-card__num">05</span>
-          <h3 class="usp-card__title">Follow-ups that time themselves</h3>
-          <p class="usp-card__desc">Reaches out at reorder time.</p>
+          <h3 class="usp-card__title">Shipping &amp; nearest store</h3>
+          <p class="usp-card__desc">Finds the closest store and quotes shipping.</p>
         </div>
         <div class="usp-card__art" aria-hidden="true">
           <div class="scene is-on">
-            <div class="fu fu--sm">
-              <div class="fu__line">
-                <div class="fu__node a" style="--d:.1s"><span class="fu__ic">🧴</span><b>Day 0</b></div>
-                <div class="fu__track"><i class="fu__dot a-travel" style="--d:.6s"></i><span class="fu__est a" style="--d:.5s">~30 days</span></div>
-                <div class="fu__node fu__node--end a" style="--d:1.9s"><span class="fu__ic">💬</span><b>Day 30 ✓</b></div>
+            <div class="mini-chat mini-chat--sm">
+              <div class="bubble bubble--in a" style="--d:.1s">Where’s your nearest store? I’m in Williamsburg</div>
+              <div class="bubble bubble--ai a" style="--d:1.1s"><b>📍 Bedford Ave · 1.2 mi</b><br>Open today 10 AM–8 PM<span class="bubble__sub">Or ship it: UPS Ground $5.99, 2–3 days</span></div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 06 Event-based follow-ups — 1×1, two events -->
+      <article class="usp-card usp-card--l0 rv" style="--d:.06s" tabindex="0" data-player data-loop="5000">
+        <div class="usp-card__head">
+          <span class="usp-card__num">06</span>
+          <h3 class="usp-card__title">Auto follow-ups, based on events</h3>
+          <p class="usp-card__desc">Each product gets its own reminder.</p>
+        </div>
+        <div class="usp-card__art" aria-hidden="true">
+          <div class="scene is-on">
+            <div class="fu2">
+              <div class="fu2__lane">
+                <span class="fu2__chip a" style="--d:.1s">🧴 Facial wash</span>
+                <div class="fu2__track"><div class="fu2__seg" style="--w:50%"><i class="fu__dot a-travel" style="--d:.5s"></i><span class="fu2__end a" style="--d:1.6s"><b>Day 30</b><i class="fu2__ok"></i></span></div></div>
+              </div>
+              <div class="fu2__lane">
+                <span class="fu2__chip a" style="--d:.3s">🫧 Body wash</span>
+                <div class="fu2__track"><div class="fu2__seg" style="--w:100%"><i class="fu__dot a-travel" style="--d:.9s"></i><span class="fu2__end a" style="--d:2.2s"><b>Day 60</b><i class="fu2__ok"></i></span></div></div>
               </div>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- 06 Traffic share + day/night — 1×1 (accent blue, 2 scenes) -->
+      <!-- 07 Traffic share + day/night — 1×1 (accent blue, 2 scenes) -->
       <article class="usp-card usp-card--d1 rv" style="--d:.12s" tabindex="0" data-player data-scenes="2" data-scene-ms="3600">
         <div class="usp-card__head">
-          <span class="usp-card__num">06</span>
-          <h3 class="usp-card__title">Your AI–human split</h3>
-          <p class="usp-card__desc">You choose the AI’s share.</p>
+          <span class="usp-card__num">07</span>
+          <h3 class="usp-card__title">Afraid of AI? Don’t be.</h3>
+          <p class="usp-card__desc">Start with a small AI share. Your team handles the rest.</p>
         </div>
         <div class="usp-card__art" aria-hidden="true">
           <div class="scene is-on" data-i="0">
@@ -262,27 +267,30 @@
         </div>
       </article>
 
-      <!-- 07 Guardrails — 1×1 -->
+      <!-- 08 Slang & other languages — 1×1 -->
       <article class="usp-card usp-card--l1 rv" tabindex="0" data-player data-loop="4600">
         <div class="usp-card__head">
-          <span class="usp-card__num">07</span>
-          <h3 class="usp-card__title">Guardrails, not guesses</h3>
-          <p class="usp-card__desc">Unsure? It hands off.</p>
+          <span class="usp-card__num">08</span>
+          <h3 class="usp-card__title">Understands slang &amp; other languages</h3>
+          <p class="usp-card__desc">Slang, typos or French. It replies in kind.</p>
         </div>
         <div class="usp-card__art" aria-hidden="true">
           <div class="scene is-on">
-            <div class="mini-chat">
-              <div class="bubble bubble--in a" style="--d:.1s">Can I get a refund?</div>
-              <span class="chip chip--check a" style="--d:.9s"><span class="spin-check"></span>Checked · hands off</span>
+            <div class="mini-chat mini-chat--lang">
+              <div class="bubble bubble--in a" style="--d:.1s"><span class="lang-tag">FR</span>Bonjour ! Vous livrez à Paris ?</div>
+              <div class="slot">
+                <div class="typing typing--ai a-typing" style="--d:.7s"><i></i><i></i><i></i></div>
+                <div class="bubble bubble--ai a" style="--d:1.8s">Oui ! Livraison en 2–3 jours 📦</div>
+              </div>
             </div>
           </div>
         </div>
       </article>
 
-      <!-- 08 Smart routing — WIDE 2×1 (3 states) -->
+      <!-- 09 Smart routing — WIDE 2×1 (3 states) -->
       <article class="usp-card usp-card--wide usp-card--l2 rv" style="--d:.06s" tabindex="0" data-player data-scenes="3" data-scene-ms="2200" data-mode="state">
         <div class="usp-card__head">
-          <span class="usp-card__num">08</span>
+          <span class="usp-card__num">09</span>
           <h3 class="usp-card__title">Every chat to the right agent</h3>
           <p class="usp-card__desc">Sales AI, support AI, or straight to your team.</p>
         </div>
@@ -308,51 +316,45 @@
         </div>
       </article>
 
-      <!-- 09 Team collaboration — WIDE 2×1 (accent navy, 3 scenes) -->
-      <article class="usp-card usp-card--d2 rv" style="--d:.12s" tabindex="0" data-player data-scenes="3" data-scene-ms="2800">
-        <div class="usp-card__head">
-          <span class="usp-card__num">09</span>
-          <h3 class="usp-card__title">Built for teamwork</h3>
-          <p class="usp-card__desc">AI summaries, private notes and assignments.</p>
-        </div>
-        <div class="usp-card__art" aria-hidden="true">
-          <div class="scene is-on" data-i="0">
-            <div class="collab__card a" style="--d:.1s">
-              <p class="collab__h">✨ AI summary</p>
-              <p class="collab__txt a" style="--d:.5s">Wants 2× Hydra Serum. <b>Ready to buy.</b></p>
-            </div>
-          </div>
-          <div class="scene" data-i="1">
-            <div class="collab__card collab__card--note a" style="--d:.1s">
-              <p class="collab__h">🔒 Private note</p>
-              <p class="collab__txt a" style="--d:.5s"><span class="mention">@Megan</span> can you confirm stock?</p>
-            </div>
-          </div>
-          <div class="scene" data-i="2">
-            <div class="collab__card a" style="--d:.1s">
-              <p class="collab__h">Assigned to</p>
-              <p class="collab__ok"><span class="av av--b a-pick" style="--d:.5s">J</span><b>Jake</b></p>
-            </div>
-          </div>
-          <span class="dots"><i></i><i></i><i></i></span>
-        </div>
-      </article>
-
-      <!-- 10 Slang & other languages — 1×1 -->
-      <article class="usp-card usp-card--l0 rv" style="--d:.18s" tabindex="0" data-player data-loop="4600">
+      <!-- 10 Team collaboration — 1×1 (accent navy): AI reply → summary + assign → private note -->
+      <article data-art="team" class="usp-card usp-card--d2 rv" style="--d:.12s" tabindex="0" data-player data-loop="6000">
         <div class="usp-card__head">
           <span class="usp-card__num">10</span>
-          <h3 class="usp-card__title">Understands slang &amp; other languages</h3>
-          <p class="usp-card__desc">Slang, typos or French. It replies in kind.</p>
+          <h3 class="usp-card__title">Built for teamwork</h3>
+          <p class="usp-card__desc">AI replies, summarizes, then hands off. Your team adds private notes.</p>
         </div>
         <div class="usp-card__art" aria-hidden="true">
           <div class="scene is-on">
-            <div class="mini-chat mini-chat--lang">
-              <div class="bubble bubble--in a" style="--d:.1s"><span class="lang-tag">FR</span>Bonjour ! Vous livrez à Paris ?</div>
-              <div class="slot">
-                <div class="typing typing--ai a-typing" style="--d:.7s"><i></i><i></i><i></i></div>
-                <div class="bubble bubble--ai a" style="--d:1.8s">Oui ! Livraison en 2–3 jours 📦</div>
+            <div class="team">
+              <div class="bubble bubble--ai a" style="--d:.1s">Sure, one moment! 🙌</div>
+              <div class="team__sum a" style="--d:.9s">
+                <p class="team__h">✨ AI summary</p>
+                <p class="team__txt">Wants 2× Hydra Serum, asked about bulk pricing</p>
+                <p class="team__assign"><span class="av av--sm">J</span>Assigned to Jake</p>
               </div>
+              <div class="team__note a" style="--d:1.9s">
+                <p class="team__h"><svg class="team__lock" viewBox="0 0 16 16" aria-hidden="true"><rect x="3" y="7" width="10" height="7" rx="2"/><path d="M5.5 7V5.2a2.5 2.5 0 0 1 5 0V7"/></svg>Private note · only your team sees this</p>
+                <p class="team__txt">Offer 10% for 3+ units</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- 11 Guardrails — 1×1 -->
+      <article data-art="guard" class="usp-card usp-card--l0 rv" style="--d:.18s" tabindex="0" data-player data-loop="5000">
+        <div class="usp-card__head">
+          <span class="usp-card__num">11</span>
+          <h3 class="usp-card__title">Guardrails, not guesses</h3>
+          <p class="usp-card__desc">Guardrails mean no hallucinations. If it’s unsure, it hands off to a human.</p>
+        </div>
+        <div class="usp-card__art" aria-hidden="true">
+          <div class="scene is-on">
+            <div class="mini-chat mini-chat--sm mini-chat--guard">
+              <span class="guard-tag a" style="--d:0s">🛡 Guardrails on · No hallucination</span>
+              <div class="bubble bubble--in a" style="--d:.2s">Can I get a refund?</div>
+              <span class="chip chip--check a" style="--d:.9s"><span class="spin-check"></span>Checked · Refund policy</span>
+              <span class="chip chip--handoff a" style="--d:1.7s">Not sure → handing to Megan</span>
             </div>
           </div>
         </div>
@@ -364,7 +366,7 @@
 
 <!-- =====================================================================
      FEATURE → BENEFIT → PROOF blocks (reusable pattern)
-     eyebrow = feature · title = benefit · one line · quiet proof
+     title = benefit · one line · quiet proof (quote + attribution)
      ===================================================================== -->
 <section class="section section--soft" id="features">
   <div class="wrap">
@@ -372,17 +374,16 @@
     <!-- A · 24/7 -->
     <article class="feature-block">
       <div class="feature-block__copy rv">
-        <p class="section__eyebrow">24/7 humanised replies</p>
-        <h2 class="feature-block__title">Customers chat at 11 PM. <span class="grad">Your AI still answers.</span></h2>
-        <p class="feature-block__text">Leads stay warm while your team sleeps.</p>
+        <h2 class="feature-block__title">Still replying at 11:42 PM. <span class="grad">No lead left waiting.</span></h2>
+        <p class="feature-block__text">Your AI answers 24/7, so no lead goes cold while your team sleeps.</p>
         <figure class="proof-quote">
           <blockquote>“I sleep soundly while Cekat answers automatically… when I wake up, people are already queuing to schedule visits.”</blockquote>
-          <figcaption><b>Threeland Property</b> · Property · Developers <span class="proof-stat">65% → 85–90% leads responded to</span></figcaption>
+          <figcaption><b>Threeland Property</b> · Property · Developers</figcaption>
         </figure>
       </div>
       <div class="feature-block__visual rv" style="--d:.1s" aria-hidden="true">
         <div class="stage stage--night" data-player data-trigger="view" data-loop="6000">
-          <div class="night-clock a" style="--d:.1s">🌙 <b>11:42 PM</b></div>
+          <div class="night-clock a" style="--d:.1s"><span class="night-clock__moon">🌙</span><b>11:42 PM</b></div>
           <div class="win">
             <div class="win__head"><span class="hchat__av"><img src="./assets/logo-mark.svg" alt=""></span><span><b>Cekat AI agent</b><small><i class="live"></i>Online</small></span><img class="hchat__ch" src="./assets/integrations/instagram.svg" alt=""></div>
             <div class="win__body">
@@ -401,14 +402,12 @@
     <!-- B · Guardrails + routing -->
     <article class="feature-block feature-block--reverse">
       <div class="feature-block__copy rv">
-        <p class="section__eyebrow">Guardrails · handoff · routing</p>
         <h2 class="feature-block__title">Answers from your data. <span class="grad">Never a guess.</span></h2>
-        <p class="feature-block__text">When it needs a person, it hands off.</p>
+        <p class="feature-block__text">Guardrails keep the AI from making things up. If it’s unsure, it hands off to a human.</p>
         <figure class="proof-quote">
           <blockquote>“Initial chats are handled by AI. Our customer service team only focuses on prospective patients who are truly ready to book.”</blockquote>
           <figcaption><b>Orange Dental</b> · Healthcare · Clinic (Dental)</figcaption>
         </figure>
-        <p class="proof-stat proof-stat--line"><b>20% → 28%</b> conversion rate · Wall Street English · Education · Edutech</p>
       </div>
       <div class="feature-block__visual rv" style="--d:.1s" aria-hidden="true">
         <div class="stage" data-player data-trigger="view" data-loop="6000">
@@ -426,12 +425,11 @@
     <!-- C · Question to payment -->
     <article class="feature-block">
       <div class="feature-block__copy rv">
-        <p class="section__eyebrow">Voice · photos · shipping · payment</p>
-        <h2 class="feature-block__title">From question to payment, <span class="grad">inside the chat.</span></h2>
-        <p class="feature-block__text">Understands, quotes shipping and sends a QR link.</p>
+        <h2 class="feature-block__title">Question to payment, <span class="grad">in one chat.</span></h2>
+        <p class="feature-block__text">It reads voice notes and photos, finds the nearest store, quotes shipping and sends a QR to pay.</p>
         <figure class="proof-quote">
           <blockquote>“Our closing rate used to be below 20%. Last week I reviewed it with the team, and it was above 40% — where the standard is 30%.”</blockquote>
-          <figcaption><b>Nature Craft</b> · Retail <span class="proof-stat">Closing rate &lt;20% → &gt;40%</span></figcaption>
+          <figcaption><b>Nature Craft</b> · Retail</figcaption>
         </figure>
       </div>
       <div class="feature-block__visual rv" style="--d:.1s" aria-hidden="true">
@@ -450,12 +448,11 @@
     <!-- D · Control -->
     <article class="feature-block feature-block--reverse">
       <div class="feature-block__copy rv">
-        <p class="section__eyebrow">Traffic share · schedules · teamwork</p>
-        <h2 class="feature-block__title">You decide how much <span class="grad">the AI handles.</span></h2>
-        <p class="feature-block__text">Start small. Turn it up as trust grows.</p>
+        <h2 class="feature-block__title">Scared of AI? <span class="grad">Start small.</span></h2>
+        <p class="feature-block__text">Give the AI a small share of chats. Turn it up as trust grows.</p>
         <figure class="proof-quote">
           <blockquote>“Before, a CS could handle 30–40 chats a day at most, and even that was overwhelming. With this technology, we could give it 100 a day and nobody would complain.”</blockquote>
-          <figcaption><b>Gamal Men</b> · Retail <span class="proof-stat">30–40 → 100+ chats/day</span></figcaption>
+          <figcaption><b>Gamal Men</b> · Retail</figcaption>
         </figure>
       </div>
       <div class="feature-block__visual rv" style="--d:.1s" aria-hidden="true">
@@ -607,13 +604,13 @@
       <p>AI agents, CRM and marketing in one platform — built for businesses that run on conversations.</p>
       <span class="foot__meta"><img src="./assets/integrations/meta.svg" alt="" width="14" height="14">Official Meta Business Partner</span>
     </div>
-    <div><p class="foot__h">Product</p><a href="./" aria-current="page">Chat</a><a href="../">CRM</a><a href="../marketing/">Marketing</a><a href="../">Broadcasts</a><a href="../">Automation</a><a href="../">Analytics</a></div>
+    <div><p class="foot__h">Product</p><a href="./" aria-current="page">Chat</a><a href="../">CRM</a><a href="../">Marketing</a><a href="../">Broadcasts</a><a href="../">Automation</a><a href="../">Analytics</a></div>
     <div><p class="foot__h">Company</p><a href="https://cekat.ai/en/pricing">Pricing</a><a href="#stories">Customer stories</a><a href="https://www.youtube.com/@cekatai">YouTube</a><a href="https://cekat.ai/en/contact-us">Contact</a><a href="https://chat.cekat.ai/login">Log in</a></div>
     <div><p class="foot__h">Offices</p><p class="foot__addr"><b>Indonesia</b> Prosperity Tower, SCBD Jakarta</p><p class="foot__addr"><b>Singapore</b></p><p class="foot__addr"><b>Malaysia</b></p></div>
   </div>
   <div class="wrap foot__bottom"><span>© 2026 PT Teknologi Cekat Indonesia. All rights reserved.</span><span>ISO/IEC 27001 · UU PDP compliant</span></div>
 </footer>
 
-<script src="js/main.js" defer></script>
+<script src="js/main.js?v=rev22" defer></script>
 </body>
 </html>
