@@ -1662,10 +1662,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .btn--line{color:#fff;border:1.5px solid rgba(255,255,255,.85);background:rgba(255,255,255,.08)}
 .btn--line:hover{background:rgba(255,255,255,.16)}
 
-/* hero dots: bigger, cuter */
-.hdot{width:10px;height:10px;background:#1A56DB;border:2.5px solid #fff;box-shadow:0 0 0 3px rgba(26,86,219,.18),0 3px 8px rgba(26,86,219,.35);opacity:.9;animation:hdotP2 4s ease-in-out var(--dl) infinite}
-@keyframes hdotP2{0%,100%{transform:translate(-50%,-50%) scale(1);opacity:.75}50%{transform:translate(-50%,-50%) scale(1.18);opacity:1}}
-@media (prefers-reduced-motion:reduce){.hdot{animation:none}}
 /* v8 fixes */
 .mini--big .mini__vis{height:330px}
 .pcv--crm{gap:10px;padding:16px}
