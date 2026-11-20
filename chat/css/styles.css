@@ -995,3 +995,45 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .usp-card--wide[data-art="team"] .team .bubble{font-size:12.5px}
   .usp-card--wide[data-art="team"] .team__txt{font-size:12px}
 }
+
+/* ==========================================================================
+   rev26 — compact, even bento: 4 equal rows, one inner padding, art centred
+   desktop: 01 01 02 03 / 04 04 05 06 / 07 08 11 11 / 09 09 10 10
+   ========================================================================== */
+@media (min-width:1025px){
+  .usp-grid{--row:260px;grid-template-rows:repeat(4,var(--row));gap:18px}
+  /* one padding system: 22px around the head, art centred in what's left with equal top/bottom air */
+  .usp-card__head,.usp-card--wide .usp-card__head{padding:22px 22px 0}
+  .usp-card--wide .usp-card__head{padding-bottom:22px;width:44%;display:flex;flex-direction:column;justify-content:center}
+  .usp-card .scene,.usp-card:not(.usp-card--big):not(.usp-card--wide):not(.usp-card--tall) .scene{padding:12px 20px 14px}
+  .usp-card--wide .scene{padding:18px 22px 18px 4px}
+  .usp-card--wide .route{inset:18px 22px 26px 4px}
+  .usp-card[data-art="team"] .scene,.usp-card[data-art="store"] .scene{padding-left:16px;padding-right:16px}
+  .usp-card[data-art="store"] .scene{padding-top:4px;padding-bottom:6px}
+  .usp-card[data-art="store"] .mini-chat{gap:6px}
+  .usp-card[data-art="store"] .bubble{font-size:11.5px;padding:6px 10px}
+  .usp-card[data-art="store"] .bubble__sub{margin-top:4px;padding-top:4px;font-size:10.5px}
+  .usp-card--wide[data-art="team"] .team{gap:7px}
+  .usp-card--wide[data-art="team"] .team__sum,.usp-card--wide[data-art="team"] .team__note{padding:7px 11px}
+  .usp-card[data-art="human"] .usp-card__title{font-size:21px}
+}
+@media (min-width:1025px) and (max-width:1279px){
+  .usp-grid{--row:288px;grid-template-rows:repeat(4,var(--row))}
+}
+@media (min-width:1025px){
+  .usp-card[data-art="store"] .mini-chat{max-width:none;width:100%}
+  .usp-card[data-art="store"] .bubble,.usp-card[data-art="store"] .bubble--ai{max-width:97%}
+  .usp-card--wide[data-art="guard"] .mini-chat--guard2{max-width:290px;gap:9px}
+  .usp-card--wide[data-art="guard"] .bubble{font-size:13px;padding:9px 13px}
+  .usp-card--wide[data-art="guard"] .chip--check{font-size:11.5px;padding:5px 11px}
+  .usp-card--wide[data-art="guard"] .sysline{font-size:11px}
+  .usp-card[data-art="pay"] .qrbub__qr{width:76px;height:76px}
+  .usp-card[data-art="pay"] .mini-chat--pay{gap:12px}
+  .usp-card[data-art="pay"] .mini-chat--pay .bubble{font-size:13px;padding:9px 13px}
+}
+@media (min-width:1025px){
+  .usp-grid .usp-card[data-art="store"]:not(.usp-card--big):not(.usp-card--wide) .scene{padding:4px 14px 6px}
+}
+@media (min-width:761px) and (max-width:1024px){
+  .usp-grid{grid-template-rows:264px 250px 250px 272px 256px 256px 264px 240px}
+}
