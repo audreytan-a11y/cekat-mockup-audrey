@@ -9,11 +9,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=1795094449">
+  <link rel="stylesheet" href="css/styles.css?v=crm3">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><filter id="navy" color-interpolation-filters="sRGB"><feColorMatrix type="matrix" values="0 0 0 0 .043  0 0 0 0 .122  0 0 0 0 .302  0 0 0 1 0"/></filter></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+<symbol id="ci-board" viewBox="0 0 24 24"><rect x="3" y="4" width="5" height="16" rx="1.5"/><rect x="9.5" y="4" width="5" height="11" rx="1.5"/><rect x="16" y="4" width="5" height="7" rx="1.5"/></symbol>
+<symbol id="ci-bag" viewBox="0 0 24 24"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></symbol>
+<symbol id="ci-move" viewBox="0 0 24 24"><path d="M4 12h14"/><path d="M13 6l6 6-6 6"/></symbol>
+<symbol id="ci-bot" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="11" rx="4"/><path d="M12 8V4.5"/><circle cx="9.5" cy="13.5" r=".6"/><circle cx="14.5" cy="13.5" r=".6"/></symbol>
+<symbol id="ci-msg" viewBox="0 0 24 24"><path d="M4 6a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4z"/></symbol>
+<symbol id="ci-ad" viewBox="0 0 24 24"><path d="M4 10v4h3l7 4V6L7 10z"/><path d="M17.5 9.5a3.5 3.5 0 0 1 0 5"/></symbol>
+<symbol id="ci-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M3.5 12h17M12 3.5c2.5 2.6 2.5 14.4 0 17M12 3.5c-2.5 2.6-2.5 14.4 0 17"/></symbol>
+<symbol id="ci-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+</defs></svg>
 <a class="skip" href="#main">Skip to content</a>
 
 <!-- ============ NAV ============ -->
@@ -23,165 +33,42 @@
 
     <nav class="nav__menu" id="nav-menu" aria-label="Primary">
       <ul class="nav__list">
-        <!-- PRODUCTS -->
-        <li class="dd dd--mega">
-          <button class="dd__trigger" type="button" aria-expanded="false" aria-controls="mm-products">Products<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button>
-          <div class="dd__panel mega" id="mm-products">
-            <ul class="mega__list" role="list">
-              <li><a class="mega__item is-active" href="../chat/" data-panel="chat">
-                <span class="mega__ic"><img src="./assets/products/chat.svg" alt="" width="22" height="22"></span>
+        <li class="dd">
+          <button class="dd__trigger" type="button" aria-expanded="false" aria-controls="dd-products">Products<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button>
+          <div class="dd__panel prod-menu" id="dd-products">
+            <ul class="prod-menu__list">
+              <li><a class="prod-menu__item" href="../chat/">
+                <span class="prod-menu__ic"><img src="./assets/products/chat.svg" alt="" width="22" height="22"></span>
                 <span><b>Chat</b><small>One inbox for every channel, answered by AI 24/7.</small></span></a></li>
-              <li><a class="mega__item" href="./" data-panel="crm">
-                <span class="mega__ic"><img src="./assets/products/crm.svg" alt="" width="22" height="22"></span>
-                <span><b>CRM</b><small>A CRM that fills itself and fits how you work.</small></span></a></li>
-              <li><a class="mega__item" href="../marketing/" data-panel="marketing">
-                <span class="mega__ic"><img src="./assets/products/marketing.svg" alt="" width="22" height="22"></span>
+              <li><a class="prod-menu__item is-current" href="./" aria-current="page">
+                <span class="prod-menu__ic"><img src="./assets/products/crm.svg" alt="" width="22" height="22"></span>
+                <span><b>CRM <em>You’re here</em></b><small>A CRM that fills itself and fits how you work.</small></span></a></li>
+              <li><a class="prod-menu__item" href="../marketing/">
+                <span class="prod-menu__ic"><img src="./assets/products/marketing.svg" alt="" width="22" height="22"></span>
                 <span><b>Marketing</b><small>Know which ad, creator or link brings revenue.</small></span></a></li>
-              <li><a class="mega__item" href="https://cekat.ai/en" data-panel="broadcasts">
-                <span class="mega__ic"><img src="./assets/products/broadcasts.svg" alt="" width="22" height="22"></span>
+              <li><a class="prod-menu__item" href="../">
+                <span class="prod-menu__ic"><img src="./assets/products/broadcasts.svg" alt="" width="22" height="22"></span>
                 <span><b>Broadcasts</b><small>Send template campaigns and see who read them.</small></span></a></li>
-              <li><a class="mega__item" href="https://cekat.ai/en" data-panel="automation">
-                <span class="mega__ic"><img src="./assets/products/automation.svg" alt="" width="22" height="22"></span>
+              <li><a class="prod-menu__item" href="../">
+                <span class="prod-menu__ic"><img src="./assets/products/automation.svg" alt="" width="22" height="22"></span>
                 <span><b>Automation</b><small>Follow-ups and workflows that run themselves.</small></span></a></li>
-              <li><a class="mega__item" href="https://cekat.ai/en" data-panel="analytics">
-                <span class="mega__ic"><img src="./assets/products/analytics.svg" alt="" width="22" height="22"></span>
+              <li><a class="prod-menu__item" href="../">
+                <span class="prod-menu__ic"><img src="./assets/products/analytics.svg" alt="" width="22" height="22"></span>
                 <span><b>Analytics</b><small>See what moves customers, end to end.</small></span></a></li>
             </ul>
-
-            <div class="mega__stage">
-              <!-- Marketing: cycling scenes -->
-              <!-- Chat -->
-              <div class="mv is-active" data-panel="chat">
-                <div class="mv__art" aria-hidden="true"><div class="rot rot--stack"><div class="rot__s is-on" data-ch="instagram" data-hold="2"><div class="winwrap"><span class="fpills fpills--t"><span class="fpill p1"><span class="fp__in"><span class="l1">🎙 Understands voice notes</span></span></span><span class="fpill p2"><span class="fp__in"><span class="l1">📲 Sends QR code payment</span></span></span></span><div class="win win--scene"><div class="win__bar"><i></i><i></i><i></i><span>Inbox</span></div><div class="win__body">
-              <div class="mb mb--in">Do you have the black sneakers in US size 9?</div>
-              <div class="mb mb--ai">Yes — 3 pairs left at $89. Want me to reserve one?
-                <span class="verified"><svg viewBox="0 0 16 16"><path d="M8 1l2 1.5 2.5-.2.7 2.4 2 1.5-.9 2.3.9 2.3-2 1.5-.7 2.4-2.5-.2L8 15l-2-1.5-2.5.2-.7-2.4-2-1.5.9-2.3L.8 5.2l2-1.5.7-2.4 2.5.2z"/><path class="ck" d="M5 8.2l2 2 4-4"/></svg>Verified</span></div>
-              <div class="mb mb--in mb--voice"><span class="play">▶</span><span class="wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><small>0:06</small></div>
-              <div class="sys sys--ok">🎙 Voice note understood: “Can I pay with QR?”</div>
-              <div class="qr"><span class="qr__code"></span><div><b>QR payment link</b><small>$89.00 · expires in 15 min</small></div></div>
-            </div></div></div></div><div class="rot__s" data-ch="whatsapp"><div class="winwrap"><span class="fpill"><span class="fp__in"><span class="l1">💬 Talks like a human</span></span></span><div class="win win--scene"><div class="win__bar"><i></i><i></i><i></i><span>Inbox</span></div><div class="win__body"><div class="mb mb--in">yo is this still in stock fr?</div><div class="mb mb--ai"><span class="ai-tag">AI</span>Yep, still got 3 left! Want me to hold one? 🙌</div></div></div></div></div><div class="rot__s" data-ch="messenger"><div class="winwrap"><span class="fpill"><span class="fp__in"><span class="l1">🧾 Creates orders in chat</span></span></span><div class="win win--scene"><div class="win__bar"><i></i><i></i><i></i><span>Inbox</span></div><div class="win__body"><div class="mb mb--in">I'll take 2 in black</div><div class="mb mb--ai"><span class="ai-tag">AI</span>Done! <span class="ord"><b>Black sneakers</b><span>Qty 2</span><span>Total <b>$58.00</b></span><em>Order created ✓</em></span></div></div></div></div></div><div class="rot__s" data-ch="livechat"><div class="winwrap"><span class="fpill"><span class="fp__in"><span class="l1">📍 Shipping &amp; nearest store</span></span></span><div class="win win--scene"><div class="win__bar"><i></i><i></i><i></i><span>Inbox</span></div><div class="win__body"><div class="mb mb--in">How much to ship to 5th Avenue, NYC?</div><div class="mb mb--ai"><span class="ai-tag">AI</span>$6.50, arrives in 2 days 📦</div><div class="mb mb--in">Any store near Sunset Blvd?</div><div class="mb mb--ai"><span class="ai-tag">AI</span>📍 1.2 mi away, open till 9 PM</div></div></div></div></div></div>
-                <div class="chrow" data-ch="instagram"><span class="chi chi--whatsapp"><img src="./assets/integrations/whatsapp.svg" alt=""></span><span class="chi chi--instagram"><img src="./assets/integrations/instagram.svg" alt=""></span><span class="chi chi--tiktok"><img src="./assets/integrations/tiktok.svg" alt=""></span><span class="chi chi--messenger"><img src="./assets/integrations/messenger.svg" alt=""></span><span class="chi chi--telegram"><img src="./assets/integrations/telegram.svg" alt=""></span><span class="chi chi--livechat"><img src="./assets/integrations/livechat.svg" alt=""></span></div></div>
-                <div class="mv__cap"><div><b>Cekat Chat</b><small>Replies like a real person, never robotic.</small></div><a href="../chat/">Explore Chat <span aria-hidden="true">→</span></a></div>
-              </div>
-
-              <!-- CRM -->
-              <div class="mv" data-panel="crm">
-                <div class="mv__art" aria-hidden="true"><div class="rot"><div class="rot__s is-on"><p class="rt">Multiple boards · Kanban</p>
-                <div class="kb kb--mini" data-loop="kb">
-                  <div class="kb__col"><p>Leads</p><i class="kc"><span class="av">B</span>Ben S.</i><i class="kc"><span class="av">A</span>Amy P.</i></div>
-                  <div class="kb__col"><p>Interested</p><i class="kc"><span class="av">C</span>Chloe W.</i></div>
-                  <div class="kb__col"><p>Hot</p><i class="kc"><span class="av">D</span>Dan K.</i></div>
-                  <div class="kb__col"><p>Paid</p><i class="kc"><span class="av av--g">E</span>Ella L.</i><i class="kc"><span class="av av--g">F</span>Finn</i></div>
-                  <div class="kb__mover"><b>Dana R.</b><small>Instagram</small></div>
-                </div>
-                </div><div class="rot__s"><div class="card"><p class="rt">Custom fields</p><ul class="fld"><li><span>Name</span><b>Emma Carter</b></li><li><span>Treatment</span><b class="dd2">Dropdown ▾</b></li><li><span>Visit date</span><b>Dec 12</b></li><li><span>Notes</span><b>Text</b></li></ul></div></div><div class="rot__s"><div class="card"><p class="rt">List view</p><ul class="lst"><li><span class="av">E</span>Emma Carter<em>Hot</em></li><li><span class="av">J</span>Jake Miller<em>Interested</em></li><li><span class="av">S</span>Sofia Reyes<em>Paid</em></li><li><span class="av">L</span>Liam Brooks<em>Leads</em></li></ul></div></div><div class="rot__s"><div class="card"><p class="rt">Role-based access</p><ul class="role"><li><b>Admin</b><span>Sees and edits every board</span></li><li><b>Basic</b><span>Sees only their own board</span></li></ul></div></div></div></div>
-                <div class="mv__cap"><div><b>Cekat CRM</b><small>Deals created from every chat, on boards you design.</small></div><a href="https://cekat.ai/en">Explore CRM <span aria-hidden="true">→</span></a></div>
-              </div>
-
-              <div class="mv" data-panel="marketing">
-                <div class="mv__art" aria-hidden="true">
-                <div class="mv__scenes" data-cycle="3000">
-                  <div class="scene is-active">
-                    <p class="mv__title">Leads by source</p>
-                    <ul class="bars">
-                      <li><span>Meta ads</span><i style="--w:100%"></i><b>412</b></li>
-                      <li><span>Creator links</span><i style="--w:70%"></i><b>287</b></li>
-                      <li><span>TikTok ads</span><i style="--w:42%"></i><b>174</b></li>
-                      <li><span>Website</span><i style="--w:25%"></i><b>103</b></li>
-                    </ul>
-                  </div>
-                  <div class="scene">
-                    <p class="mv__title">Customer journey</p>
-                    <div class="journey">
-                      <div class="journey__node"><span class="jn-ic jn-ic--meta"><img src="./assets/integrations/meta.svg" alt=""></span>Ad click</div>
-                      <div class="journey__node"><span class="jn-ic"><img src="./assets/integrations/whatsapp.svg" alt=""></span>Chat</div>
-                      <div class="journey__node"><span class="jn-ic jn-ic--paid">$</span>Purchase</div>
-                    </div>
-                    <div class="credit"><span class="credit__dot"></span>Credited to ad · <b>Summer Promo</b></div>
-                  </div>
-                  <div class="scene">
-                    <p class="mv__title">Conversions API</p>
-                    <div class="capi">
-                      <div class="capi__head"><img src="./assets/integrations/meta.svg" alt="">Send stages to Meta <span class="ok">✓ Connected</span></div>
-                      <ul class="capi__list">
-                        <li><span>Lead in</span><em>Sent</em></li>
-                        <li><span>In contact</span><em>Sent</em></li>
-                        <li><span>Meeting booked</span><em>Sent</em></li>
-                        <li><span>Purchase</span><em>Sent</em></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="mv__dots"><i class="is-active"></i><i></i><i></i></div>
-                </div>
-                <div class="mv__cap"><div><b>Cekat Marketing</b><small>Attribution from the first ad click to the final purchase.</small></div><a href="../marketing/">Explore Marketing <span aria-hidden="true">→</span></a></div>
-              </div>
-
-              <!-- Broadcasts -->
-              <div class="mv" data-panel="broadcasts">
-                <div class="mv__art" aria-hidden="true">
-                <div class="bc">
-                  <div class="bc__tpl">
-                    <small>Template · promo_weekend</small>
-                    <p>Hi {{name}} 👋 Our weekend sale is live — 20% off everything until Sunday.</p>
-                    <span class="bc__btn">Shop now</span>
-                  </div>
-                  <ul class="bc__list">
-                    <li><span class="av">A</span>Amy<em class="tick t-read" style="--d:.2s">✓✓</em></li>
-                    <li><span class="av">B</span>Ben<em class="tick t-del" style="--d:.5s">✓✓</em></li>
-                    <li><span class="av">C</span>Chloe<em class="tick t-read" style="--d:.8s">✓✓</em></li>
-                    <li><span class="av">D</span>Dan<em class="tick t-sent" style="--d:1.1s">✓</em></li>
-                  </ul>
-                </div>
-                <div class="rate"><span>Read rate</span><i><b style="--w:78%"></b></i><strong>78%</strong></div>
-                </div>
-                <div class="mv__cap"><div><b>Cekat Broadcasts</b><small>Template campaigns to the right segment, with read tracking.</small></div><a href="https://cekat.ai/en">Explore Broadcasts <span aria-hidden="true">→</span></a></div>
-              </div>
-
-              <!-- Automation -->
-              <div class="mv" data-panel="automation">
-                <div class="mv__art" aria-hidden="true"><div class="rot"><div class="rot__s is-on"><div class="flows2"><div class="flow flow--mini"><div class="flow__n flow__n--t"><small>Trigger</small>Purchased Skincare A</div><div class="flow__n"><small>Wait</small>60 days</div><div class="flow__n flow__n--a"><small>Action</small>Send follow-up</div></div><div class="flow flow--mini"><div class="flow__n flow__n--t"><small>Trigger</small>Purchased Skincare B</div><div class="flow__n"><small>Wait</small>30 days</div><div class="flow__n flow__n--a"><small>Action</small>Send follow-up</div></div></div></div><div class="rot__s"><div class="sched2"><div class="sched2__trg"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg><span>Automation Trigger</span></div><i class="sched2__ln"></i>
-<div class="sched2__row"><div class="sched2__ai"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="7" width="16" height="12" rx="4"/><circle cx="9.5" cy="13" r="1.3"/><circle cx="14.5" cy="13" r="1.3"/><path d="M12 7V4"/></svg><div><b>AI Agent</b><span>5:00 PM – 9:00 AM</span></div></div><div class="sched2__hu"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="9" r="3.5"/><path d="M5 20c1-4 4-5.5 7-5.5s6 1.5 7 5.5"/></svg><div><b>Human Agent</b><span>9:00 AM – 5:00 PM</span></div></div></div>
-<span class="sched2__plus">+</span></div></div></div></div>
-                <div class="mv__cap"><div><b>Cekat Automation</b><small>Triggers, waits and actions that run on autopilot.</small></div><a href="https://cekat.ai/en">Explore Automation <span aria-hidden="true">→</span></a></div>
-              </div>
-
-              <!-- Analytics -->
-              <div class="mv" data-panel="analytics">
-                <div class="mv__art" aria-hidden="true"><div class="rot rot--stack"><div class="rot__s is-on"><div class="win win--scene"><div class="win__body"><p class="rt">Dashboard · Ads <span class="tabs"><i class="on">Ads</i><i>Sales</i></span></p><div class="kpis"><div><small>Ad spend</small><b>$12.4K</b></div><div><small>ROAS</small><b>4.2x</b></div><div><small>Cost per lead</small><b>$3.10</b></div><div><small>Revenue</small><b>$52.1K</b></div></div></div></div></div><div class="rot__s"><div class="win win--scene"><div class="win__body"><p class="rt">Daily chats <span class="chip">+18% vs last week</span></p><svg class="ad-svg" viewBox="0 0 200 100" preserveAspectRatio="none"><defs><linearGradient id="adA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a56db" stop-opacity=".10"/><stop offset="1" stop-color="#1a56db" stop-opacity="0"/></linearGradient></defs><g class="ad-g"><line x1="8" x2="196" y1="92" y2="92"/><line x1="8" x2="196" y1="66" y2="66"/><line x1="8" x2="196" y1="40" y2="40"/><line x1="8" x2="196" y1="14" y2="14"/></g><path class="ad-area" d="M10.0,76.4 C13.4,74.7 23.7,66.9 30.5,66.0 C37.3,65.1 44.2,72.9 51.0,71.2 C57.8,69.5 64.7,57.3 71.5,55.6 C78.3,53.9 85.2,64.3 92.0,60.8 C98.8,57.3 105.7,37.4 112.5,34.8 C119.3,32.2 126.2,47.8 133.0,45.2 C139.8,42.6 146.7,20.1 153.5,19.2 C160.3,18.3 167.2,39.1 174.0,40.0 C180.8,40.9 191.1,27.0 194.5,24.4 L194.5,92 L10.0,92Z" fill="url(#adA)"/><path class="ad-l1" pathLength="1" d="M10.0,76.4 C13.4,74.7 23.7,66.9 30.5,66.0 C37.3,65.1 44.2,72.9 51.0,71.2 C57.8,69.5 64.7,57.3 71.5,55.6 C78.3,53.9 85.2,64.3 92.0,60.8 C98.8,57.3 105.7,37.4 112.5,34.8 C119.3,32.2 126.2,47.8 133.0,45.2 C139.8,42.6 146.7,20.1 153.5,19.2 C160.3,18.3 167.2,39.1 174.0,40.0 C180.8,40.9 191.1,27.0 194.5,24.4"/><path class="ad-l2" pathLength="1" d="M10.0,86.8 C13.4,85.9 23.7,82.5 30.5,81.6 C37.3,80.7 44.2,82.5 51.0,81.6 C57.8,80.7 64.7,77.3 71.5,76.4 C78.3,75.5 85.2,78.1 92.0,76.4 C98.8,74.7 105.7,66.9 112.5,66.0 C119.3,65.1 126.2,72.9 133.0,71.2 C139.8,69.5 146.7,56.5 153.5,55.6 C160.3,54.7 167.2,65.1 174.0,66.0 C180.8,66.9 191.1,61.7 194.5,60.8"/><g class="ad-d"><circle class="d1" cx="194.5" cy="24.4" r="3.8"/></g></svg><div class="ad-leg"><span><i class="l1"></i>Chats</span><span><i class="l2"></i>Meetings booked</span></div></div></div></div><div class="rot__s"><div class="win win--scene"><div class="win__body"><p class="rt">Chat to paid <span class="chip chip--n">Last 30 days</span></p><div class="ad-plot"><i style="bottom:0%"><u>0</u></i><i style="bottom:33%"><u>400</u></i><i style="bottom:66%"><u>800</u></i><i style="bottom:100%"><u>1.2K</u></i><div class="ad-bars"><div class="ad-bar" style="--h:100%"><em>100%</em><span class="ad-fill"></span><small>Chat started</small></div><div class="ad-bar" style="--h:25%"><em>25%</em><span class="ad-fill"></span><small>Booked</small></div><div class="ad-bar" style="--h:6.7%"><em>6.7%</em><span class="ad-fill"></span><small>Paid</small></div></div></div></div></div></div></div></div>
-                <div class="mv__cap"><div><b>Cekat Analytics</b><small>Funnels and performance, from visit to SQL, in one view.</small></div><a href="https://cekat.ai/en">Explore Analytics <span aria-hidden="true">→</span></a></div>
-              </div>
-            </div>
-          </div>
-        </li>
-        <!-- SOLUTIONS -->
-        <li class="dd">
-          <button class="dd__trigger" type="button" aria-expanded="false" aria-controls="mm-solutions">Solutions<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button>
-          <div class="dd__panel simple" id="mm-solutions">
-            <p class="simple__h">By industry</p>
-            <a href="https://cekat.ai/en">Healthcare &amp; clinics</a><a href="https://cekat.ai/en">Retail &amp; e-commerce</a><a href="https://cekat.ai/en">Food &amp; beverage</a><a href="https://cekat.ai/en">Education</a><a href="https://cekat.ai/en">Property</a><a href="https://cekat.ai/en">Banking &amp; insurance</a>
-          </div>
-        </li>
-        <!-- RESOURCES -->
-        <li class="dd">
-          <button class="dd__trigger" type="button" aria-expanded="false" aria-controls="mm-resources">Resources<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button>
-          <div class="dd__panel simple" id="mm-resources">
-            <a href="#stories">Customer stories</a><a href="https://www.youtube.com/@cekatai">Success story videos</a><a href="#integrations">Integrations</a><a href="https://cekat.ai/en">Blog</a><a href="https://cekat.ai/en/contact-us">Contact</a>
           </div>
         </li>
         <li><a class="nav__link" href="https://cekat.ai/en/pricing">Pricing</a></li>
       </ul>
       <div class="nav__mobile-cta">
-        <a class="btn btn--ghost" href="https://chat.cekat.ai/login">Log in</a>
-        <a class="btn btn--outline" href="https://cekat.ai/en/contact-us">Talk to sales</a>
-        <a class="btn btn--primary" href="https://chat.cekat.ai/register">Start free trial</a>
+        <a class="btn btn--outline" href="https://chat.cekat.ai/login">Log in</a>
+        <a class="btn btn--primary" href="https://chat.cekat.ai/register">Start Free Trial</a>
       </div>
     </nav>
 
     <div class="nav__actions">
       <a class="nav__link" href="https://chat.cekat.ai/login">Log in</a>
-      <a class="btn btn--outline btn--sm" href="https://cekat.ai/en/contact-us">Talk to sales</a>
-      <a class="btn btn--primary btn--sm" href="https://chat.cekat.ai/register">Start free trial</a>
+      <a class="btn btn--primary btn--sm" href="https://chat.cekat.ai/register">Start Free Trial</a>
     </div>
     <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu"><span></span><span></span></button>
   </div>
@@ -189,67 +76,126 @@
 
 
 <main id="main">
-<!-- HERO -->
+<!-- HERO — copy left · rotating CRM card right (same shape as Chat / Marketing heroes) -->
 <section class="chero" id="top">
-  <div class="chero__glow" aria-hidden="true"></div>
-  <div class="wrap chero__inner">
-    <p class="cpill rv"><img src="./assets/products/crm.svg" alt="" width="16" height="16">Cekat CRM</p>
-    <h1 class="chero__h rv" style="--d:.06s">Every chat becomes<br>a customer card.</h1>
-    <p class="chero__sub rv" style="--d:.14s">A CRM that fills itself and fits how you work.</p>
-    <div class="hero__cta rv" style="--d:.22s">
-      <a class="btn btn--primary btn--lg btn--glow" href="https://chat.cekat.ai/register">Start Free Trial <span aria-hidden="true">→</span></a>
-      <a class="btn btn--outline btn--lg" href="#features">See how it works</a>
+  <div class="chero__bg" aria-hidden="true"><i class="cglow cglow--1"></i><i class="cglow cglow--2"></i></div>
+  <div class="wrap chero__grid">
+    <div class="chero__copy">
+      <p class="chero__pill rv"><img src="./assets/products/crm.svg" alt="" width="20" height="20">Cekat CRM</p>
+      <h1 class="chero__title rv">Capture every lead.<br><span class="acc">Track every deal.</span></h1>
+      <p class="chero__sub rv">Every chat lands in your CRM automatically. Shape the stages, fields and views around how your team sells.</p>
+      <div class="chero__cta rv">
+        <a class="btn btn--primary btn--lg btn--glow" href="https://chat.cekat.ai/register">Start Free Trial <span aria-hidden="true">→</span></a>
+        <a class="btn btn--outline btn--lg" href="#features">See how it works</a>
+      </div>
     </div>
-    <div class="cboard rv" style="--d:.3s" aria-hidden="true">
-      <div class="cboard__bar"><i></i><i></i><i></i><span>Deals board</span><em class="cseg"><b class="on">Kanban</b><b>List</b></em></div>
-      <div class="cboard__cols">
-        <div class="ccol"><p>Contacts <small>12</small></p>
-          <div class="ccard"><span class="av">JM</span><div><b>Jake Miller</b><small>WhatsApp</small></div></div>
-          <div class="ccard"><span class="av av--b">MR</span><div><b>Megan Ross</b><small>Instagram</small></div></div>
-          <div class="ccard ccard--new"><span class="av av--c">EC</span><div><b>Emily Carter</b><small>Web chat</small></div></div>
+
+    <!-- Hero visual: one white card, 3 views (Kanban · List · Activity). Illustrative demo data. -->
+    <div class="chero__vis rv">
+      <div class="hs" id="hero-scenes">
+        <div class="hs__card">
+
+          <!-- 1–2 · DEALS BOARD (Kanban | List) -->
+          <div class="hs__scene hs-board is-on" data-view="kanban">
+            <div class="hs__h">
+              <span class="hs__logo" aria-hidden="true"><svg class="ci"><use href="#ci-board"/></svg></span>
+              <span class="hs__ttl" aria-hidden="true"><b>Deals board</b><small>4 stages · 9 deals</small></span>
+              <span class="hs__add" aria-hidden="true"><span class="k">+ Add stage</span><span class="l">+ Add field</span></span>
+              <span class="vseg" role="group" aria-label="Board view"><button type="button" data-view="kanban" aria-pressed="true">Kanban</button><button type="button" data-view="list" aria-pressed="false">List</button></span>
+            </div>
+            <div class="hs__body hs-board__body" aria-hidden="true">
+              <div class="kb2">
+                <div class="kb2__col"><div class="kb2__hd">New lead <small>3</small></div>
+                  <div class="kc3"><b>Jake Miller</b><span><img src="./assets/integrations/whatsapp.svg" alt="">WhatsApp</span></div>
+                  <div class="kc3"><b>Megan Ross</b><span><img src="./assets/integrations/instagram.svg" alt="">Instagram</span></div>
+                  <div class="kc3"><b>Olivia Park</b><span><img src="./assets/integrations/livechat.svg" alt="">Web chat</span></div>
+                </div>
+                <div class="kb2__col"><div class="kb2__hd">In contact <small class="cnt"><span class="a">2</span><span class="b">1</span></small></div>
+                  <div class="kc3"><b>Daniel Wright</b><span><img src="./assets/integrations/messenger.svg" alt="">$640</span></div>
+                  <div class="kc3 kc3--mv"><b>Emily Carter</b><span><img src="./assets/integrations/instagram.svg" alt="">$1,200</span></div>
+                </div>
+                <div class="kb2__col kb2__col--to"><div class="kb2__hd">Meeting booked <small class="cnt"><span class="a">1</span><span class="b">2</span></small></div>
+                  <div class="kc3"><b>Sofia Perez</b><span><img src="./assets/integrations/livechat.svg" alt="">$860</span></div>
+                </div>
+                <div class="kb2__col"><div class="kb2__hd">Won <small>2</small></div>
+                  <div class="kc3 kc3--won"><b>Tyler Brooks</b><span><img src="./assets/integrations/whatsapp.svg" alt="">$420</span></div>
+                  <div class="kc3 kc3--won"><b>Amy Kim</b><span><img src="./assets/integrations/instagram.svg" alt="">$1,180</span></div>
+                </div>
+              </div>
+              <div class="ls2">
+                <div class="ls2__r ls2__r--h"><span>Name</span><span>Stage</span><span class="ls2__ch">Channel</span><span>Value</span><span class="lc">Last contact</span></div>
+                <div class="ls2__r"><span class="nm"><i class="av av--c">EC</i>Emily Carter</span><span><em class="st st--mb">Meeting booked</em></span><span><img src="./assets/integrations/instagram.svg" alt=""></span><span>$1,200</span><span class="lc">2m ago</span></div>
+                <div class="ls2__r"><span class="nm"><i class="av">JM</i>Jake Miller</span><span><em class="st">New lead</em></span><span><img src="./assets/integrations/whatsapp.svg" alt=""></span><span class="mu">—</span><span class="lc">5m ago</span></div>
+                <div class="ls2__r"><span class="nm"><i class="av av--b">MR</i>Megan Ross</span><span><em class="st">New lead</em></span><span><img src="./assets/integrations/instagram.svg" alt=""></span><span class="mu">—</span><span class="lc">18m ago</span></div>
+                <div class="ls2__r"><span class="nm"><i class="av">DW</i>Daniel Wright</span><span><em class="st st--ic">In contact</em></span><span><img src="./assets/integrations/messenger.svg" alt=""></span><span>$640</span><span class="lc">1h ago</span></div>
+                <div class="ls2__r"><span class="nm"><i class="av av--b">SP</i>Sofia Perez</span><span><em class="st st--mb">Meeting booked</em></span><span><img src="./assets/integrations/livechat.svg" alt=""></span><span>$860</span><span class="lc">3h ago</span></div>
+                <div class="ls2__r"><span class="nm"><i class="av">TB</i>Tyler Brooks</span><span><em class="st st--won">Won</em></span><span><img src="./assets/integrations/whatsapp.svg" alt=""></span><span>$420</span><span class="lc">Yesterday</span></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3 · CUSTOMER ACTIVITY -->
+          <div class="hs__scene hs-act" aria-hidden="true">
+            <div class="hs__h">
+              <span class="av av--c av--hs">EC</span>
+              <span class="hs__ttl"><b>Emily Carter</b><small><img src="./assets/integrations/instagram.svg" alt="">Captured from an Instagram ad</small></span>
+            </div>
+            <div class="hs__body hs-act__body">
+              <div class="lcy"><span class="lcy__l">Lifecycle</span><em>Lead</em><i>›</i><em>Opportunity</em><i>›</i><em class="on">Customer</em></div>
+              <ul class="tl">
+                <li style="--i:0"><span class="tl__ic tl__ic--hi"><svg class="ci"><use href="#ci-bag"/></svg></span><span class="tl__t"><b>Order placed · $128.00</b><small>Order</small></span><time>2:41 PM</time></li>
+                <li style="--i:1"><span class="tl__ic"><svg class="ci"><use href="#ci-move"/></svg></span><span class="tl__t"><b>Moved to Meeting booked</b><small>Deal stage</small></span><time>10:15 AM</time></li>
+                <li style="--i:2"><span class="tl__ic"><svg class="ci"><use href="#ci-bot"/></svg></span><span class="tl__t"><b>AI agent replied</b><small>Chat</small></span><time>10:12 AM</time></li>
+                <li style="--i:3"><span class="tl__ic"><svg class="ci"><use href="#ci-msg"/></svg></span><span class="tl__t"><b>Message received · Instagram</b><small>Chat</small></span><time>10:12 AM</time></li>
+                <li style="--i:4"><span class="tl__ic"><svg class="ci"><use href="#ci-ad"/></svg></span><span class="tl__t"><b>Clicked Spring Sale ad</b><small>Marketing event</small></span><time>10:09 AM</time></li>
+                <li style="--i:5"><span class="tl__ic"><svg class="ci"><use href="#ci-globe"/></svg></span><span class="tl__t"><b>Viewed pricing page</b><small>Website activity</small></span><time>Yesterday</time></li>
+              </ul>
+            </div>
+          </div>
+
         </div>
-        <div class="ccol"><p>Meeting booked <small>5</small></p>
-          <div class="ccard"><span class="av av--c">DW</span><div><b>Daniel Wright</b><small>Messenger</small></div></div>
-          <div class="ccard"><span class="av">SP</span><div><b>Sofia Perez</b><small>WhatsApp</small></div></div>
-          <div class="ccard ccard--mv"><span class="av av--c">EC</span><div><b>Emily Carter</b><small>Booked a meeting</small></div></div>
-        </div>
-        <div class="ccol"><p>Won <small>3</small></p>
-          <div class="ccard"><span class="av av--b">TB</span><div><b>Tyler Brooks</b><small>$420.00</small></div></div>
-          <div class="ccard"><span class="av">AK</span><div><b>Amy Kim</b><small>$1,180.00</small></div></div>
+        <div class="hs__steps" role="group" aria-label="Illustration views">
+          <button class="hs__dot is-on" type="button" data-go="0" aria-pressed="true"><i>1</i>Kanban<span class="hs__bar"></span></button>
+          <button class="hs__dot" type="button" data-go="1" aria-pressed="false"><i>2</i>List<span class="hs__bar"></span></button>
+          <button class="hs__dot" type="button" data-go="2" aria-pressed="false"><i>3</i>Activity<span class="hs__bar"></span></button>
         </div>
       </div>
     </div>
   </div>
+  <a class="scroll-cue" href="#capture" aria-label="Scroll to next section"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5l6 6 6-6"/></svg></a>
 </section>
 
-<!-- CAPTURE EVERY LEAD -->
+<!-- CAPTURE EVERY LEAD — organic or from ads, every lead is saved -->
 <section class="csec" id="capture">
   <div class="wrap ccap">
-    <div class="ccap__list rv">
-      <p class="csec__eyebrow">Capture every lead</p>
-      <h2 class="csec__title csec__title--left">Nothing gets lost in the inbox.</h2>
-      <div class="cacc">
-        <details name="cap" open><summary><i>01</i>Every Inquiry Becomes a Captured Lead</summary><p>Cekat records every inquiry into a CRM card automatically, with no manual input. The full conversation, interest and contact details are saved, so your team starts the day with a list of real leads instead of scattered unread chats.</p></details>
-        <details name="cap"><summary><i>02</i>Customers land in the right tab</summary><p>Predefined rules sort customers into the right CRM tab. If someone agrees to book a meeting with the AI, they join Deals and stay in Contacts.</p></details>
-        <details name="cap"><summary><i>03</i>One board for every workflow</summary><p>Create separate boards for Deals, Leads or Projects, or start from a blank template and build your own.</p></details>
-        <details name="cap"><summary><i>04</i>Every touchpoint in one place</summary><p>Marketing events, order history, website activity and lifecycle stages sit on the same card, so every conversation has context.</p></details>
-      </div>
+    <div class="ccap__copy rv">
+      <h2 class="csec__title csec__title--left">Every lead saved.<br><span class="acc">Organic or from ads.</span></h2>
+      <p class="ccap__sub">Whether they found you through an ad or on their own, every customer who messages you is saved to your CRM automatically.</p>
     </div>
-    <div class="ccap__vis rv" style="--d:.12s" aria-hidden="true">
-      <div class="cl">
-        <svg class="cl__lines" viewBox="0 0 520 380" preserveAspectRatio="none"><path d="M120 250 C 170 250, 190 250, 230 250"/><path d="M400 70 C 400 120, 360 140, 330 160"/><path d="M120 250 C 120 250, 120 250, 120 250"/></svg>
-        <div class="cl__ad"><div class="cl__adbar"><i></i><i></i><i></i></div><div class="cl__adbody"><div><b>Spring Sale</b><small>Shop the new collection</small><span class="cl__adbtn">Message us</span></div><span class="cl__adimg"></span></div></div>
-        <div class="cl__card">
-          <div class="cl__head"><span class="av av--lg">EC</span><b>Emily Carter</b><small>Captured from an Instagram ad</small></div>
-          <div class="cl__sec"><p>Contact details</p>
-            <div class="cl__row"><svg viewBox="0 0 24 24"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a1 1 0 0 1-1 1A16 16 0 0 1 4 5a1 1 0 0 1 1-1z"/></svg><span>(212) 555-0148</span></div>
-            <div class="cl__row"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg><span>emily.carter@email.com</span></div>
-            <div class="cl__row"><svg viewBox="0 0 24 24"><path d="M12 21s-6-5.5-6-10a6 6 0 0 1 12 0c0 4.5-6 10-6 10z"/><circle cx="12" cy="11" r="2"/></svg><span>Brooklyn, NY</span></div>
+    <div class="ccap__vis rv" style="--d:.1s" aria-hidden="true">
+      <div class="sv">
+        <div class="sv__src">
+          <div class="sv__card sv__card--ad">
+            <span class="sv__tag"><img src="./assets/integrations/instagram.svg" alt="">Sponsored ad</span>
+            <div class="sv__ad"><span class="sv__img"></span><span><b>Spring Sale</b><small>Shop the new collection</small></span></div>
+            <span class="sv__btn">Message us</span>
           </div>
-          <div class="cl__sec"><p>Labels</p><div class="cl__pills"><span class="cl__p cl__p--a">New lead</span><span class="cl__p cl__p--b">Interested in sneakers</span><span class="cl__p cl__p--c">Instagram</span></div></div>
+          <div class="sv__card sv__card--org">
+            <span class="sv__tag sv__tag--org">Organic</span>
+            <b>Found you on Instagram</b>
+            <small>or messaged you directly</small>
+            <span class="sv__chs"><img src="./assets/integrations/whatsapp.svg" alt=""><img src="./assets/integrations/instagram.svg" alt=""><img src="./assets/integrations/messenger.svg" alt=""><img src="./assets/integrations/livechat.svg" alt=""></span>
+          </div>
         </div>
-        <div class="cl__chs"><span><img src="./assets/integrations/whatsapp.svg" alt=""></span><span><img src="./assets/integrations/instagram.svg" alt=""></span><span><img src="./assets/integrations/messenger.svg" alt=""></span><span><img src="./assets/integrations/livechat.svg" alt=""></span></div>
-        <span class="cl__dot cl__dot--1"></span><span class="cl__dot cl__dot--2"></span>
+        <svg class="sv__lines" viewBox="0 0 200 60" preserveAspectRatio="none"><path d="M50 0 C50 34, 100 26, 100 60"/><path d="M150 0 C150 34, 100 26, 100 60"/></svg>
+        <div class="sv__crm">
+          <div class="sv__h"><span class="sv__logo"><img src="./assets/products/crm.svg" alt=""></span><b>Contacts</b><span class="sv__ok"><svg class="ci"><use href="#ci-check"/></svg>Saved to CRM</span></div>
+          <ul>
+            <li class="r1"><span class="av av--c">EC</span><span class="sv__n"><b>Emily Carter</b><small>From Spring Sale ad</small></span><em class="sv__k sv__k--ad">Ad</em><i class="sv__chk"><svg class="ci"><use href="#ci-check"/></svg></i></li>
+            <li class="r2"><span class="av">JM</span><span class="sv__n"><b>Jake Miller</b><small>Messaged on WhatsApp</small></span><em class="sv__k">Organic</em><i class="sv__chk"><svg class="ci"><use href="#ci-check"/></svg></i></li>
+            <li class="r3"><span class="av av--b">MR</span><span class="sv__n"><b>Megan Ross</b><small>Found you on Instagram</small></span><em class="sv__k">Organic</em><i class="sv__chk"><svg class="ci"><use href="#ci-check"/></svg></i></li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -266,10 +212,20 @@
         <div class="bt-a__card"><span class="av av--c">EC</span><div><b>Emily Carter</b><small>New contact · Web chat</small><span class="cl__p cl__p--a">New lead</span></div></div>
       </div></article>
 
-      <article class="bt bt--wide bt--gb bt--d2 rv" style="--d:.06s"><div class="bt__head"><h3>Sorted by your rules</h3><p>Customers move into the right tab automatically, and stay in Contacts too.</p></div><div class="bt__vis bt-b" aria-hidden="true">
-        <div class="bt-b__evt">Emily agreed to book a meeting with the AI</div>
-        <div class="bt-b__tabs"><span class="on">Contacts <em>24</em></span><span class="bt-b__deals">Deals <em>8</em></span></div>
-        <div class="bt-b__row"><span class="av av--c">EC</span><b>Emily Carter</b><span class="bt-b__tag">Added to Deals</span></div>
+      <article class="bt bt--wide bt--gb bt--l0 rv" style="--d:.06s"><div class="bt__head"><h3>Manage deals</h3><p>Every lead lands in Contacts. Move them to Deals when they're ready for the next stage.</p></div><div class="bt__vis bt-m" aria-hidden="true">
+        <div class="bt-m__evt"><span class="e1">Emily agreed to book a meeting</span><span class="e2"><svg class="ci"><use href="#ci-check"/></svg>Moved to Deals · Meeting booked</span></div>
+        <div class="bt-m__cols">
+          <div class="bt-m__p"><div class="bt-m__hd">Contacts <em>24</em></div>
+            <div class="bt-m__r"><span class="av">JM</span>Jake Miller</div>
+            <div class="bt-m__r bt-m__r--e"><span class="av av--c">EC</span>Emily Carter</div>
+            <div class="bt-m__r"><span class="av av--b">MR</span>Megan Ross</div>
+          </div>
+          <div class="bt-m__p bt-m__p--d"><div class="bt-m__hd">Deals <em class="cnt"><span class="a">8</span><span class="b">9</span></em></div>
+            <div class="bt-m__stage">Meeting booked</div>
+            <div class="bt-m__r"><span class="av av--b">SP</span>Sofia Perez</div>
+            <div class="bt-m__r bt-m__r--in"><span class="av av--c">EC</span>Emily Carter</div>
+          </div>
+        </div>
       </div></article>
 
       <article class="bt bt--tall bt--gc bt--l3 rv" style="--d:.06s"><div class="bt__head"><h3>Multiple CRM Boards</h3><p>Separate boards for Deals, Leads, Projects, or your own.</p></div><div class="bt__vis bt-c" aria-hidden="true">
@@ -289,7 +245,7 @@
         </ul>
       </div></article>
 
-      <article class="bt bt--ge bt--l3 rv"><div class="bt__head"><h3>Customized View</h3><p>Switch between Kanban and List to work your way.</p></div><div class="bt__vis bt-e" aria-hidden="true">
+      <article class="bt bt--ge bt--l3 rv"><div class="bt__head"><h3>Customized View</h3><p>Kanban to see the pipeline, List to scan it fast. Switch anytime.</p></div><div class="bt__vis bt-e" aria-hidden="true">
         <div class="bt-e__seg"><b class="k">Kanban</b><b class="l">List</b></div>
         <div class="bt-e__stack">
           <div class="bt-e__kan"><div><i></i><i></i></div><div><i></i></div><div><i></i><i></i><i></i></div></div>
@@ -297,7 +253,7 @@
         </div>
       </div></article>
 
-      <article class="bt bt--wide bt--gg bt--l2 rv" style="--d:.06s"><div class="bt__head"><h3>Role Based Access Control</h3><p>Admins see everything. Basic roles see only their own board.</p></div><div class="bt__vis bt-f" aria-hidden="true">
+      <article class="bt bt--wide bt--gg bt--d2 rv" style="--d:.06s"><div class="bt__head"><h3>Role Based Access Control</h3><p>Admins see everything. Basic roles see only their own board.</p></div><div class="bt__vis bt-f" aria-hidden="true">
         <div class="bt-f__role"><b>Administrator</b><div><span class="on">Deals</span><span class="on">Leads</span><span class="on">Projects</span></div></div>
         <div class="bt-f__role"><b>Basic</b><div><span class="on">My board</span><span class="lk">Leads</span><span class="lk">Projects</span></div></div>
       </div></article>
@@ -376,6 +332,6 @@
 </footer>
 
 
-<script src="js/main.js?v=1795094449" defer></script>
+<script src="js/main.js?v=crm3" defer></script>
 </body>
 </html>

@@ -281,4 +281,80 @@
     });
   })();
 
+  /* ---------- HERO CARD (crm2) ----------
+     3 views in one card: 0 Kanban · 1 List (same board scene, toggled) · 2 Activity.
+     Auto-rotates every 3.5s; hover pauses (remaining time kept). Step tabs and the
+     Kanban | List toggle jump to a view. Reduced motion: view 1 static, controls still work. */
+  (function () {
+    var root = $('#hero-scenes'); if (!root) return;
+    var board = $('.hs-board', root), act = $('.hs-act', root);
+    var dots = $$('.hs__dot', root), segs = $$('.vseg button', root);
+    var N = 3, idx = 0, DUR = 3500, t = null, t0 = 0, left = DUR, paused = false;
+    root.style.setProperty('--hs-ms', DUR + 'ms');
+    function show(i) {
+      var prevEl = idx === 2 ? act : board, el = i === 2 ? act : board;
+      if (el !== prevEl) {
+        prevEl.classList.remove('is-on'); prevEl.classList.add('is-prev');
+        el.classList.remove('is-prev'); el.classList.add('is-on');
+      }
+      var view = i === 1 ? 'list' : 'kanban';
+      board.setAttribute('data-view', view);
+      segs.forEach(function (b) { b.setAttribute('aria-pressed', String(b.dataset.view === view)); });
+      el.classList.remove('is-play'); void el.offsetWidth; // restart CSS animations
+      if (!reduce) el.classList.add('is-play');
+      dots.forEach(function (d, k) {
+        d.classList.remove('is-on'); void d.offsetWidth;
+        d.classList.toggle('is-on', k === i);
+        d.setAttribute('aria-pressed', String(k === i));
+      });
+      idx = i;
+    }
+    function schedule(ms) {
+      clearTimeout(t); left = ms;
+      if (reduce || paused) return;
+      t0 = Date.now();
+      t = setTimeout(function () { show((idx + 1) % N); schedule(DUR); }, ms);
+    }
+    function pause() {
+      if (paused || reduce) return;
+      paused = true; clearTimeout(t);
+      left = Math.max(0, left - (Date.now() - t0));
+      root.classList.add('is-paused');
+    }
+    function resume() {
+      if (!paused) return;
+      paused = false; root.classList.remove('is-paused');
+      schedule(left);
+    }
+    dots.forEach(function (d, k) { d.addEventListener('click', function () { show(k); schedule(DUR); }); });
+    segs.forEach(function (b) {
+      b.addEventListener('click', function () { show(b.dataset.view === 'list' ? 1 : 0); schedule(DUR); });
+    });
+    if (reduce) return;
+    root.classList.add('is-auto');
+    root.addEventListener('mouseenter', pause);
+    root.addEventListener('mouseleave', resume);
+    show(0); schedule(DUR);
+  })();
+
+  /* ---------- #capture loop: runs only while in view (default = every lead shown saved) ---------- */
+  (function () {
+    var sv = $('.sv'); if (!sv || reduce) return;
+    whenVisible(sv, function () { sv.classList.add('is-run'); }, function () { sv.classList.remove('is-run'); });
+  })();
+
+  /* ---------- SCROLL CUE (hero → next section) ---------- */
+  (function () {
+    var cue = $('.scroll-cue'); if (!cue) return;
+    var target = $(cue.getAttribute('href'));
+    function upd() { cue.classList.toggle('is-hidden', window.scrollY > 40); }
+    window.addEventListener('scroll', upd, { passive: true }); upd();
+    cue.addEventListener('click', function (e) {
+      if (!target) return; e.preventDefault();
+      var navH = nav ? nav.offsetHeight : 0;
+      var y = target.getBoundingClientRect().top + window.scrollY - navH + 8;
+      window.scrollTo({ top: y, behavior: reduce ? 'auto' : 'smooth' });
+    });
+  })();
+
 })();
