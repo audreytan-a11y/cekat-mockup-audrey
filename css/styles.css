@@ -2162,3 +2162,23 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (max-width:560px){.ta-r{font-size:10.5px}.ta-ph{width:80px}}
 /* v13b: stat number ~0.8x the section heading (map headline 46px@1440, 27px@390) */
 .trust .big{font-size:clamp(22px,2.55vw,37px);margin:2px 0 6px;letter-spacing:-.03em}
+/* v13c: stat ~0.92x the map heading (42px@1440, 25px@390) */
+.trust .big{font-size:clamp(25px,2.92vw,42px)}
+
+/* ===== v13d: map draws right away (trigger at 25% visible, ~2s total) ===== */
+#map.in .arc{stroke-dashoffset:1;transition:none}
+#map.in .pin{opacity:0;transition:none}#map.in .pin i{transform:scale(.4);transition:none}#map.in .pin b{opacity:0;transition:none}
+#map.go .arc{stroke-dashoffset:0;transition:stroke-dashoffset .5s cubic-bezier(.4,0,.2,1) var(--ad,0s)}
+#map.go #arc-us{transition-duration:.5s}
+#map.go .pin{opacity:1;transition:opacity .2s ease calc(var(--pd,0s) + .05s)}
+#map.go .pin i{transform:none;transition:transform .3s cubic-bezier(.34,1.56,.64,1) calc(var(--pd,0s) + .05s)}
+#map.go .pin b{opacity:1;transition:opacity .25s ease calc(var(--pd,0s) + .05s)}
+#map .pin--hub{--pd:-.05s}
+#map.in .pin--hub i::after{animation:none!important}
+#map.go .pin--hub i::after{animation:pinOnce .9s ease-out 0s 1 both!important}
+@media (prefers-reduced-motion:reduce){#map .arc,#map.in .arc{stroke-dashoffset:0!important}#map .pin,#map.in .pin,#map .pin b,#map.in .pin b{opacity:1!important}#map .pin i,#map.in .pin i{transform:none!important}#map.go .arc,#map.go .pin,#map.go .pin i,#map.go .pin b{transition:none}#map.go .pin--hub i::after{animation:none!important}}
+/* v13d: '+' stays visible while 3,000 counts up */
+.trust .big.anim .big__plus,.trust .big .big__plus{opacity:1!important;transform:none!important;animation:none!important}
+/* v13d: final CTA back on the earlier navy background (pre-v8), no subtitle */
+.cta--navy .h1{background:none!important;-webkit-text-fill-color:#fff;color:#fff;letter-spacing:-.035em;margin-bottom:28px}
+.cta--navy .btn--white{color:#1352bf}

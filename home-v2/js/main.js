@@ -216,7 +216,7 @@
     };
     var start = function () {
       if (started) return; started = true;
-      countUp(num, 3000, 1600, function () { big.classList.add('done'); setTimeout(showChips, 200); });
+      countUp(num, 3000, 1200, function () { big.classList.add('done'); setTimeout(showChips, 200); });
       if (ind) countUp(ind, 15, 1400);
     };
     if (reduce) { big.classList.add('done'); chips.forEach(function (li) { li.classList.add('chip-in'); }); }
@@ -226,7 +226,7 @@
       big.classList.add('anim');
       chips.forEach(function (li) { li.classList.add('chip-pre'); });
     }
-    whenVisible(big, start);
+    whenVisible(big, function () { setTimeout(start, 350); });
   }
 
   /* ---------- marquee: duplicate tracks for seamless loop ---------- */
@@ -399,4 +399,13 @@
   track.addEventListener('scroll',function(){window.requestAnimationFrame(upd);},{passive:true});
   track.addEventListener('keydown',function(e){if(e.key==='ArrowRight'){e.preventDefault();next.click();}if(e.key==='ArrowLeft'){e.preventDefault();prev.click();}});
   window.addEventListener('resize',upd); upd();
+})();
+
+/* v13d: map plays once when ~25% visible */
+(function(){
+  var m=document.getElementById('map'); if(!m) return;
+  if(window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches){m.classList.add('go');return;}
+  if(!('IntersectionObserver' in window)){m.classList.add('go');return;}
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){m.classList.add('in','go');io.disconnect();}});},{threshold:.25});
+  io.observe(m);
 })();
