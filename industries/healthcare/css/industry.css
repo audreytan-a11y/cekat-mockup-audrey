@@ -253,5 +253,5 @@
 .wa-m--out .wa-ok__chk{background:#fff}
 
 /* watermark icon in hero (matches .tc__ghost: outline, primary colour, ~.12 opacity) */
-.ih-hero__panel>.ih-wm{position:absolute;left:-120px;bottom:-90px;width:400px;height:400px;z-index:0;pointer-events:none;color:var(--primary,#1A56DB);opacity:.06;fill:currentColor;stroke:none}
+.ih-hero__panel>.ih-wm{position:absolute;left:-59px;bottom:-109px;width:400px;height:400px;z-index:0;pointer-events:none;color:var(--primary,#1A56DB);opacity:.06;fill:currentColor;stroke:none}
 @media(max-width:760px){.ih-hero__panel>.ih-wm{width:210px;height:210px;left:-10px;bottom:-60px;opacity:.06}}
