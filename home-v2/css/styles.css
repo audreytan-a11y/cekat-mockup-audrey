@@ -2155,10 +2155,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (max-width:560px){.pc-lk .pc-panel{padding:10px!important}.lk-mid{width:34px}.lk-meta{width:28px;height:28px;border-radius:9px}.lk-meta img{width:16px;height:16px}.lk-src li{grid-template-columns:18px 1fr;font-size:11px}.lk-av{width:18px;height:18px;font-size:9px}.lk-tag{display:none}.lk-t{font-size:9.5px}.lk-dots{gap:4px}.lk-dots i{width:10px;height:10px}.lk-n{font-size:16px}.lk-cnt small{font-size:10px}}
 @media (prefers-reduced-motion:reduce){.wv-s.is-on .lk-dots i{animation:none}}
 /* v13b: Solutions menu, two columns */
-.simple--2{grid-template-columns:repeat(2,minmax(210px,1fr));min-width:470px;padding:10px 6px}
 .simple__col{display:grid;align-content:start;padding:0 4px}
-.simple__col+.simple__col{border-left:1px solid #e6ebf3}
-@media (max-width:1024px){.simple--2{grid-template-columns:1fr;min-width:0;padding:0 0 12px}.simple__col{padding:0}.simple__col+.simple__col{border-left:0;border-top:1px solid #e6ebf3;margin-top:6px;padding-top:6px}}
+@media (max-width:1024px){.simple__col{padding:0}}
 @media (max-width:560px){.ta-r{font-size:10.5px}.ta-ph{width:80px}}
 /* v13b: stat number ~0.8x the section heading (map headline 46px@1440, 27px@390) */
 .trust .big{font-size:clamp(22px,2.55vw,37px);margin:2px 0 6px;letter-spacing:-.03em}
