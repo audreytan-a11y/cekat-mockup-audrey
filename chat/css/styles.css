@@ -840,12 +840,18 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .stage__main>.win,.stage__main>.ctrl{max-width:none}
 /* placements: layered on the main card's corners */
 .fx--a1{top:-20px;right:-30px}
-.fx--v1{top:-42px;right:-30px}
-.fx--v2{right:-30px;bottom:-58px}
-.fx--one{width:236px;box-sizing:border-box}
-.fx--one b{font-size:13px;font-weight:600;color:var(--navy);white-space:nowrap}
+.fx--v1{top:-20px;right:-30px}
+/* rev32 — one small chip whose label swaps with the voice → QR card loop (6s, same clock as data-loop="6000").
+   Both labels share one grid cell, so the pill is always as wide as the longer label: no layout jump. */
+.fx--swap{display:inline-grid;font-size:13px}
+.fx-swap{grid-area:1/1;justify-self:center;display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.fx-swap--b{opacity:0}
+.play .fx-swap--a{animation:swapA 6s linear both}
+.play .fx-swap--b{animation:swapB 6s linear both}
+@keyframes swapA{0%,28%{opacity:1;transform:none}33%,93%{opacity:0;transform:translateY(-4px)}100%{opacity:1;transform:none}}
+@keyframes swapB{0%,28%{opacity:0;transform:translateY(4px)}33%,93%{opacity:1;transform:none}100%{opacity:0;transform:translateY(4px)}}
 .feature-block .stage:not(.stage--night){padding-top:72px;padding-bottom:72px}
-@media (max-width:1100px){.fx--a1,.fx--v1,.fx--v2{right:-14px}}
+@media (max-width:1100px){.fx--a1,.fx--v1{right:-14px}}
 @media (max-width:640px){
   .feature-block .stage{min-height:0}
   .feature-block .bubble{font-size:13.5px;padding:10px 13px}
@@ -856,7 +862,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .fx--card{padding:8px 12px 8px 8px}
   .fx__ico{width:26px;height:26px}
 }
-@media (prefers-reduced-motion:reduce){.fx{animation:none}}
+@media (prefers-reduced-motion:reduce){.fx,.fx-swap{animation:none!important}}
 
 /* ==========================================================================
    rev24 (20 Nov) — feature blocks flow: one surface, dotted connector, side reveal
