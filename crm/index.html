@@ -9,8 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=crm12">
-  <link rel="stylesheet" href="css/products-menu.css?v=crm12">
+  <link rel="stylesheet" href="css/styles.css?v=crm13">
+  <link rel="stylesheet" href="css/products-menu.css?v=crm13">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -30,10 +30,11 @@
 <!-- ============ NAV ============ -->
 <header class="nav" id="nav">
   <div class="wrap nav__row">
-    <a class="nav__logo" href="../home-v2/" aria-label="Cekat.AI home"><img src="./assets/logo-full.svg" alt="Cekat.AI" width="120" height="28"></a>
+    <a class="nav__logo" href="../home-v2/?v=v14q" aria-label="Cekat.AI home"><img src="./assets/logo-full.svg" alt="Cekat.AI" width="120" height="28"></a>
 
     <nav class="nav__menu" id="nav-menu" aria-label="Primary">
       <ul class="nav__list">
+        <!-- PRODUCTS -->
         <!-- PRODUCTS MENU v14: markup = this <li>; styles = css/products-menu.css; behaviour = js/products-menu.js -->
         <li class="dd dd--mega">
           <button class="dd__trigger" type="button" aria-expanded="false" aria-controls="mm-products">Products<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button>
@@ -125,17 +126,35 @@
           </div>
         </li>
         <!-- /PRODUCTS MENU v14 -->
+        <!-- SOLUTIONS -->
+        <li class="dd">
+          <button class="dd__trigger" type="button" aria-expanded="false" aria-controls="mm-solutions">Solutions<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button>
+          <div class="dd__panel simple sol" id="mm-solutions">
+            <p class="sol__h">By industry</p>
+            <div class="sol__grid"><a class="sol__a" href="../industries/healthcare/"><svg class="sol__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/></svg><span>Healthcare &amp; clinics</span></a><a class="sol__a" href="../industries/"><svg class="sol__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg><span>Retail &amp; e-commerce</span></a><a class="sol__a" href="../industries/"><svg class="sol__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v7a2 2 0 0 1-2 2 2 2 0 0 1-2-2V3M5 12v9M7 3v7M17 21V3c-2 1.5-3 4-3 7h3"/></svg><span>Food &amp; beverage</span></a><a class="sol__a" href="../industries/"><svg class="sol__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.5"/></svg><span>Education</span></a><a class="sol__a" href="../industries/"><svg class="sol__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V20h14V9.5M10 20v-6h4v6"/></svg><span>Property</span></a><a class="sol__a" href="../industries/"><svg class="sol__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-5 9 5z"/><path d="M5 11v7M9.7 11v7M14.3 11v7M19 11v7M3 20h18"/></svg><span>Banking &amp; insurance</span></a><a class="sol__a" href="../industries/"><svg class="sol__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3l1.9 5.1L18 10l-5.1 1.9L11 17l-1.9-5.1L4 10l5.1-1.9z"/><path d="M18.5 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></svg><span>Beauty &amp; wellness</span></a><a class="sol__a" href="../industries/"><svg class="sol__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15.5v-2L13 9V4.5a1.5 1.5 0 0 0-3 0V9l-8 4.5v2l8-2.2V18l-2 1.5V21l3.5-1 3.5 1v-1.5L13 18v-4.7z" transform="translate(1 0)"/></svg><span>Travel &amp; hospitality</span></a><a class="sol__a" href="../industries/"><svg class="sol__ic" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16v-4.5L7 6h10l2 5.5V16M3 16h18v3H3z"/><circle cx="8" cy="13" r=".6"/><circle cx="16" cy="13" r=".6"/></svg><span>Automotive</span></a><a class="sol__a" href="../industries/"><svg class="sol__ic" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="8" width="18" height="12" rx="2"/><path d="M9 8V5.5h6V8M3 13.5h18"/></svg><span>Professional services</span></a></div>
+            <div class="sol__foot"><a href="../industries/">See all industries <span aria-hidden="true">→</span></a></div>
+          </div>
+        </li>
+        <!-- RESOURCES -->
+        <li class="dd">
+          <button class="dd__trigger" type="button" aria-expanded="false" aria-controls="mm-resources">Resources<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button>
+          <div class="dd__panel simple" id="mm-resources">
+            <a href="../home-v2/#stories">Customer stories</a><a href="https://www.youtube.com/@cekatai">Success story videos</a><a href="../home-v2/#integrations">Integrations</a><a href="https://cekat.ai/en">Blog</a><a href="https://cekat.ai/en/contact-us">Contact</a>
+          </div>
+        </li>
         <li><a class="nav__link" href="https://cekat.ai/en/pricing">Pricing</a></li>
       </ul>
       <div class="nav__mobile-cta">
-        <a class="btn btn--outline" href="https://chat.cekat.ai/login">Log in</a>
-        <a class="btn btn--primary" href="https://chat.cekat.ai/register">Start Free Trial</a>
+        <a class="btn btn--ghost" href="https://chat.cekat.ai/login">Log in</a>
+        <a class="btn btn--outline" href="https://cekat.ai/en/contact-us">Talk to sales</a>
+        <a class="btn btn--primary" href="https://chat.cekat.ai/register">Start free trial</a>
       </div>
     </nav>
 
     <div class="nav__actions">
       <a class="nav__link" href="https://chat.cekat.ai/login">Log in</a>
-      <a class="btn btn--primary btn--sm" href="https://chat.cekat.ai/register">Start Free Trial</a>
+      <a class="btn btn--outline btn--sm" href="https://cekat.ai/en/contact-us">Talk to sales</a>
+      <a class="btn btn--primary btn--sm" href="https://chat.cekat.ai/register">Start free trial</a>
     </div>
     <button class="nav__toggle" type="button" aria-expanded="false" aria-controls="nav-menu" aria-label="Open menu"><span></span><span></span></button>
   </div>
@@ -380,7 +399,7 @@
 <footer class="foot">
   <div class="wrap foot__grid">
     <div class="foot__brand">
-      <a class="foot__logo" href="../home-v2/" aria-label="Cekat.AI home"><img src="./assets/logo-full.svg" alt="Cekat.AI" width="120" height="28"></a>
+      <a class="foot__logo" href="../home-v2/?v=v14q" aria-label="Cekat.AI home"><img src="./assets/logo-full.svg" alt="Cekat.AI" width="120" height="28"></a>
       <p>AI agents, CRM and marketing in one platform — built for businesses that run on conversations.</p>
       <div class="foot__badges">
         <span class="foot__meta"><img src="./assets/integrations/meta.svg" alt="" width="14" height="14">Official Meta Business Partner</span>
@@ -412,7 +431,7 @@
 </footer>
 
 
-<script src="js/main.js?v=crm12" defer></script>
-<script src="js/products-menu.js?v=crm12" defer></script>
+<script src="js/main.js?v=crm13" defer></script>
+<script src="js/products-menu.js?v=crm13" defer></script>
 </body>
 </html>
