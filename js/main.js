@@ -32,7 +32,6 @@
   function setOpen(dd, open) {
     dd.classList.toggle('is-open', open);
     $('.dd__trigger', dd).setAttribute('aria-expanded', String(open));
-    if (dd.classList.contains('dd--mega')) { megaCycle(open); if (open && typeof showPanel === 'function') showPanel('chat'); }
   }
   function closeAll(except) { dds.forEach(function (d) { if (d !== except) setOpen(d, false); }); }
   // click-only: no hover listeners anywhere
@@ -53,17 +52,7 @@
     if (isDesktop() && !e.target.closest('.dd')) closeAll();
   });
 
-  /* ---------- mega menu panels ---------- */
-  var items = $$('.mega__item');
-  var panels = $$('.mv');
-  function showPanel(key) {
-    items.forEach(function (i) { i.classList.toggle('is-active', i.dataset.panel === key); });
-    panels.forEach(function (p) { p.classList.toggle('is-active', p.dataset.panel === key); });
-  }
-  items.forEach(function (i) {
-    i.addEventListener('mouseenter', function () { showPanel(i.dataset.panel); });
-    i.addEventListener('focus', function () { showPanel(i.dataset.panel); });
-  });
+  /* products menu panels + rotation: see js/products-menu.js (v14) */
 
   /* mega-anchor: close menu when jumping to an on-page product card */
   $$('.dd a[href^="#"]').forEach(function (i) {
@@ -74,8 +63,7 @@
   function tickRot() {
     $$('.rot').forEach(function (r) {
       var mv = r.closest('.mv');
-      if (mv && !mv.classList.contains('is-active')) return;
-      if (mv && !r.closest('.dd.is-open')) return;
+      if (mv) return; /* menu rotation lives in products-menu.js */
       if (!mv && !r.dataset.vis) return;
       var ss = $$('.rot__s', r), i = ss.findIndex(function (x) { return x.classList.contains('is-on'); });
       var hold = +ss[i].dataset.hold || 1;
@@ -94,20 +82,6 @@
       if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { r.dataset.vis = en[0].isIntersecting ? '1' : ''; }).observe(r); else r.dataset.vis = '1';
     });
     setInterval(tickRot, 3000);
-  }
-
-  var cycleTimer = null;
-  var scenes = $$('.mv__scenes .scene');
-  var sceneDots = $$('.mv__dots i');
-  var sceneIdx = 0;
-  function megaCycle(on) {
-    clearInterval(cycleTimer); cycleTimer = null;
-    if (!on || reduce) return;
-    cycleTimer = setInterval(function () {
-      sceneIdx = (sceneIdx + 1) % scenes.length;
-      scenes.forEach(function (s, i) { s.classList.toggle('is-active', i === sceneIdx); });
-      sceneDots.forEach(function (d, i) { d.classList.toggle('is-active', i === sceneIdx); });
-    }, 3000);
   }
 
   /* mini kanban inside the menu: loop always while menu open (cheap) */
@@ -299,29 +273,44 @@
 
 })();
 
-/* sparse dots on hero net lines */
+/* v14: hero line fans — symmetric, converging exactly beside the headline's centre (between its two lines) */
 (function(){
   var net=document.querySelector('.hnet'); if(!net) return;
-  var svg=net.querySelector('svg');
-  // 4 dots on the left lines, 4 on the right (path id, position along path)
-  var L=[[0,.3],[1,.62],[2,.2],[3,.44]], R=[[0,.52],[1,.26],[2,.58],[3,.24]];
-  function place(){
+  var svg=net.querySelector('svg'), hero=net.parentNode, h1=hero.querySelector('.hero__h'); if(!h1) return;
+  var paths=[].slice.call(svg.querySelectorAll('.hnet__l path')), mirror=svg.querySelectorAll('use')[1];
+  var DOTS=[[0,.3],[2,.55],[5,.4],[7,.25]]; /* same spots on both sides */
+  function lastText(el){ for(var n=el.lastChild;n;n=n.previousSibling){ if(n.nodeType===3&&n.textContent.trim()) return n; } return null; }
+  function build(){
+    var r=net.getBoundingClientRect(), W=r.width, H=r.height; if(!W||!H) return;
+    var tn=lastText(h1); if(!tn) return;
+    var rg=document.createRange(); rg.selectNodeContents(tn); var tr=rg.getBoundingClientRect(), hr=h1.getBoundingClientRect();
+    var gap=Math.max(12,tr.height*.22);
+    var ax=Math.min(tr.left-r.left, r.right-tr.right)-gap, ay=(hr.top+hr.height/2)-r.top;
+    net.classList.toggle('hnet--off', ax<40);
+    svg.setAttribute('viewBox','0 0 '+W+' '+H);
+    var n=paths.length, top=H*.04, span=H*.9;
+    paths.forEach(function(p,i){
+      var y=top+span*i/(n-1);
+      p.setAttribute('d','M0 '+y.toFixed(1)+' C '+(ax*.5).toFixed(1)+' '+y.toFixed(1)+', '+(ax*.62).toFixed(1)+' '+ay.toFixed(1)+', '+ax.toFixed(1)+' '+ay.toFixed(1));
+    });
+    if(mirror) mirror.setAttribute('transform','translate('+W+' 0) scale(-1 1)');
     net.querySelectorAll('.hdot').forEach(function(d){d.remove();});
-    var r=net.getBoundingClientRect(), vb=svg.viewBox.baseVal;
-    var sx=r.width/vb.width, sy=r.height/vb.height;
-    [L,R].forEach(function(list,side){
-      list.forEach(function(s,i){
-        var p=document.getElementById('np'+s[0]); if(!p) return;
+    if(ax<40) return;
+    [0,1].forEach(function(side){
+      DOTS.forEach(function(s,i){
+        var p=paths[s[0]]; if(!p) return;
         var pt=p.getPointAtLength(p.getTotalLength()*s[1]);
-        var x = side ? vb.width-pt.x : pt.x;
         var d=document.createElement('span'); d.className='hdot';
-        d.style.left=(x*sx)+'px'; d.style.top=(pt.y*sy)+'px';
-        d.style.setProperty('--dl',(-(i*0.9+side*1.7))+'s');
+        d.style.left=(side?W-pt.x:pt.x)+'px'; d.style.top=pt.y+'px';
+        d.style.setProperty('--dl',(-(i*0.9))+'s');
         net.appendChild(d);
       });
     });
   }
-  place(); window.addEventListener('resize',place);
+  build();
+  var t; window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(build,80);});
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(build);
+  window.addEventListener('load',build);
 })();
 
 /* map headline: staggered word reveal, once */
@@ -343,7 +332,7 @@
         dots=[].slice.call(card.querySelectorAll('.wv-dots button')),
         rotW=card.querySelector('.pc-rot__w'),
         txt=[].slice.call(card.querySelectorAll(rotW?'.pc-rot__w>span':'.wide__sub>span')),
-        line=card.querySelector('.pc-rot'), i=0, paused=false, t=null, MS=3000;
+        subs=rotW?[].slice.call(card.querySelectorAll('.wide__sub>span')):[], line=card.querySelector('.pc-rot'), i=0, paused=false, t=null, MS=3000;
     if(sl.length<2) return;
     function countUp(slide){
       var lk=slide.querySelector('.lk-n[data-to]');
@@ -362,6 +351,7 @@
       var prevS=sl[i], prevT=txt[i];
       sl.forEach(function(s,j){s.classList.toggle('is-on',j===k);});
       txt.forEach(function(s,j){s.classList.toggle('is-on',j===k);s.classList.remove('is-out');});
+      subs.forEach(function(s,j){s.classList.toggle('is-on',j===k);});
       dots.forEach(function(d,j){d.classList.toggle('on',j===k);d.setAttribute('aria-pressed',j===k?'true':'false');});
       if(!instant && prevS && prevS!==sl[k]){prevS.classList.add('is-leaving');setTimeout(function(){prevS.classList.remove('is-leaving');},420);}
       if(!instant && prevT && prevT!==txt[k] && rotW){prevT.classList.add('is-out');setTimeout(function(){prevT.classList.remove('is-out');},350);}
@@ -413,7 +403,7 @@
 /* v13g: Top paid ads phone, real videos: ad 1 poster → play → ad 2 poster → play → loop */
 (function(){
   var reduce=window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
-  document.querySelectorAll('.pc-ads').forEach(function(box){
+  document.querySelectorAll('[data-sync] .pc-ads').forEach(function(box){
     var vids=[].slice.call(box.querySelectorAll('.ta-v video')); if(!vids.length) return;
     box.setAttribute('data-ad','0');
     if(reduce) return;                       /* poster + row 1, static */
@@ -444,5 +434,22 @@
     if('IntersectionObserver' in window) new IntersectionObserver(function(es){es.forEach(function(e){seen=e.isIntersecting;upd();});},{threshold:.15}).observe(box.closest('[data-sync]')||box);
     else { seen=true; upd(); }
     document.addEventListener('visibilitychange',upd);
+  });
+})();
+
+/* v14: story video cards — play embeds the real YouTube video in place */
+(function(){
+  document.querySelectorAll('.vc__media[data-yt]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      if(e.metaKey||e.ctrlKey||e.shiftKey) return;
+      e.preventDefault();
+      var id=a.getAttribute('data-yt'), f=document.createElement('iframe');
+      f.src='https://www.youtube-nocookie.com/embed/'+id+'?autoplay=1&rel=0&modestbranding=1&playsinline=1';
+      f.title=a.getAttribute('aria-label')||'Customer story video';
+      f.allow='autoplay; encrypted-media; picture-in-picture; fullscreen'; f.allowFullscreen=true;
+      f.className='vc__frame';
+      var box=document.createElement('div'); box.className='vc__media vc__media--on'; box.appendChild(f);
+      a.replaceWith(box); f.focus();
+    });
   });
 })();

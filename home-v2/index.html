@@ -9,8 +9,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=v13i">
-  <link rel="stylesheet" href="css/hero-v2.css?v=v13i">
+  <link rel="stylesheet" href="css/styles.css?v=v14">
+  <link rel="stylesheet" href="css/products-menu.css?v=v14">
+  <link rel="stylesheet" href="css/hero-v2.css?v=v14">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -25,19 +26,20 @@
     <nav class="nav__menu" id="nav-menu" aria-label="Primary">
       <ul class="nav__list">
         <!-- PRODUCTS -->
+        <!-- PRODUCTS MENU v14: markup = this <li>; styles = css/products-menu.css; behaviour = js/products-menu.js -->
         <li class="dd dd--mega">
           <button class="dd__trigger" type="button" aria-expanded="false" aria-controls="mm-products">Products<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button>
           <div class="dd__panel mega" id="mm-products">
             <ul class="mega__list" role="list">
               <li><a class="mega__item is-active" href="../chat/" data-panel="chat">
                 <span class="mega__ic"><img src="./assets/products/chat.svg" alt="" width="22" height="22"></span>
-                <span><b>Cekat Chat</b><small>One inbox for every channel, answered by AI 24/7.</small></span></a></li>
+                <span><b>Chat</b><small>One inbox for every channel, answered by AI 24/7.</small></span></a></li>
               <li><a class="mega__item" href="../crm/" data-panel="crm">
                 <span class="mega__ic"><img src="./assets/products/crm.svg" alt="" width="22" height="22"></span>
-                <span><b>Cekat CRM</b><small>A CRM that fills itself and fits how you work.</small></span></a></li>
+                <span><b>CRM</b><small>A CRM that fills itself and fits how you work.</small></span></a></li>
               <li><a class="mega__item" href="../marketing/" data-panel="marketing">
                 <span class="mega__ic"><img src="./assets/products/marketing.svg" alt="" width="22" height="22"></span>
-                <span><b>Cekat Marketing</b><small>Know which ad, creator or link brings revenue.</small></span></a></li>
+                <span><b>Marketing</b><small>Know which ad, creator or link brings revenue.</small></span></a></li>
               <li><a class="mega__item" href="#broadcasts" data-panel="broadcasts">
                 <span class="mega__ic"><img src="./assets/products/broadcasts.svg" alt="" width="22" height="22"></span>
                 <span><b>Broadcasts</b><small>Send template campaigns and see who read them.</small></span></a></li>
@@ -50,16 +52,15 @@
             </ul>
 
             <div class="mega__stage">
-              <!-- Marketing: cycling scenes -->
-              <!-- Chat -->
+              <!-- Chat: one illustration per feature, pill top-right -->
               <div class="mv is-active" data-panel="chat">
-                <div class="mv__art mv__art--chat" aria-hidden="true"><div class="rot"><div class="rot__s is-on"><div class="pc-win"><div class="pc-win__bar"><i></i><i></i><i></i><span>Inbox</span></div><div class="pc-win__body"><div class="pc-mb pc-mb--in">Do you have the black sneakers in US size 9?</div><div class="pc-mb pc-mb--ai">Yes, 3 pairs left at $89. Want me to reserve one?</div></div></div></div><div class="rot__s"><div class="pc-win"><div class="pc-win__bar"><i></i><i></i><i></i><span>Inbox</span></div><div class="pc-win__body"><div class="pc-mb pc-mb--in">Can I get a refund?</div><div class="pc-chk"><span class="pc-chk__i">✓</span>Checked · Refund policy</div><div class="pc-mb pc-mb--ai">I’ll check that with our team. Handing you to Megan now 🙏</div></div></div></div><div class="rot__s"><div class="pc-win"><div class="pc-win__bar"><i></i><i></i><i></i><span>Inbox</span></div><div class="pc-win__body"><div class="pc-mb pc-mb--in pc-voice"><span class="pc-play">▶</span><span class="pc-wave"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span><small>0:06</small></div><div class="pc-note">🎙 Understood: “Do you deliver to Brooklyn?”</div><div class="pc-mb pc-mb--ai">Yes! It arrives in 2–3 days 📦</div></div></div></div><div class="rot__s"><div class="pc-win"><div class="pc-win__bar"><i></i><i></i><i></i><span>Inbox</span></div><div class="pc-win__body"><div class="pc-mb pc-mb--in">Ok I’ll take it! How do I pay?</div><div class="qr-msg"><img src="./assets/illus-qr.svg" alt=""><span><b>$35.79</b><small>Scan to pay</small></span></div></div></div></div></div></div>
+                <div class="mv__art mv__art--chat" aria-hidden="true"><div class="rot"><div class="rot__s is-on"><div class="pm-wrap"><span class="pm-pill">Omnichannel</span><div class="pc-win"><div class="pc-win__bar"><i></i><i></i><i></i><span>Inbox</span></div><div class="pc-win__body pmx-omni"><div class="pmx-chs"><span><img src="./assets/integrations/whatsapp.svg" alt=""></span><span><img src="./assets/integrations/instagram.svg" alt=""></span><span><img src="./assets/integrations/tiktok.svg" alt=""></span><span><img src="./assets/integrations/messenger.svg" alt=""></span><span><img src="./assets/integrations/telegram.svg" alt=""></span><span><img src="./assets/integrations/livechat.svg" alt=""></span></div><ul class="pmx-cvs"><li><img src="./assets/integrations/whatsapp.svg" alt=""><b>Emily</b><span>heyy is the linen shirt in M?</span><em>now</em></li><li><img src="./assets/integrations/instagram.svg" alt=""><b>Jason</b><span>is this still available?</span><em>2m</em></li><li><img src="./assets/integrations/tiktok.svg" alt=""><b>Ryan</b><span>do u ship to Denver?</span><em>5m</em></li><li><img src="./assets/integrations/messenger.svg" alt=""><b>Sophia</b><span>thanks, got it!</span><em>9m</em></li></ul></div></div></div></div><div class="rot__s"><div class="pm-wrap"><span class="pm-pill">Understands slang &amp; replies like a human</span><div class="pc-win"><div class="pc-win__bar"><i></i><i></i><i></i><span>Inbox</span></div><div class="pc-win__body"><div class="pc-mb pc-mb--in">ngl that hoodie is fire 🔥 u got it in L?</div><div class="pc-mb pc-mb--ai">Right?! 🔥 Yep, L is in stock. Want me to save one for you?</div></div></div></div></div><div class="rot__s"><div class="pm-wrap"><span class="pm-pill">Replies in any language</span><div class="pc-win"><div class="pc-win__bar"><i></i><i></i><i></i><span>Inbox</span></div><div class="pc-win__body"><div class="pc-mb pc-mb--in">¿Hacen envíos a Miami?</div><div class="pmx-note">🌐 Replying in Spanish</div><div class="pc-mb pc-mb--ai">¡Claro! Llega en 2–3 días 📦</div></div></div></div></div><div class="rot__s"><div class="pm-wrap"><span class="pm-pill">Every answer checked</span><div class="pc-win"><div class="pc-win__bar"><i></i><i></i><i></i><span>Inbox</span></div><div class="pc-win__body"><div class="pc-mb pc-mb--in">What’s your return policy?</div><div class="pc-chk"><span class="pc-chk__i">✓</span>Checked · Return policy</div><div class="pc-mb pc-mb--ai">Free returns within 30 days. Just keep the tags on 🙂</div></div></div></div></div><div class="rot__s"><div class="pm-wrap"><span class="pm-pill">Guardrail</span><div class="pc-win"><div class="pc-win__bar"><i></i><i></i><i></i><span>Inbox</span></div><div class="pc-win__body"><div class="pc-mb pc-mb--in">Can I take this with my meds?</div><div class="pc-chk pmx-warn"><span class="pc-chk__i">!</span>Not in your knowledge base</div><div class="pmx-hand"><span class="pmx-av">M</span><div><b>Handing off to Megan</b><small>Support team</small></div></div></div></div></div></div><div class="rot__s"><div class="pm-wrap"><span class="pm-pill">Sends QR code payment</span><div class="pc-win"><div class="pc-win__bar"><i></i><i></i><i></i><span>Inbox</span></div><div class="pc-win__body"><div class="pc-mb pc-mb--in">Ok I’ll take it! How do I pay?</div><div class="qr-msg"><img src="./assets/illus-qr.svg" alt=""><span><b>$35.79</b><small>Scan to pay</small></span></div></div></div></div></div><div class="rot__s"><div class="pm-wrap"><span class="pm-pill">Shipping &amp; nearest store</span><div class="pc-win"><div class="pc-win__bar"><i></i><i></i><i></i><span>Inbox</span></div><div class="pc-win__body"><div class="pc-mb pc-mb--in">How much to ship to 10001? Or is there a store near me?</div><div class="pc-mb pc-mb--ai">Shipping is $5.99 (2–3 days). Or pick it up today 👇</div><div class="pmx-store"><span class="pmx-pin">📍</span><div><b>SoHo store · 0.8 mi</b><small>Open until 9 PM · In stock</small></div></div></div></div></div></div></div></div>
                 <div class="mv__cap"><div><b>Cekat Chat</b><small>Replies like a real person, never robotic.</small></div><a href="../chat/">Explore Chat <span aria-hidden="true">→</span></a></div>
               </div>
 
               <!-- CRM -->
               <div class="mv" data-panel="crm">
-                <div class="mv__art" aria-hidden="true"><div class="rot"><div class="rot__s is-on"><div class="pc-panel pc-board kb kb--mv">
+                <div class="mv__art mv__art--crm" aria-hidden="true"><div class="rot"><div class="rot__s is-on"><div class="pc-panel pc-board kb kb--mv">
               <div class="kb-top"><span class="kb-tab is-on">Custom View</span><span class="kb-tab">View 2</span><span class="kb-new">+ New contact</span></div>
               <div class="kb-cols">
                 <div class="kb-col kb-col--1"><p class="kb-h"><span>Leads</span><em>2 <i>+</i></em></p><div class="kb-c"><div class="kb-c__t"><img src="./assets/integrations/whatsapp.svg" alt=""><b>Ben</b><span class="kb-av">B</span></div><span class="kb-pill">$20</span></div><div class="kb-c"><div class="kb-c__t"><img src="./assets/integrations/tiktok.svg" alt=""><b>Amy</b><span class="kb-av">A</span></div><span class="kb-pill">Acme Co.</span></div></div>
@@ -68,46 +69,13 @@
                 <div class="kb-col kb-col--4"><p class="kb-h"><span>Paid</span><em>0 <i>+</i></em></p><p class="kb-empty">No items</p></div>
               </div>
             </div>
-                </div><div class="rot__s"><div class="card"><p class="rt">Custom fields</p><ul class="fld"><li><span>Name</span><b>Emma Carter</b></li><li><span>Treatment</span><b class="dd2">Dropdown ▾</b></li><li><span>Visit date</span><b>Dec 12</b></li><li><span>Notes</span><b>Text</b></li></ul></div></div><div class="rot__s"><div class="card"><p class="rt">Role-based access</p><ul class="role"><li><b>Admin</b><span>Sees and edits every board</span></li><li><b>Basic</b><span>Sees only their own board</span></li></ul></div></div></div></div>
+                </div><div class="rot__s"><div class="pmx-tl"><div class="pmx-tl__h"><span class="pmx-av">E</span><b>Emily Carter</b><span class="pmx-ch"><img src="./assets/integrations/instagram.svg" alt="">Instagram</span></div><ol><li><span class="pmx-ic"><img src="./assets/integrations/meta.svg" alt=""></span><b>Clicked Spring Sale ad</b><em>Mon 9:02 AM</em></li><li><span class="pmx-ic"><img src="./assets/integrations/instagram.svg" alt=""></span><b>Messaged on Instagram</b><em>9:04 AM</em></li><li><span class="pmx-ic"><img src="./assets/logo-mark.svg" alt=""></span><b>AI replied</b><em>9:04 AM</em></li><li><span class="pmx-ic pmx-ic--stage"></span><b>Moved to Meeting booked</b><em>9:20 AM</em></li><li class="pmx-done"><span class="pmx-ic pmx-ic--ok">✓</span><b>Order placed · $128.00</b><em>Tue 4:15 PM</em></li></ol></div></div><div class="rot__s"><div class="card"><p class="rt">Role-based access</p><ul class="role"><li><b>Admin</b><span>Sees and edits every board</span></li><li><b>Basic</b><span>Sees only their own board</span></li></ul></div></div></div></div>
                 <div class="mv__cap"><div><b>Cekat CRM</b><small>Deals created from every chat, on boards you design.</small></div><a href="../crm/">Explore CRM <span aria-hidden="true">→</span></a></div>
               </div>
 
+              <!-- Marketing -->
               <div class="mv" data-panel="marketing">
-                <div class="mv__art" aria-hidden="true">
-                <div class="mv__scenes" data-cycle="3000">
-                  <div class="scene is-active">
-                    <p class="mv__title">Leads by source</p>
-                    <ul class="bars">
-                      <li><span>Meta ads</span><i style="--w:100%"></i><b>412</b></li>
-                      <li><span>Creator links</span><i style="--w:70%"></i><b>287</b></li>
-                      <li><span>TikTok ads</span><i style="--w:42%"></i><b>174</b></li>
-                      <li><span>Website</span><i style="--w:25%"></i><b>103</b></li>
-                    </ul>
-                  </div>
-                  <div class="scene">
-                    <p class="mv__title">Customer journey</p>
-                    <div class="journey">
-                      <div class="journey__node"><span class="jn-ic jn-ic--meta"><img src="./assets/integrations/meta.svg" alt=""></span>Ad click</div>
-                      <div class="journey__node"><span class="jn-ic"><img src="./assets/integrations/whatsapp.svg" alt=""></span>Chat</div>
-                      <div class="journey__node"><span class="jn-ic jn-ic--paid">$</span>Purchase</div>
-                    </div>
-                    <div class="credit"><span class="credit__dot"></span>Credited to ad · <b>Summer Promo</b></div>
-                  </div>
-                  <div class="scene">
-                    <p class="mv__title">Conversions API</p>
-                    <div class="capi">
-                      <div class="capi__head"><img src="./assets/integrations/meta.svg" alt="">Send stages to Meta <span class="ok">✓ Connected</span></div>
-                      <ul class="capi__list">
-                        <li><span>Lead in</span><em>Sent</em></li>
-                        <li><span>In contact</span><em>Sent</em></li>
-                        <li><span>Meeting booked</span><em>Sent</em></li>
-                        <li><span>Purchase</span><em>Sent</em></li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
-                <div class="mv__dots"><i class="is-active"></i><i></i><i></i></div>
-                </div>
+                <div class="mv__art mv__art--mkt" aria-hidden="true"><div class="rot"><div class="rot__s is-on"><div class="pmx-card pmx-src"><div class="pmx-src__h"><b>All sources</b><small>Last 30 days</small></div><table><thead><tr><th>Source</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Booked</th></tr></thead><tbody><tr><td><span class="pmx-si"><svg viewBox="0 0 24 24"><path d="M4 10v4h3l5 4V6L7 10H4z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg></span>Paid Ads</td><td>412,000</td><td>9,270</td><td>2.25%</td><td><b>186</b></td></tr><tr><td><span class="pmx-si"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4c3 3 3 13 0 16M12 4c-3 3-3 13 0 16"/></svg></span>Organic</td><td>96,500</td><td>3,860</td><td>4.00%</td><td><b>74</b></td></tr><tr><td><span class="pmx-si"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="10" r="2.4"/><path d="M15.5 14.6A4.6 4.6 0 0 1 21 19"/></svg></span>Creators</td><td>158,000</td><td>4,108</td><td>2.60%</td><td><b>52</b></td></tr><tr><td><span class="pmx-si"><svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7L11.5 6.8"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.5-1.5"/></svg></span>Links</td><td>21,400</td><td>1,284</td><td>6.00%</td><td><b>31</b></td></tr></tbody><tfoot><tr><td>Total</td><td>687,900</td><td>18,522</td><td>2.69%</td><td><b>343</b></td></tr></tfoot></table></div></div><div class="rot__s" data-ms="9800"><div class="pmx-ads"><div class="pc-ads" data-ad="0"> <div class="pc-panel ta"> <p class="ta-t">Top paid ads</p> <p class="ta-s">Top 4 by clicks</p> <div class="ta-h"><span>Ad name</span><span>Clicks</span></div> <ul><li class="ta-r"><span class="ta-pl">▶</span><span class="ta-n">Reel · AI replies in 3s</span><b>3,420</b></li><li class="ta-r"><span class="ta-pl">▶</span><span class="ta-n">Reel · Demo walkthrough</span><b>2,610</b></li><li class="ta-r"><span class="ta-pl">▶</span><span class="ta-n">Carousel · Pricing</span><b>1,480</b></li><li class="ta-r"><span class="ta-pl">▶</span><span class="ta-n">Static · Free trial</span><b>940</b></li></ul> </div> <div class="ta-ph"> <div class="ta-ph__scr ta-vid"> <div class="ta-v" data-i="0"><video muted playsinline preload="none" tabindex="-1" disablepictureinpicture poster="./assets/video/ad-ai-replies-poster.jpg" src="./assets/video/ad-ai-replies.mp4"></video><img class="ta-po" src="./assets/video/ad-ai-replies-poster.jpg" alt="" width="360" height="640" loading="lazy"></div> <div class="ta-v" data-i="1"><video muted playsinline preload="none" tabindex="-1" disablepictureinpicture poster="./assets/video/ad-demo-walkthrough-poster.jpg" src="./assets/video/ad-demo-walkthrough.mp4"></video><img class="ta-po" src="./assets/video/ad-demo-walkthrough-poster.jpg" alt="" width="360" height="640" loading="lazy"></div> <span class="ta-play">▶</span> <div class="ta-meta"><p class="ta-cap"><span>AI replies in 3s</span><span>Demo walkthrough</span></p><p class="ta-clk"><span>3,420 clicks</span><span>2,610 clicks</span></p></div> </div> </div> </div></div></div><div class="rot__s"><div class="pmx-conn"><p class="pmx-conn__t">Connect Ads platforms in 1 click</p><div class="pmx-conn__row"><span class="pmx-tile" style="--i:0"><img src="./assets/integrations/meta.svg" alt=""><i class="pmx-ok">✓</i></span><span class="pmx-tile" style="--i:1"><img src="./assets/integrations/tiktok.svg" alt=""><i class="pmx-ok">✓</i></span><span class="pmx-tile" style="--i:2"><img src="./assets/integrations/googleads.svg" alt=""><i class="pmx-ok">✓</i></span></div><span class="pmx-connected"><i>✓</i>Connected</span></div></div><div class="rot__s"><div class="pmx-card pmx-capi"><div class="pmx-capi__h"><span class="pmx-capi__ic"><img src="./assets/integrations/meta.svg" alt=""></span><div><b>Meta</b><small>Conversions API</small></div></div><p class="pmx-k">Send these stages</p><ul><li class="" style="--i:0"><span>Lead in</span><i class="pmx-tg"></i></li><li class="" style="--i:1"><span>In contact</span><i class="pmx-tg"></i></li><li class="on" style="--i:2"><span>Meetings booked</span><i class="pmx-tg"></i></li><li class="on" style="--i:3"><span>Executed meeting</span><i class="pmx-tg"></i></li></ul><span class="pmx-sent"><i>✓</i>Sent to Meta</span></div></div></div></div>
                 <div class="mv__cap"><div><b>Cekat Marketing</b><small>Attribution from the first ad click to the final purchase.</small></div><a href="../marketing/">Explore Marketing <span aria-hidden="true">→</span></a></div>
               </div>
 
@@ -142,12 +110,13 @@
 
               <!-- Analytics -->
               <div class="mv" data-panel="analytics">
-                <div class="mv__art" aria-hidden="true"><div class="rot rot--stack"><div class="rot__s is-on"><div class="win win--scene"><div class="win__body"><p class="rt">Dashboard · Ads <span class="tabs"><i class="on">Ads</i><i>Sales</i></span></p><div class="kpis"><div><small>Ad spend</small><b>$12.4K</b></div><div><small>ROAS</small><b>4.2x</b></div><div><small>Cost per lead</small><b>$3.10</b></div><div><small>Revenue</small><b>$52.1K</b></div></div></div></div></div><div class="rot__s"><div class="win win--scene"><div class="win__body"><p class="rt">Daily chats <span class="chip">+18% vs last week</span></p><svg class="ad-svg" viewBox="0 0 200 100" preserveAspectRatio="none"><defs><linearGradient id="adA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a56db" stop-opacity=".10"/><stop offset="1" stop-color="#1a56db" stop-opacity="0"/></linearGradient></defs><g class="ad-g"><line x1="8" x2="196" y1="92" y2="92"/><line x1="8" x2="196" y1="66" y2="66"/><line x1="8" x2="196" y1="40" y2="40"/><line x1="8" x2="196" y1="14" y2="14"/></g><path class="ad-area" d="M10.0,76.4 C13.4,74.7 23.7,66.9 30.5,66.0 C37.3,65.1 44.2,72.9 51.0,71.2 C57.8,69.5 64.7,57.3 71.5,55.6 C78.3,53.9 85.2,64.3 92.0,60.8 C98.8,57.3 105.7,37.4 112.5,34.8 C119.3,32.2 126.2,47.8 133.0,45.2 C139.8,42.6 146.7,20.1 153.5,19.2 C160.3,18.3 167.2,39.1 174.0,40.0 C180.8,40.9 191.1,27.0 194.5,24.4 L194.5,92 L10.0,92Z" fill="url(#adA)"/><path class="ad-l1" pathLength="1" d="M10.0,76.4 C13.4,74.7 23.7,66.9 30.5,66.0 C37.3,65.1 44.2,72.9 51.0,71.2 C57.8,69.5 64.7,57.3 71.5,55.6 C78.3,53.9 85.2,64.3 92.0,60.8 C98.8,57.3 105.7,37.4 112.5,34.8 C119.3,32.2 126.2,47.8 133.0,45.2 C139.8,42.6 146.7,20.1 153.5,19.2 C160.3,18.3 167.2,39.1 174.0,40.0 C180.8,40.9 191.1,27.0 194.5,24.4"/><path class="ad-l2" pathLength="1" d="M10.0,86.8 C13.4,85.9 23.7,82.5 30.5,81.6 C37.3,80.7 44.2,82.5 51.0,81.6 C57.8,80.7 64.7,77.3 71.5,76.4 C78.3,75.5 85.2,78.1 92.0,76.4 C98.8,74.7 105.7,66.9 112.5,66.0 C119.3,65.1 126.2,72.9 133.0,71.2 C139.8,69.5 146.7,56.5 153.5,55.6 C160.3,54.7 167.2,65.1 174.0,66.0 C180.8,66.9 191.1,61.7 194.5,60.8"/><g class="ad-d"><circle class="d1" cx="194.5" cy="24.4" r="3.8"/></g></svg><div class="ad-leg"><span><i class="l1"></i>Chats</span><span><i class="l2"></i>Meetings booked</span></div></div></div></div><div class="rot__s"><div class="win win--scene"><div class="win__body"><p class="rt">Chat to paid <span class="chip chip--n">Last 30 days</span></p><div class="ad-plot"><i style="bottom:0%"><u>0</u></i><i style="bottom:33%"><u>400</u></i><i style="bottom:66%"><u>800</u></i><i style="bottom:100%"><u>1.2K</u></i><div class="ad-bars"><div class="ad-bar" style="--h:100%"><em>100%</em><span class="ad-fill"></span><small>Chat started</small></div><div class="ad-bar" style="--h:25%"><em>25%</em><span class="ad-fill"></span><small>Booked</small></div><div class="ad-bar" style="--h:6.7%"><em>6.7%</em><span class="ad-fill"></span><small>Paid</small></div></div></div></div></div></div></div></div>
+                <div class="mv__art" aria-hidden="true"><div class="rot rot--stack"><div class="rot__s is-on"><div class="win win--scene"><div class="win__body"><p class="rt">Dashboard · Ads <span class="tabs"><i class="on">Ads</i><i>Sales</i></span></p><div class="kpis"><div><small>Ad spend</small><b>$12.4K</b></div><div><small>ROAS</small><b>4.2x</b></div><div><small>Cost per lead</small><b>$3.10</b></div><div><small>Revenue</small><b>$52.1K</b></div></div></div></div></div><div class="rot__s"><div class="win win--scene"><div class="win__body"><p class="rt">Conversion rate <span class="chip chip--n">Meetings vs chats</span></p><div class="pmx-cr__kpi"><b>25.4%</b><small>of chats booked a meeting this week</small></div><svg class="pmx-cr" viewBox="0 0 300 120" preserveAspectRatio="none" aria-hidden="true"><defs><linearGradient id="pmxA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#93B4F5" stop-opacity=".35"/><stop offset="1" stop-color="#93B4F5" stop-opacity="0"/></linearGradient><clipPath id="pmxClip"><rect class="pmx-cr__clip" x="0" y="0" width="300" height="120"/></clipPath></defs><line class="pmx-cr__g" x1="8" x2="292" y1="108" y2="108"/><line class="pmx-cr__g" x1="8" x2="292" y1="76" y2="76"/><line class="pmx-cr__g" x1="8" x2="292" y1="44" y2="44"/><line class="pmx-cr__g" x1="8" x2="292" y1="12" y2="12"/><g clip-path="url(#pmxClip)"><path d="M8.0,62.7 C11.6,62.2 22.6,59.8 29.8,59.6 C37.1,59.4 44.4,62.4 51.7,61.5 C59.0,60.6 66.3,56.2 73.5,54.2 C80.8,52.3 88.1,50.1 95.4,49.6 C102.7,49.2 109.9,52.6 117.2,51.6 C124.5,50.5 131.8,45.3 139.1,43.5 C146.4,41.7 153.6,41.0 160.9,40.8 C168.2,40.6 175.5,43.3 182.8,42.3 C190.1,41.4 197.3,37.2 204.6,35.0 C211.9,32.9 219.2,30.2 226.5,29.7 C233.7,29.2 241.0,33.1 248.3,32.0 C255.6,30.9 262.9,25.6 270.2,23.1 C277.4,20.7 288.4,18.3 292.0,17.4 L292,108 L8,108 Z" fill="url(#pmxA)"/><path class="pmx-cr__c" d="M8.0,62.7 C11.6,62.2 22.6,59.8 29.8,59.6 C37.1,59.4 44.4,62.4 51.7,61.5 C59.0,60.6 66.3,56.2 73.5,54.2 C80.8,52.3 88.1,50.1 95.4,49.6 C102.7,49.2 109.9,52.6 117.2,51.6 C124.5,50.5 131.8,45.3 139.1,43.5 C146.4,41.7 153.6,41.0 160.9,40.8 C168.2,40.6 175.5,43.3 182.8,42.3 C190.1,41.4 197.3,37.2 204.6,35.0 C211.9,32.9 219.2,30.2 226.5,29.7 C233.7,29.2 241.0,33.1 248.3,32.0 C255.6,30.9 262.9,25.6 270.2,23.1 C277.4,20.7 288.4,18.3 292.0,17.4"/><path class="pmx-cr__m" d="M8.0,101.1 C11.6,100.9 22.6,100.2 29.8,99.9 C37.1,99.7 44.4,99.8 51.7,99.6 C59.0,99.3 66.3,98.8 73.5,98.4 C80.8,98.0 88.1,97.2 95.4,96.9 C102.7,96.5 109.9,96.9 117.2,96.5 C124.5,96.1 131.8,95.1 139.1,94.6 C146.4,94.0 153.6,93.7 160.9,93.4 C168.2,93.2 175.5,93.4 182.8,93.0 C190.1,92.6 197.3,91.7 204.6,91.1 C211.9,90.5 219.2,89.6 226.5,89.2 C233.7,88.8 241.0,89.2 248.3,88.8 C255.6,88.4 262.9,87.1 270.2,86.5 C277.4,85.9 288.4,85.2 292.0,85.0"/></g><circle class="pmx-cr__dot" cx="292.0" cy="85.0" r="3.6"/></svg><div class="ad-leg"><span><i class="l2"></i>Chats</span><span><i class="l1"></i>Meetings booked</span></div></div></div></div><div class="rot__s"><div class="win win--scene"><div class="win__body"><p class="rt">Chat to paid <span class="chip chip--n">Last 30 days</span></p><div class="ad-plot"><i style="bottom:0%"><u>0</u></i><i style="bottom:33%"><u>400</u></i><i style="bottom:66%"><u>800</u></i><i style="bottom:100%"><u>1.2K</u></i><div class="ad-bars"><div class="ad-bar" style="--h:100%"><em>100%</em><span class="ad-fill"></span><small>Chat started</small></div><div class="ad-bar" style="--h:25%"><em>25%</em><span class="ad-fill"></span><small>Booked</small></div><div class="ad-bar" style="--h:6.7%"><em>6.7%</em><span class="ad-fill"></span><small>Paid</small></div></div></div></div></div></div></div></div>
                 <div class="mv__cap"><div><b>Cekat Analytics</b><small>Funnels and performance, from visit to SQL, in one view.</small></div><a href="#analytics">Explore Analytics <span aria-hidden="true">→</span></a></div>
               </div>
             </div>
           </div>
         </li>
+        <!-- /PRODUCTS MENU v14 -->
         <!-- SOLUTIONS -->
         <li class="dd">
           <button class="dd__trigger" type="button" aria-expanded="false" aria-controls="mm-solutions">Solutions<svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></button>
@@ -211,17 +180,17 @@
         </div>
         <div class="hx__body">
           <aside class="hx__list">
-            <div class="hx__conv is-on"><img src="./assets/integrations/whatsapp.svg" alt=""><div><b>Emily Carter</b><small>Linen shirt, size M?</small></div><em>now</em></div>
+            <div class="hx__conv is-on"><img src="./assets/integrations/whatsapp.svg" alt=""><div><b>Emily Carter</b><small>u got the linen shirt in M??</small></div><em>now</em></div>
             <div class="hx__conv"><img src="./assets/integrations/instagram.svg" alt=""><div><b>Jason Lee</b><small>Is this still available?</small></div><em>2m</em></div>
             <div class="hx__conv"><img src="./assets/integrations/messenger.svg" alt=""><div><b>Sophia Martinez</b><small>Thanks, got it!</small></div><em>9m</em></div>
             <div class="hx__conv"><img src="./assets/integrations/tiktok.svg" alt=""><div><b>Ryan Brooks</b><small>Do you ship to Denver?</small></div><em>14m</em></div>
           </aside>
           <div class="hx__chat">
             <div class="hx__head"><b>Emily Carter</b><span class="hx__via"><img src="./assets/integrations/whatsapp.svg" alt="">via WhatsApp</span></div>
-            <div class="hm hm--in">Hi! Do you have the linen shirt in size M? How much is shipping to Austin?</div>
-            <div class="hm hm--ai"><span class="hm__who"><img src="./assets/logo-mark.svg" alt="">Cekat AI <span class="hm__ok" title="Verified">✓</span></span>Yes, size M is in stock for $48. Shipping to Austin, TX is $6.99 and arrives in 2–3 days. Want me to place the order?</div>
-            <div class="hm hm--in">Yes please!</div>
-            <div class="hm hm--ai hm--order"><span class="hm__who"><img src="./assets/logo-mark.svg" alt="">Cekat AI <span class="hm__ok" title="Verified">✓</span></span><span class="hord"><b>Order #1042</b><span>Linen shirt · M</span><span>Total <strong>$54.99</strong></span><em>Payment link sent</em></span></div>
+            <div class="hm hm--in">heyy u got the linen shirt in M?? how much to ship to Austin 👀</div>
+            <div class="hm hm--ai"><span class="hm__who"><img src="./assets/logo-mark.svg" alt="">Cekat AI <span class="hm__ok" title="Verified">✓</span></span>Hey Emily! Yep, M is in stock 🙌 It’s $48 + $6.99 shipping to Austin, there in 2–3 days. Want me to grab you one?</div>
+            <div class="hm hm--in">omg yes pls 🙏</div>
+            <div class="hm hm--ai hm--order"><span class="hm__who"><img src="./assets/logo-mark.svg" alt="">Cekat AI <span class="hm__ok" title="Verified">✓</span></span>Done! Scan to pay 👇<span class="hqr"><img src="./assets/illus-qr.svg" alt="QR code to pay"><span class="hqr__t"><b>Order #1042</b><small>Linen shirt · M</small><strong>$54.99</strong></span></span></div>
           </div>
           <aside class="hx__lead">
             <p class="hx__k">Contact</p>
@@ -284,39 +253,6 @@
     </div></div>
   </div>
 
-  <div class="wrap">
-    <h2 class="mapline" id="mapline"><span class="mapline__a"><span class="ww">Works</span> <span class="ww">in</span> <span class="ww">every</span> <span class="ww">country,</span></span> <span class="mapline__b"><span class="ww">every</span> <span class="ww">language</span> <span class="ww">your</span> <span class="ww">customers</span> <span class="ww">speak.</span></span></h2>
-    <div class="map rv" id="map">
-      <div class="map__canvas">
-<div class="map__inner">
-        <img class="map__dots" src="./assets/world-dots.svg" alt="" width="1000" height="372">
-        <svg class="map__svg" viewBox="0 0 1000 372" aria-hidden="true">
-          <defs>
-            <linearGradient id="arcg" x1="0" x2="1"><stop offset="0" stop-color="#1068e5" stop-opacity=".15"/><stop offset="1" stop-color="#1352bf"/></linearGradient>
-            <radialGradient id="pulseg"><stop offset="0" stop-color="#fff"/><stop offset=".4" stop-color="#1068e5"/><stop offset="1" stop-color="#1068e5" stop-opacity="0"/></radialGradient>
-          </defs>
-          <path id="arc-us" class="arc" pathLength="1" style="--ad:1.41s" d="M796.7 228.2 C 640 40, 330 30, 227.8 102.7"/>
-          <path id="arc-ae" class="arc" pathLength="1" style="--ad:1.05s" d="M796.7 228.2 C 760 120, 690 110, 651.1 143.2"/>
-          <path id="arc-my" class="arc" pathLength="1" style="--ad:0.33s" d="M796.7 228.2 C 805 214, 795 200, 782.5 202.4"/>
-          <path id="arc-sg" class="arc" pathLength="1" style="--ad:0.15s" d="M796.7 228.2 Q 810.4 167.9 794.0 210.6"/>
-          <path id="arc-cn" class="arc" pathLength="1" style="--ad:0.51s" d="M796.7 228.2 Q 800.4 71.2 834.0 126.5"/>
-          <path id="arc-kr" class="arc" pathLength="1" style="--ad:0.69s" d="M796.7 228.2 Q 839.9 50.7 853.0 108.6"/>
-          <path id="arc-eu" class="arc" pathLength="1" style="--ad:1.23s" d="M796.7 228.2 C 700 20, 590 20, 532 74"/>
-          <path id="arc-jp" class="arc" pathLength="1" style="--ad:0.87s" d="M796.7 228.2 Q 857.4 61.8 888.0 118.3"/>
-        </svg>
-        <span class="pin pin--left pin--m" style="--pd:1.68s;--x:53.2%;--y:19.9%"><i></i><b>Europe</b></span>
-        <span class="pin pin--hub" style="--x:79.67%;--y:61.34%"><i></i><b>Indonesia</b></span>
-        <span class="pin" style="--pd:1.86s;--x:22.78%;--y:27.6%"><i></i><b>United States</b></span>
-        <span class="pin pin--lm" style="--pd:1.50s;--x:65.11%;--y:38.5%"><i></i><b><span class="pf">United Arab Emirates</span><span class="ps">UAE</span></b></span>
-        <span class="pin pin--left pin--m" style="--pd:0.78s;--x:78.25%;--y:54.4%"><i></i><b>Malaysia</b></span>
-        <span class="pin  pin--m" style="--pd:0.60s;--x:79.4%;--y:56.6%"><i></i><b>Singapore</b></span>
-        <span class="pin pin--down pin--m" style="--pd:0.96s;--x:83.4%;--y:34.0%"><i></i><b>China</b></span>
-        <span class="pin pin--up pin--m" style="--pd:1.14s;--x:85.3%;--y:29.2%"><i></i><b>South Korea</b></span>
-        <span class="pin  pin--m" style="--pd:1.32s;--x:88.8%;--y:31.8%"><i></i><b>Japan</b></span>
-      </div>
-      </div>
-    </div>
-  </div>
 </section>
 
 <!-- ============ SHOWCASE ============ -->
@@ -327,7 +263,7 @@
     </div>
     <!-- Product cards: Chat, CRM, Marketing (wide, one per row, one illustration at a time) -->
     <div class="wides">
-      <article class="wide rv" id="pc-chat" data-sync>
+      <article class="wide wide--navy rv" id="pc-chat" data-sync>
         <div class="wide__vis" data-wv>
           <div class="wv-s pcv--chat is-on" aria-hidden="true">
             <div class="pc-win">
@@ -373,12 +309,13 @@
         </div>
         <div class="wide__txt">
           <h3><img src="./assets/products/chat.svg" alt="" width="20" height="20">Cekat Chat</h3>
-          <p class="wide__line pc-rot" data-pre="AI that " aria-label="AI that sounds human">AI that <span class="pc-rot__w" aria-hidden="true"><span class="is-on">sounds human.</span><span>never sleeps.</span><span>won't make things up.</span><span>lets you start small.</span><span>gets your voice notes.</span></span></p>
+          <p class="wide__line pc-rot" data-pre="AI that " aria-label="AI that understands slang &amp; sounds human.">AI that <span class="pc-rot__w" aria-hidden="true"><span class="is-on">understands slang &amp; sounds human.</span><span>never sleeps.</span><span>won't make things up.</span><span>lets you start small.</span><span>gets your voice notes.</span></span></p>
+          <p class="wide__sub"><span class="is-on">Reads slang, typos and emojis, and replies like a real person.</span><span>Replies on every platform, 24/7.</span><span>Every answer is checked against your data. Not sure? It hands off to your team.</span><span>Let AI take a share of chats first, then turn it up when you’re ready.</span><span>Listens to voice notes and replies in text.</span></p>
           <a class="more" href="../chat/">Explore Cekat Chat <span>→</span></a>
         </div>
       </article>
 
-      <article data-sync class="wide wide--rev rv" id="pc-crm">
+      <article data-sync class="wide wide--rev wide--sky rv" id="pc-crm">
         <div class="wide__vis" data-wv>
           <div class="wv-s is-on" aria-hidden="true">
             <div class="pc-panel pc-board kb">
@@ -402,11 +339,12 @@
         <div class="wide__txt">
           <h3><img src="./assets/products/crm.svg" alt="" width="20" height="20">Cekat CRM</h3>
           <p class="wide__line pc-rot" data-pre="Every chat captured. " aria-label="Every chat captured. Every deal on track.">Every chat captured.<br><span class="pc-rot__w" aria-hidden="true"><span class="is-on">Every deal on track.</span><span>Every lead activity tracked.</span></span></p>
+          <p class="wide__sub"><span class="is-on">Every chat lands on your board as a deal, ready to move.</span><span>See every ad click, message and order on one timeline.</span></p>
           <a class="more" href="../crm/">Explore Cekat CRM <span>→</span></a>
         </div>
       </article>
 
-      <article data-sync class="wide rv" id="pc-mkt">
+      <article data-sync class="wide wide--warm rv" id="pc-mkt">
         <div class="wide__vis" data-wv>
           <div class="wv-s is-on" aria-hidden="true" data-ms="9800">
             <div class="pc-ads" data-ad="0">
@@ -449,6 +387,7 @@
         <div class="wide__txt">
           <h3><img src="./assets/products/marketing.svg" alt="" width="20" height="20">Cekat Marketing</h3>
           <p class="wide__line pc-rot" data-pre="Scale what works. " aria-label="Scale what works. Stop redoing what doesn't.">Scale what works.<br><span class="pc-rot__w" aria-hidden="true"><span class="is-on">Stop redoing what doesn't.</span><span>Find lookalike audiences on Meta.</span><span>Know which source books most.</span></span></p>
+          <p class="wide__sub"><span class="is-on">See which ads bring clicks and sales, then put budget behind them.</span><span>Send your buyers to Meta to find more people like them.</span><span>Compare ads, creators and links by meetings booked.</span></p>
           <a class="more" href="../marketing/">Explore Cekat Marketing <span>→</span></a>
         </div>
       </article>
@@ -484,32 +423,38 @@
   </div>
 </section>
 
-<!-- ============ GUARDRAIL BAND ============ -->
-<section class="guard">
-  <div class="guard__glow" aria-hidden="true"></div>
-  <div class="wrap guard__grid">
-    <div class="rv">
-      <p class="eyebrow eyebrow--dark">AI guardrails</p>
-      <h2 class="h2 h2--light">AI that doesn't hallucinate.</h2>
-      <p class="lead lead--light">It only answers from your data — and hands off to a human when it isn't sure. Your brand stays safe, every conversation.</p>
-    </div>
-    <div class="gd rv" style="--d:.1s" aria-hidden="true">
-      <div class="gd__kb">
-        <p class="gd__check"><span class="gd__spin"></span>Checking your knowledge base…</p>
-        <ul class="gd__src"><li>🌐 Website</li><li>📄 PDF catalog</li><li>❓ FAQ</li><li>🏷 Price list</li></ul>
+<!-- ============ WORLD MAP ============ -->
+<section class="trust worldmap" id="global">
+  <div class="wrap">
+    <h2 class="mapline" id="mapline"><span class="mapline__a"><span class="ww">Works</span> <span class="ww">in</span> <span class="ww">every</span> <span class="ww">country,</span></span> <span class="mapline__b"><span class="ww">every</span> <span class="ww">language</span> <span class="ww">your</span> <span class="ww">customers</span> <span class="ww">speak.</span></span></h2>
+    <div class="map rv" id="map">
+      <div class="map__canvas">
+<div class="map__inner">
+        <img class="map__dots" src="./assets/world-dots.svg" alt="" width="1000" height="372">
+        <svg class="map__svg" viewBox="0 0 1000 372" aria-hidden="true">
+          <defs>
+            <linearGradient id="arcg" x1="0" x2="1"><stop offset="0" stop-color="#1068e5" stop-opacity=".15"/><stop offset="1" stop-color="#1352bf"/></linearGradient>
+            <radialGradient id="pulseg"><stop offset="0" stop-color="#fff"/><stop offset=".4" stop-color="#1068e5"/><stop offset="1" stop-color="#1068e5" stop-opacity="0"/></radialGradient>
+          </defs>
+          <path id="arc-us" class="arc" pathLength="1" style="--ad:1.41s" d="M796.7 228.2 C 640 40, 330 30, 227.8 102.7"/>
+          <path id="arc-ae" class="arc" pathLength="1" style="--ad:1.05s" d="M796.7 228.2 C 760 120, 690 110, 651.1 143.2"/>
+          <path id="arc-my" class="arc" pathLength="1" style="--ad:0.33s" d="M796.7 228.2 C 805 214, 795 200, 782.5 202.4"/>
+          <path id="arc-sg" class="arc" pathLength="1" style="--ad:0.15s" d="M796.7 228.2 Q 810.4 167.9 794.0 210.6"/>
+          <path id="arc-cn" class="arc" pathLength="1" style="--ad:0.51s" d="M796.7 228.2 Q 800.4 71.2 834.0 126.5"/>
+          <path id="arc-kr" class="arc" pathLength="1" style="--ad:0.69s" d="M796.7 228.2 Q 839.9 50.7 853.0 108.6"/>
+          <path id="arc-eu" class="arc" pathLength="1" style="--ad:1.23s" d="M796.7 228.2 C 700 20, 590 20, 532 74"/>
+          <path id="arc-jp" class="arc" pathLength="1" style="--ad:0.87s" d="M796.7 228.2 Q 857.4 61.8 888.0 118.3"/>
+        </svg>
+        <span class="pin pin--left pin--m" style="--pd:1.68s;--x:53.2%;--y:19.9%"><i></i><b>Europe</b></span>
+        <span class="pin pin--hub" style="--x:79.67%;--y:61.34%"><i></i><b>Indonesia</b></span>
+        <span class="pin" style="--pd:1.86s;--x:22.78%;--y:27.6%"><i></i><b>United States</b></span>
+        <span class="pin pin--lm" style="--pd:1.50s;--x:65.11%;--y:38.5%"><i></i><b><span class="pf">United Arab Emirates</span><span class="ps">UAE</span></b></span>
+        <span class="pin pin--left pin--m" style="--pd:0.78s;--x:78.25%;--y:54.4%"><i></i><b>Malaysia</b></span>
+        <span class="pin  pin--m" style="--pd:0.60s;--x:79.4%;--y:56.6%"><i></i><b>Singapore</b></span>
+        <span class="pin pin--down pin--m" style="--pd:0.96s;--x:83.4%;--y:34.0%"><i></i><b>China</b></span>
+        <span class="pin pin--up pin--m" style="--pd:1.14s;--x:85.3%;--y:29.2%"><i></i><b>South Korea</b></span>
+        <span class="pin  pin--m" style="--pd:1.32s;--x:88.8%;--y:31.8%"><i></i><b>Japan</b></span>
       </div>
-      <div class="gd__out" data-seq data-start="1" data-interval="1100" data-hold="8">
-        <div class="gd__case">
-          <span class="gd__label gd__label--yes">Found in your data</span>
-          <div class="mb mb--in">What's your return policy?</div>
-          <div class="mb mb--ai" data-s="1">Free returns within 14 days with your receipt.
-            <span class="verified"><svg viewBox="0 0 16 16"><path d="M8 1l2 1.5 2.5-.2.7 2.4 2 1.5-.9 2.3.9 2.3-2 1.5-.7 2.4-2.5-.2L8 15l-2-1.5-2.5.2-.7-2.4-2-1.5.9-2.3L.8 5.2l2-1.5.7-2.4 2.5.2z"/><path class="ck" d="M5 8.2l2 2 4-4"/></svg>Verified</span></div>
-        </div>
-        <div class="gd__case">
-          <span class="gd__label gd__label--no">Not in your data</span>
-          <div class="mb mb--in">Can I use it with my medication?</div>
-          <div class="gd__handoff" data-s="2"><span class="gd__agent">S</span><div><b>Handing off to a human</b><small>Sarah · Support team</small></div></div>
-        </div>
       </div>
     </div>
   </div>
@@ -526,14 +471,16 @@
       <div class="st-nav"><a class="more" href="https://www.youtube.com/@cekatai" target="_blank" rel="noopener">Watch success stories <span>→</span></a></div>
     </div>
 
-    <div class="bento bento--car bento--two bento--u">
-      <article class="tc tc--blue rv" style="--d:0s">
+    <div class="bento bento--two bento--u sg">
+      <article class="tc vc vc--big tc--blue rv">
+        <a class="vc__media" href="https://www.youtube.com/watch?v=ePdVgW7X01s" target="_blank" rel="noopener" data-yt="ePdVgW7X01s" aria-label="Play Moir Salon’s video story"><img src="./assets/stories/moir-salon.jpg" alt="" width="960" height="540" loading="lazy"><span class="vc__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span></a>
+        <div class="vc__body">
         <div class="tc__top"><img class="tc__logo" src="./assets/logos-mono/moir-salon.png" width="127" height="30" alt="Moir Salon"><span class="tag">Salon · 11 branches</span></div>
         <blockquote>“Our admins are actually really happy, because they're getting help and their workload has gone down.”</blockquote>
-        <div class="tc__row"><a class="tc__pill" href="https://www.youtube.com/watch?v=ePdVgW7X01s" target="_blank" rel="noopener"><span aria-hidden="true">▶</span>Watch Moir Salon's story</a></div>
         <div class="tc__foot"><div class="tc__who"><b>Brenda</b><small>Owner, Moir Salon</small></div></div>
+        </div>
       </article>
-      <article class="tc tc--light rv" style="--d:.06s">
+      <article class="tc tc--light sg--wide rv" style="--d:.06s">
         <div class="tc__top"><img class="tc__logo" src="./assets/logos-mono/euromedica.png" width="106" height="30" alt="EuroMedica"><span class="tag">Healthcare</span></div>
         <blockquote>“Our booking rate has gone up by almost 5x or more. We're now at 25% to 30%.”</blockquote>
         <div class="tc__row"><span class="chip">+5x booking rate</span></div>
@@ -545,28 +492,25 @@
         <div class="tc__row"><span class="chip">+24% conversion</span></div>
         <div class="tc__foot"><div class="tc__who"><b>Bayu</b><small>Head of Digital Marketing, Wall Street English</small></div><span class="tc__ghost" aria-hidden="true">+24%</span></div>
       </article>
-      <article class="tc tc--sky rv" style="--d:.18s">
+      <article class="tc tc--sky rv" style="--d:.12s">
         <div class="tc__top"><span class="tc__wm">Puffy Cotton Candy</span><span class="tag">F&amp;B</span></div>
         <blockquote>“It doubled our revenue, and our ROAS went up too.”</blockquote>
         <div class="tc__row"><span class="chip">+2x revenue</span></div>
         <div class="tc__foot"><div class="tc__who"><b>Rizky Alfazar</b><small>Founder, Puffy Cotton Candy</small></div><span class="tc__ghost" aria-hidden="true">+2x</span></div>
       </article>
-      <article class="tc tc--navy rv" style="--d:.06s">
-        <div class="tc__top"><img class="tc__logo" src="./assets/logos-mono/rumah-zakat.png" alt="Rumah Zakat"><span class="tag">Non-profit</span></div>
-        <blockquote>“Whenever someone contacts Rumah Zakat, even at midnight, someone still answers. The one answering is AI.”</blockquote>
-        <div class="tc__foot"><div class="tc__who"><b>Tantan Supriatna</b><small>Rumah Zakat</small></div></div>
-      </article>
-      <article class="tc tc--soft rv" style="--d:.18s">
+      <article class="tc tc--soft rv" style="--d:0s">
         <div class="tc__top"><span class="tc__wm tc__wm--sm">Lintas Jaringan Nusantara</span><span class="tag">Internet provider</span></div>
         <blockquote>“What we were supposed to reach in December, we had already reached in April. We grew 30%.”</blockquote>
         <div class="tc__row"><span class="chip">+30% revenue</span></div>
         <div class="tc__foot"><div class="tc__who"><b>Kristoforus Hakim</b><small>Founder &amp; CEO, Lintas Jaringan Nusantara</small></div><span class="tc__ghost" aria-hidden="true">+30%</span></div>
       </article>
-      <article class="tc tc--light rv" style="--d:.24s">
-        <div class="tc__top"><span class="tc__wm">Threeland Property</span><span class="tag">Property</span></div>
-        <blockquote>“I sleep soundly while Cekat answers automatically. By the time I wake up, people are already lining up to schedule a visit.”</blockquote>
-        <div class="tc__row"><span class="chip">+25% lead response</span></div>
-        <div class="tc__foot"><div class="tc__who"><b>Adam Sulaiman</b><small>Threeland Property</small></div><span class="tc__ghost" aria-hidden="true">+25%</span></div>
+      <article class="tc vc vc--wide tc--navy rv" style="--d:.06s">
+        <a class="vc__media" href="https://www.youtube.com/watch?v=wvOip0Gkx30" target="_blank" rel="noopener" data-yt="wvOip0Gkx30" aria-label="Play Rumah Zakat’s video story"><img src="./assets/stories/rumah-zakat.jpg" alt="" width="960" height="540" loading="lazy"><span class="vc__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span></a>
+        <div class="vc__body">
+        <div class="tc__top"><img class="tc__logo" src="./assets/logos-mono/rumah-zakat.png" alt="Rumah Zakat"><span class="tag">Non-profit</span></div>
+        <blockquote>“Whenever someone contacts Rumah Zakat, even at midnight, someone still answers. The one answering is AI.”</blockquote>
+        <div class="tc__foot"><div class="tc__who"><b>Tantan Supriatna</b><small>Rumah Zakat</small></div></div>
+        </div>
       </article>
       <article class="tc tc--deep rv" style="--d:.12s">
         <div class="tc__top"><span class="tc__wm">Nature Craft</span><span class="tag">Retail</span></div>
@@ -574,7 +518,23 @@
         <div class="tc__row"><span class="chip">+40% closing rate</span></div>
         <div class="tc__foot"><div class="tc__who"><b>Hariyudi</b><small>Director, Nature Craft</small></div><span class="tc__ghost" aria-hidden="true">+40%</span></div>
       </article>
-    
+      <article class="tc vc vc--sm tc--light rv" style="--d:0s">
+        <a class="vc__media" href="https://www.youtube.com/watch?v=681luT0Aa68" target="_blank" rel="noopener" data-yt="681luT0Aa68" aria-label="Play VIO Optical Clinic’s video story"><img src="./assets/stories/vio-optical.jpg" alt="" width="960" height="540" loading="lazy"><span class="vc__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span></a>
+        <div class="vc__body"><p class="vc__t">VIO Optical Clinic’s story</p><div class="tc__who"><b>Rianti Yahya</b><small>CEO, VIO Optical Clinic</small></div></div>
+      </article>
+      <article class="tc vc vc--sm tc--light rv" style="--d:.06s">
+        <a class="vc__media" href="https://www.youtube.com/watch?v=vmXUCHVo6k8" target="_blank" rel="noopener" data-yt="vmXUCHVo6k8" aria-label="Play DokterHub’s video story"><img src="./assets/stories/dokterhub.jpg" alt="" width="960" height="540" loading="lazy"><span class="vc__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span></a>
+        <div class="vc__body"><p class="vc__t">DokterHub’s story</p><div class="tc__who"><b>Gery Wilianto</b><small>CEO &amp; Founder, DokterHub</small></div></div>
+      </article>
+      <article class="tc vc vc--wide tc--light rv" style="--d:.12s">
+        <a class="vc__media" href="https://www.youtube.com/watch?v=IezNIgsGH5I" target="_blank" rel="noopener" data-yt="IezNIgsGH5I" aria-label="Play Threeland Property’s video story"><img src="./assets/stories/threeland.jpg" alt="" width="960" height="540" loading="lazy"><span class="vc__play" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M8 5.5v13l11-6.5z"/></svg></span></a>
+        <div class="vc__body">
+        <div class="tc__top"><span class="tc__wm">Threeland Property</span><span class="tag">Property</span></div>
+        <blockquote>“I sleep soundly while Cekat answers automatically. By the time I wake up, people are already lining up to schedule a visit.”</blockquote>
+        <div class="tc__row"><span class="chip">+25% lead response</span></div>
+        <div class="tc__foot"><div class="tc__who"><b>Adam Sulaiman</b><small>Threeland Property</small></div><span class="tc__ghost" aria-hidden="true">+25%</span></div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -673,6 +633,7 @@
   <div class="wrap foot__bottom"><span>© 2026 PT Teknologi Cekat Indonesia. All rights reserved.</span><span>ISO/IEC 27001 · UU PDP compliant</span></div>
 </footer>
 
-<script src="js/main.js?v=v13i" defer></script>
+<script src="js/main.js?v=v14" defer></script>
+<script src="js/products-menu.js?v=v14" defer></script>
 </body>
 </html>
