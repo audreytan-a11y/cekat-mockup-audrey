@@ -365,7 +365,7 @@
       var io2 = new IntersectionObserver(function (en) {
         en.forEach(function (e) {
           var el = e.target;
-          if (e.isIntersecting) { if (timers.has(el)) return; replay(el); timers.set(el, setInterval(function () { replay(el); }, 3000)); }
+          if (e.isIntersecting) { if (timers.has(el)) return; replay(el); timers.set(el, 1); io2.unobserve(el); }
           else if (timers.has(el)) { clearInterval(timers.get(el)); timers.delete(el); }
         });
       }, { threshold: 0.55 });
