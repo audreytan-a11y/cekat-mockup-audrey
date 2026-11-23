@@ -246,3 +246,12 @@
 .wa-ok small{display:block;margin-top:1px;font-size:11.5px;color:#667781}
 .wa-ok__chk{flex:none;display:grid;place-items:center;width:26px;height:26px;border-radius:50%;background:#e7f6ee;color:#12a35f;font-size:13px;font-weight:700}
 .ih-stat__n{font-variant-numeric:tabular-nums}
+
+/* hc6 — clinic's view: patient left (white), Cekat AI right (green) */
+.wa__av--p{background:#e4edfc;color:#1352bf;font-size:13px;font-weight:700}
+.wa-tr--in{align-self:flex-start}
+.wa-qr--out{align-self:flex-end;justify-content:flex-end}
+.wa-m--in .wa-vn__wave i{background:#b4bcc3}
+.wa-m--in .wa-vn__play{background:#eef1f3}
+.wa-m--out.wa-ok{border-color:#bfe8b6}
+.wa-m--out .wa-ok__chk{background:#fff}
