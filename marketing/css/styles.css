@@ -1268,3 +1268,76 @@ svg use{pointer-events:none}
 .phone__v,.jx__v{opacity:0;transition:opacity .2s ease}
 .phone__v.is-cur,.jx__v.is-cur{opacity:1}
 [data-vclip].is-poster video{opacity:0}
+
+/* ==========================================================================
+   mk7 · Analyze "Ad-driven sales don't hide as organic" (.a-org, navy):
+   compact flow row + Meta (how many) vs Cekat (exactly who). One 6s loop via [data-player] (data-trigger="view"):
+   Meta number → Cekat people one by one (whole rows) → credited chip → hold → soft fade → replay.
+   Static (no .play) = final composed state; reduced motion stays static.
+   ========================================================================== */
+.org-hl{color:#93B4F5}
+.usp-grid--analyze{grid-template-rows:286px var(--tile-h)}
+.a-org .scene{padding:20px 24px 22px 4px}
+.orgx{display:flex;flex-direction:column;gap:14px;width:100%;max-width:470px}
+.orgx__flow{display:flex;align-items:center;gap:8px}
+.orgx__step{flex:none;display:flex;align-items:center;gap:6px}
+.orgx__step i{flex:none;width:24px;height:24px;border-radius:8px;display:grid;place-items:center;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);color:#fff}
+.orgx__step svg{width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.orgx__step small{font-size:11px;line-height:1.2;color:#cdd9ee;white-space:nowrap}
+.orgx__ln{position:relative;flex:1;min-width:10px;border-top:1.5px dashed rgba(255,255,255,.3)}
+.orgx__ln em{position:absolute;left:50%;top:-10px;width:18px;height:18px;margin-left:-9px;border-radius:50%;display:grid;place-items:center;background:var(--c1);color:#fff}
+.orgx__ln em svg{width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round}
+.is-active .orgx__ln em{animation:netPing 1.6s ease-out infinite}
+.orgx__cmp{display:grid;grid-template-columns:.72fr 1fr;gap:12px;align-items:stretch}
+.orgx__p{min-width:0;display:flex;flex-direction:column;gap:9px;padding:11px 12px 12px;border-radius:14px}
+.orgx__p--meta{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14)}
+.orgx__p--ck{background:#fff;box-shadow:0 14px 30px -14px rgba(0,0,0,.55)}
+.orgx__h{display:flex;align-items:center;gap:7px;font-size:12px;font-weight:600;line-height:1.2;color:#dce7fb;white-space:nowrap}
+.orgx__p--ck .orgx__h{color:var(--navy)}
+.orgx__ic{flex:none;width:22px;height:22px;border-radius:50%;background:#fff;display:grid;place-items:center}
+.orgx__p--ck .orgx__ic{background:#eef4ff}
+.orgx__ok{margin-left:auto;display:inline-flex;align-items:center;gap:4px;padding:2px 8px 2px 3px;border-radius:999px;background:#ecfaf1;color:#0b6b37;font-size:11px;font-weight:600}
+.orgx__ok .tick{width:14px;height:14px}.orgx__ok .tick svg{width:9px;height:9px}
+.orgx__num{display:flex;align-items:baseline;gap:6px;color:#fff}
+.orgx__num b{font-size:30px;font-weight:650;line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.orgx__num small{font-size:12px;color:#cdd9ee}
+.orgx__anon{display:flex;flex-direction:column;gap:6px;margin-top:auto}
+.orgx__anon i{display:flex;align-items:center;gap:7px;height:14px}
+.orgx__anon i::before{content:"";flex:none;width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,.16)}
+.orgx__anon i::after{content:"";height:7px;width:72%;border-radius:4px;background:rgba(255,255,255,.14)}
+.orgx__anon i:nth-child(2)::after{width:56%}.orgx__anon i:nth-child(3)::after{width:64%}
+.orgx__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:5px}
+.orgx__list li{display:flex;align-items:center;gap:8px;min-width:0;height:29px;padding:0 9px 0 4px;border-radius:9px;background:#f3f7ff;border:1px solid #e1eafa}
+.orgx__av{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:#dfe9fb;color:var(--c1);font-size:11px;font-weight:700;letter-spacing:-.02em}
+.orgx__av--2{background:#e6ecf8;color:#3b5b98}.orgx__av--3{background:#d6e3fb;color:#1544b0}
+.orgx__list b{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px;font-weight:600;color:var(--navy)}
+.orgx__list img{flex:none}
+.orgx__list em{flex:none;min-width:34px;text-align:right;font-style:normal;font-size:12px;font-weight:650;color:var(--c1);font-variant-numeric:tabular-nums}
+/* loop: whole units fade in at --d, everything softly fades out just before the 6s replay */
+.play .orgx-in{animation:aIn .5s var(--ease) var(--d,0s) both,orgOut .35s ease 5.5s forwards}
+@keyframes orgOut{to{opacity:0}}
+
+@media (min-width:1025px) and (max-width:1180px){
+  .a-org .scene{padding:18px 18px 20px 2px}
+  .orgx__cmp{grid-template-columns:.66fr 1fr;gap:10px}
+  .orgx__p{padding:10px 10px 11px}
+  .orgx__flow{gap:6px}
+}
+@media (max-width:1024px){
+  .usp-grid--analyze{grid-template-rows:286px var(--tile-h) var(--tile-h)}
+}
+@media (max-width:760px){
+  .usp-grid--analyze{grid-template-rows:none}
+  .a-org{height:auto}
+  .a-org .usp-card__art{flex:none}
+  .a-org .scene{position:relative;inset:auto;padding:16px 18px 20px}
+  .orgx{max-width:none;gap:14px}
+  .orgx__flow{align-items:flex-start;gap:4px}
+  .orgx__step{flex-direction:column;gap:5px;width:72px;text-align:center}
+  .orgx__step small{white-space:normal}
+  .orgx__ln{margin-top:12px}
+  .orgx__cmp{grid-template-columns:1fr;gap:10px}
+  .orgx__p--meta{display:grid;grid-template-columns:auto 1fr;grid-template-rows:auto auto;column-gap:18px;row-gap:6px;align-items:center}
+  .orgx__p--meta .orgx__anon{grid-column:2;grid-row:1/3;margin:0}
+  .orgx__anon i::after{width:80%}
+}

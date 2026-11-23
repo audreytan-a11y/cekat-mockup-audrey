@@ -32,7 +32,6 @@
   function setOpen(dd, open) {
     dd.classList.toggle('is-open', open);
     $('.dd__trigger', dd).setAttribute('aria-expanded', String(open));
-    if (dd.classList.contains('dd--mega')) { megaCycle(open); if (open && typeof showPanel === 'function') showPanel('chat'); }
   }
   function closeAll(except) { dds.forEach(function (d) { if (d !== except) setOpen(d, false); }); }
   // click-only: no hover listeners anywhere
@@ -53,24 +52,13 @@
     if (isDesktop() && !e.target.closest('.dd')) closeAll();
   });
 
-  /* ---------- mega menu panels ---------- */
-  var items = $$('.mega__item');
-  var panels = $$('.mv');
-  function showPanel(key) {
-    items.forEach(function (i) { i.classList.toggle('is-active', i.dataset.panel === key); });
-    panels.forEach(function (p) { p.classList.toggle('is-active', p.dataset.panel === key); });
-  }
-  items.forEach(function (i) {
-    i.addEventListener('mouseenter', function () { showPanel(i.dataset.panel); });
-    i.addEventListener('focus', function () { showPanel(i.dataset.panel); });
-  });
+  /* products menu panels + rotation: see js/products-menu.js (s46) */
 
   /* generic rotating scenes (.rot) */
   function tickRot() {
     $$('.rot').forEach(function (r) {
       var mv = r.closest('.mv');
-      if (mv && !mv.classList.contains('is-active')) return;
-      if (mv && !r.closest('.dd.is-open')) return;
+      if (mv) return; /* menu rotation lives in products-menu.js */
       if (!mv && !r.dataset.vis) return;
       var ss = $$('.rot__s', r), i = ss.findIndex(function (x) { return x.classList.contains('is-on'); });
       var hold = +ss[i].dataset.hold || 1;
@@ -89,20 +77,6 @@
       if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { r.dataset.vis = en[0].isIntersecting ? '1' : ''; }).observe(r); else r.dataset.vis = '1';
     });
     setInterval(tickRot, 3000);
-  }
-
-  var cycleTimer = null;
-  var scenes = $$('.mv__scenes .scene');
-  var sceneDots = $$('.mv__dots i');
-  var sceneIdx = 0;
-  function megaCycle(on) {
-    clearInterval(cycleTimer); cycleTimer = null;
-    if (!on || reduce) return;
-    cycleTimer = setInterval(function () {
-      sceneIdx = (sceneIdx + 1) % scenes.length;
-      scenes.forEach(function (s, i) { s.classList.toggle('is-active', i === sceneIdx); });
-      sceneDots.forEach(function (d, i) { d.classList.toggle('is-active', i === sceneIdx); });
-    }, 3000);
   }
 
   /* mini kanban inside the menu: loop always while menu open (cheap) */
