@@ -89,3 +89,7 @@
 @media (max-width:900px){.p3res{grid-template-columns:1fr}}
 @media (max-width:640px){.p3cards{grid-template-columns:1fr}.p3pan{padding:14px 14px}.p3bar{grid-template-columns:70px 1fr 40px;gap:8px}.p3n{padding:8px 9px;font-size:12px}.p3kpi b{font-size:19px}.p3steps li{padding:8px 10px;font-size:12.5px}.p3tbl{font-size:12px}.p3tbl td{padding-right:6px}}
 @media (prefers-reduced-motion:reduce){.chv .wv-s.is-on .p3a,.chv .wv-s.is-on .p3bar i::after,.is-fp .p3bar i::after,.chv .wv-s.is-on .p3line .l,.js-fb .is-fp .p3opt.is-sel{animation:none!important}.p3line .l{stroke-dashoffset:0!important}}
+
+/* bc4/an4: hero visual matches the Chat landing page — no backdrop panel, white cards float on the page */
+.chv{background:none;border:0;box-shadow:none;border-radius:0;overflow:visible}
+.chv .p3pan{box-shadow:0 24px 50px -24px rgba(19,82,191,.35),0 0 0 1px #e6edf8;border:0;border-radius:22px}
