@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=mk6">
+  <link rel="stylesheet" href="css/styles.css?v=mk7">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -120,14 +120,14 @@
             <div class="jx">
               <div class="jx__c jx__c--ad">
                 <p class="jx__lab"><span class="jx__ic"><img src="./assets/integrations/meta.svg" alt="" width="16" height="16"></span>Ad</p>
-                <div class="jx__thumb"><span class="jx__tag">Reel</span><span class="jx__play"><svg><use href="#i-play"/></svg></span></div>
-                <b class="jx__t">Spring Sale · Reel</b>
+                <div class="jx__thumb" data-vclip><video class="jx__v is-cur" data-clip="0" muted playsinline preload="metadata" poster="./assets/video/ad-ai-replies-poster.jpg" data-src="./assets/video/ad-ai-replies.mp4" tabindex="-1" aria-hidden="true"></video><video class="jx__v" data-clip="1" muted playsinline preload="metadata" poster="./assets/video/ad-demo-walkthrough-poster.jpg" data-src="./assets/video/ad-demo-walkthrough.mp4" tabindex="-1" aria-hidden="true"></video><span class="jx__tag">Reel</span><span class="jx__play"><svg><use href="#i-play"/></svg></span></div>
+                <b class="jx__t" data-vcap>AI replies in 3s · Reel</b>
                 <small class="jx__m">Sponsored</small>
               </div>
               <i class="jx__ln jx__ln--1"><em></em></i>
               <div class="jx__c jx__c--chat">
                 <p class="jx__lab"><span class="jx__ic"><img src="./assets/integrations/whatsapp.svg" alt="" width="16" height="16"></span><span class="jx__ic jx__ic--2"><img src="./assets/integrations/instagram.svg" alt="" width="14" height="14"></span>Chat</p>
-                <p class="jx__b jx__b--in">Is the spring sale still on?</p>
+                <p class="jx__b jx__b--in">Saw your ad. How does it work?</p>
                 <p class="jx__b jx__b--out">Yes! Want to book a quick call?</p>
                 <small class="jx__m jx__ai">AI · replied in 3s</small>
               </div>
@@ -139,7 +139,7 @@
                 <small class="jx__m">Thu · 10:00</small>
               </div>
             </div>
-            <p class="jx__res"><span class="jx__res-ic"><svg><use href="#i-check"/></svg></span><span>Credited to <b>Meta ad · Reel · AI replies in 3s</b></span></p>
+            <p class="jx__res"><span class="jx__res-ic"><svg><use href="#i-check"/></svg></span><span>Credited to <b data-vcred>Meta ad · Reel · AI replies in 3s</b></span></p>
           </div>
 
           <!-- 2 · CTR | Conversion | Sales by source (same component + values as #metric-tile) -->
@@ -172,7 +172,7 @@
 <!-- =====================================================================
      FEATURES — bento grouped into the deck's 3 steps: Unify · Analyze · Act.
      A thin rail on the left (desktop/tablet) fills as you scroll.
-     Unify   4 cols: src src sync crt / src src qr qr        (deep: qr, blue)
+     Unify   2 cols (mk7): sync|crt|qr stacked left, feeding src on the right   (deep: qr, blue)
      Analyze 4 cols: org org org bars / ads ads ads bars     (deep: org, navy)
      Act     4 cols: capi capi jrny seg                      (deep: jrny, navy)
      All numbers inside illustrations are illustrative demo data.
@@ -193,27 +193,8 @@
           <h3 class="grp__t">Unify</h3>
           <p class="grp__d">Every source, one dashboard.</p>
         </header>
-        <div class="usp-grid usp-grid--unify">
-          <article class="usp-card usp-card--big usp-card--l1 u-src rv" tabindex="0" data-player data-loop="6000">
-            <div class="usp-card__head">
-              <h4 class="usp-card__title">All sources, side by side</h4>
-              <p class="usp-card__desc">Ads, organic, creators and links. No more jumping between platforms.</p>
-            </div>
-            <div class="usp-card__art" aria-hidden="true">
-              <div class="scene is-on">
-                <div class="srct">
-                  <div class="srct__top"><b>All sources</b><small>Last 30 days</small></div>
-                  <div class="srct__row srct__row--h"><span>Source</span><span class="c-imp">Impressions</span><span>Clicks</span><span>CTR</span><span>Booked</span></div>
-                  <div class="srct__row is-top a" style="--d:.15s"><span class="srct__src"><i class="sic"><svg><use href="#i-megaphone"/></svg></i>Paid Ads</span><span class="c-imp">412,000</span><span>9,270</span><span>2.25%</span><b>186</b></div>
-                  <div class="srct__row a" style="--d:.35s"><span class="srct__src"><i class="sic"><svg><use href="#i-globe"/></svg></i>Organic</span><span class="c-imp">96,500</span><span>3,860</span><span>4.00%</span><b>74</b></div>
-                  <div class="srct__row a" style="--d:.55s"><span class="srct__src"><i class="sic"><svg><use href="#i-users"/></svg></i>Creators</span><span class="c-imp">158,000</span><span>4,108</span><span>2.60%</span><b>52</b></div>
-                  <div class="srct__row a" style="--d:.75s"><span class="srct__src"><i class="sic"><svg><use href="#i-link"/></svg></i>Links</span><span class="c-imp">21,400</span><span>1,284</span><span>6.00%</span><b>31</b></div>
-                  <div class="srct__row srct__row--t a" style="--d:1s"><span>Total</span><span class="c-imp">687,900</span><span>18,522</span><span>2.69%</span><b>343</b></div>
-                </div>
-              </div>
-            </div>
-          </article>
-          <article class="usp-card usp-card--l0 u-sync rv" style="--d:.06s" tabindex="0" data-player data-loop="4600">
+        <div class="usp-grid usp-grid--unify" data-feed>
+          <article class="usp-card usp-card--l0 u-sync rv" data-feed-src="0" style="--d:.06s" tabindex="0" data-player data-loop="4600">
             <div class="usp-card__head">
               <h4 class="usp-card__title">Sync Meta, TikTok &amp; Google</h4>
               <p class="usp-card__desc">Connect in a click.</p>
@@ -231,7 +212,7 @@
               </div>
             </div>
           </article>
-          <article class="usp-card usp-card--l3 u-crt rv" style="--d:.12s" tabindex="0" data-player data-loop="5000">
+          <article class="usp-card usp-card--l3 u-crt rv" data-feed-src="1" style="--d:.12s" tabindex="0" data-player data-loop="5000">
             <div class="usp-card__head">
               <h4 class="usp-card__title">Track every creator</h4>
               <p class="usp-card__desc">Paste a creator link. Every engagement is tracked.</p>
@@ -245,7 +226,7 @@
               </div>
             </div>
           </article>
-          <article class="usp-card usp-card--wide usp-card--d1 u-qr rv" style="--d:.12s" tabindex="0" data-player data-loop="4600">
+          <article class="usp-card usp-card--wide usp-card--d1 u-qr rv" data-feed-src="2" style="--d:.12s" tabindex="0" data-player data-loop="4600">
             <div class="usp-card__head">
               <h4 class="usp-card__title">Links &amp; QR codes</h4>
               <p class="usp-card__desc">Share a link or QR. See every scan and click.</p>
@@ -259,6 +240,28 @@
               </div>
             </div>
           </article>
+          <article class="usp-card usp-card--big usp-card--l1 u-src rv" tabindex="0" data-player data-loop="6000">
+            <div class="usp-card__head">
+              <h4 class="usp-card__title">All sources, side by side</h4>
+              <p class="usp-card__desc">Ads, organic, creators and links. No more jumping between platforms.</p>
+            </div>
+            <div class="usp-card__art" aria-hidden="true">
+              <div class="scene is-on">
+                <div class="srct">
+                  <div class="srct__top"><b>All sources</b><small>Last 30 days</small></div>
+                  <div class="srct__row srct__row--h"><span>Source</span><span class="c-imp">Impressions</span><span>Clicks</span><span>CTR</span><span>Booked</span></div>
+                  <div class="srct__row is-top a" style="--d:.15s" data-feed-row="0"><span class="srct__src"><i class="sic"><svg><use href="#i-megaphone"/></svg></i>Paid Ads</span><span class="c-imp">412,000</span><span>9,270</span><span>2.25%</span><b>186</b></div>
+                  <div class="srct__row a" style="--d:.35s"><span class="srct__src"><i class="sic"><svg><use href="#i-globe"/></svg></i>Organic</span><span class="c-imp">96,500</span><span>3,860</span><span>4.00%</span><b>74</b></div>
+                  <div class="srct__row a" style="--d:.55s" data-feed-row="1"><span class="srct__src"><i class="sic"><svg><use href="#i-users"/></svg></i>Creators</span><span class="c-imp">158,000</span><span>4,108</span><span>2.60%</span><b>52</b></div>
+                  <div class="srct__row a" style="--d:.75s" data-feed-row="2"><span class="srct__src"><i class="sic"><svg><use href="#i-link"/></svg></i>Links</span><span class="c-imp">21,400</span><span>1,284</span><span>6.00%</span><b>31</b></div>
+                  <div class="srct__row srct__row--t a" style="--d:1s"><span>Total</span><span class="c-imp">687,900</span><span>18,522</span><span>2.69%</span><b>343</b></div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <span class="u-con u-con--0" aria-hidden="true"><i></i></span>
+          <span class="u-con u-con--1" aria-hidden="true"><i></i></span>
+          <span class="u-con u-con--2" aria-hidden="true"><i></i></span>
         </div>
       </div>
       <div class="grp grp--analyze">
@@ -312,7 +315,7 @@
               </div>
             </div>
           </article>
-          <article class="usp-card usp-card--wide usp-card--ads usp-card--l2 a-ads rv" style="--d:.12s" tabindex="0" data-player data-loop="5600">
+          <article class="usp-card usp-card--wide usp-card--ads usp-card--l2 a-ads rv" style="--d:.12s" tabindex="0" data-vseq>
             <div class="usp-card__head">
               <h4 class="usp-card__title">See which ad works, then watch it</h4>
               <p class="usp-card__desc">Replicate what performs. Stop what doesn’t.</p>
@@ -322,16 +325,18 @@
                 <div class="ads">
                   <div class="ads__list">
                     <p class="ads__cap">Top paid ads · clicks</p>
-                    <div class="ads__row is-top a" style="--d:.1s"><svg class="ic"><use href="#i-play"/></svg><span>Reel · AI replies in 3s</span><b>3,420</b></div>
-                    <div class="ads__row a" style="--d:.25s"><svg class="ic"><use href="#i-play"/></svg><span>Reel · Demo walkthrough</span><b>2,610</b></div>
-                    <div class="ads__row a" style="--d:.4s"><svg class="ic"><use href="#i-play"/></svg><span>Carousel · Pricing</span><b>1,480</b></div>
-                    <div class="ads__row a" style="--d:.55s"><svg class="ic"><use href="#i-play"/></svg><span>Static · Free trial</span><b>940</b></div>
+                    <div class="ads__row is-cur"><svg class="ic"><use href="#i-play"/></svg><span>Reel · AI replies in 3s</span><b>3,420</b></div>
+                    <div class="ads__row"><svg class="ic"><use href="#i-play"/></svg><span>Reel · Demo walkthrough</span><b>2,610</b></div>
+                    <div class="ads__row"><svg class="ic"><use href="#i-play"/></svg><span>Carousel · Pricing</span><b>1,480</b></div>
+                    <div class="ads__row"><svg class="ic"><use href="#i-play"/></svg><span>Static · Free trial</span><b>940</b></div>
                   </div>
-                  <div class="phone a" style="--d:.9s">
-                    <span class="phone__b phone__b--1"></span><span class="phone__b phone__b--2"></span><span class="phone__b phone__b--3"></span>
-                    <span class="phone__play"><svg><use href="#i-play"/></svg></span>
+                  <div class="pv">
+                    <div class="phone" data-vclip>
+                      <video class="phone__v is-cur" data-clip="0" muted playsinline preload="metadata" poster="./assets/video/ad-ai-replies-poster.jpg" data-src="./assets/video/ad-ai-replies.mp4?v=mk7" tabindex="-1" aria-hidden="true"></video><video class="phone__v" data-clip="1" muted playsinline preload="metadata" poster="./assets/video/ad-demo-walkthrough-poster.jpg" data-src="./assets/video/ad-demo-walkthrough.mp4?v=mk7" tabindex="-1" aria-hidden="true"></video>
+                      <span class="phone__play"><svg><use href="#i-play"/></svg></span>
+                      <span class="phone__bar"><i></i></span>
+                    </div>
                     <span class="phone__cap">AI replies in 3s</span>
-                    <span class="phone__bar"><i></i></span>
                   </div>
                 </div>
               </div>
@@ -458,7 +463,7 @@
               <p class="trail__net a" style="--d:2.25s"><svg><use href="#i-wifi"/></svg>Same office Wi‑Fi · network detected</p>
               <div class="trail__res a" style="--d:2.85s">
                 <span class="trail__src"><img src="./assets/integrations/meta.svg" alt="" width="18" height="18"></span>
-                <span><small>Credited to</small><b>Paid ad · Meta Reel</b></span>
+                <span><small>Credited to</small><b>Spring Sale · Reel</b></span>
                 <span class="tick tick--lg a-stamp" style="--d:3.3s"><svg><use href="#i-check"/></svg></span>
               </div>
             </div>
@@ -626,6 +631,6 @@
   <div class="wrap foot__bottom"><span>© 2026 PT Teknologi Cekat Indonesia. All rights reserved.</span></div>
 </footer>
 
-<script src="js/main.js?v=mk6" defer></script>
+<script src="js/main.js?v=mk7" defer></script>
 </body>
 </html>

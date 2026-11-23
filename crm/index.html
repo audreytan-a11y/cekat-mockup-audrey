@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=crm5">
+  <link rel="stylesheet" href="css/styles.css?v=crm6">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -159,10 +159,19 @@
   <div class="wrap">
     <header class="csec__head rv"><p class="csec__eyebrow">What's inside</p><h2 class="csec__title">A CRM built around your conversations.</h2><p class="csec__line">Set up once. It keeps itself up to date.</p></header>
     <div class="cbento">
-      <article class="bt bt--big bt--ga bt--d1 rv"><div class="bt__head"><h3>Auto Create CRM</h3><p>Every customer interaction automatically generates a CRM card. No manual input.</p></div><div class="bt__vis bt-a" aria-hidden="true">
-        <div class="bt-a__msg"><span class="av av--b">EC</span><span>Hi! Do you have the black sneakers in size 9?</span></div>
-        <svg class="bt-a__arrow" viewBox="0 0 40 24"><path d="M2 12h32M26 5l8 7-8 7"/></svg>
-        <div class="bt-a__card"><span class="av av--c">EC</span><div><b>Emily Carter</b><small>New contact · Web chat</small><span class="cl__p cl__p--a">New lead</span></div></div>
+      <article class="bt bt--ga bt--d1 rv"><div class="bt__head"><h3>Auto captured in CRM</h3><p>Every WhatsApp chat lands in your CRM. No manual input.</p></div><div class="bt__vis bac" aria-hidden="true">
+        <div class="bac__msg"><img src="./assets/integrations/whatsapp.svg" alt=""><span>Hi! Do you have the black sneakers in size 9?</span></div>
+        <svg class="bac__ar" viewBox="0 0 12 12"><path d="M6 1.5v8M2.5 6.5 6 10l3.5-3.5"/></svg>
+        <div class="bac__card"><span class="av av--c">EC</span><span class="bac__t"><b>Emily Carter</b><small><img src="./assets/integrations/whatsapp.svg" alt="">New contact</small></span><em>Contacted</em></div>
+      </div></article>
+
+      <article class="bt bt--ge bt--l3 bt--kb rv"><div class="bt__head"><h3>Kanban View</h3><p>See every deal by stage. Drag a card to move it along.</p></div><div class="bt__vis bkb" aria-hidden="true">
+        <div class="bkb__top"><span class="is-on">Deals</span><span>Leads</span><span class="bkb__new">+ New deal</span></div>
+        <div class="bkb__cols">
+          <div class="bkb__col bkb__col--1"><p class="bkb__h">Contacted<em class="bkb__n"><i>3</i><i>2</i></em></p><div class="bkb__c"><img src="./assets/integrations/whatsapp.svg" alt=""><b>Ben</b><span>$20</span></div><div class="bkb__c"><img src="./assets/integrations/instagram.svg" alt=""><b>Amy</b><span>$45</span></div><div class="bkb__c bkb__c--drag"><img src="./assets/integrations/tiktok.svg" alt=""><b>Chris</b><span>$60</span></div></div>
+          <div class="bkb__col bkb__col--2"><p class="bkb__h">Booked<em class="bkb__n"><i>2</i><i>3</i></em></p><div class="bkb__c"><img src="./assets/integrations/instagram.svg" alt=""><b>Dan</b><span>$75</span></div><div class="bkb__c"><img src="./assets/integrations/whatsapp.svg" alt=""><b>Ella</b><span>$30</span></div><div class="bkb__c bkb__drop"><img src="./assets/integrations/tiktok.svg" alt=""><b>Chris</b><span>$60</span></div></div>
+          <div class="bkb__col bkb__col--3"><p class="bkb__h">Won<em>2</em></p><div class="bkb__c"><img src="./assets/integrations/whatsapp.svg" alt=""><b>Hannah</b><span>$45</span></div><div class="bkb__c"><img src="./assets/integrations/messenger.svg" alt=""><b>Mia</b><span>$120</span></div></div>
+        </div>
       </div></article>
 
       <article class="bt bt--wide bt--gb bt--l0 rv" style="--d:.06s"><div class="bt__head"><h3>Manage deals</h3><p>Every lead lands in Contacts. Move them to Deals when they're ready for the next stage.</p></div><div class="bt__vis bt-m" aria-hidden="true">
@@ -189,40 +198,29 @@
       </div></article>
 
       <article class="bt bt--tall bt--gd bt--d1 rv" style="--d:.12s"><div class="bt__head"><h3>Customer activity in one place</h3><p>Orders, website activity, marketing events and lifecycle stages.</p></div><div class="bt__vis bt-d" aria-hidden="true">
-        <div class="bt-d__src"><span>Chat</span><span>Marketing</span><span>Automation</span></div>
-        <ul>
-          <li><i class="a"></i><b>Order placed</b><small>$89.00</small></li>
-          <li><i class="b"></i><b>Viewed pricing page</b><small>Website</small></li>
-          <li><i class="c"></i><b>Opened Spring Sale email</b><small>Marketing</small></li>
-          <li><i class="d"></i><b>Lifecycle: Lead → Customer</b><small>Stage</small></li>
+        <div class="bt-d__who"><span class="bt-d__av">E</span><b>Emily Carter</b><em>Journey</em></div>
+        <ul class="bt-d__j">
+          <li class="bt-d__st u0"><i class="c"></i><b>Opened Spring Sale</b><small>Email</small></li>
+          <li class="bt-d__ar u1" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1.5v8M2.5 6.5 6 10l3.5-3.5"/></svg></li>
+          <li class="bt-d__st u2"><i class="b"></i><b>Viewed pricing</b><small>Website</small></li>
+          <li class="bt-d__ar u3" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1.5v8M2.5 6.5 6 10l3.5-3.5"/></svg></li>
+          <li class="bt-d__st u4"><i class="a"></i><b>Order placed</b><small>$89.00</small></li>
+          <li class="bt-d__ar u5" aria-hidden="true"><svg viewBox="0 0 12 12"><path d="M6 1.5v8M2.5 6.5 6 10l3.5-3.5"/></svg></li>
+          <li class="bt-d__st u6"><i class="d"></i><b>Lead → Customer</b><small>Stage</small></li>
         </ul>
       </div></article>
 
-      <article class="bt bt--ge bt--l3 rv"><div class="bt__head"><h3>Kanban View</h3><p>See every deal by stage. Drag to move it.</p></div><div class="bt__vis bkb" aria-hidden="true">
-        <div class="bkb__cols">
-          <div class="bkb__col bkb__col--1"><p class="bkb__h">Leads<em>1</em></p><div class="bkb__c"><img src="./assets/integrations/whatsapp.svg" alt=""><b>Ben</b><span>$20</span></div></div>
-          <div class="bkb__col bkb__col--2"><p class="bkb__h">Hot<em class="bkb__n"><i>1</i><i>0</i></em></p><div class="bkb__c bkb__c--drag"><img src="./assets/integrations/instagram.svg" alt=""><b>Dan</b><span>$75</span></div></div>
-          <div class="bkb__col bkb__col--3"><p class="bkb__h">Booked<em class="bkb__n"><i>0</i><i>1</i></em></p><div class="bkb__drop"></div></div>
+
+
+      <article class="bt bt--gf bt--l2 rv" style="--d:.12s"><div class="bt__head"><h3>Hierarchy User Settings</h3><p>Managers, their agents, and peer sharing.</p></div><div class="bt__vis bt-h bt-org" aria-hidden="true">
+        <div class="org__n org__n--m"><span class="av av--c">SM</span><b>Sarah Mitchell</b><em>Manager</em></div>
+        <div class="org__tree"><i class="org__stem"></i><i class="org__bar"></i><i class="org__drop org__drop--l"></i><i class="org__drop org__drop--r"></i></div>
+        <div class="org__subs">
+          <div class="org__n"><span class="av">JM</span><span class="org__t"><b>Jake Miller</b><em>Agent</em></span></div>
+          <i class="org__peer"></i>
+          <div class="org__n"><span class="av av--b">ML</span><span class="org__t"><b>Megan Lee</b><em>Agent</em></span></div>
         </div>
-      </div></article>
-
-      <article class="bt bt--wide bt--gg bt--d2 rv" style="--d:.06s"><div class="bt__head"><h3>Role Based Access Control</h3><p>Admins see everything. Basic roles see only their own board.</p></div><div class="bt__vis bt-f" aria-hidden="true">
-        <div class="bt-f__role"><b>Administrator</b><div><span class="on">Deals</span><span class="on">Leads</span><span class="on">Projects</span></div></div>
-        <div class="bt-f__role"><b>Basic</b><div><span class="on">My board</span><span class="lk">Leads</span><span class="lk">Projects</span></div></div>
-      </div></article>
-
-      <article class="bt bt--wide bt--gh bt--l3 rv" style="--d:.12s"><div class="bt__head"><h3>Customized Columns &amp; Layout</h3><p>Add custom fields and arrange the layout to fit your business.</p></div><div class="bt__vis bt-g" aria-hidden="true">
-        <div class="bt-g__f"><small>Text</small><b>Company</b></div>
-        <div class="bt-g__f"><small>Date</small><b>Renewal date</b></div>
-        <div class="bt-g__f"><small>Dropdown</small><b>Plan <span>▾</span></b></div>
-        <div class="bt-g__f bt-g__f--new"><small>Text</small><b>Preferred size</b></div>
-      </div></article>
-
-      <article class="bt bt--gf bt--l2 rv" style="--d:.12s"><div class="bt__head"><h3>Hierarchy User Settings</h3><p>Managers and subordinates, with peer data sharing on or off.</p></div><div class="bt__vis bt-h" aria-hidden="true">
-        <div class="bt-h__m"><span class="av av--c">SM</span><b>Sarah Mitchell</b><small>Manager</small></div>
-        <div class="bt-h__l"></div>
-        <div class="bt-h__s"><div><span class="av">JM</span><b>Jake</b></div><div><span class="av av--b">MR</span><b>Megan</b></div></div>
-        <div class="bt-h__t"><span>Share data between peers</span><i></i></div>
+        <div class="org__tg"><span>Share data with peers</span><i></i></div>
       </div></article>
     </div>
   </div>
@@ -285,6 +283,6 @@
 </footer>
 
 
-<script src="js/main.js?v=crm5" defer></script>
+<script src="js/main.js?v=crm6" defer></script>
 </body>
 </html>
