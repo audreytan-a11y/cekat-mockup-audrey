@@ -213,28 +213,43 @@
     });
   })();
 
-  /* ---------- HERO H1 ROTATION (mk11) ----------
-     Hero visual is a single static card; only H1 line 2 rotates every 3s. Pauses on headline hover and offscreen. */
+  /* ---------- HERO SYNC (mk13) ----------
+     Two whole-unit slides (Compare every source → See which ad works) + dots, in sync with H1 line 2.
+     ONE 3s timer, loops; pauses on hover/focus of the card or headline and while offscreen. Dot click jumps.
+     Reduced motion: first slide static, dots still switch. */
   (function () {
-    var h1 = $('.hero__title'); if (!h1) return;
-    var txt = $$('.hero__rot > span', h1), hero = h1.closest('.hero') || h1, i = 0, t = null, MS = 3000, over = false, seen = true;
-    if (txt.length < 2) return;
+    var vis = $('#hero-sync'), h1 = $('.hero__title'); if (!vis || !h1) return;
+    var sl = $$('.hxa__s', vis), dots = $$('.hx__dots button', vis), txt = $$('.hero__rot > span', h1);
+    var hero = vis.closest('.hero') || vis, i = 0, t = null, MS = 3000;
+    var hover = { card: false, h1: false }, kfocus = false, seen = true;
+    if (sl.length < 2) return;
     function set(k) {
-      var prev = txt[i];
+      sl.forEach(function (s, j) { s.classList.toggle('is-on', j === k); s.setAttribute('aria-hidden', String(j !== k)); });
       txt.forEach(function (s, j) { s.classList.toggle('is-on', j === k); s.classList.remove('is-out'); });
+      dots.forEach(function (d, j) { d.classList.toggle('on', j === k); d.setAttribute('aria-pressed', String(j === k)); });
+      var prev = txt[i];
       if (prev && prev !== txt[k]) { prev.classList.add('is-out'); setTimeout(function () { prev.classList.remove('is-out'); }, 400); }
       i = k;
-      h1.setAttribute('aria-label', (h1.getAttribute('data-pre') || '') + txt[k].textContent);
+      if (txt[k]) h1.setAttribute('aria-label', (h1.getAttribute('data-pre') || '') + txt[k].textContent);
     }
+    function paused() { return hover.card || hover.h1 || kfocus || !seen || document.hidden; }
     function start() {
       clearTimeout(t); t = null;
-      if (reduce || over || !seen || document.hidden) return;
-      t = setTimeout(function () { set((i + 1) % txt.length); start(); }, MS);
+      if (reduce || paused()) return;
+      t = setTimeout(function () { set((i + 1) % sl.length); start(); }, MS);
     }
     set(0);
+    dots.forEach(function (d, k) {
+      d.addEventListener('click', function () { if (k !== i) set(k); start(); });
+      d.addEventListener('pointerup', function () { d.blur(); kfocus = false; start(); });
+    });
     if (reduce) return;
-    h1.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { over = true; start(); } });
-    h1.addEventListener('pointerleave', function () { over = false; start(); });
+    [['card', vis], ['h1', h1]].forEach(function (p) {
+      p[1].addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { hover[p[0]] = true; start(); } });
+      p[1].addEventListener('pointerleave', function () { if (hover[p[0]]) { hover[p[0]] = false; start(); } });
+    });
+    vis.addEventListener('focusin', function (e) { kfocus = !!(e.target.matches && e.target.matches(':focus-visible')); start(); });
+    vis.addEventListener('focusout', function () { kfocus = false; start(); });
     if (hasIO) new IntersectionObserver(function (es) { es.forEach(function (e) { seen = e.isIntersecting; start(); }); }, { threshold: 0.15 }).observe(hero);
     document.addEventListener('visibilitychange', start);
     start();
@@ -445,4 +460,15 @@
   window.addEventListener('load', layout);
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
   layout();
+
+/* v14m — footer "Our Office" tabs */
+(function(){
+  var box=document.querySelector('[data-office-tabs]'); if(!box) return;
+  var tabs=[].slice.call(box.querySelectorAll('[role="tab"]'));
+  function pick(t,focus){tabs.forEach(function(x){var on=x===t;x.classList.toggle('is-on',on);x.setAttribute('aria-selected',on?'true':'false');x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});if(focus)t.focus();}
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){pick(t);});
+    t.addEventListener('keydown',function(e){var k=e.key,j=k==='ArrowRight'?i+1:k==='ArrowLeft'?i-1:k==='Home'?0:k==='End'?tabs.length-1:-9;if(j===-9)return;e.preventDefault();pick(tabs[(j+tabs.length)%tabs.length],true);});
+  });
+})();
 })();

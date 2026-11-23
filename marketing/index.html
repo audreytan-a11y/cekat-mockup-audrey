@@ -9,8 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=mk12">
-  <link rel="stylesheet" href="css/products-menu.css?v=mk12">
+  <link rel="stylesheet" href="css/styles.css?v=mk13">
+  <link rel="stylesheet" href="css/products-menu.css?v=mk13">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -168,7 +168,7 @@
   <div class="wrap hero__grid">
     <div class="hero__copy">
       <p class="hero__eyebrow rv"><img src="./assets/products/marketing.svg" alt="" width="20" height="20">Cekat Marketing</p>
-      <h1 class="hero__title rv" style="--d:.06s" data-pre="Scale what works. " aria-label="Scale what works. Stop redoing what doesn’t.">Scale what works.<span class="hero__rot" aria-hidden="true"><span class="is-on">Stop redoing what doesn’t.</span><span>Know which source sells most.</span></span></h1>
+      <h1 class="hero__title rv" style="--d:.06s" data-pre="Scale what works. " aria-label="Scale what works. Know which source sells most.">Scale what works.<span class="hero__rot" aria-hidden="true"><span class="is-on">Know which source sells most.</span><span>Stop redoing what doesn’t.</span><span>Send Meta your real buyers.</span></span></h1>
       <p class="hero__sub rv" style="--d:.12s">See which ad, creator or link brings revenue, from first click to paid.</p>
       <div class="hero__cta rv" style="--d:.18s">
         <a class="btn btn--primary btn--lg btn--glow" href="https://chat.cekat.ai/register">Start Free Trial</a>
@@ -179,9 +179,27 @@
     <!-- Hero visual: 2 slides in sync with H1 line 2. Illustrative demo data. -->
     <div class="hero__vis rv">
       <div class="hxa" id="hero-sync">
-        <div class="hxa__card a-ads fl-ads" data-vseq>
-          <p class="hxa__h"><b>Top paid ads</b><small>Top 3 by clicks</small></p>
-          <div class="ads">
+        <div class="hxa__card a-ads fl-ads" data-vseq-wrap>
+          <div class="hxa__s is-on a-metric">
+            <p class="hxa__h"><b>Compare every source</b><small>Last 30 days</small></p>
+            <div class="mx" data-metric data-auto="0">
+                  <div class="mx__tabs" role="group" aria-label="Metric">
+                    <button type="button" class="mx__tab is-on" data-m="0" aria-pressed="true">CTR</button>
+                    <button type="button" class="mx__tab" data-m="1" aria-pressed="false">Conversion</button>
+                    <button type="button" class="mx__tab" data-m="2" aria-pressed="false">Sales</button>
+                  </div>
+                  <div class="hbars" aria-live="polite">
+                    <div class="hbar is-top"><span>Paid Ads</span><i style="--w:100%"></i><b>6.40%</b></div>
+                    <div class="hbar"><span>Organic</span><i style="--w:50%"></i><b>3.20%</b></div>
+                    <div class="hbar"><span>Creators</span><i style="--w:40.6%"></i><b>2.60%</b></div>
+                    <div class="hbar"><span>Links</span><i style="--w:35.2%"></i><b>2.25%</b></div>
+                  </div>
+                  <p class="mx__top"><span class="mx__dot"></span>Top source: <b>Paid Ads</b></p>
+                </div>
+          </div>
+          <div class="hxa__s a-ads" data-vseq>
+            <p class="hxa__h"><b>See which ad works</b><small>Top 3 by clicks</small></p>
+            <div class="ads">
                   <div class="ads__list">
                     <p class="ads__cap">Top paid ads · clicks</p>
                     <div class="ads__row is-cur"><svg class="ic"><use href="#i-play"/></svg><span>Reel · AI replies in 3s</span><b>3,420</b></div>
@@ -190,14 +208,26 @@
                   </div>
                   <div class="pv">
                     <div class="phone" data-vclip>
-                      <video class="phone__v is-cur" data-clip="0" muted playsinline preload="metadata" poster="./assets/video/ad-ai-replies-poster.jpg" data-src="./assets/video/ad-ai-replies.mp4?v=mk12" tabindex="-1" aria-hidden="true"></video><video class="phone__v" data-clip="1" muted playsinline preload="metadata" poster="./assets/video/ad-demo-walkthrough-poster.jpg" data-src="./assets/video/ad-demo-walkthrough.mp4?v=mk12" tabindex="-1" aria-hidden="true"></video>
+                      <video class="phone__v is-cur" data-clip="0" muted playsinline preload="metadata" poster="./assets/video/ad-ai-replies-poster.jpg" data-src="./assets/video/ad-ai-replies.mp4?v=mk13" tabindex="-1" aria-hidden="true"></video><video class="phone__v" data-clip="1" muted playsinline preload="metadata" poster="./assets/video/ad-demo-walkthrough-poster.jpg" data-src="./assets/video/ad-demo-walkthrough.mp4?v=mk13" tabindex="-1" aria-hidden="true"></video>
                       <span class="phone__play"><svg><use href="#i-play"/></svg></span>
                       <span class="phone__bar"><i></i></span>
                     </div>
                     <span class="phone__cap">AI replies in 3s</span><span class="phone__clk">3,420 clicks</span>
                   </div>
                 </div>
+          </div>
+          <div class="hxa__s a-capi">
+            <p class="hxa__h"><b>Send CAPI, get look-alikes</b><small>Meta Conversions API</small></p>
+            <div class="hxf">
+              <div class="hxf__n"><span class="hxf__i"><svg class="ic"><use href="#i-send"/></svg></span><b>Meetings booked</b><small>Your CRM stage</small></div>
+              <span class="hxf__a"><i></i></span>
+              <div class="hxf__n"><span class="hxf__i"><img src="./assets/integrations/meta.svg" alt="" width="22" height="22"></span><b>Meta CAPI</b><small>Sent in 1–2 clicks</small></div>
+              <span class="hxf__a"><i></i></span>
+              <div class="hxf__n hxf__n--on"><span class="hxf__i"><svg class="ic"><use href="#i-users"/></svg></span><b>Look-alike audience</b><small>People like your buyers</small></div>
+            </div>
+          </div>
         </div>
+        <div class="wv-dots hx__dots" role="group" aria-label="Illustration slides"><button type="button" class="on" aria-pressed="true" aria-label="Show slide 1: Compare every source"></button><button type="button" aria-pressed="false" aria-label="Show slide 2: See which ad works"></button><button type="button" aria-pressed="false" aria-label="Show slide 3: Send CAPI, get look-alikes"></button></div>
       </div>
     </div>
   </div>
@@ -350,7 +380,7 @@
                   </div>
                   <div class="pv">
                     <div class="phone" data-vclip>
-                      <video class="phone__v is-cur" data-clip="0" muted playsinline preload="metadata" poster="./assets/video/ad-ai-replies-poster.jpg" data-src="./assets/video/ad-ai-replies.mp4?v=mk12" tabindex="-1" aria-hidden="true"></video><video class="phone__v" data-clip="1" muted playsinline preload="metadata" poster="./assets/video/ad-demo-walkthrough-poster.jpg" data-src="./assets/video/ad-demo-walkthrough.mp4?v=mk12" tabindex="-1" aria-hidden="true"></video>
+                      <video class="phone__v is-cur" data-clip="0" muted playsinline preload="metadata" poster="./assets/video/ad-ai-replies-poster.jpg" data-src="./assets/video/ad-ai-replies.mp4?v=mk13" tabindex="-1" aria-hidden="true"></video><video class="phone__v" data-clip="1" muted playsinline preload="metadata" poster="./assets/video/ad-demo-walkthrough-poster.jpg" data-src="./assets/video/ad-demo-walkthrough.mp4?v=mk13" tabindex="-1" aria-hidden="true"></video>
                       <span class="phone__play"><svg><use href="#i-play"/></svg></span>
                       <span class="phone__bar"><i></i></span>
                     </div>
@@ -518,7 +548,7 @@
                   </div>
                   <div class="pv">
                     <div class="phone" data-vclip>
-                      <video class="phone__v is-cur" data-clip="0" muted playsinline preload="metadata" poster="./assets/video/ad-ai-replies-poster.jpg" data-src="./assets/video/ad-ai-replies.mp4?v=mk12" tabindex="-1" aria-hidden="true"></video><video class="phone__v" data-clip="1" muted playsinline preload="metadata" poster="./assets/video/ad-demo-walkthrough-poster.jpg" data-src="./assets/video/ad-demo-walkthrough.mp4?v=mk12" tabindex="-1" aria-hidden="true"></video>
+                      <video class="phone__v is-cur" data-clip="0" muted playsinline preload="metadata" poster="./assets/video/ad-ai-replies-poster.jpg" data-src="./assets/video/ad-ai-replies.mp4?v=mk13" tabindex="-1" aria-hidden="true"></video><video class="phone__v" data-clip="1" muted playsinline preload="metadata" poster="./assets/video/ad-demo-walkthrough-poster.jpg" data-src="./assets/video/ad-demo-walkthrough.mp4?v=mk13" tabindex="-1" aria-hidden="true"></video>
                       <span class="phone__play"><svg><use href="#i-play"/></svg></span>
                       <span class="phone__bar"><i></i></span>
                     </div>
@@ -671,16 +701,36 @@
     <div class="foot__brand">
       <img src="./assets/logo-full.svg" alt="Cekat.AI" width="120" height="28">
       <p>AI agents, CRM and marketing in one platform — built for businesses that run on conversations.</p>
-      <span class="foot__meta"><img src="./assets/integrations/meta.svg" alt="" width="14" height="14">Official Meta Business Partner</span>
+      <div class="foot__badges">
+        <span class="foot__meta"><img src="./assets/integrations/meta.svg" alt="" width="14" height="14">Official Meta Business Partner</span>
+        <span class="foot__meta"><img src="./assets/integrations/tiktok.svg" alt="" width="14" height="14">TikTok Partner</span>
+      </div>
     </div>
-    <div><p class="foot__h">Product</p><a href="../chat/">Chat</a><a href="../crm/">CRM</a><a href="./" aria-current="page">Marketing</a><a href="../">Broadcasts</a><a href="../">Automation</a><a href="../">Analytics</a></div>
-    <div><p class="foot__h">Company</p><a href="https://cekat.ai/en/pricing">Pricing</a><a href="https://www.youtube.com/@cekatai">YouTube</a><a href="https://cekat.ai/en/contact-us">Contact</a><a href="https://chat.cekat.ai/login">Log in</a></div>
-    <div><p class="foot__h">Offices</p><p class="foot__addr"><b>Indonesia</b> Prosperity Tower, SCBD Jakarta</p><p class="foot__addr"><b>Singapore</b></p><p class="foot__addr"><b>Malaysia</b></p></div>
+    <div><p class="foot__h">Product</p><a href="../chat/">Chat</a><a href="../crm/">CRM</a><a href="../marketing/">Marketing</a><a href="https://cekat.ai/en">Broadcasts</a><a href="https://cekat.ai/en">Automation</a><a href="https://cekat.ai/en">Analytics</a></div>
+    <div><p class="foot__h">Company</p><a href="https://cekat.ai/en/pricing">Pricing</a><a href="#stories">Customer stories</a><a href="https://www.youtube.com/@cekatai">YouTube</a><a href="https://cekat.ai/en/contact-us">Contact</a><a href="https://chat.cekat.ai/login">Log in</a></div>
   </div>
-  <div class="wrap foot__bottom"><span>© 2026 PT Teknologi Cekat Indonesia. All rights reserved.</span></div>
+  <div class="wrap foot__offices" data-office-tabs>
+    <div class="foot__otabs" role="tablist" aria-label="Our Office">
+      <span class="foot__olabel" aria-hidden="true">Our Office</span>
+      <button class="foot__otab is-on" type="button" role="tab" id="otab-id" aria-controls="opanel-id" aria-selected="true"><span aria-hidden="true">🇮🇩</span> Indonesia</button>
+      <button class="foot__otab" type="button" role="tab" id="otab-sg" aria-controls="opanel-sg" aria-selected="false" tabindex="-1"><span aria-hidden="true">🇸🇬</span> Singapore</button>
+      <button class="foot__otab" type="button" role="tab" id="otab-my" aria-controls="opanel-my" aria-selected="false" tabindex="-1"><span aria-hidden="true">🇲🇾</span> Malaysia</button>
+    </div>
+    <div class="foot__opanel" role="tabpanel" id="opanel-id" aria-labelledby="otab-id">
+      <div class="foot__office"><p class="foot__oname">Jakarta Office</p><b>PT. Teknologi Cekat Indonesia</b><p>Prosperity Tower unit 16i, Jl. Jenderal Sudirman No.Kav. 52-53, District 8, SCBD, South Jakarta 12190</p></div>
+      <div class="foot__office"><p class="foot__oname">Tangerang Office</p><b>PT. Teknologi Cekat Indonesia</b><p>Ruko Hampton Avenue Blok A no.10, Paramount, Gading Serpong, Tangerang, 15810</p></div>
+    </div>
+    <div class="foot__opanel" role="tabpanel" id="opanel-sg" aria-labelledby="otab-sg" hidden>
+      <div class="foot__office"><p class="foot__oname">Singapore Office</p><b>Cekat Pte. LTD.</b><p>101 Upper Cross Street, 05-16, People's Park Centre, Singapore, 058357</p></div>
+    </div>
+    <div class="foot__opanel" role="tabpanel" id="opanel-my" aria-labelledby="otab-my" hidden>
+      <div class="foot__office"><p class="foot__oname">Kuala Lumpur Office</p><b>CekatAI Sdn. Bhd.</b><p>Level 7, Mercu 3, No. 3, Jalan Bangsar, KL Eco City 59200, Kuala Lumpur W.P. Kuala Lumpur Malaysia</p></div>
+    </div>
+  </div>
+  <div class="wrap foot__bottom"><span>© 2026 PT Teknologi Cekat Indonesia. All rights reserved.</span><span>ISO/IEC 27001 · UU PDP compliant</span></div>
 </footer>
 
-<script src="js/main.js?v=mk12" defer></script>
-<script src="js/products-menu.js?v=mk12" defer></script>
+<script src="js/main.js?v=mk13" defer></script>
+<script src="js/products-menu.js?v=mk13" defer></script>
 </body>
 </html>
