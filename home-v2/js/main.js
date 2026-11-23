@@ -507,3 +507,14 @@
   if(document.fonts&&document.fonts.ready) document.fonts.ready.then(build);
   window.addEventListener('load',build); build();
 })();
+
+/* v14m — footer "Our Office" tabs */
+(function(){
+  var box=document.querySelector('[data-office-tabs]'); if(!box) return;
+  var tabs=[].slice.call(box.querySelectorAll('[role="tab"]'));
+  function pick(t,focus){tabs.forEach(function(x){var on=x===t;x.classList.toggle('is-on',on);x.setAttribute('aria-selected',on?'true':'false');x.tabIndex=on?0:-1;document.getElementById(x.getAttribute('aria-controls')).hidden=!on;});if(focus)t.focus();}
+  tabs.forEach(function(t,i){
+    t.addEventListener('click',function(){pick(t);});
+    t.addEventListener('keydown',function(e){var k=e.key,j=k==='ArrowRight'?i+1:k==='ArrowLeft'?i-1:k==='Home'?0:k==='End'?tabs.length-1:-9;if(j===-9)return;e.preventDefault();pick(tabs[(j+tabs.length)%tabs.length],true);});
+  });
+})();
