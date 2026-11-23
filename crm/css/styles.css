@@ -2166,3 +2166,28 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 }
 @media (max-width:640px){.fb-kb{padding:10px;gap:6px}.fb-kc{padding:8px}.fb-kc b{font-size:12px}.fb-kb__col p{font-size:11px;padding:6px}}
 @media (prefers-reduced-motion:reduce){.js-fb .fa{opacity:1;animation:none!important}.js-fb .fb-kc--mv{animation:none!important}.js #how .feature-block__visual.rv{transition:none;transform:none}}
+/* crm9: Every lead captured moves to the top row */
+.cbento{grid-template-areas:"g g g g" "e e b b" "e e c d" "a f c d"}
+@media (min-width:1001px){.cbento{grid-template-rows:calc(var(--tile-h) + 20px) var(--tile-h) var(--tile-h) calc(var(--tile-h) + 34px)}}
+@media (max-width:1000px){.cbento{grid-template-areas:"g g" "e e" "e e" "b b" "c d" "c d" "a f"}}
+@media (max-width:640px){.cbento{grid-template-areas:none}}
+/* crm9: Manage deals removed — rebalance: g / (e + c d) / (a f wide) */
+.cbento{grid-template-areas:"g g g g" "e e c d" "e e c d" "a a f f"}
+@media (min-width:1001px){.cbento{grid-template-rows:calc(var(--tile-h) + 20px) var(--tile-h) var(--tile-h) var(--tile-h)}}
+@media (max-width:1000px){.cbento{grid-template-areas:"g g" "e e" "e e" "c d" "c d" "a f"}}
+@media (max-width:640px){.cbento{grid-template-areas:none}}
+/* crm9: Activity tracking row illustration (same look as Every lead captured) */
+.fb-act{width:100%;display:flex;align-items:center;gap:0}
+.fb-act__src{flex:0 0 40%;display:flex;flex-direction:column;gap:10px;min-width:0}
+.fb-act .sv__card{padding:10px 12px;gap:4px;border-radius:13px}
+.fb-act .sv__card>b{display:block;font-size:12.5px;font-weight:600;line-height:1.25;color:var(--cn)}
+.fb-act .sv__card>small{display:block;font-size:11px;line-height:1.3;color:var(--sub)}
+.fb-act__ln{flex:0 0 28px;width:28px;height:20px;overflow:visible}
+.fb-act__ln path{fill:none;stroke:#a9c0ec;stroke-width:1.5;stroke-dasharray:4 5;vector-effect:non-scaling-stroke}
+.fb-act__p{flex:1;min-width:0}
+.fb-act .sv__h{padding:10px 12px}
+.fb-act .sv__crm ul{margin:0;padding:6px 8px 8px;list-style:none}
+.fb-act .sv__crm li{padding:9px 6px;gap:8px}
+.fb-act .sv__n b{font-size:12.5px}.fb-act .sv__n small{font-size:11px}
+.fb-act .sv__n{white-space:nowrap}
+@media (max-width:480px){.fb-act__src{flex-basis:42%}.fb-act .sv__card{padding:8px 9px}.fb-act .sv__n small{font-size:10.5px}}
