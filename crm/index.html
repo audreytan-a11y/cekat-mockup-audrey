@@ -9,8 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=crm10">
-  <link rel="stylesheet" href="css/products-menu.css?v=crm10">
+  <link rel="stylesheet" href="css/styles.css?v=crm11">
+  <link rel="stylesheet" href="css/products-menu.css?v=crm11">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -382,17 +382,37 @@
     <div class="foot__brand">
       <img src="./assets/logo-full.svg" alt="Cekat.AI" width="120" height="28">
       <p>AI agents, CRM and marketing in one platform — built for businesses that run on conversations.</p>
-      <span class="foot__meta"><img src="./assets/integrations/meta.svg" alt="" width="14" height="14">Official Meta Business Partner</span>
+      <div class="foot__badges">
+        <span class="foot__meta"><img src="./assets/integrations/meta.svg" alt="" width="14" height="14">Official Meta Business Partner</span>
+        <span class="foot__meta"><img src="./assets/integrations/tiktok.svg" alt="" width="14" height="14">TikTok Partner</span>
+      </div>
     </div>
-    <div><p class="foot__h">Product</p><a href="../chat/">Chat</a><a href="./">CRM</a><a href="../marketing/">Marketing</a><a href="https://cekat.ai/en">Broadcasts</a><a href="https://cekat.ai/en">Automation</a><a href="https://cekat.ai/en">Analytics</a></div>
+    <div><p class="foot__h">Product</p><a href="../chat/">Chat</a><a href="../crm/">CRM</a><a href="../marketing/">Marketing</a><a href="https://cekat.ai/en">Broadcasts</a><a href="https://cekat.ai/en">Automation</a><a href="https://cekat.ai/en">Analytics</a></div>
     <div><p class="foot__h">Company</p><a href="https://cekat.ai/en/pricing">Pricing</a><a href="../#stories">Customer stories</a><a href="https://www.youtube.com/@cekatai">YouTube</a><a href="https://cekat.ai/en/contact-us">Contact</a><a href="https://chat.cekat.ai/login">Log in</a></div>
-    <div><p class="foot__h">Offices</p><p class="foot__addr"><b>Indonesia</b> Prosperity Tower, SCBD Jakarta</p><p class="foot__addr"><b>Singapore</b></p><p class="foot__addr"><b>Malaysia</b></p></div>
   </div>
-  <div class="wrap foot__bottom"><span>© 2026 PT Teknologi Cekat Indonesia. All rights reserved.</span></div>
+  <div class="wrap foot__offices" data-office-tabs>
+    <div class="foot__otabs" role="tablist" aria-label="Our Office">
+      <span class="foot__olabel" aria-hidden="true">Our Office</span>
+      <button class="foot__otab is-on" type="button" role="tab" id="otab-id" aria-controls="opanel-id" aria-selected="true"><span aria-hidden="true">🇮🇩</span> Indonesia</button>
+      <button class="foot__otab" type="button" role="tab" id="otab-sg" aria-controls="opanel-sg" aria-selected="false" tabindex="-1"><span aria-hidden="true">🇸🇬</span> Singapore</button>
+      <button class="foot__otab" type="button" role="tab" id="otab-my" aria-controls="opanel-my" aria-selected="false" tabindex="-1"><span aria-hidden="true">🇲🇾</span> Malaysia</button>
+    </div>
+    <div class="foot__opanel" role="tabpanel" id="opanel-id" aria-labelledby="otab-id">
+      <div class="foot__office"><p class="foot__oname">Jakarta Office</p><b>PT. Teknologi Cekat Indonesia</b><p>Prosperity Tower unit 16i, Jl. Jenderal Sudirman No.Kav. 52-53, District 8, SCBD, South Jakarta 12190</p></div>
+      <div class="foot__office"><p class="foot__oname">Tangerang Office</p><b>PT. Teknologi Cekat Indonesia</b><p>Ruko Hampton Avenue Blok A no.10, Paramount, Gading Serpong, Tangerang, 15810</p></div>
+    </div>
+    <div class="foot__opanel" role="tabpanel" id="opanel-sg" aria-labelledby="otab-sg" hidden>
+      <div class="foot__office"><p class="foot__oname">Singapore Office</p><b>Cekat Pte. LTD.</b><p>101 Upper Cross Street, 05-16, People's Park Centre, Singapore, 058357</p></div>
+    </div>
+    <div class="foot__opanel" role="tabpanel" id="opanel-my" aria-labelledby="otab-my" hidden>
+      <div class="foot__office"><p class="foot__oname">Kuala Lumpur Office</p><b>CekatAI Sdn. Bhd.</b><p>Level 7, Mercu 3, No. 3, Jalan Bangsar, KL Eco City 59200, Kuala Lumpur W.P. Kuala Lumpur Malaysia</p></div>
+    </div>
+  </div>
+  <div class="wrap foot__bottom"><span>© 2026 PT Teknologi Cekat Indonesia. All rights reserved.</span><span>ISO/IEC 27001 · UU PDP compliant</span></div>
 </footer>
 
 
-<script src="js/main.js?v=crm10" defer></script>
-<script src="js/products-menu.js?v=crm10" defer></script>
+<script src="js/main.js?v=crm11" defer></script>
+<script src="js/products-menu.js?v=crm11" defer></script>
 </body>
 </html>
