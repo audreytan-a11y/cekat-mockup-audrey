@@ -60,6 +60,7 @@
 .pad__i{grid-row:1/3;display:grid;place-items:center;width:44px;height:44px;border-radius:12px;background:#E8F0FF}
 .pad__i svg{width:22px;height:22px;fill:none;stroke:var(--pa);stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
 .pad__n{font-size:15px;font-weight:600;line-height:1.3;color:var(--pn)}
+.pad__s{display:block;margin-top:2px;font-size:12px;font-weight:500;line-height:1.35;color:#667085}
 .pad__p{font-size:14px;font-weight:500;color:#667085;font-variant-numeric:tabular-nums}
 @media (hover:hover){.pad__g li.pad__c:hover{transform:translateY(-3px);border-color:#c3d6f6;box-shadow:0 14px 30px -18px rgba(19,82,191,.4)}}
 .pad__cta{margin:32px 0 0;text-align:center}
