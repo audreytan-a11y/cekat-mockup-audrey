@@ -72,7 +72,7 @@ Any element with `data-player` is static by default (its composed final state) a
 - Card illustrations are centred in the art area, which keeps the same bottom padding on every card. Keep the static (final) state complete with 2–3 elements, because that is what people see first.
 - Hero chat: the bubbles before the first `data-typing` element are the resting state (never an empty window). The loop continues the conversation, older bubbles scroll off the top, and then it fades back to the resting state.
 
-## Cloning for another product (CRM, Marketing, Broadcasts, Automation, Analytics)
+## Cloning for another product (CRM, Marketing, Broadcast, Automation, Analytics)
 
 1. Copy this folder to e.g. `../crm-v1/`. Assets, CSS and JS stay as they are.
 2. In the nav dropdown (`.prod-menu`), move `is-current` and `aria-current="page"` to the new product. Point the other items to their pages (`../chat/`, `../crm/` …) once those exist. Today they point to `../` (home). Do the same in the footer "Product" column.

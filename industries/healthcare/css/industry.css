@@ -251,3 +251,7 @@
 .wa-m--in .wa-vn__play{background:#eef1f3}
 .wa-m--out.wa-ok{border-color:#bfe8b6}
 .wa-m--out .wa-ok__chk{background:#fff}
+
+/* watermark icon in hero (matches .tc__ghost: outline, primary colour, ~.12 opacity) */
+.ih-hero__panel>.ih-wm{position:absolute;left:6px;bottom:-90px;width:400px;height:400px;z-index:0;pointer-events:none;color:var(--primary,#1A56DB);opacity:.06;fill:currentColor;stroke:none}
+@media(max-width:760px){.ih-hero__panel>.ih-wm{width:210px;height:210px;left:-10px;bottom:-60px;opacity:.06}}
