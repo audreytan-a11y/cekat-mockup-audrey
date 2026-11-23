@@ -179,7 +179,7 @@
   /* "See which ad works, then watch it": row 1 → its Reel plays → row 2 → its Reel plays → loop.
      Rows 3/4 never highlight. Runs while the card is on screen; this card has no [data-player]. */
   (function () {
-    var card = $('[data-vseq]'); if (!card) return;
+    $$('[data-vseq]').forEach(function (card) {
     var box = $('[data-vclip]', card), rows = $$('.ads__row', card), cap = $('.phone__cap', card);
     var clip = VClip(box, $('.phone__bar i', card)), cur = 0, on = false, seen = false;
     function show(k) {
@@ -204,6 +204,7 @@
     if (hasIO) new IntersectionObserver(function (es) { es.forEach(function (e) { seen = e.isIntersecting; sync(); }); }, { threshold: 0.35 }).observe(card);
     else { seen = true; sync(); }
     document.addEventListener('visibilitychange', sync);
+    });
   })();
 
   /* ---------- HERO SYNC (mk5 → mk7) ----------
@@ -418,28 +419,6 @@
       }, { threshold: 0.55 });
       viewPlayers.forEach(function (p) { map.set(p.el, p); pio.observe(p.el); });
     }
-  }
-
-  /* ---------- COUNT-UP ---------- */
-  var counters = $$('[data-count]');
-  if (!reduce && hasIO && counters.length) {
-    var fmt = function (v, dec) { return v.toLocaleString('en-US', { minimumFractionDigits: dec, maximumFractionDigits: dec }); };
-    counters.forEach(function (c) { c.textContent = fmt(0, parseInt(c.getAttribute('data-dec') || '0', 10)); });
-    var cio = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        cio.unobserve(en.target);
-        var el = en.target, to = parseFloat(el.getAttribute('data-count')), dec = parseInt(el.getAttribute('data-dec') || '0', 10), dur = 1600, t0 = null;
-        var step = function (ts) {
-          if (!t0) t0 = ts;
-          var k = Math.min(1, (ts - t0) / dur), e = 1 - Math.pow(1 - k, 3);
-          el.textContent = fmt(dec ? to * e : Math.round(to * e), dec);
-          if (k < 1) requestAnimationFrame(step);
-        };
-        requestAnimationFrame(step);
-      });
-    }, { threshold: 0.6 });
-    counters.forEach(function (c) { cio.observe(c); });
   }
 })();
 
