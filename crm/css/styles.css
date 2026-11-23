@@ -2459,3 +2459,29 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .nav .nav__toggle[aria-expanded="true"] span:first-child{transform:translateY(3.5px) rotate(45deg)}
 .nav .nav__toggle[aria-expanded="true"] span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
 }
+
+/* crm14: Automation row (auto follow-up) */
+.fb-auto{gap:10px;padding:14px;max-width:440px}
+.fb-auto .fb-kb{display:flex;max-width:none;padding:0;gap:8px;box-shadow:none;border-radius:0;background:none}
+.fb-auto .fb-kb__col{gap:6px}
+.fb-auto .fb-kb__col p{font-size:11px;padding:6px 7px;white-space:nowrap}
+.fb-auto .fb-kc{flex-wrap:nowrap;padding:7px 8px;gap:5px}
+.fb-auto .fb-kc b{font-size:12px}
+.fb-auto .fb-kc span{flex-basis:auto;font-size:11px}
+.fb-rule{display:flex;align-items:center;gap:8px;padding:8px 10px;border-radius:10px;border:1px dashed #cdd9ef;background:#f6f9fe;font-size:12px;line-height:1.35;color:#667085}
+.fb-rule svg{flex:none;width:14px;height:14px;fill:none;stroke:#93B4F5;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.fb-rule b{font-weight:600;color:var(--cn)}
+.fb-chat{display:flex;flex-direction:column;gap:6px}
+.fb-auto .fb-chat__out{font-size:12.5px;line-height:1.4;padding:9px 12px;max-width:92%}
+.fb-chat__in{align-self:flex-end;font-size:12.5px;font-weight:600;color:var(--cn);background:#e8f0ff;border-radius:14px;border-bottom-right-radius:5px;padding:7px 14px}
+.js-fb .is-fp .fb-auto .fb-kc--mv{animation:fbMove 3s var(--ease) both}
+.js-fb .fb-auto .fb-rule,.js-fb .fb-auto .fb-chat>*{opacity:0}
+.js-fb .is-fp .fb-auto .fb-rule{animation:fbRule 3s var(--ease) both}
+.js-fb .is-fp .fb-auto .fb-chat__out{animation:fbOut 3s var(--ease) both}
+.js-fb .is-fp .fb-auto .fb-chat__in{animation:fbIn2 3s var(--ease) both}
+@keyframes fbRule{0%,20%{opacity:.55;background:#f6f9fe;border-color:#cdd9ef;color:#667085}34%,100%{opacity:1;background:#e8f0ff;border:1px solid #93B4F5;border-style:solid;color:#344054}}
+@keyframes fbOut{0%,48%{opacity:0;transform:translateY(8px) scale(.97)}58%,100%{opacity:1;transform:none}}
+@keyframes fbIn2{0%,74%{opacity:0;transform:translateY(8px) scale(.97)}84%,100%{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.js-fb .fb-auto .fb-rule,.js-fb .fb-auto .fb-chat>*{opacity:1;animation:none!important}}
+@media (max-width:640px){.fb-auto{padding:10px}.fb-auto .fb-kb{gap:5px}.fb-auto .fb-kb__col p{font-size:10px;padding:5px 4px}.fb-auto .fb-kc{padding:6px;gap:4px}.fb-auto .fb-kc img{width:12px;height:12px}.fb-auto .fb-kc b{font-size:11px}.fb-auto .fb-kc span{font-size:10px}.fb-rule{font-size:11px}}
+.feature-block__visual{min-width:0}
