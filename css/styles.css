@@ -2451,3 +2451,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .wide--b1 .more{color:#1D6AD6}.wide--b1 .wide__txt h3{background:#1D6AD6}
 .wide--b2 .more{color:#1D4FD0}.wide--b2 .wide__txt h3{background:#1D4FD0}
 .wide--b3 .more{color:#4353C9}.wide--b3 .wide__txt h3{background:#4353C9}
+
+/* v14j: pill badges without ring or shadow */
+.wide--b1 .wide__txt h3,.wide--b2 .wide__txt h3,.wide--b3 .wide__txt h3{box-shadow:none!important}
