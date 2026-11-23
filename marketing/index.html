@@ -9,8 +9,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/styles.css?v=mk10">
-  <link rel="stylesheet" href="css/products-menu.css?v=mk10">
+  <link rel="stylesheet" href="css/styles.css?v=mk12">
+  <link rel="stylesheet" href="css/products-menu.css?v=mk12">
   <script>document.documentElement.classList.add('js')</script>
 </head>
 <body>
@@ -178,33 +178,26 @@
 
     <!-- Hero visual: 2 slides in sync with H1 line 2. Illustrative demo data. -->
     <div class="hero__vis rv">
-            <div class="hx" id="hero-sync">
-        <div class="hx__card">
-
-          <!-- 1 · Ad → Chat → Booked (homepage .pc-jr, hero-sized) -->
-          <div class="hx__s is-on" aria-hidden="true">
-            <div class="hxt"><div class="pmx-src"><div class="pmx-src__h"><b>All sources</b><small>Last 30 days</small></div><table><thead><tr><th>Source</th><th>Impressions</th><th>Clicks</th><th>CTR</th><th>Booked</th></tr></thead><tbody><tr><td><span class="pmx-si"><svg viewBox="0 0 24 24"><path d="M4 10v4h3l5 4V6L7 10H4z"/><path d="M16 9a4 4 0 0 1 0 6"/></svg></span>Paid Ads</td><td>412,000</td><td>9,270</td><td>2.25%</td><td><b>186</b></td></tr><tr><td><span class="pmx-si"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8"/><path d="M4 12h16M12 4c3 3 3 13 0 16M12 4c-3 3-3 13 0 16"/></svg></span>Organic</td><td>96,500</td><td>3,860</td><td>4.00%</td><td><b>74</b></td></tr><tr><td><span class="pmx-si"><svg viewBox="0 0 24 24"><circle cx="9" cy="9" r="3"/><path d="M3.5 19a5.5 5.5 0 0 1 11 0"/><circle cx="17" cy="10" r="2.4"/><path d="M15.5 14.6A4.6 4.6 0 0 1 21 19"/></svg></span>Creators</td><td>158,000</td><td>4,108</td><td>2.60%</td><td><b>52</b></td></tr><tr><td><span class="pmx-si"><svg viewBox="0 0 24 24"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7L11.5 6.8"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1.5-1.5"/></svg></span>Links</td><td>21,400</td><td>1,284</td><td>6.00%</td><td><b>31</b></td></tr></tbody><tfoot><tr><td>Total</td><td>687,900</td><td>18,522</td><td>2.69%</td><td><b>343</b></td></tr></tfoot></table></div></div>
-          </div>
-          <div class="hx__s">
-            <div class="hx__h"><span><b>Compare every source</b><small>Last 30 days</small></span></div>
-            <div class="mx mx--hero" data-metric data-auto="0">
-              <div class="mx__tabs" role="group" aria-label="Metric">
-                <button type="button" class="mx__tab is-on" data-m="0" aria-pressed="true">CTR</button>
-                <button type="button" class="mx__tab" data-m="1" aria-pressed="false">Conversion</button>
-                <button type="button" class="mx__tab" data-m="2" aria-pressed="false">Sales</button>
-              </div>
-              <div class="hbars">
-                <div class="hbar"><span>Paid Ads</span><i style="--w:37.5%"></i><b>2.25%</b></div>
-                <div class="hbar"><span>Organic</span><i style="--w:66.7%"></i><b>4.00%</b></div>
-                <div class="hbar"><span>Creators</span><i style="--w:43.3%"></i><b>2.60%</b></div>
-                <div class="hbar is-top"><span>Links</span><i style="--w:100%"></i><b>6.00%</b></div>
-              </div>
-              <p class="mx__top"><span class="mx__dot"></span>Top source: <b>Links</b></p>
-            </div>
-          </div>
-
+      <div class="hxa" id="hero-sync">
+        <div class="hxa__card a-ads fl-ads" data-vseq>
+          <p class="hxa__h"><b>Top paid ads</b><small>Top 3 by clicks</small></p>
+          <div class="ads">
+                  <div class="ads__list">
+                    <p class="ads__cap">Top paid ads · clicks</p>
+                    <div class="ads__row is-cur"><svg class="ic"><use href="#i-play"/></svg><span>Reel · AI replies in 3s</span><b>3,420</b></div>
+                    <div class="ads__row"><svg class="ic"><use href="#i-play"/></svg><span>Reel · Demo walkthrough</span><b>2,610</b></div>
+                    <div class="ads__row"><svg class="ic"><use href="#i-play"/></svg><span>Carousel · Pricing</span><b>1,480</b></div>
+                  </div>
+                  <div class="pv">
+                    <div class="phone" data-vclip>
+                      <video class="phone__v is-cur" data-clip="0" muted playsinline preload="metadata" poster="./assets/video/ad-ai-replies-poster.jpg" data-src="./assets/video/ad-ai-replies.mp4?v=mk12" tabindex="-1" aria-hidden="true"></video><video class="phone__v" data-clip="1" muted playsinline preload="metadata" poster="./assets/video/ad-demo-walkthrough-poster.jpg" data-src="./assets/video/ad-demo-walkthrough.mp4?v=mk12" tabindex="-1" aria-hidden="true"></video>
+                      <span class="phone__play"><svg><use href="#i-play"/></svg></span>
+                      <span class="phone__bar"><i></i></span>
+                    </div>
+                    <span class="phone__cap">AI replies in 3s</span><span class="phone__clk">3,420 clicks</span>
+                  </div>
+                </div>
         </div>
-        <div class="wv-dots hx__dots" role="group" aria-label="Illustration slides"><button type="button" class="on" aria-pressed="true" aria-label="Show slide 1: Ad to chat to booked"></button><button type="button" aria-pressed="false" aria-label="Show slide 2: CTR, conversion and sales by source"></button></div>
       </div>
     </div>
   </div>
@@ -313,7 +306,7 @@
           <p class="grp__d">See exactly what sells.</p>
         </header>
         <div class="usp-grid usp-grid--analyze">
-          <article class="usp-card usp-card--tall usp-card--l1 a-bars a-metric rv" style="--d:.06s" tabindex="0" data-player data-loop="4600">
+          <article class="usp-card usp-card--tall usp-card--l1 a-bars a-metric rv" style="--d:.06s" tabindex="0">
             <div class="usp-card__head">
               <h4 class="usp-card__title">Compare every source</h4>
               <p class="usp-card__desc">CTR, conversion and sales by source.</p>
@@ -327,12 +320,42 @@
                     <button type="button" class="mx__tab" data-m="2" aria-pressed="false">Sales</button>
                   </div>
                   <div class="hbars" aria-live="polite">
-                    <div class="hbar"><span>Paid Ads</span><i style="--w:37.5%"></i><b>2.25%</b></div>
-                    <div class="hbar"><span>Organic</span><i style="--w:66.7%"></i><b>4.00%</b></div>
-                    <div class="hbar"><span>Creators</span><i style="--w:43.3%"></i><b>2.60%</b></div>
-                    <div class="hbar is-top"><span>Links</span><i style="--w:100%"></i><b>6.00%</b></div>
+                    <div class="hbar is-top"><span>Paid Ads</span><i style="--w:100%"></i><b>6.40%</b></div>
+                    <div class="hbar"><span>Organic</span><i style="--w:50%"></i><b>3.20%</b></div>
+                    <div class="hbar"><span>Creators</span><i style="--w:40.6%"></i><b>2.60%</b></div>
+                    <div class="hbar"><span>Links</span><i style="--w:35.2%"></i><b>2.25%</b></div>
                   </div>
-                  <p class="mx__top"><span class="mx__dot"></span>Top source: <b>Links</b></p>
+                  <p class="mx__top"><span class="mx__dot"></span>Top source: <b>Paid Ads</b></p>
+                </div>
+              </div>
+            </div>
+          </article>
+          <div class="an-arrow rv" style="--d:.1s" aria-hidden="true">
+            <span class="an-arrow__l"><i></i><svg viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4"/></svg></span>
+          </div>
+          <article class="usp-card usp-card--tall usp-card--l2 a-ads2 rv" style="--d:.12s" tabindex="0" data-vseq data-vhover>
+            <div class="usp-card__head">
+              <h4 class="usp-card__title">See which ad works</h4>
+              <p class="usp-card__desc">Top ads by clicks, and the video behind them.</p>
+            </div>
+            <div class="usp-card__art" aria-hidden="true">
+              <div class="scene is-on">
+                <div class="ads">
+                  <div class="ads__list">
+                    <p class="ads__cap">Top paid ads · clicks</p>
+                    <div class="ads__row is-cur"><svg class="ic"><use href="#i-play"/></svg><span>Reel · AI replies in 3s</span><b>3,420</b></div>
+                    <div class="ads__row"><svg class="ic"><use href="#i-play"/></svg><span>Reel · Demo walkthrough</span><b>2,610</b></div>
+                    <div class="ads__row"><svg class="ic"><use href="#i-play"/></svg><span>Carousel · Pricing</span><b>1,480</b></div>
+                    <div class="ads__row"><svg class="ic"><use href="#i-play"/></svg><span>Static · Free trial</span><b>940</b></div>
+                  </div>
+                  <div class="pv">
+                    <div class="phone" data-vclip>
+                      <video class="phone__v is-cur" data-clip="0" muted playsinline preload="metadata" poster="./assets/video/ad-ai-replies-poster.jpg" data-src="./assets/video/ad-ai-replies.mp4?v=mk12" tabindex="-1" aria-hidden="true"></video><video class="phone__v" data-clip="1" muted playsinline preload="metadata" poster="./assets/video/ad-demo-walkthrough-poster.jpg" data-src="./assets/video/ad-demo-walkthrough.mp4?v=mk12" tabindex="-1" aria-hidden="true"></video>
+                      <span class="phone__play"><svg><use href="#i-play"/></svg></span>
+                      <span class="phone__bar"><i></i></span>
+                    </div>
+                    <span class="phone__cap">AI replies in 3s</span><span class="phone__clk">3,420 clicks</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -495,7 +518,7 @@
                   </div>
                   <div class="pv">
                     <div class="phone" data-vclip>
-                      <video class="phone__v is-cur" data-clip="0" muted playsinline preload="metadata" poster="./assets/video/ad-ai-replies-poster.jpg" data-src="./assets/video/ad-ai-replies.mp4?v=mk10" tabindex="-1" aria-hidden="true"></video><video class="phone__v" data-clip="1" muted playsinline preload="metadata" poster="./assets/video/ad-demo-walkthrough-poster.jpg" data-src="./assets/video/ad-demo-walkthrough.mp4?v=mk10" tabindex="-1" aria-hidden="true"></video>
+                      <video class="phone__v is-cur" data-clip="0" muted playsinline preload="metadata" poster="./assets/video/ad-ai-replies-poster.jpg" data-src="./assets/video/ad-ai-replies.mp4?v=mk12" tabindex="-1" aria-hidden="true"></video><video class="phone__v" data-clip="1" muted playsinline preload="metadata" poster="./assets/video/ad-demo-walkthrough-poster.jpg" data-src="./assets/video/ad-demo-walkthrough.mp4?v=mk12" tabindex="-1" aria-hidden="true"></video>
                       <span class="phone__play"><svg><use href="#i-play"/></svg></span>
                       <span class="phone__bar"><i></i></span>
                     </div>
@@ -657,7 +680,7 @@
   <div class="wrap foot__bottom"><span>© 2026 PT Teknologi Cekat Indonesia. All rights reserved.</span></div>
 </footer>
 
-<script src="js/main.js?v=mk10" defer></script>
-<script src="js/products-menu.js?v=mk10" defer></script>
+<script src="js/main.js?v=mk12" defer></script>
+<script src="js/products-menu.js?v=mk12" defer></script>
 </body>
 </html>

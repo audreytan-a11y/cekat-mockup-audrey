@@ -77,8 +77,8 @@
      Sales are demo USD. Top source = --c1 (#1A56DB), others --c2 (#93B4F5).
      data-auto="0": no own cycling (the hero instance is driven by HERO SYNC); default: auto-cycle 3s, pause on hover. */
   var METRICS = [
-    { v: ['2.25%', '4.00%', '2.60%', '6.00%'], n: [2.25, 4, 2.6, 6] },
-    { v: ['2.0%', '1.9%', '1.3%', '2.4%'], n: [2.0, 1.9, 1.3, 2.4] },
+    { v: ['6.40%', '3.20%', '2.60%', '2.25%'], n: [6.4, 3.2, 2.6, 2.25] },
+    { v: ['3.1%', '1.9%', '1.3%', '1.0%'], n: [3.1, 1.9, 1.3, 1.0] },
     { v: ['$18,600', '$7,400', '$5,200', '$3,100'], n: [18600, 7400, 5200, 3100] }
   ];
   var SRC_NAMES = ['Paid Ads', 'Organic', 'Creators', 'Links'];
@@ -96,12 +96,12 @@
       if (top) top.textContent = SRC_NAMES[ti];
       tabs.forEach(function (t, k) { t.classList.toggle('is-on', k === m); t.setAttribute('aria-pressed', String(k === m)); });
     }
-    function loop() { clearTimeout(tm); if (!auto || reduce || hover) return; tm = setTimeout(function () { set((cur + 1) % 3); loop(); }, 3000); }
+    function loop() { clearTimeout(tm); if (!auto || reduce || !hover) return; tm = setTimeout(function () { set((cur + 1) % 3); loop(); }, 3000); }
     tabs.forEach(function (t, k) { t.addEventListener('click', function () { set(k); loop(); }); });
     if (auto) {
       var card = root.closest('.usp-card') || root;
-      card.addEventListener('mouseenter', function () { hover = true; clearTimeout(tm); });
-      card.addEventListener('mouseleave', function () { hover = false; loop(); });
+      card.addEventListener('mouseenter', function () { hover = true; loop(); });
+      card.addEventListener('mouseleave', function () { hover = false; clearTimeout(tm); set(0); });
     }
     root.mxSet = set; // HERO SYNC resets the hero instance to CTR each time slide 2 comes in
     set(0); loop();
@@ -186,6 +186,7 @@
       cur = k;
       rows.forEach(function (r, j) { r.classList.toggle('is-cur', j === k); });
       cap.textContent = CLIPS[k].name;
+      var ck = $('.phone__clk', card), rb = rows[k] && $('b', rows[k]); if (ck && rb) ck.textContent = rb.textContent + ' clicks';
       clip.load(k);
     }
     function step(k) { show(k); clip.run(function () { step((k + 1) % CLIPS.length); }); }
@@ -201,79 +202,39 @@
     }
     show(0);
     if (reduce) return;
-    if (hasIO) new IntersectionObserver(function (es) { es.forEach(function (e) { seen = e.isIntersecting; sync(); }); }, { threshold: 0.35 }).observe(card);
+    if (card.hasAttribute('data-vhover') && window.matchMedia && matchMedia('(hover:hover)').matches) {
+      card.addEventListener('pointerenter', function () { seen = true; sync(); });
+      card.addEventListener('pointerleave', function () { seen = false; sync(); });
+      card.addEventListener('focusin', function () { seen = true; sync(); });
+      card.addEventListener('focusout', function () { seen = false; sync(); });
+    } else if (hasIO) new IntersectionObserver(function (es) { es.forEach(function (e) { seen = e.isIntersecting; sync(); }); }, { threshold: 0.35 }).observe(card);
     else { seen = true; sync(); }
     document.addEventListener('visibilitychange', sync);
     });
   })();
 
-  /* ---------- HERO SYNC (mk5 → mk7) ----------
-     Same pattern as homepage-v1 "[data-sync]" (v11): ONE shared timer (MS=3000) drives H1 line 2,
-     the illustration slide and the dots. Loops forever. Pauses while the mouse is over the card or the
-     headline, or keyboard focus is inside the card, and while the hero is out of view; resumes after.
-     A dot click jumps and restarts the timer. Reduced motion: first pair static, dots still switch.
-     mk7: per-slide durations (DUR) — slide 1 holds 5.6s so one Reel plays fully (poster 0.9s + ~4.3s + hold);
-     each time slide 1 comes in, the next Reel plays (AI replies → Demo walkthrough → …) and the tile caption +
-     credited line follow it. Hover/focus pause: the current Reel finishes and holds. Hidden slide / offscreen: paused. */
+  /* ---------- HERO H1 ROTATION (mk11) ----------
+     Hero visual is a single static card; only H1 line 2 rotates every 3s. Pauses on headline hover and offscreen. */
   (function () {
-    var vis = $('#hero-sync'), h1 = $('.hero__title'); if (!vis || !h1) return;
-    var sl = $$('.hx__s', vis), dots = $$('.hx__dots button', vis), txt = $$('.hero__rot > span', h1);
-    var hero = vis.closest('.hero') || vis, i = 0, t = null, MS = 3000, DUR = [5600, MS];
-    var hbox = $('[data-vclip]', sl[0]), hclip = hbox ? VClip(hbox) : null, hk = -1, wasOff = false;
-    var hcap = $('[data-vcap]', sl[0]), hcred = $('[data-vcred]', sl[0]);
-    if (hclip && !reduce) hclip.attach();
-    function heroVid(on, next) { // on: slide 1 is showing · next: advance to the other Reel
-      if (!hclip) return;
-      if (!on) { hclip.stop(); return; }
-      if (next || hk < 0) hk = (hk + 1) % CLIPS.length;
-      if (hcap) hcap.textContent = CLIPS[hk].name + ' · Reel';
-      if (hcred) hcred.textContent = 'Meta ad · Reel · ' + CLIPS[hk].name;
-      hclip.load(hk);
-      if (!reduce && !off()) hclip.run(null, 900); // after the slide + Ad card have faded in
-    }
-    var hover = { card: false, h1: false }, kfocus = false, seen = true;
-    if (sl.length < 2) return;
-    function set(k, instant) {
-      var prevS = sl[i], prevT = txt[i];
-      sl.forEach(function (s, j) {
-        s.classList.toggle('is-on', j === k);
-        // decorative slides stay hidden from AT; the metric slide (real buttons) is exposed while shown
-        s.setAttribute('aria-hidden', String(j !== k || !$('[data-metric]', s)));
-      });
+    var h1 = $('.hero__title'); if (!h1) return;
+    var txt = $$('.hero__rot > span', h1), hero = h1.closest('.hero') || h1, i = 0, t = null, MS = 3000, over = false, seen = true;
+    if (txt.length < 2) return;
+    function set(k) {
+      var prev = txt[i];
       txt.forEach(function (s, j) { s.classList.toggle('is-on', j === k); s.classList.remove('is-out'); });
-      dots.forEach(function (d, j) { d.classList.toggle('on', j === k); d.setAttribute('aria-pressed', String(j === k)); });
-      if (!instant && prevT && prevT !== txt[k]) { prevT.classList.add('is-out'); setTimeout(function () { prevT.classList.remove('is-out'); }, 400); }
-      if (!instant && prevS && prevS !== sl[k]) { prevS.classList.add('is-leaving'); setTimeout(function () { prevS.classList.remove('is-leaving'); }, 450); }
-      var mx = $('[data-metric]', sl[k]); if (mx && mx.mxSet) mx.mxSet(0);
+      if (prev && prev !== txt[k]) { prev.classList.add('is-out'); setTimeout(function () { prev.classList.remove('is-out'); }, 400); }
       i = k;
-      heroVid(k === 0, true);
-      if (txt[k]) h1.setAttribute('aria-label', (h1.getAttribute('data-pre') || '') + txt[k].textContent);
-    }
-    function off() { return !seen || document.hidden; }
-    function paused() { return hover.card || hover.h1 || kfocus || off(); }
-    function schedule(ms) {
-      clearTimeout(t);
-      t = setTimeout(function () { set((i + 1) % sl.length); schedule(DUR[i]); }, ms);
+      h1.setAttribute('aria-label', (h1.getAttribute('data-pre') || '') + txt[k].textContent);
     }
     function start() {
       clearTimeout(t); t = null;
-      if (reduce) return;
-      if (off()) { if (i === 0 && hclip) hclip.stop(); wasOff = true; return; }
-      if (wasOff) { wasOff = false; if (i === 0) heroVid(true, false); } // back on screen: same Reel, from its poster
-      if (paused()) return;
-      // slide 1: wait for the Reel to finish (+ a short hold); slide 2: its full 3s
-      schedule(i === 0 && hclip ? Math.max(1200, hclip.left() + 700) : DUR[i]);
+      if (reduce || over || !seen || document.hidden) return;
+      t = setTimeout(function () { set((i + 1) % txt.length); start(); }, MS);
     }
-    set(0, true);
-    dots.forEach(function (d, j) { d.addEventListener('click', function () { if (j !== i) set(j); start(); }); });
+    set(0);
     if (reduce) return;
-    [['card', vis], ['h1', h1]].forEach(function (p) {
-      p[1].addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { hover[p[0]] = true; start(); } });
-      p[1].addEventListener('pointerleave', function () { if (hover[p[0]]) { hover[p[0]] = false; start(); } });
-    });
-    vis.addEventListener('focusin', function (e) { kfocus = !!(e.target.matches && e.target.matches(':focus-visible')); start(); });
-    vis.addEventListener('focusout', function () { kfocus = false; start(); });
-    dots.forEach(function (d) { d.addEventListener('pointerup', function () { d.blur(); kfocus = false; start(); }); });
+    h1.addEventListener('pointerenter', function (e) { if (e.pointerType === 'mouse') { over = true; start(); } });
+    h1.addEventListener('pointerleave', function () { over = false; start(); });
     if (hasIO) new IntersectionObserver(function (es) { es.forEach(function (e) { seen = e.isIntersecting; start(); }); }, { threshold: 0.15 }).observe(hero);
     document.addEventListener('visibilitychange', start);
     start();
