@@ -123,3 +123,8 @@
 .hqr__t small{color:#667085;font-size:11.5px}
 .hqr__t strong{font-size:14px;font-weight:700}
 @media (max-width:760px){.hqr img{width:46px;height:46px}.hqr{gap:9px;padding:6px 10px 6px 6px}}
+
+/* v14k: Meta + TikTok partner badges side by side (same pill style and size) */
+.hv2__badges{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:10px;margin:0 0 22px}
+.hv2__badges .hv2__eyebrow{margin:0}
+@media (max-width:760px){.hv2__badges{gap:8px;margin-bottom:18px}}
