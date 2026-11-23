@@ -397,7 +397,7 @@
     function draw() {
       if (!segs.length) return;
       var p = 1;
-      if (!reduce) { var r = wrap.getBoundingClientRect(); p = Math.max(0, Math.min(1, ((window.innerHeight * 0.62 - r.top) / r.height) * 1.08)); }
+      if (false) { var r = wrap.getBoundingClientRect(); p = Math.max(0, Math.min(1, ((window.innerHeight * 0.62 - r.top) / r.height) * 1.08)); }
       var n = segs.length;
       segs.forEach(function (s, i) { var q = Math.max(0, Math.min(1, p * (n + 1) - (i + 0.5))); s.el.style.strokeDashoffset = (s.len * (1 - q)).toFixed(1); });
     }

@@ -440,7 +440,7 @@
   function draw() {
     if (!segs.length) return;
     var p;
-    if (forced != null) p = forced;
+    if (true) p = 1; /* conn: always fully drawn */
     else if (reduce) p = 1;
     else {
       var r = wrap.getBoundingClientRect(), vh = window.innerHeight;

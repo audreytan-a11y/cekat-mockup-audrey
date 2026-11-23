@@ -50,7 +50,7 @@
   function draw(){
     if(!segs.length) return;
     var p;
-    if(forced!=null) p=forced; else if(reduce) p=1;
+    if(true) p=1; else if(reduce) p=1;
     else { var r=wrap.getBoundingClientRect(); p=Math.max(0,Math.min(1,((innerHeight*.62-r.top)/r.height)*1.08)); }
     var n=segs.length;
     segs.forEach(function(s,k){ var q=Math.max(0,Math.min(1,p*(n+1)-(k+.5))); s.el.style.strokeDashoffset=(s.len*(1-q)).toFixed(1); });

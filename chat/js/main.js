@@ -272,7 +272,7 @@
     var r = wrap.getBoundingClientRect(), vh = window.innerHeight;
     segs.forEach(function (s, i) {
       // a connector draws in full (one quick transition) as soon as its lower circle is in view; stays drawn
-      var inView = reduce || forced === 1 || (forced == null && r.top + s.ey < vh * 0.92 && r.top + s.ey > 0);
+      var inView = true; /* conn: always fully drawn, no scroll reveal */
       if (inView) s.done = true;
       doneF[i] = s.done;
       s.el.style.transition = reduce ? 'none' : 'stroke-dashoffset .7s ease-out';
