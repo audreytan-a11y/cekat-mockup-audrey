@@ -1210,13 +1210,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hero__vis .hv-omni .pc-win{max-width:none}
 .hv-app{position:absolute;z-index:2;width:52px;height:52px;border-radius:16px;background:#fff;box-shadow:var(--sh-2),0 0 0 1px #e6edf8;display:grid;place-items:center;animation:hvFloat 5s ease-in-out infinite}
 .hv-app img{width:28px;height:28px}
-.hv-app--tl{left:-24px;top:-26px}
-.hv-app--tr{right:-24px;top:-6px;animation-delay:-1.2s}
-.hv-app--bl{left:-24px;bottom:-6px;animation-delay:-2.4s}
-.hv-app--br{right:-24px;bottom:-26px;animation-delay:-3.6s}
+.pc-mb .pc-ts{display:block;margin-top:4px;font-size:10.5px;line-height:1;font-weight:500;opacity:.6;text-align:right;letter-spacing:.01em}
 @keyframes hvFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
 @media (max-width:760px){.hv-app{width:44px;height:44px;border-radius:14px}.hv-app img{width:24px;height:24px}
-.hv-app--tl,.hv-app--bl{left:-10px}.hv-app--tr,.hv-app--br{right:-10px}.hv-app--tl{top:-22px}.hv-app--br{bottom:-22px}}
+}
 @media (prefers-reduced-motion:reduce){.hv-app{animation:none}}
 .hl-wrap,.hs-wrap{display:grid}
 .hl-wrap{margin-top:0}
@@ -1281,3 +1278,27 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (max-width:760px){.usp-card--duo{height:auto;min-height:0}.usp-card--duo .usp-card__art{min-height:0;height:auto}
 .usp-card--duo .scene{position:static;flex-direction:column;padding:10px 18px 20px;gap:12px}
 .usp-card--duo .scene .mini-chat{flex:none;width:100%}}
+
+/* ---- hero inbox: abstract playful variants. Switch: <html data-hv="A|B"> (or ?hv=A / ?hv=B). To adopt one, delete the other block and drop the prefix. ---- */
+.hv-blob{display:none;position:absolute;border-radius:50%;background:#dbe8fd;z-index:0;pointer-events:none}
+@keyframes hvDrift{0%,100%{transform:translateY(0) rotate(var(--r,0deg))}50%{transform:translateY(-7px) rotate(calc(var(--r,0deg) + 2deg))}}
+.hv-omni .pc-win{position:relative;z-index:1}
+.hv-blob{display:block}
+.hv-app{width:var(--s);height:var(--s);border-radius:calc(var(--s)*.3);margin:0;transform:rotate(var(--r));animation:hvDrift var(--t,5.5s) ease-in-out infinite;animation-delay:var(--dl,0s);box-shadow:0 10px 24px -8px rgba(26,86,219,.28),0 0 0 1px #e6edf8;left:auto;right:auto;top:auto;bottom:auto}
+.hv-app img{width:calc(var(--s)*.54);height:calc(var(--s)*.54)}
+/* A: big WhatsApp top-left + big Messenger bottom-right, rest scattered */
+.hv-app--wa{--s:66px;--r:-8deg;--dl:0s;left:-34px;top:-40px}
+.hv-app--ig{--s:52px;--r:6deg;--dl:-1.7s;--t:6.2s;right:-16px;top:-22px}
+.hv-app--tt{--s:52px;--r:7deg;--dl:-3.1s;--t:4.8s;left:-44px;bottom:26px}
+.hv-app--tg{--s:52px;--r:-5deg;--dl:-2.3s;--t:6s;left:96px;bottom:-42px}
+.hv-app--lc{--s:40px;--r:-6deg;--dl:-4.2s;--t:5s;right:-36px;top:42%}
+.hv-app--ms{--s:66px;--r:8deg;--dl:-.9s;right:-30px;bottom:-46px}
+.hv-blob--1{width:14px;height:14px;left:34%;top:-30px}
+.hv-blob--2{width:22px;height:22px;right:-6px;bottom:44px}
+.hv-blob--3{width:10px;height:10px;left:-18px;top:46%}
+@media (max-width:760px){
+.hv-app--wa{--s:50px;left:-8px;top:-30px}.hv-app--ig{--s:42px;right:-8px;top:-24px}
+.hv-app--tt{--s:44px;left:-10px;bottom:34px}.hv-app--tg{--s:42px;left:70px;bottom:-32px}
+.hv-app--lc{--s:34px;right:-8px;top:44%}.hv-app--ms{--s:50px;right:-6px;bottom:-34px}
+.hv-blob--3{left:-6px}.hv-blob--2{right:6px}
+@media (prefers-reduced-motion:reduce){.hv-app{animation:none}}

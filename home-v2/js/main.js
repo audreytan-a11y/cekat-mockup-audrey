@@ -535,4 +535,10 @@
   lb.addEventListener('click',function(e){ if(e.target===lb||e.target.classList.contains('ts-lb__x')) close(); });
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!lb.hidden) close(); });
 })();
+(function(){
+  var wrap=document.querySelector('.ts-wrap'); if(!wrap) return;
+  var bs=document.querySelectorAll('.ts-toggle');
+  function set(o){ wrap.classList.toggle('is-open',o); bs.forEach(function(b){ b.setAttribute('aria-expanded',o?'true':'false'); var l=b.querySelector('b'); if(l) l.textContent=o?'Show fewer stories':'More customer stories'; }); }
+  bs.forEach(function(b){ b.addEventListener('click',function(){ var o=!wrap.classList.contains('is-open'); set(o); if(!o){ var h=document.getElementById('stories'); if(h) h.scrollIntoView({block:'start',behavior:'smooth'}); } }); });
+})();
 /* TS-V2 JS END */

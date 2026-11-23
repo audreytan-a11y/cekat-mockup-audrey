@@ -230,8 +230,17 @@
   svg.setAttribute('class', 'flow');
   svg.setAttribute('aria-hidden', 'true');
   wrap.insertBefore(svg, wrap.firstChild);
-  var segs = [], total = 0, forced = null;
+  var segs = [], total = 0, forced = null, doneF = [];
 
+  function cfPos(el) {
+    var r = el.getBoundingClientRect(), w = wrap.getBoundingClientRect(), tx = 0, ty = 0, n = el;
+    while (n && n !== wrap) {
+      var t = getComputedStyle(n).transform;
+      if (t && t !== 'none') { var m = t.match(/matrix\(([^)]+)\)/); if (m) { var v = m[1].split(','); tx += parseFloat(v[4]) || 0; ty += parseFloat(v[5]) || 0; } }
+      n = n.parentElement;
+    }
+    return { x: r.left - w.left - tx, y: r.top - w.top - ty, w: r.width, h: r.height };
+  }
   function layout() {
     var stages = [].slice.call(wrap.querySelectorAll('.feature-block__visual .stage'));
     var wr = wrap.getBoundingClientRect();
@@ -241,44 +250,43 @@
     var defs = '', body = '', dots = '';
     var ds = [];
     for (var i = 0; i < stages.length - 1; i++) {
-      var a = stages[i].getBoundingClientRect(), b = stages[i + 1].getBoundingClientRect();
-      var sx = a.left + a.width / 2 - wr.left, sy = a.bottom - wr.top;
-      var ex = b.left + b.width / 2 - wr.left, ey = b.top - wr.top;
+      var a = cfPos(stages[i]), b = cfPos(stages[i + 1]);
+      var sx = a.x + a.w / 2, sy = a.y + a.h - 0.5;
+      var ex = b.x + b.w / 2, ey = b.y + 0.5;
       var k = (ey - sy) * 0.75;
       var d = 'M' + sx + ' ' + sy + ' C' + sx + ' ' + (sy + k) + ' ' + ex + ' ' + (ey - k) + ' ' + ex + ' ' + ey;
       ds.push(d);
-      defs += '<mask id="flowM' + i + '" maskUnits="userSpaceOnUse"><path class="flow__mask" d="' + d + '"/></mask>';
+      defs += '<mask id="flowM' + i + '" maskUnits="userSpaceOnUse"><path class="flow__mask" data-ey="' + ey + '" d="' + d + '"/></mask>';
       body += '<path class="flow__line" d="' + d + '" mask="url(#flowM' + i + ')"/>';
       dots += '<circle cx="' + sx + '" cy="' + sy + '" r="4.5"/><circle cx="' + ex + '" cy="' + ey + '" r="4.5"/>';
     }
     svg.innerHTML = '<defs>' + defs + '</defs>' + body + '<g class="flow__nodes">' + dots + '</g>';
-    segs = [].slice.call(svg.querySelectorAll('.flow__mask')).map(function (m) {
-      var l = m.getTotalLength(); m.style.strokeDasharray = l + ' ' + l; return { el: m, len: l };
+    segs = [].slice.call(svg.querySelectorAll('.flow__mask')).map(function (m, idx) {
+      var l = m.getTotalLength(); m.style.strokeDasharray = l + ' ' + l; return { el: m, len: l, ey: parseFloat(m.getAttribute('data-ey')), done: !!doneF[idx] };
     });
     total = segs.reduce(function (t, s) { return t + s.len; }, 0);
     draw();
   }
   function draw() {
     if (!segs.length) return;
-    var p;
-    if (forced != null) p = forced;
-    else if (reduce) p = 1;
-    else {
-      var r = wrap.getBoundingClientRect(), vh = window.innerHeight;
-      p = Math.max(0, Math.min(1, ((vh * 0.62 - r.top) / r.height) * 1.08));
-    }
-    // each segment draws while the viewport travels its own stretch of the section
-    var n = segs.length;
+    var r = wrap.getBoundingClientRect(), vh = window.innerHeight;
     segs.forEach(function (s, i) {
-      var q = Math.max(0, Math.min(1, p * (n + 1) - (i + 0.5)));
-      s.el.style.strokeDashoffset = (s.len * (1 - q)).toFixed(1);
+      // a connector draws in full (one quick transition) as soon as its lower circle is in view; stays drawn
+      var inView = reduce || forced === 1 || (forced == null && r.top + s.ey < vh * 0.92 && r.top + s.ey > 0);
+      if (inView) s.done = true;
+      doneF[i] = s.done;
+      s.el.style.transition = reduce ? 'none' : 'stroke-dashoffset .7s ease-out';
+      s.el.style.strokeDashoffset = s.done ? '0' : s.len.toFixed(1);
     });
   }
-  window.cekatFlow = { set: function (p) { forced = p; draw(); }, layout: layout };
+  window.cekatFlow = { set: function (p) { forced = p; draw(); }, segs: function () { return segs; }, layout: layout };
   var raf = 0;
   window.addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(function () { raf = 0; draw(); }); }, { passive: true });
   window.addEventListener('resize', function () { clearTimeout(layout._t); layout._t = setTimeout(layout, 120); });
   window.addEventListener('load', layout);
+  wrap.addEventListener('transitionend', function (e) { if (/transform/.test(e.propertyName)) { clearTimeout(layout._t3); layout._t3 = setTimeout(layout, 30); } });
+  setTimeout(layout, 900);
+  if (window.ResizeObserver) { var ro = new ResizeObserver(function () { clearTimeout(layout._t2); layout._t2 = setTimeout(layout, 30); }); ro.observe(wrap); [].forEach.call(wrap.querySelectorAll('.feature-block__visual .stage'), function (s) { ro.observe(s); }); }
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
   layout();
 })();
