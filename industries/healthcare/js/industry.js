@@ -20,15 +20,25 @@
   var svg=document.createElementNS(NS,'svg'); svg.setAttribute('class','ih-flow'); svg.setAttribute('aria-hidden','true');
   wrap.insertBefore(svg,wrap.firstChild);
   var segs=[], forced=null;
+  /* hc11 — positions come from layout offsets (immune to the .rv reveal transform), measured relative to the steps wrapper.
+     Each connector = ONE path from the exact centre of the circle on the bottom edge of box k to the exact centre of the circle
+     on the top-centre edge of box k+1; circles are centred on the 1px box border (edge ±.5px). Desktop = S-curve; mobile = same
+     path bowed through the left gutter so it never crosses the copy. */
+  function pos(el){ /* exact (sub-pixel) rect relative to the wrapper, minus any in-flight .rv reveal translate */
+    var r=el.getBoundingClientRect(), w=wrap.getBoundingClientRect(), tx=0, ty=0, n=el;
+    while(n&&n!==wrap){ var t=getComputedStyle(n).transform; if(t&&t!=='none'){ var m=t.match(/matrix\(([^)]+)\)/); if(m){ var v=m[1].split(','); tx+=parseFloat(v[4])||0; ty+=parseFloat(v[5])||0; } } n=n.parentElement; }
+    return {x:r.left-w.left-tx,y:r.top-w.top-ty,w:r.width,h:r.height}; }
   function layout(){
-    var st=[].slice.call(wrap.querySelectorAll('.ih-stage')), wr=wrap.getBoundingClientRect();
-    svg.setAttribute('width',wr.width); svg.setAttribute('height',wr.height); svg.setAttribute('viewBox','0 0 '+wr.width+' '+wr.height);
-    if(getComputedStyle(svg).display==='none'||st.length<2){ segs=[]; svg.innerHTML=''; return; }
+    var st=[].slice.call(wrap.querySelectorAll('.ih-stage')), W=wrap.getBoundingClientRect().width, H=wrap.getBoundingClientRect().height;
+    svg.setAttribute('width',W); svg.setAttribute('height',H); svg.setAttribute('viewBox','0 0 '+W+' '+H);
+    if(st.length<2){ segs=[]; svg.innerHTML=''; return; }
+    var mob=window.matchMedia&&matchMedia('(max-width:900px)').matches;
     var defs='',body='',dots='';
     for(var k=0;k<st.length-1;k++){
-      var a=st[k].getBoundingClientRect(), b=st[k+1].getBoundingClientRect();
-      var sx=a.left+a.width/2-wr.left, sy=a.bottom-wr.top, ex=b.left+b.width/2-wr.left, ey=b.top-wr.top, c=(ey-sy)*.75;
-      var d='M'+sx+' '+sy+' C'+sx+' '+(sy+c)+' '+ex+' '+(ey-c)+' '+ex+' '+ey;
+      var a=pos(st[k]), b=pos(st[k+1]);
+      var sx=a.x+a.w/2, sy=a.y+a.h-.5, ex=b.x+b.w/2, ey=b.y+.5, c=(ey-sy)*.75, d;
+      if(mob){ var gx=12; d='M'+sx+' '+sy+' C'+sx+' '+(sy+30)+' '+gx+' '+(sy+16)+' '+gx+' '+(sy+56)+' L'+gx+' '+(ey-26)+' C'+gx+' '+(ey-2)+' '+(ex-80)+' '+ey+' '+ex+' '+ey; }
+      else d='M'+sx+' '+sy+' C'+sx+' '+(sy+c)+' '+ex+' '+(ey-c)+' '+ex+' '+ey;
       defs+='<mask id="ihM'+k+'" maskUnits="userSpaceOnUse"><path class="ih-flow__mask" d="'+d+'"/></mask>';
       body+='<path class="ih-flow__line" d="'+d+'" mask="url(#ihM'+k+')"/>';
       dots+='<circle cx="'+sx+'" cy="'+sy+'" r="4.5"/><circle cx="'+ex+'" cy="'+ey+'" r="4.5"/>';
@@ -50,6 +60,7 @@
   addEventListener('scroll',function(){ if(!raf) raf=requestAnimationFrame(function(){ raf=0; draw(); }); },{passive:true});
   addEventListener('resize',function(){ clearTimeout(layout._t); layout._t=setTimeout(layout,120); });
   addEventListener('load',layout);
+  if(window.ResizeObserver){ var ro=new ResizeObserver(function(){ clearTimeout(layout._t2); layout._t2=setTimeout(layout,30); }); ro.observe(wrap); [].forEach.call(wrap.querySelectorAll('.ih-stage'),function(s){ ro.observe(s); }); }
   if(document.fonts&&document.fonts.ready) document.fonts.ready.then(layout);
   layout();
 })();

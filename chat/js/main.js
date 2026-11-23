@@ -283,7 +283,7 @@
   layout();
 })();
 
-/* rev28 — hero: one shared timer for the illustration slides + dots (headline is static).
+/* rev28 — hero: one shared timer for the illustration slides + dots (headline line 2 + subtitle swap in sync).
    Loops forever (i+1 mod n); pauses only while a mouse is over the hero visual/title or keyboard focus is inside;
    always resumes on leave, after a dot click, when the hero scrolls back into view and when the tab is shown again. */
 (function () {
@@ -301,6 +301,12 @@
     dots.forEach(function (d, j) { d.classList.toggle('on', j === k); d.setAttribute('aria-pressed', j === k ? 'true' : 'false'); });
     i = k;
     hero.setAttribute('data-slide', String(k));
+    var hl = hero.querySelectorAll('.hl'), hs = hero.querySelectorAll('.hs');
+    [].forEach.call(hl, function (e, q) { e.classList.toggle('is-on', q === k); });
+    if (hs.length) {
+      var cur = hero.querySelector('.hs.is-on'), want = hs[Math.min(k, hs.length - 1)];
+      if (!cur || cur.textContent !== want.textContent) { [].forEach.call(hs, function (e) { e.classList.toggle('is-on', e === want); }); }
+    }
   }
   function paused() { return hover || kfocus || !seen || document.hidden; }
   function tick() { if (!paused()) set((i + 1) % n); }

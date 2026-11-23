@@ -203,11 +203,7 @@
   .ih-res{grid-template-columns:repeat(2,minmax(0,1fr))}
   .ih-stat:nth-child(3)::before{display:none}
   .ih-stat:nth-child(n+3){border-top:1px solid #e6edf8}
-  .ih-flow{display:none}
-  #how .ih-steps::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;border-left:2px dotted #93B4F5}
   .ih-step__copy,.ih-step__vis{padding-left:28px}
-  .ih-step__eb{position:relative}
-  .ih-step__eb::before{content:"";position:absolute;left:-25px;top:50%;width:10px;height:10px;margin-top:-5px;border-radius:50%;background:#fff;border:2px solid #1A56DB;box-sizing:border-box}
   .ih-step--rev .ih-step__copy{order:0}
   .ih-step{gap:28px}
   .ih-probs,.bento.bento--u.sg.ih-tgrid{grid-template-columns:1fr;max-width:520px}

@@ -374,14 +374,17 @@
     var NS = 'http://www.w3.org/2000/svg', svg = document.createElementNS(NS, 'svg');
     svg.setAttribute('class', 'cflow'); svg.setAttribute('aria-hidden', 'true'); wrap.insertBefore(svg, wrap.firstChild);
     var segs = [];
+    function cfPos(el) { var r = el.getBoundingClientRect(), w = wrap.getBoundingClientRect(), tx = 0, ty = 0, n = el;
+      while (n && n !== wrap) { var t = getComputedStyle(n).transform; if (t && t !== 'none') { var m = t.match(/matrix\(([^)]+)\)/); if (m) { var v = m[1].split(','); tx += parseFloat(v[4]) || 0; ty += parseFloat(v[5]) || 0; } } n = n.parentElement; }
+      return { x: r.left - w.left - tx, y: r.top - w.top - ty, w: r.width, h: r.height }; }
     function layout() {
       var wr = wrap.getBoundingClientRect();
       svg.setAttribute('width', wr.width); svg.setAttribute('height', wr.height); svg.setAttribute('viewBox', '0 0 ' + wr.width + ' ' + wr.height);
       if (getComputedStyle(svg).display === 'none' || stages.length < 2) { segs = []; return; }
       var defs = '', body = '', dots = '';
       for (var i = 0; i < stages.length - 1; i++) {
-        var a = stages[i].getBoundingClientRect(), b = stages[i + 1].getBoundingClientRect();
-        var sx = a.left + a.width / 2 - wr.left, sy = a.bottom - wr.top, ex = b.left + b.width / 2 - wr.left, ey = b.top - wr.top, k = (ey - sy) * 0.75;
+        var a = cfPos(stages[i]), b = cfPos(stages[i + 1]);
+        var sx = a.x + a.w / 2, sy = a.y + a.h - 0.5, ex = b.x + b.w / 2, ey = b.y + 0.5, k = (ey - sy) * 0.75;
         var d = 'M' + sx + ' ' + sy + ' C' + sx + ' ' + (sy + k) + ' ' + ex + ' ' + (ey - k) + ' ' + ex + ' ' + ey;
         defs += '<mask id="cflowM' + i + '" maskUnits="userSpaceOnUse"><path class="cflow__mask" d="' + d + '"/></mask>';
         body += '<path class="cflow__line" d="' + d + '" mask="url(#cflowM' + i + ')"/>';
@@ -402,6 +405,7 @@
     window.addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(function () { raf = 0; draw(); }); }, { passive: true });
     window.addEventListener('resize', function () { clearTimeout(layout._t); layout._t = setTimeout(layout, 120); });
     window.addEventListener('load', layout);
+    if (window.ResizeObserver) { var ro = new ResizeObserver(function () { clearTimeout(layout._t2); layout._t2 = setTimeout(layout, 30); }); ro.observe(wrap); stages.forEach(function (s) { ro.observe(s); }); }
     if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
     layout();
   })();
