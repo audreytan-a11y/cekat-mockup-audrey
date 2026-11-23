@@ -1,5 +1,5 @@
 /* Cekat.AI — product landing page (Chat v1) — vanilla JS, no build.
-   Modules: nav · reveal · players (hover/focus/in-view animations) · hero chat loop · count-up */
+   Modules: nav · reveal · players (hover/focus/in-view animations) · hero chat loop */
 (function () {
   'use strict';
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
@@ -217,26 +217,6 @@
     }
   }
 
-  /* ---------- COUNT-UP ---------- */
-  var counters = $$('[data-count]');
-  if (!reduce && hasIO && counters.length) {
-    counters.forEach(function (c) { c.textContent = '0'; });
-    var cio = new IntersectionObserver(function (entries) {
-      entries.forEach(function (en) {
-        if (!en.isIntersecting) return;
-        cio.unobserve(en.target);
-        var el = en.target, to = parseFloat(el.getAttribute('data-count')), dur = 1600, t0 = null;
-        var step = function (ts) {
-          if (!t0) t0 = ts;
-          var k = Math.min(1, (ts - t0) / dur), e = 1 - Math.pow(1 - k, 3);
-          el.textContent = String(Math.round(to * e));
-          if (k < 1) requestAnimationFrame(step);
-        };
-        requestAnimationFrame(step);
-      });
-    }, { threshold: 0.6 });
-    counters.forEach(function (c) { cio.observe(c); });
-  }
 })();
 
 /* rev24 — feature-flow connector: a dotted line weaving from one block's visual to the next.

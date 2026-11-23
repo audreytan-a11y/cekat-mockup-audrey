@@ -423,20 +423,10 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .ctrl{display:flex;flex-direction:column;width:100%;max-width:360px}
 .ctrl__panel{--p:30;counter-reset:ai var(--p) hu calc(100 - var(--p));background:var(--navy);color:#fff;border-radius:20px;padding:22px 24px 26px;box-shadow:var(--sh-3)}
 .ctrl__h{font-size:13px;font-weight:600;opacity:.8;margin-bottom:16px}
-.ctrl__accent{align-self:flex-end;margin:-16px -12px 0 0;position:relative;background:#fff;border-radius:12px;padding:9px 14px;font-size:13px;font-weight:600;color:var(--navy);box-shadow:var(--sh-2)}
 
 /* ==========================================================================
    RESULTS (navy) — open layout, big numbers, tiny labels
    ========================================================================== */
-.results__glow{position:absolute;left:50%;top:-40%;width:1100px;height:700px;margin-left:-550px;border-radius:50%;background:radial-gradient(closest-side,rgba(16,104,229,.28),transparent);pointer-events:none}
-.results .wrap{position:relative}
-.results__grid{display:grid;grid-template-columns:repeat(5,1fr)}
-.stat--big{display:flex;flex-direction:column;padding:4px 24px;border-left:1px solid rgba(255,255,255,.08)}
-.stat--big:first-child{border-left:0;padding-left:0}
-.stat--big>b{font-size:clamp(32px,3vw,44px);font-weight:600;letter-spacing:-.04em;line-height:1;color:#fff;font-variant-numeric:tabular-nums;white-space:nowrap}
-.stat__label{margin-top:14px;font-size:13.5px;line-height:1.4;color:#c7d5ef}
-.stat__who{margin-top:8px;font-size:11.5px;line-height:1.4;color:#7f96bf}
-.results__note{margin-top:40px;text-align:center;font-size:12px;color:#7f96bf}
 
 /* ==========================================================================
    TESTIMONIALS
@@ -482,10 +472,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
    FINAL CTA
    ========================================================================== */
 .cta{position:relative;overflow:hidden;padding:96px 0;background:var(--deep);text-align:center;color:#fff}
-.cta__glow{position:absolute;left:50%;top:50%;width:900px;height:600px;margin:-300px 0 0 -450px;border-radius:50%;background:radial-gradient(closest-side,rgba(16,104,229,.45),rgba(19,82,191,.12) 55%,transparent);pointer-events:none}
 .cta__inner{position:relative}
-.cta__title{font-size:clamp(30px,3.8vw,48px);line-height:1.05;letter-spacing:-.035em;font-weight:600;max-width:960px;margin:0 auto;text-wrap:balance}
-.cta__btns{display:flex;justify-content:center;flex-wrap:wrap;gap:12px;margin-top:32px}
 
 /* ==========================================================================
    FOOTER (from homepage-v1)
@@ -509,8 +496,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (max-width:1180px){
   .hero__grid{grid-template-columns:1.1fr 1fr}
   .hchat{width:290px}
-  .results__grid{grid-template-columns:repeat(3,1fr);row-gap:48px}
-  .stat--big:nth-child(4){border-left:0;padding-left:0}
   .feature-block{gap:64px}
 }
 @media (max-width:1024px){
@@ -585,16 +570,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .feature-block__text{font-size:15.5px}
   .stage{min-height:0;padding:64px 18px 32px}
   .stage:not(.stage--night){padding-top:32px}
-  .ctrl__accent{margin-right:0}
-  .results__grid{grid-template-columns:1fr 1fr;row-gap:40px}
-  .stat--big{padding:0 0 0 18px}
-  .stat--big:nth-child(odd){border-left:0;padding-left:0}
-  .stat--big:nth-child(4){border-left:1px solid rgba(255,255,255,.08);padding-left:18px}
-  .stat--big:last-child{grid-column:1/-1}
-  .stat--big>b{font-size:36px}
   .channels__list li{flex-basis:calc(33.33% - 10px);padding:16px 4px;font-size:12.5px}
   .cta{padding:72px 0}
-  .cta__btns{flex-direction:column;align-items:stretch}
   .foot__grid{grid-template-columns:1fr 1fr;gap:28px}
   .foot__brand{grid-column:1/-1}
   .foot__bottom{flex-direction:column}
@@ -863,15 +840,12 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .stage__main>.win,.stage__main>.ctrl{max-width:none}
 /* placements: layered on the main card's corners */
 .fx--a1{top:-20px;right:-30px}
-.fx--a2{left:-34px;bottom:-22px}
-.fx--b1{top:-48px;right:-38px}
-.fx--b2{left:-34px;bottom:-34px}
-.fx--c1{top:-38px;left:-36px}
-.fx--c2{right:-30px;bottom:-20px}
-.fx--d1{top:-44px;left:-30px}
-.fx--d2{left:-24px;bottom:-52px}
+.fx--v1{top:-42px;right:-30px}
+.fx--v2{right:-30px;bottom:-58px}
+.fx--one{width:236px;box-sizing:border-box}
+.fx--one b{font-size:13px;font-weight:600;color:var(--navy);white-space:nowrap}
 .feature-block .stage:not(.stage--night){padding-top:72px;padding-bottom:72px}
-@media (max-width:1100px){.fx--a1,.fx--b1,.fx--c2{right:-14px}.fx--a2,.fx--b2,.fx--c1,.fx--d1,.fx--d2{left:-14px}}
+@media (max-width:1100px){.fx--a1,.fx--v1,.fx--v2{right:-14px}}
 @media (max-width:640px){
   .feature-block .stage{min-height:0}
   .feature-block .bubble{font-size:13.5px;padding:10px 13px}
@@ -1176,3 +1150,19 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
   .usp-card--d1 .share__labels{margin-bottom:9px}
   .usp-card--d1 .share__ai::after,.usp-card--d1 .share__hu::after{font-size:24px}
 }
+
+/* rev31 — light CTA (same markup + look as the homepage v2 CTA) */
+.cta.cta--light{background:#fff;color:var(--navy);padding:72px 0 88px;overflow:visible}
+.cta--light .cta__inner{max-width:1120px;margin:0 auto;padding:72px 32px 76px;border-radius:28px;border:1px solid #dfe8f7;background:radial-gradient(60% 80% at 50% 120%,rgba(147,180,245,.45),transparent 70%),radial-gradient(40% 60% at 0% 0%,rgba(234,241,255,.95),transparent 70%),radial-gradient(40% 60% at 100% 0%,rgba(234,241,255,.95),transparent 70%),linear-gradient(180deg,#fff 0%,#f5f8ff 55%,#EAF1FF 100%);box-shadow:0 24px 48px -32px rgba(8,33,76,.28);text-align:center}
+.cta__easy{display:inline-flex;align-items:center;gap:7px;margin:0 0 22px;padding:7px 15px 7px 12px;border-radius:999px;background:#fff;color:var(--navy);font-size:14px;font-weight:700;border:1px solid #dfe8f7;box-shadow:0 6px 16px -10px rgba(8,33,76,.25)}
+.cta__easy svg{width:16px;height:16px;fill:#1A56DB}
+.cta--light .h1{font-size:clamp(30px,3.8vw,48px);line-height:1.02;letter-spacing:-.035em;font-weight:600;color:var(--navy);margin:0 0 28px}
+.cta--light .hero__cta{margin-top:0}
+.hero__cta--center{justify-content:center}
+.cta--light .btn--primary{background:#1A56DB;color:#fff}
+.btn--wline{background:#fff;color:var(--navy);border:1px solid #d5e0f2;box-shadow:0 6px 16px -12px rgba(8,33,76,.3)}
+.btn--wline:hover{border-color:#1A56DB;color:#1A56DB}
+@media (max-width:640px){.cta.cta--light{padding:40px 0 56px}.cta--light .cta__inner{margin:0 16px;padding:48px 20px 52px;border-radius:22px}}
+
+/* rev31 — Results strip removed: features + stories now sit back to back on white, so drop the doubled padding */
+#features+#stories{padding-top:0}
