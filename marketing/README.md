@@ -1,6 +1,6 @@
-# Cekat Marketing — product landing page (v1)
+# Trackr — product landing page (v1)
 
-Static, no-build page for **Cekat Marketing** (formerly “Tracker”, called “Marketing Suite” in the deck).
+Static, no-build page for **Trackr** (formerly “Tracker”; the deck called it “Marketing Suite” in the deck).
 It is cloned from `../chat-v1/` and uses the same design system, nav and Products menu, type scale, bento grid,
 player engine, feature blocks, results band, FAQ, CTA and footer. The content is rewritten from the Marketing deck.
 
