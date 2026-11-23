@@ -318,4 +318,91 @@
     });
   })();
 
+
+  /* ---------- crm8: feature cards animate only on hover (touch: while in view) ---------- */
+  (function () {
+    var canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    var cards = $$('.cbento .bt');
+    if (!canHover && !reduce && 'IntersectionObserver' in window) {
+      var pio = new IntersectionObserver(function (en) {
+        en.forEach(function (e) { e.target.classList.toggle('is-play', e.isIntersecting); });
+      }, { threshold: 0.55 });
+      cards.forEach(function (c) { pio.observe(c); });
+    }
+    /* Customizable View: tabs + auto-alternate while hovered / in view */
+    var kb = $('.bt--kb'); if (!kb) return;
+    var stage = $('.bkb__stage', kb), tabs = $$('.bkb__tabs button', kb);
+    var timer = null, userSet = false;
+    function setView(v) {
+      stage.setAttribute('data-view', v);
+      tabs.forEach(function (t) { var on = t.dataset.view === v; t.classList.toggle('is-on', on); t.setAttribute('aria-selected', String(on)); });
+    }
+    function stop() { clearInterval(timer); timer = null; }
+    function start() {
+      if (reduce || timer || userSet) return;
+      timer = setInterval(function () { setView(stage.getAttribute('data-view') === 'kanban' ? 'list' : 'kanban'); }, 3000);
+    }
+    function rest() { stop(); userSet = false; setView('kanban'); }
+    tabs.forEach(function (t) {
+      t.addEventListener('click', function () { userSet = true; stop(); setView(t.dataset.view); });
+    });
+    if (canHover) {
+      kb.addEventListener('mouseenter', start);
+      kb.addEventListener('mouseleave', rest);
+    } else if (!reduce && 'IntersectionObserver' in window) {
+      new IntersectionObserver(function (en) { if (en[0].isIntersecting) start(); else rest(); }, { threshold: 0.55 }).observe(kb);
+    }
+  })();
+
+  /* ---------- crm8: story rows — play on a 3s loop while in view; dotted connector ---------- */
+  (function () {
+    var wrap = document.querySelector('#how > .wrap'); if (!wrap) return;
+    var stages = $$('[data-fplay]', wrap);
+    if (!reduce) document.documentElement.classList.add('js-fb');
+    if (!reduce && 'IntersectionObserver' in window) {
+      var timers = new Map();
+      var replay = function (el) { el.classList.remove('is-fp'); void el.offsetWidth; el.classList.add('is-fp'); };
+      var io2 = new IntersectionObserver(function (en) {
+        en.forEach(function (e) {
+          var el = e.target;
+          if (e.isIntersecting) { if (timers.has(el)) return; replay(el); timers.set(el, setInterval(function () { replay(el); }, 3000)); }
+          else if (timers.has(el)) { clearInterval(timers.get(el)); timers.delete(el); }
+        });
+      }, { threshold: 0.55 });
+      stages.forEach(function (s) { io2.observe(s); });
+    }
+    var NS = 'http://www.w3.org/2000/svg', svg = document.createElementNS(NS, 'svg');
+    svg.setAttribute('class', 'cflow'); svg.setAttribute('aria-hidden', 'true'); wrap.insertBefore(svg, wrap.firstChild);
+    var segs = [];
+    function layout() {
+      var wr = wrap.getBoundingClientRect();
+      svg.setAttribute('width', wr.width); svg.setAttribute('height', wr.height); svg.setAttribute('viewBox', '0 0 ' + wr.width + ' ' + wr.height);
+      if (getComputedStyle(svg).display === 'none' || stages.length < 2) { segs = []; return; }
+      var defs = '', body = '', dots = '';
+      for (var i = 0; i < stages.length - 1; i++) {
+        var a = stages[i].getBoundingClientRect(), b = stages[i + 1].getBoundingClientRect();
+        var sx = a.left + a.width / 2 - wr.left, sy = a.bottom - wr.top, ex = b.left + b.width / 2 - wr.left, ey = b.top - wr.top, k = (ey - sy) * 0.75;
+        var d = 'M' + sx + ' ' + sy + ' C' + sx + ' ' + (sy + k) + ' ' + ex + ' ' + (ey - k) + ' ' + ex + ' ' + ey;
+        defs += '<mask id="cflowM' + i + '" maskUnits="userSpaceOnUse"><path class="cflow__mask" d="' + d + '"/></mask>';
+        body += '<path class="cflow__line" d="' + d + '" mask="url(#cflowM' + i + ')"/>';
+        dots += '<circle cx="' + sx + '" cy="' + sy + '" r="4.5"/><circle cx="' + ex + '" cy="' + ey + '" r="4.5"/>';
+      }
+      svg.innerHTML = '<defs>' + defs + '</defs>' + body + '<g class="cflow__nodes">' + dots + '</g>';
+      segs = $$('.cflow__mask', svg).map(function (m) { var l = m.getTotalLength(); m.style.strokeDasharray = l + ' ' + l; return { el: m, len: l }; });
+      draw();
+    }
+    function draw() {
+      if (!segs.length) return;
+      var p = 1;
+      if (!reduce) { var r = wrap.getBoundingClientRect(); p = Math.max(0, Math.min(1, ((window.innerHeight * 0.62 - r.top) / r.height) * 1.08)); }
+      var n = segs.length;
+      segs.forEach(function (s, i) { var q = Math.max(0, Math.min(1, p * (n + 1) - (i + 0.5))); s.el.style.strokeDashoffset = (s.len * (1 - q)).toFixed(1); });
+    }
+    var raf = 0;
+    window.addEventListener('scroll', function () { if (!raf) raf = requestAnimationFrame(function () { raf = 0; draw(); }); }, { passive: true });
+    window.addEventListener('resize', function () { clearTimeout(layout._t); layout._t = setTimeout(layout, 120); });
+    window.addEventListener('load', layout);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(layout);
+    layout();
+  })();
 })();
