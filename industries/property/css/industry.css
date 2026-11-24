@@ -251,3 +251,36 @@
 .wa-m--in .wa-vn__play{background:#eef1f3}
 .wa-m--out.wa-ok{border-color:#bfe8b6}
 .wa-m--out .wa-ok__chk{background:#fff}
+
+
+/* q1 industry cleanup */
+.kr-c{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center}
+.kr-c__panel{border-radius:24px;background:#fff;border:1px solid #e3eaf6;box-shadow:0 1px 2px rgba(16,24,40,.04),0 18px 40px -28px rgba(19,82,191,.28)}
+.kr-c__stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.kr-c__stats .ih-stat+.ih-stat::before{display:none}
+.kr-c__stats .ih-stat:nth-child(even){border-left:1px solid #e6edf8}
+.kr-c__stats .ih-stat:nth-child(n+3){border-top:1px solid #e6edf8}
+.kr-c__stats--3 .ih-stat:nth-child(3){grid-column:span 2;border-left:0}
+.kr-c__qs{display:grid}
+.kr-c__q{grid-area:1/1;margin:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;opacity:0;visibility:hidden;transition:opacity .6s ease,visibility .6s}
+.kr-c__q.is-on{opacity:1;visibility:visible}
+.kr-c__mark{font-size:96px;line-height:.7;height:44px;font-weight:700;color:#bcd2f7}
+.kr-c__q blockquote{margin:14px 0 0;font-size:22px;line-height:1.5;font-weight:600;color:var(--navy);letter-spacing:-.01em}
+.kr-c__q figcaption{margin-top:18px;display:flex;flex-direction:column;gap:2px;font-size:14px;color:#667085}
+.kr-c__q figcaption b{font-weight:600}
+@media(max-width:900px){.kr-c{grid-template-columns:1fr;gap:32px}}
+@media(max-width:640px){.kr-c__q blockquote{font-size:19px}.kr-c__mark{font-size:80px;height:36px}.kr-c__stats .ih-stat{padding:26px 20px}}
+@media(prefers-reduced-motion:reduce){.kr-c__q{transition:none}}
+/* CRM list card in flow steps (reuses the old Features "Client CRM" visual) */
+.cl .ih-card__t{display:flex;align-items:center;gap:8px}
+.cl-demo{margin-left:auto;font-size:11px;font-weight:500;color:#98a2b3}
+.cl-rows{display:grid;gap:8px}
+.cl-row{display:flex;align-items:center;gap:12px;padding:11px 12px;border-radius:12px;background:#f7faff;border:1px solid #e9eff9}
+.cl-av{flex:none;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#e4edfc;color:#1352bf;font-size:12px;font-weight:700}
+.cl-who{min-width:0;display:flex;flex-direction:column;gap:1px}
+.cl-who b{font-size:14px;font-weight:600;color:var(--navy);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cl-who small{font-size:12px;color:#667085;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cl-row em{margin-left:auto;flex:none;font-style:normal;font-size:11.5px;font-weight:700;color:#b54708;background:#fef0c7;border-radius:999px;padding:3px 9px;white-space:nowrap}
+.cl-row em.is-b{color:#1352bf;background:#e4edfc}
+.cl-row em.is-c{color:#067647;background:#dcfae6}
+@media(max-width:640px){.cl-row{gap:10px;padding:10px}.cl-av{width:30px;height:30px;font-size:11px}.cl-who b{font-size:13.5px}.cl-who small{font-size:11.5px}}
