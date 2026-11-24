@@ -17,3 +17,6 @@
 .ih-stat--q{grid-column:span 2;display:flex;flex-direction:column;justify-content:center}
 .ih-stat__q{margin:0;font-size:17px;line-height:1.5;font-weight:600;color:var(--navy)}
 .ih-stat--q .ih-stat__s{margin-top:10px}
+
+.ih-res.ih-res--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:640px){.ih-res.ih-res--3{grid-template-columns:1fr}}

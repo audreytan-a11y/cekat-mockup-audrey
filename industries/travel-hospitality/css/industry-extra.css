@@ -14,3 +14,6 @@
 /* hero watermark (mockup) */
 .ih-hero__panel>.ih-wm{position:absolute;left:-10px;bottom:-40px;width:460px;height:460px;z-index:0;pointer-events:none;color:var(--primary,#1A56DB);opacity:.06;fill:currentColor;stroke:none}
 @media(max-width:760px){.ih-hero__panel>.ih-wm{width:200px;height:200px;left:-14px;bottom:-60px}}
+
+.ih-res.ih-res--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:640px){.ih-res.ih-res--3{grid-template-columns:1fr}}
