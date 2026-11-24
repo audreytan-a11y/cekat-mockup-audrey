@@ -368,7 +368,7 @@
 /* ---------- Part 2: v14 menu illustrations (hand-written) ---------- */
 .dd--mega .mv__art{position:relative}
 .dd--mega .pm-wrap{position:relative;width:100%;max-width:400px}
-.dd--mega .pm-pill{position:absolute;top:-15px;right:-12px;z-index:3;display:inline-flex;align-items:center;gap:7px;max-width:calc(100% + 12px);padding:6px 12px 6px 9px;border-radius:999px;background:#fff;color:#1A56DB;font-size:12px;font-weight:600;line-height:1.2;white-space:nowrap;box-shadow:0 10px 22px -12px rgba(19,82,191,.5),0 0 0 1px #d9e5fb}
+.dd--mega .pm-pill{position:absolute;top:-15px;right:-12px;z-index:3;display:inline-flex;align-items:center;gap:7px;max-width:calc(100% + 12px);padding:6px 12px 6px 9px;border-radius:999px;background:#fff;color:#0f172a;font-size:12px;font-weight:600;line-height:1.2;white-space:nowrap;box-shadow:0 10px 22px -12px rgba(19,82,191,.5),0 0 0 1px #d9e5fb}
 .dd--mega .pm-pill::before{content:"";flex:none;width:7px;height:7px;border-radius:50%;background:#1A56DB;box-shadow:0 0 0 3px #e3edff}
 .dd--mega .rot__s.is-on .pm-pill{animation:pmPill .45s .1s cubic-bezier(.22,1,.36,1) both}
 @keyframes pmPill{from{opacity:0;transform:translateY(-4px) scale(.96)}to{opacity:1;transform:none}}
@@ -393,7 +393,7 @@
 .dd--mega .rot__s.is-on .pmx-cvs li{animation:pmIn .35s cubic-bezier(.22,1,.36,1) both}
 .dd--mega .rot__s.is-on .pmx-cvs li:nth-child(2){animation-delay:.2s}.dd--mega .rot__s.is-on .pmx-cvs li:nth-child(3){animation-delay:.4s}.dd--mega .rot__s.is-on .pmx-cvs li:nth-child(4){animation-delay:.6s}
 /* chat details */
-.dd--mega .pmx-note{align-self:flex-end;font-size:11.5px;font-weight:600;color:#1A56DB;background:#eef4ff;border-radius:999px;padding:3px 10px}
+.dd--mega .pmx-note{align-self:flex-end;font-size:11.5px;font-weight:600;color:#0f172a;background:#eef4ff;border-radius:999px;padding:3px 10px}
 .dd--mega .pmx-warn{color:#94580a;background:#fff6e5;border-color:#f5dfb2}
 .dd--mega .pmx-warn .pc-chk__i{background:#f59e0b}
 .dd--mega .pmx-hand,.dd--mega .pmx-store{align-self:flex-end;display:flex;align-items:center;gap:10px;background:#fff;border:1px solid #e3eaf6;border-radius:14px;padding:9px 14px 9px 9px}

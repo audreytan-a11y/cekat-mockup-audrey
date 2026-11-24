@@ -151,3 +151,9 @@
 @media (max-width:560px){.bcx-sec .bcx{zoom:.7}}
 @media (max-width:1100px){.bcs-row{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media (max-width:560px){.bcs-row{grid-template-columns:repeat(2,minmax(0,1fr))}.bcs-wrap{margin-top:40px}.bcs b{font-size:28px}}
+
+/* gap-fix: hero no longer a full-viewport block; uniform 96px/64px rhythm into next section */
+.chero{min-height:0!important;padding-bottom:0!important}
+@media (min-width:761px){.chero .scroll-cue{display:none}}
+.chero + .bcx-sec{padding-top:96px}
+@media (max-width:760px){.chero + .bcx-sec{padding-top:64px}}

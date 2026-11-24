@@ -2485,3 +2485,6 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (prefers-reduced-motion:reduce){.js-fb .fb-auto .fb-rule,.js-fb .fb-auto .fb-chat>*{opacity:1;animation:none!important}}
 @media (max-width:640px){.fb-auto{padding:10px}.fb-auto .fb-kb{gap:5px}.fb-auto .fb-kb__col p{font-size:10px;padding:5px 4px}.fb-auto .fb-kc{padding:6px;gap:4px}.fb-auto .fb-kc img{width:12px;height:12px}.fb-auto .fb-kc b{font-size:11px}.fb-auto .fb-kc span{font-size:10px}.fb-rule{font-size:11px}}
 .feature-block__visual{min-width:0}
+
+/* gap-fix: hero is no longer a forced full-viewport block on desktop (removes blank gap before next section) */
+@media (min-width:761px){.hero,.chero{min-height:0!important;padding-bottom:0!important}.hero .scroll-cue,.chero .scroll-cue{display:none}}

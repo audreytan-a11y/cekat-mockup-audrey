@@ -1302,3 +1302,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .hv-app--lc{--s:34px;right:-8px;top:44%}.hv-app--ms{--s:50px;right:-6px;bottom:-34px}
 .hv-blob--3{left:-6px}.hv-blob--2{right:6px}
 @media (prefers-reduced-motion:reduce){.hv-app{animation:none}}
+}
+
+/* gap-fix: hero is no longer a forced full-viewport block on desktop (removes blank gap before next section) */
+@media (min-width:761px){.hero,.chero{min-height:0!important;padding-bottom:0!important}.hero .scroll-cue,.chero .scroll-cue{display:none}}

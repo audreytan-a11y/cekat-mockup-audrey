@@ -2621,3 +2621,28 @@ button.more.ts-toggle{background:none;padding:0;display:inline-flex;align-items:
 .ts-more{background:linear-gradient(180deg,#f3f7ff 0%,#d6e5ff 100%);color:var(--primary);border:1px solid rgba(26,86,219,.22);box-shadow:0 10px 28px -4px rgba(26,86,219,.22),0 2px 6px rgba(26,86,219,.10)}
 .ts-more span{color:var(--primary)}
 .ts-more:hover{background:linear-gradient(180deg,#e9f1ff 0%,#c9dcff 100%)}
+
+/* v14z7: Inbox chat visual in the Chat carousel (slide 2), same look as Chat page hero */
+.pcv--hub .hb{position:relative;width:100%;max-width:330px;margin:0 auto}
+.pcv--hub .hb .pc-win{position:relative;z-index:1;max-width:none;width:100%}
+.pc-mb .pc-ts{display:block;margin-top:4px;font-size:10.5px;line-height:1;font-weight:500;opacity:.6;text-align:right;letter-spacing:.01em}
+.hb-blob{position:absolute;border-radius:50%;background:#dbe8fd;z-index:0;pointer-events:none}
+.hb-app{position:absolute;z-index:2;width:var(--s);height:var(--s);border-radius:calc(var(--s)*.3);background:#fff;display:grid;place-items:center;transform:rotate(var(--r));box-shadow:0 10px 24px -8px rgba(26,86,219,.28),0 0 0 1px #e6edf8;animation:hbDrift var(--t,5.5s) ease-in-out infinite;animation-delay:var(--dl,0s)}
+.hb-app img{width:calc(var(--s)*.54);height:calc(var(--s)*.54)}
+.hb-app--tl{--s:50px;--r:-8deg;left:-30px;top:-34px}
+.hb-app--tr{--s:42px;--r:6deg;--dl:-1.7s;--t:6.2s;right:-26px;top:-28px}
+.hb-app--bl{--s:44px;--r:7deg;--dl:-3.1s;--t:4.8s;left:-32px;bottom:2px}
+.hb-app--ml{--s:42px;--r:-5deg;--dl:-2.3s;--t:6s;left:60px;bottom:-40px}
+.hb-app--mr{--s:34px;--r:-6deg;--dl:-4.2s;--t:5s;right:-28px;top:44%}
+.hb-app--br{--s:50px;--r:8deg;--dl:-.9s;right:-24px;bottom:-38px}
+.hb-blob--1{width:14px;height:14px;left:34%;top:-30px}
+.hb-blob--2{width:22px;height:22px;right:-6px;bottom:44px}
+.hb-blob--3{width:10px;height:10px;left:-18px;top:46%}
+@keyframes hbDrift{0%,100%{transform:translateY(0) rotate(var(--r))}50%{transform:translateY(-8px) rotate(var(--r))}}
+@media (max-width:560px){.pcv--hub .hb{max-width:270px}.hb-app--tl{--s:42px;left:-12px;top:-30px}.hb-app--tr{--s:38px;right:-12px;top:-26px}.hb-app--bl{--s:38px;left:-14px;bottom:4px}.hb-app--ml{--s:36px;left:50px;bottom:-32px}.hb-app--mr{--s:30px;right:-14px}.hb-app--br{--s:42px;right:-10px;bottom:-32px}}
+@media (prefers-reduced-motion:reduce){.hb-app{animation:none}}
+.pcv--hub .hb{transform:translateY(-10px)}
+.hb-app--tl{top:-26px}.hb-app--tr{top:-22px}.hb-app--ml{bottom:-26px;left:70px}.hb-app--br{bottom:-28px}
+@media (max-width:560px){.pcv--hub .hb{transform:translateY(-14px)}.hb-app--tl{top:-18px;left:-8px}.hb-app--tr{top:-16px;right:-8px}.hb-app--ml{bottom:-20px}.hb-app--br{bottom:-22px;right:-8px}.hb-app--bl{left:-10px}.hb-app--mr{right:-10px}}
+@media (max-width:560px){.pcv--hub .hb{transform:translateY(8px)}.hb-app--tl{top:-14px}.hb-app--tr{top:-12px}.hb-app--ml{bottom:-14px}.hb-app--br{bottom:-16px}}
+@media (max-width:560px){.hb-app--ml{display:none}}

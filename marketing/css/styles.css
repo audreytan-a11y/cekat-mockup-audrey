@@ -1624,3 +1624,6 @@ svg use{pointer-events:none}
 .nav .nav__toggle[aria-expanded="true"] span:first-child{transform:translateY(3.5px) rotate(45deg)}
 .nav .nav__toggle[aria-expanded="true"] span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
 }
+
+/* gap-fix: hero is no longer a forced full-viewport block on desktop (removes blank gap before next section) */
+@media (min-width:761px){.hero,.chero{min-height:0!important;padding-bottom:0!important}.hero .scroll-cue,.chero .scroll-cue{display:none}}
