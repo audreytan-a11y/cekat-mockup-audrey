@@ -2617,3 +2617,7 @@ button.more.ts-toggle{background:none;padding:0;display:inline-flex;align-items:
 .ts-wrap.is-open .ts-more:hover{transform:translateY(-2px)}
 .ts-wrap.is-open .ts-more span{transform:rotate(90deg)}
 /* TS-V2 END */
+/* v14z4: "More customer stories" pill, A+ */
+.ts-more{background:linear-gradient(180deg,#f3f7ff 0%,#d6e5ff 100%);color:var(--primary);border:1px solid rgba(26,86,219,.22);box-shadow:0 10px 28px -4px rgba(26,86,219,.22),0 2px 6px rgba(26,86,219,.10)}
+.ts-more span{color:var(--primary)}
+.ts-more:hover{background:linear-gradient(180deg,#e9f1ff 0%,#c9dcff 100%)}
