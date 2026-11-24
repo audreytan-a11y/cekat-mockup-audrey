@@ -255,3 +255,24 @@
 /* watermark icon in hero (matches .tc__ghost: outline, primary colour, ~.12 opacity) */
 .ih-hero__panel>.ih-wm{position:absolute;left:-59px;bottom:-109px;width:400px;height:400px;z-index:0;pointer-events:none;color:var(--primary,#1A56DB);opacity:.06;fill:currentColor;stroke:none}
 @media(max-width:760px){.ih-hero__panel>.ih-wm{width:210px;height:210px;left:-10px;bottom:-60px;opacity:.06}}
+
+/* ip9b — key results + rotating quote */
+.kr-c{max-width:1080px;margin:0 auto;display:grid;grid-template-columns:1.25fr 1fr;gap:56px;align-items:center}
+.kr-c__panel{border-radius:24px;background:#fff;border:1px solid #e3eaf6;box-shadow:0 1px 2px rgba(16,24,40,.04),0 18px 40px -28px rgba(19,82,191,.28)}
+.kr-c__stats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}
+.kr-c__stats .ih-stat+.ih-stat::before{display:none}
+.kr-c__stats .ih-stat:nth-child(even){border-left:1px solid #e6edf8}
+.kr-c__stats .ih-stat:nth-child(n+3){border-top:1px solid #e6edf8}
+.kr-c__stats--3 .ih-stat:nth-child(3){grid-column:span 2;border-left:0}
+.kr-c__qs{display:grid}
+.kr-c__q{grid-area:1/1;margin:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;opacity:0;visibility:hidden;transition:opacity .6s ease,visibility .6s}
+.kr-c__q.is-on{opacity:1;visibility:visible}
+.kr-c__mark{font-size:96px;line-height:.7;height:44px;font-weight:700;color:#bcd2f7}
+.kr-c__q blockquote{margin:14px 0 0;font-size:22px;line-height:1.5;font-weight:600;color:var(--navy);letter-spacing:-.01em}
+.kr-c__q figcaption{margin-top:18px;display:flex;flex-direction:column;gap:2px;font-size:14px;color:#667085}
+.kr-c__q figcaption b{font-weight:600}
+@media(max-width:900px){.kr-c{grid-template-columns:1fr;gap:32px}}
+@media(max-width:640px){.kr-c__q blockquote{font-size:19px}.kr-c__mark{font-size:80px;height:36px}.kr-c__stats .ih-stat{padding:26px 20px}}
+@media(prefers-reduced-motion:reduce){.kr-c__q{transition:none}}
+.bento.bento--u.sg.ih-tgrid.ih-tgrid--2{grid-template-columns:repeat(2,minmax(0,1fr));max-width:680px}
+@media (max-width:900px){.bento.bento--u.sg.ih-tgrid.ih-tgrid--2{grid-template-columns:1fr;max-width:520px}}
