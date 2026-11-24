@@ -13,8 +13,7 @@
 })();
 
 /* hc3 — How Cekat helps: dotted connector between step visuals (ported from Chat page rev24), desktop only */
-(function(){
-  var wrap=document.querySelector('#how .ih-steps'); if(!wrap) return;
+[].forEach.call(document.querySelectorAll('#how .ih-steps'),function(wrap,WI){ /* hc18: one connector per flow panel */
   var NS='http://www.w3.org/2000/svg';
   var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
   var svg=document.createElementNS(NS,'svg'); svg.setAttribute('class','ih-flow'); svg.setAttribute('aria-hidden','true');
@@ -39,8 +38,8 @@
       var sx=a.x+a.w/2, sy=a.y+a.h-.5, ex=b.x+b.w/2, ey=b.y+.5, c=(ey-sy)*.75, d;
       if(mob){ var gx=12; d='M'+sx+' '+sy+' C'+sx+' '+(sy+30)+' '+gx+' '+(sy+16)+' '+gx+' '+(sy+56)+' L'+gx+' '+(ey-26)+' C'+gx+' '+(ey-2)+' '+(ex-80)+' '+ey+' '+ex+' '+ey; }
       else d='M'+sx+' '+sy+' C'+sx+' '+(sy+c)+' '+ex+' '+(ey-c)+' '+ex+' '+ey;
-      defs+='<mask id="ihM'+k+'" maskUnits="userSpaceOnUse"><path class="ih-flow__mask" d="'+d+'"/></mask>';
-      body+='<path class="ih-flow__line" d="'+d+'" mask="url(#ihM'+k+')"/>';
+      defs+='<mask id="ihM'+WI+'_'+k+'" maskUnits="userSpaceOnUse"><path class="ih-flow__mask" d="'+d+'"/></mask>';
+      body+='<path class="ih-flow__line" d="'+d+'" mask="url(#ihM'+WI+'_'+k+')"/>';
       dots+='<circle cx="'+sx+'" cy="'+sy+'" r="4.5"/><circle cx="'+ex+'" cy="'+ey+'" r="4.5"/>';
     }
     svg.innerHTML='<defs>'+defs+'</defs>'+body+'<g class="ih-flow__nodes">'+dots+'</g>';
@@ -55,7 +54,7 @@
     var n=segs.length;
     segs.forEach(function(s,k){ var q=Math.max(0,Math.min(1,p*(n+1)-(k+.5))); s.el.style.strokeDashoffset=(s.len*(1-q)).toFixed(1); });
   }
-  window.ihFlow={set:function(p){forced=p;draw();},layout:layout};
+  (window.ihFlows=window.ihFlows||[]).push(layout); window.ihFlow={set:function(p){forced=p;draw();},layout:layout};
   var raf=0;
   addEventListener('scroll',function(){ if(!raf) raf=requestAnimationFrame(function(){ raf=0; draw(); }); },{passive:true});
   addEventListener('resize',function(){ clearTimeout(layout._t); layout._t=setTimeout(layout,120); });
@@ -63,7 +62,7 @@
   if(window.ResizeObserver){ var ro=new ResizeObserver(function(){ clearTimeout(layout._t2); layout._t2=setTimeout(layout,30); }); ro.observe(wrap); [].forEach.call(wrap.querySelectorAll('.ih-stage'),function(s){ ro.observe(s); }); }
   if(document.fonts&&document.fonts.ready) document.fonts.ready.then(layout);
   layout();
-})();
+});
 
 /* hc5 — Key results count-up (once, on view; final values shown for reduced motion / no IO) */
 (function(){
@@ -82,4 +81,31 @@
     requestAnimationFrame(step);
   },{threshold:.35});
   io.observe(box);
+})();
+
+/* hc18 — How Cekat helps: flow tabs (Inquiries / Appointments / Patient growth) */
+(function(){
+  var tabs=[].slice.call(document.querySelectorAll('#how .hf-tab')); if(!tabs.length) return;
+  var panels=tabs.map(function(t){ return document.getElementById(t.getAttribute('aria-controls')); });
+  var leads=[].slice.call(document.querySelectorAll('#how .hf-lead>span'));
+  var bar=document.querySelector('#how .hf-tabs');
+  var reduce=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function show(k,focus){
+    tabs.forEach(function(t,j){ var on=j===k; t.classList.toggle('is-on',on); t.setAttribute('aria-selected',on?'true':'false'); t.tabIndex=on?0:-1; });
+    leads.forEach(function(l,j){ l.classList.toggle('is-on',j===k); });
+    panels.forEach(function(p,j){ var on=j===k; p.hidden=!on; p.classList.toggle('is-on',on); });
+    var p=panels[k];
+    /* reveal: anything already in or above the viewport shows at once; the rest reveals on scroll as usual */
+    [].forEach.call(p.querySelectorAll('.rv'),function(el){ var r=el.getBoundingClientRect(); if(reduce||r.top<innerHeight*.92) el.classList.add('in'); });
+    if(window.ihFlows) window.ihFlows.forEach(function(f){ f(); });
+    /* if the reader is already inside the section, jump back to the top of the new flow */
+    var lead=document.querySelector('#how .hf-lead'), st=parseFloat(getComputedStyle(bar).top)||80, off=st+bar.getBoundingClientRect().height+10;
+    if(p.getBoundingClientRect().top<off+20){ window.scrollTo({top:scrollY+(lead||p).getBoundingClientRect().top-off,behavior:reduce?'auto':'smooth'}); }
+    if(focus) tabs[k].focus({preventScroll:true});
+    var sc=tabs[k].parentNode; if(sc.scrollWidth>sc.clientWidth){ sc.scrollLeft=tabs[k].offsetLeft-(sc.clientWidth-tabs[k].offsetWidth)/2; }
+  }
+  tabs.forEach(function(t,k){
+    t.addEventListener('click',function(){ show(k); });
+    t.addEventListener('keydown',function(e){ var n=null; if(e.key==='ArrowRight') n=(k+1)%tabs.length; else if(e.key==='ArrowLeft') n=(k-1+tabs.length)%tabs.length; else if(e.key==='Home') n=0; else if(e.key==='End') n=tabs.length-1; if(n!==null){ e.preventDefault(); show(n,true); } });
+  });
 })();
