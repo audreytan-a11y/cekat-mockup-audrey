@@ -152,8 +152,6 @@
 @media (max-width:1100px){.bcs-row{grid-template-columns:repeat(4,minmax(0,1fr))}}
 @media (max-width:560px){.bcs-row{grid-template-columns:repeat(2,minmax(0,1fr))}.bcs-wrap{margin-top:40px}.bcs b{font-size:28px}}
 
-/* gap-fix: hero no longer a full-viewport block; uniform 96px/64px rhythm into next section */
-.chero{min-height:0!important;padding-bottom:0!important}
-@media (min-width:761px){.chero .scroll-cue{display:none}}
-.chero + .bcx-sec{padding-top:96px}
+/* hero-fit: hero fills exactly the first screen (next section never peeks on load), content centred, tight 56px into next section */
+@media (min-width:761px){.chero{display:flex!important;flex-direction:column;justify-content:center;min-height:calc(100vh - 68px)!important;min-height:min(calc(100svh - 68px),1000px)!important;padding-bottom:32px!important}.chero+section{padding-top:56px!important}}
 @media (max-width:760px){.chero + .bcx-sec{padding-top:64px}}

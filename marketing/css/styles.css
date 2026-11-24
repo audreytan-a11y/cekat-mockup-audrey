@@ -1625,5 +1625,5 @@ svg use{pointer-events:none}
 .nav .nav__toggle[aria-expanded="true"] span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
 }
 
-/* gap-fix: hero is no longer a forced full-viewport block on desktop (removes blank gap before next section) */
-@media (min-width:761px){.hero,.chero{min-height:0!important;padding-bottom:0!important}.hero .scroll-cue,.chero .scroll-cue{display:none}}
+/* hero-fit: hero fills exactly the first screen (next section never peeks on load), content centred, tight 56px into next section */
+@media (min-width:761px){.hero,.chero{display:flex!important;flex-direction:column;justify-content:center;min-height:calc(100vh - 68px)!important;min-height:min(calc(100svh - 68px),1000px)!important;padding-bottom:32px!important}.hero+section,.chero+section{padding-top:56px!important}}
