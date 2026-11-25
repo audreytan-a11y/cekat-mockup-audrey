@@ -523,3 +523,5 @@
 .tlg--row li{flex:0 0 115px}
 .tlg--row li.tlg__t{flex:0 0 auto;gap:8px;font-size:15px;font-weight:700;white-space:nowrap;color:rgba(0,0,0,var(--ink))}
 @media (max-width:767px){.tlg.tlg--row{gap:22px 12px}.tlg--row li{flex:0 0 calc(50% - 6px)}.tlg--row li.tlg__t{flex:0 0 calc(50% - 6px);font-size:13px}}
+/* light outline versions of badge logos (Puffy, Yupi, Yummy Choice): keep their grey line art instead of a black silhouette */
+.tlg img[src*="-outline.png"],.tlm__list img[src*="-outline.png"]{filter:none!important;opacity:1!important}

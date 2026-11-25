@@ -383,3 +383,5 @@
 .tcar .tcase__tag{flex:none;white-space:nowrap;margin-left:auto}
 @media (max-width:900px){.tcar .tcase__top{min-height:44px}}
 @media (max-width:400px){.tcar .tcase__logo{max-width:calc(100% - 172px)}}
+/* light outline versions of badge logos (Puffy, Yupi, Yummy Choice): keep their grey line art instead of a black silhouette */
+.tlg img[src*="-outline.png"],.tlm__list img[src*="-outline.png"]{filter:none!important;opacity:1!important}

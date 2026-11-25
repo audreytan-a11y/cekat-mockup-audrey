@@ -2649,3 +2649,12 @@ button.more.ts-toggle{background:none;padding:0;display:inline-flex;align-items:
 /* sozo-dental logo fix */
 .logoband2 .lg--sozo-dental img{height:22px;width:auto}
 @media (max-width:760px){.logoband2 .lg--sozo-dental img{height:18px}}
+/* testimonial cards: brand logo, small, bottom-right (text-only cards) */
+.ts .tc--brand .tc__foot{flex-direction:row;align-items:flex-end;justify-content:space-between;gap:16px;width:100%}
+.ts .tc--brand .tc__who{min-width:0;flex:1 1 auto}
+.ts .tc__logo-br{flex:none;display:block;width:auto;height:auto;max-width:92px;max-height:24px;object-fit:contain;object-position:right bottom;margin:0 0 2px auto;filter:grayscale(1) contrast(1.15);opacity:.6;position:relative;z-index:1}
+.ts .tc--brand .tc__logo-br{order:4}
+.ts .tc--brand .tc__ghost{right:120px}
+.ts .tc__logo-br--lg{max-width:110px;max-height:32px}
+/* light line versions of badge logos (Puffy, Yupi, Yummy Choice) in the blue logo band: no solid blobs */
+.logoband2 .logo img[src*="-outline-w.png"]{filter:none!important;opacity:1}
