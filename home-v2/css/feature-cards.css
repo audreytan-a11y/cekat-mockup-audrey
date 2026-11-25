@@ -9,23 +9,25 @@
 /* demo numbers are labelled; same small label on all three cards */
 .mini .mini__vis{position:relative}
 .mini__demo{position:absolute;right:12px;bottom:8px;z-index:1;font-size:10.5px;font-weight:500;letter-spacing:.01em;color:#8a97ad;line-height:1}
-/* Compact Broadcast composer, from the Broadcast page “New campaign” panel */
-#broadcasts .mini__vis{justify-content:center;gap:0;padding:8px 10px 22px}
-.bcc{width:100%;background:#fff;border:1px solid #e3eaf6;border-radius:14px;box-shadow:0 12px 28px -18px rgba(8,33,76,.4);padding:7px 8px 8px;display:flex;flex-direction:column;gap:4px;color:#0B1B3F}
-.bcc__h{display:flex;align-items:center;gap:5px;margin:0;padding-bottom:4px;border-bottom:1px solid #eef2f8;font-size:11.5px;font-weight:600;line-height:1.2;color:#0B1B3F;white-space:nowrap}
-.bcc__h img{width:13px;height:13px;flex:none}
-.bcc__h em{margin-left:auto;font-style:normal;font-size:10px;font-weight:500;color:#667085}
-.bcc__row{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:4px 7px;border-radius:9px;background:#f6f9fe;box-shadow:0 0 0 1px #e9eef8}
-.bcc__row>span:first-child{display:grid;gap:0;min-width:0}
-.bcc__row small{font-size:10px;line-height:1.15;color:#667085}
-.bcc__row b{font-size:11.5px;line-height:1.2;font-weight:600;color:#0B1B3F}
-.bcc__ok,.bcc__seg{flex:none;font-size:10.5px;font-weight:600;color:#1A56DB;white-space:nowrap}
-.bcc__seg{font-weight:500;color:#667085}
-.bcc__ok{display:inline-flex;align-items:center;gap:3px}
-.bcc__ok svg{width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
-.bcc__msg{display:flex;align-items:flex-start;gap:6px;padding:5px 7px;border-radius:11px;border-bottom-left-radius:4px;background:#eaf2ff;font-size:11.5px;line-height:1.3;color:#0B1B3F}
-.bcc__msg img{width:13px;height:13px;flex:none;margin-top:1px}
-.bcc__btn{align-self:flex-start;display:inline-flex;align-items:center;min-height:22px;padding:0 9px;border-radius:8px;background:#1A56DB;color:#fff;font-size:11.5px;font-weight:600;line-height:1}
+/* Simplified Broadcast fan-out, drawn at 292px and zoomed to the card */
+#broadcasts .mini__vis{justify-content:center;align-items:center;gap:0;padding:10px 8px;container-type:inline-size}
+.bfan{width:300px;height:176px;flex:none;display:grid;grid-template-columns:152px 22px 1fr;align-items:center;color:#0B1B3F;font-size:11px;zoom:min(1, 100cqi / 300px)}
+.bfan__card{background:#fff;border:1px solid #d7e3f5;border-radius:12px;box-shadow:0 10px 22px -16px rgba(11,27,63,.45);padding:8px 7px 9px;display:flex;flex-direction:column;gap:6px;min-width:0}
+.bfan__h{display:flex;align-items:center;gap:4px;margin:0;font-size:11.5px;font-weight:700;line-height:1.15;color:#0B1B3F;white-space:nowrap}
+.bfan__h img{width:14px;height:14px;flex:none}
+.bfan__seg{margin:0;font-size:11px;font-weight:600;line-height:1.2;color:#0B1B3F}
+.bfan__btn{display:block;text-align:center;background:#0B1B3F;color:#fff;font-size:10.5px;font-weight:650;line-height:1.25;border-radius:8px;padding:6px 6px}
+.bfan__lines{width:100%;height:78%;display:block}
+.bfan__lines path{fill:none;stroke:#1A56DB;stroke-width:1.6;stroke-linecap:round;vector-effect:non-scaling-stroke}
+.bfan__ps{display:flex;flex-direction:column;justify-content:center;gap:6px;min-width:0}
+.bfan__p{display:flex;align-items:center;gap:5px;min-width:0;background:#fff;border:1px solid #d7e3f5;border-radius:10px;padding:4px 6px}
+.bfan__av{flex:none;width:16px;height:16px;border-radius:50%;background:#0B1B3F;color:#fff;font-size:9px;font-weight:700;display:grid;place-items:center}
+.bfan__tx{min-width:0;display:flex;flex-direction:column;line-height:1.15}
+.bfan__tx b{font-size:10.5px;font-weight:700;color:#0B1B3F}
+.bfan__tx small{display:inline-flex;align-items:center;gap:2px;font-size:9.5px;font-weight:600;color:#1A56DB}
+.bfan__tx svg{width:12px;height:7px;fill:none;stroke:#1A56DB;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.bfan__reply{min-width:0;font-size:10px;font-weight:600;line-height:1.25;color:#fff;background:#0B1B3F;border-radius:8px 8px 3px 8px;padding:4px 6px}
+.bfan__shop{display:inline-flex;align-items:center;font-size:10px;font-weight:700;line-height:1.15;color:#0B1B3F;background:#fff;border-radius:7px;padding:3px 7px;box-shadow:0 0 0 1.5px #0B1B3F}
 /* Automation feature card: calmer flow, two slides, dots that don't change the card size */
 #automation .mini__dots{position:absolute;left:0;right:0;bottom:7px;display:flex;justify-content:center;gap:5px;z-index:2;pointer-events:none}
 #automation .mini__dots i{width:5px;height:5px;border-radius:99px;background:#b7c8e6}
