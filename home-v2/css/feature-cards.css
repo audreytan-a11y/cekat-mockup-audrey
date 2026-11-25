@@ -9,25 +9,26 @@
 /* demo numbers are labelled; same small label on all three cards */
 .mini .mini__vis{position:relative}
 .mini__demo{position:absolute;right:12px;bottom:8px;z-index:1;font-size:10.5px;font-weight:500;letter-spacing:.01em;color:#8a97ad;line-height:1}
-/* Simplified Broadcast fan-out, drawn at 292px and zoomed to the card */
-#broadcasts .mini__vis{justify-content:center;align-items:center;gap:0;padding:10px 8px;container-type:inline-size}
-.bfan{width:300px;height:176px;flex:none;display:grid;grid-template-columns:152px 22px 1fr;align-items:center;color:#0B1B3F;font-size:11px;zoom:min(1, 100cqi / 300px)}
-.bfan__card{background:#fff;border:1px solid #d7e3f5;border-radius:12px;box-shadow:0 10px 22px -16px rgba(11,27,63,.45);padding:8px 7px 9px;display:flex;flex-direction:column;gap:6px;min-width:0}
-.bfan__h{display:flex;align-items:center;gap:4px;margin:0;font-size:11.5px;font-weight:700;line-height:1.15;color:#0B1B3F;white-space:nowrap}
-.bfan__h img{width:14px;height:14px;flex:none}
-.bfan__seg{margin:0;font-size:11px;font-weight:600;line-height:1.2;color:#0B1B3F}
-.bfan__btn{display:block;text-align:center;background:var(--primary);color:#fff;font-size:10.5px;font-weight:650;line-height:1.25;border-radius:8px;padding:6px 6px}
-.bfan__lines{width:100%;height:78%;display:block}
-.bfan__lines path{fill:none;stroke:#1A56DB;stroke-width:1.6;stroke-linecap:round;vector-effect:non-scaling-stroke}
-.bfan__ps{display:flex;flex-direction:column;justify-content:center;gap:6px;min-width:0}
-.bfan__p{display:flex;align-items:center;gap:5px;min-width:0;background:#fff;border:1px solid #d7e3f5;border-radius:10px;padding:4px 6px}
-.bfan__av{flex:none;width:16px;height:16px;border-radius:50%;background:var(--primary);color:#fff;font-size:9px;font-weight:700;display:grid;place-items:center}
-.bfan__tx{min-width:0;display:flex;flex-direction:column;line-height:1.15}
-.bfan__tx b{font-size:10.5px;font-weight:700;color:#0B1B3F}
-.bfan__tx small{display:inline-flex;align-items:center;gap:2px;font-size:9.5px;font-weight:600;color:#1A56DB}
-.bfan__tx svg{width:12px;height:7px;fill:none;stroke:#1A56DB;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
-.bfan__reply{min-width:0;font-size:10px;font-weight:600;line-height:1.25;color:#fff;background:var(--primary);border-radius:8px 8px 3px 8px;padding:4px 6px}
-.bfan__shop{display:inline-flex;align-items:center;font-size:10px;font-weight:700;line-height:1.15;color:var(--primary);background:#fff;border-radius:7px;padding:3px 7px;box-shadow:0 0 0 1.5px var(--primary)}
+/* Broadcast card: the property-page Broadcast campaigns mockup, scaled into the same panel */
+#broadcasts{min-width:0}
+#broadcasts .mini__vis{justify-content:center;align-items:center;padding:18px;container-type:size}
+#broadcasts .bcfit{width:100%;zoom:min(1,100cqb / 248px)}
+#broadcasts .ih-card{width:100%;padding:10px 12px 12px;border-radius:16px;background:#fff;box-shadow:0 24px 48px -28px rgba(8,33,76,.4)}
+#broadcasts .ih-card__t{display:flex;align-items:center;gap:8px;margin:0 0 8px;font-size:13px;font-weight:700;color:var(--navy)}
+#broadcasts .hf-bc__row{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:10px;border:1px solid #e6ecf6;margin-bottom:6px}
+#broadcasts .hf-bc__row.is-on{border-color:#c9daf8;background:#f6f9ff}
+#broadcasts .hf-bc__ic{flex:none;display:grid;place-items:center;width:32px;height:32px;border-radius:10px;background:#eaf1ff}
+#broadcasts .hf-bc__ic svg{width:16px;height:16px;fill:none;stroke:#1A56DB;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+#broadcasts .hf-bc__row>span:nth-child(2){display:grid;gap:1px;min-width:0}
+#broadcasts .hf-bc__row b{font-size:13px;color:var(--navy);white-space:nowrap}
+#broadcasts .hf-bc__row small{font-size:11px;color:#667085;white-space:nowrap}
+#broadcasts .hf-bc__row em{margin-left:auto;flex:none;font-style:normal;font-size:11px;font-weight:600;padding:3px 9px;border-radius:999px;background:#ecfdf3;color:#067647}
+#broadcasts .hf-bc__row em.is-sch{background:#eef4ff;color:#1A56DB}
+#broadcasts .hf-bc__pv{display:flex;flex-direction:column;gap:6px;margin-top:2px;padding:8px;border-radius:12px;background:linear-gradient(180deg,#fafcff,#f2f6fe)}
+#broadcasts .hf-bc__pvt{display:inline-flex;align-items:center;gap:6px;font-size:10px;font-weight:600;color:#98a2b3;text-transform:uppercase;letter-spacing:.06em}
+#broadcasts .hf-bc__pvt img{width:13px;height:13px}
+#broadcasts .hcm{max-width:96%;font-size:11.5px;line-height:1.35;padding:7px 9px;border-radius:14px}
+#broadcasts .hcm--ai{align-self:flex-end;background:linear-gradient(160deg,#1a5fd6,#1352bf);color:#fff;border-bottom-right-radius:6px;box-shadow:0 8px 20px -10px rgba(19,82,191,.6)}
 /* Automation feature card: calmer flow, two slides, dots that don't change the card size */
 #automation .mini__dots{position:absolute;left:0;right:0;bottom:7px;display:flex;justify-content:center;gap:5px;z-index:2;pointer-events:none}
 #automation .mini__dots i{width:5px;height:5px;border-radius:99px;background:#b7c8e6}
