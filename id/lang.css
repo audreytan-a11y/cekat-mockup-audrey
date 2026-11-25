@@ -1,0 +1,5 @@
+.langtog{display:inline-flex;align-items:center;gap:8px;margin-left:14px;font-size:13px;font-weight:700;letter-spacing:.06em;flex:none}
+.langtog a{color:#98a2b3;text-decoration:none}
+.langtog a[aria-current="page"]{color:#1352bf}
+.langtog i{color:#d0d5dd;font-style:normal;font-weight:500}
+@media (max-width:1024px){.langtog{margin-left:auto;margin-right:8px}}
