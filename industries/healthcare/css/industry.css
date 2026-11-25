@@ -471,3 +471,8 @@
 .tcase__dir--down{transform:rotate(5deg)}
 .tcase__dir svg{width:26px;height:26px;stroke-width:3.4}
 @media (max-width:900px){.tcase__dir{width:38px;height:38px;border-radius:13px}.tcase__dir svg{width:21px;height:21px;stroke-width:3.2}}
+/* tc5 hc27: trusted-by band moved above How Cekat helps, with section label */
+.ih-trust{padding:8px 0 0;background:#fff}
+.ih-trust .sec-head{margin-bottom:22px}
+.ih-trust .logoband2{margin:0}
+@media (max-width:760px){.ih-trust .sec-head{margin-bottom:16px}}
