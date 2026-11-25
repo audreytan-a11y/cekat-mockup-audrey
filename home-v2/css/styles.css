@@ -2646,3 +2646,6 @@ button.more.ts-toggle{background:none;padding:0;display:inline-flex;align-items:
 @media (max-width:560px){.pcv--hub .hb{transform:translateY(-14px)}.hb-app--tl{top:-18px;left:-8px}.hb-app--tr{top:-16px;right:-8px}.hb-app--ml{bottom:-20px}.hb-app--br{bottom:-22px;right:-8px}.hb-app--bl{left:-10px}.hb-app--mr{right:-10px}}
 @media (max-width:560px){.pcv--hub .hb{transform:translateY(8px)}.hb-app--tl{top:-14px}.hb-app--tr{top:-12px}.hb-app--ml{bottom:-14px}.hb-app--br{bottom:-16px}}
 @media (max-width:560px){.hb-app--ml{display:none}}
+/* sozo-dental logo fix */
+.logoband2 .lg--sozo-dental img{height:22px;width:auto}
+@media (max-width:760px){.logoband2 .lg--sozo-dental img{height:18px}}
