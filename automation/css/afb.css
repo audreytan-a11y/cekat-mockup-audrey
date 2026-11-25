@@ -82,3 +82,22 @@
 .chv .wv-s.wv-s--afb{padding:12px 0 40px;justify-content:center;align-items:stretch}
 .chv .wv-s--afb .afb-canvas{width:100%;max-width:560px;margin:0 auto;box-shadow:0 24px 50px -24px rgba(19,82,191,.35),0 0 0 1px #e6edf8;border:0}
 @media (max-width:560px){.chv.chv--afb{height:450px}.chv .wv-s.wv-s--afb{padding:8px 0 38px}}
+
+/* au11 hero: flow is a 3-step "how to build it" guide; active step's nodes stay sharp, the rest dim */
+.afg{display:flex;flex-direction:column;gap:14px;padding-top:18px}
+.afg__tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:6px;padding:4px;border-radius:12px;background:#eef3fb}
+.afg__tab{display:flex;align-items:center;justify-content:center;gap:7px;min-width:0;padding:7px 6px;border:0;border-radius:9px;background:transparent;color:#667085;font:600 12.5px/1.2 var(--font,system-ui,sans-serif);cursor:pointer;white-space:nowrap;transition:background .3s,color .3s,box-shadow .3s}
+.afg__tab i{flex:none;display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:#dfe6f2;color:#475467;font-style:normal;font-size:11px;font-weight:700;transition:background .3s,color .3s}
+.afg__tab.is-on{background:#fff;color:#0B1B3F;box-shadow:0 1px 2px rgba(16,24,40,.06),0 4px 10px -6px rgba(16,40,90,.25)}
+.afg__tab.is-on i{background:#1352bf;color:#fff}
+.afg__cap{position:relative;display:grid;margin:0;text-align:center;font-size:13px;line-height:1.35;color:#475467}
+.afg__cap span{grid-area:1/1;opacity:0;transform:translateY(4px);transition:opacity .3s,transform .3s}
+.afg__cap span.is-on{opacity:1;transform:none}
+.afg__cap b{color:#0B1B3F;font-weight:600}
+.afg .afb__step{padding-top:0}
+.afg [data-g]{transition:opacity .35s ease,filter .35s ease}
+.afg[data-s="1"] .afb [data-g]:not([data-g="1"]),.afg[data-s="2"] .afb [data-g]:not([data-g="2"]),.afg[data-s="3"] .afb [data-g]:not([data-g="3"]){opacity:.28;filter:grayscale(1)}
+.afg[data-s="1"] [data-g="1"] .afb__node,.afg[data-s="2"] [data-g="2"] .afb__node,.afg[data-s="3"] [data-g="3"] .afb__node{border-color:#9fbbea;box-shadow:0 0 0 3px rgba(19,82,191,.10),0 8px 18px -10px rgba(19,82,191,.35)}
+.afg[data-s="1"] [data-g="1"] .afb__node--trg{border-color:transparent}
+.afg .afb.is-anim.is-in .afb__a[data-g]{transition:opacity .4s ease,filter .4s ease,transform .5s cubic-bezier(.22,1,.36,1) var(--d,0s)}
+@media (max-width:560px){.afg{gap:10px;padding-top:12px}.afg__tab{gap:5px;padding:6px 4px;font-size:11.5px}.afg__tab i{width:18px;height:18px;font-size:10px}.afg__cap{font-size:12px}}
