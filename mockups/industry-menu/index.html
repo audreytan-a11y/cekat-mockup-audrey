@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Industry menu thumbnails — options</title>
+  <meta name="robots" content="noindex">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,300..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --navy:#08214c; --primary:#1352bf; --sub:#667085; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:#f3f6fb; color:var(--navy); font-family:"Google Sans Flex", Inter, system-ui, sans-serif; }
+    .page { max-width:1100px; margin:0 auto; padding:40px 24px 80px; }
+    h1 { margin:0 0 8px; font-size:32px; letter-spacing:-.03em; }
+    .lead { margin:0 0 28px; max-width:640px; color:#475569; font-size:16px; line-height:1.5; }
+    .opt { margin:0 0 36px; }
+    .opt__k { margin:0 0 4px; font-size:13px; font-weight:700; letter-spacing:.08em; text-transform:uppercase; color:var(--primary); }
+    .opt h2 { margin:0 0 6px; font-size:22px; letter-spacing:-.02em; }
+    .opt p { margin:0 0 14px; color:#475569; font-size:14.5px; line-height:1.45; max-width:640px; }
+    .panel { width:max-content; max-width:100%; background:#fff; border:1px solid #e3eaf7; border-radius:20px; box-shadow:0 18px 50px -28px rgba(8,33,76,.45); padding:14px 12px 8px; }
+    .sol__h { margin:0; padding:0 10px 8px; font-size:11px; letter-spacing:.08em; text-transform:uppercase; color:var(--sub); font-weight:600; }
+    .sol__grid { display:grid; grid-template-columns:repeat(2, minmax(220px, 1fr)); gap:2px 8px; }
+    .sol__a { display:flex; align-items:center; gap:10px; padding:6px 10px; border-radius:10px; font-size:14px; font-weight:600; line-height:1.25; color:#344054; text-decoration:none; }
+    .sol__a:hover { background:#f3f7fe; color:var(--primary); }
+    .tile { flex:none; width:40px; height:40px; border-radius:8px; overflow:hidden; display:grid; place-items:center; }
+    .opt-a .tile img { width:100%; height:100%; object-fit:cover; display:block; }
+    .opt-b .tile { background:#fff; border:1px solid #e6ecf6; }
+    .opt-b .tile img { width:100%; height:100%; object-fit:contain; padding:5px; display:block; }
+    .opt-c .tile { background:#eaf1ff; }
+    .opt-d .tile { background:var(--primary); }
+    .tile svg { width:22px; height:22px; fill:none; stroke-width:1.7; stroke-linecap:round; stroke-linejoin:round; }
+    .opt-c .tile svg { stroke:var(--primary); }
+    .opt-d .tile svg { stroke:#fff; }
+    .sol__foot { margin:8px 0 0; padding:6px 0 0; border-top:1px solid #e9eef8; }
+    .sol__foot a { display:flex; padding:8px 10px; font-size:14px; font-weight:600; color:var(--primary); text-decoration:none; }
+    .sol__foot a:hover { text-decoration:underline; }
+    @media (max-width:720px) {
+      .sol__grid { grid-template-columns:1fr; }
+      .panel { width:100%; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <h1>Industry menu thumbnails</h1>
+    <p class="lead">Standalone comparison. This page is not linked from the site nav, and the live menu is unchanged. Same industries, names, and two-column panel in every option. Tiles are 40px with an 8px radius.</p>
+
+    <section class="opt" id="option-a">
+      <p class="opt__k">Option A</p>
+      <h2>Real photos</h2>
+      <p>Square crops of the industry photos already used on the site. No logos, no illustration.</p>
+      <div class="panel opt-a" aria-label="By industry">
+      <p class="sol__h">By industry</p>
+      <div class="sol__grid"><a class="sol__a" href="../../industries/healthcare/"><span class="tile"><img src="photos/healthcare.webp" alt="" width="40" height="40"></span><span>Healthcare &amp; clinics</span></a><a class="sol__a" href="../../industries/retail/"><span class="tile"><img src="photos/retail.webp" alt="" width="40" height="40"></span><span>Retail</span></a><a class="sol__a" href="../../industries/food-beverage/"><span class="tile"><img src="photos/food-beverage.webp" alt="" width="40" height="40"></span><span>Food &amp; beverage</span></a><a class="sol__a" href="../../industries/education/"><span class="tile"><img src="photos/education.webp" alt="" width="40" height="40"></span><span>Education</span></a><a class="sol__a" href="../../industries/property/"><span class="tile"><img src="photos/property.webp" alt="" width="40" height="40"></span><span>Property</span></a><a class="sol__a" href="../../industries/banking-insurance/"><span class="tile"><img src="photos/banking-insurance.webp" alt="" width="40" height="40"></span><span>Banking &amp; insurance</span></a><a class="sol__a" href="../../industries/beauty-wellness/"><span class="tile"><img src="photos/beauty-wellness.webp" alt="" width="40" height="40"></span><span>Beauty &amp; wellness</span></a><a class="sol__a" href="../../industries/travel-hospitality/"><span class="tile"><img src="photos/travel-hospitality.webp" alt="" width="40" height="40"></span><span>Travel &amp; hospitality</span></a><a class="sol__a" href="../../industries/automotive/"><span class="tile"><img src="photos/automotive.webp" alt="" width="40" height="40"></span><span>Automotive</span></a><a class="sol__a" href="../../industries/professional-services/"><span class="tile"><img src="photos/professional-services.webp" alt="" width="40" height="40"></span><span>SaaS &amp; Software</span></a></div>
+      <p class="sol__foot"><a href="../../home-v2/#industries">See all industries <span aria-hidden="true">→</span></a></p>
+    </div>
+    </section>
+
+    <section class="opt" id="option-b">
+      <p class="opt__k">Option B</p>
+      <h2>Client logos</h2>
+      <p>One real client logo from that industry’s logo row, on a white rounded square.</p>
+      <div class="panel opt-b" aria-label="By industry">
+      <p class="sol__h">By industry</p>
+      <div class="sol__grid"><a class="sol__a" href="../../industries/healthcare/"><span class="tile"><img src="../../industries/healthcare/assets/logos/orange-dental.png" alt="Orange Dental"></span><span>Healthcare &amp; clinics</span></a><a class="sol__a" href="../../industries/retail/"><span class="tile"><img src="../../industries/retail/assets/logos/natures-craft.png" alt="Nature's Craft"></span><span>Retail</span></a><a class="sol__a" href="../../industries/food-beverage/"><span class="tile"><img src="../../industries/food-beverage/assets/logos/itsu.png" alt="ITSU"></span><span>Food &amp; beverage</span></a><a class="sol__a" href="../../industries/education/"><span class="tile"><img src="../../industries/education/assets/logos/universitas-multimedia-nusantara.png" alt="Universitas Multimedia Nusantara"></span><span>Education</span></a><a class="sol__a" href="../../industries/property/"><span class="tile"><img src="../../industries/property/assets/logos/propertyguru.png" alt="PropertyGuru"></span><span>Property</span></a><a class="sol__a" href="../../industries/banking-insurance/"><span class="tile"><img src="../../industries/banking-insurance/assets/logos/jago.png" alt="Bank Jago"></span><span>Banking &amp; insurance</span></a><a class="sol__a" href="../../industries/beauty-wellness/"><span class="tile"><img src="../../industries/beauty-wellness/assets/logos/sociamedic.png" alt="Sociamedic Clinic"></span><span>Beauty &amp; wellness</span></a><a class="sol__a" href="../../industries/travel-hospitality/"><span class="tile"><img src="../../industries/travel-hospitality/assets/logos/hobi-holidays.png" alt="Hobi Holidays"></span><span>Travel &amp; hospitality</span></a><a class="sol__a" href="../../industries/automotive/"><span class="tile"><img src="../../industries/automotive/assets/logos/bosch-car-service.png" alt="Bosch Car Service"></span><span>Automotive</span></a><a class="sol__a" href="../../industries/professional-services/"><span class="tile"><img src="../../industries/professional-services/assets/logos/riliv.png" alt="Riliv"></span><span>SaaS &amp; Software</span></a></div>
+      <p class="sol__foot"><a href="../../home-v2/#industries">See all industries <span aria-hidden="true">→</span></a></p>
+    </div>
+    </section>
+
+    <section class="opt" id="option-c">
+      <p class="opt__k">Option C</p>
+      <h2>Line icons</h2>
+      <p>The current menu icons, drawn in brand blue on a light-blue rounded square.</p>
+      <div class="panel opt-c" aria-label="By industry">
+      <p class="sol__h">By industry</p>
+      <div class="sol__grid"><a class="sol__a" href="../../industries/healthcare/"><span class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/></svg></span><span>Healthcare &amp; clinics</span></a><a class="sol__a" href="../../industries/retail/"><span class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></span><span>Retail</span></a><a class="sol__a" href="../../industries/food-beverage/"><span class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v7a2 2 0 0 1-2 2 2 2 0 0 1-2-2V3M5 12v9M7 3v7M17 21V3c-2 1.5-3 4-3 7h3"/></svg></span><span>Food &amp; beverage</span></a><a class="sol__a" href="../../industries/education/"><span class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.5"/></svg></span><span>Education</span></a><a class="sol__a" href="../../industries/property/"><span class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V20h14V9.5M10 20v-6h4v6"/></svg></span><span>Property</span></a><a class="sol__a" href="../../industries/banking-insurance/"><span class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-5 9 5z"/><path d="M5 11v7M9.7 11v7M14.3 11v7M19 11v7M3 20h18"/></svg></span><span>Banking &amp; insurance</span></a><a class="sol__a" href="../../industries/beauty-wellness/"><span class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3l1.9 5.1L18 10l-5.1 1.9L11 17l-1.9-5.1L4 10l5.1-1.9z"/><path d="M18.5 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></svg></span><span>Beauty &amp; wellness</span></a><a class="sol__a" href="../../industries/travel-hospitality/"><span class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15.5v-2L13 9V4.5a1.5 1.5 0 0 0-3 0V9l-8 4.5v2l8-2.2V18l-2 1.5V21l3.5-1 3.5 1v-1.5L13 18v-4.7z" transform="translate(1 0)"/></svg></span><span>Travel &amp; hospitality</span></a><a class="sol__a" href="../../industries/automotive/"><span class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16v-4.5L7 6h10l2 5.5V16M3 16h18v3H3z"/><circle cx="8" cy="13" r=".6"/><circle cx="16" cy="13" r=".6"/></svg></span><span>Automotive</span></a><a class="sol__a" href="../../industries/professional-services/"><span class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20M10.5 8.5l-2 2 2 2M13.5 8.5l2 2-2 2"/></svg></span><span>SaaS &amp; Software</span></a></div>
+      <p class="sol__foot"><a href="../../home-v2/#industries">See all industries <span aria-hidden="true">→</span></a></p>
+    </div>
+    </section>
+
+    <section class="opt" id="option-d">
+      <p class="opt__k">Option D</p>
+      <h2>Blue icon tiles</h2>
+      <p>The same icon set, reversed: white lines on a brand-blue tile. No gradients.</p>
+      <div class="panel opt-d" aria-label="By industry">
+      <p class="sol__h">By industry</p>
+      <div class="sol__grid"><a class="sol__a" href="../../industries/healthcare/"><span class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/></svg></span><span>Healthcare &amp; clinics</span></a><a class="sol__a" href="../../industries/retail/"><span class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></span><span>Retail</span></a><a class="sol__a" href="../../industries/food-beverage/"><span class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v7a2 2 0 0 1-2 2 2 2 0 0 1-2-2V3M5 12v9M7 3v7M17 21V3c-2 1.5-3 4-3 7h3"/></svg></span><span>Food &amp; beverage</span></a><a class="sol__a" href="../../industries/education/"><span class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.5"/></svg></span><span>Education</span></a><a class="sol__a" href="../../industries/property/"><span class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V20h14V9.5M10 20v-6h4v6"/></svg></span><span>Property</span></a><a class="sol__a" href="../../industries/banking-insurance/"><span class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-5 9 5z"/><path d="M5 11v7M9.7 11v7M14.3 11v7M19 11v7M3 20h18"/></svg></span><span>Banking &amp; insurance</span></a><a class="sol__a" href="../../industries/beauty-wellness/"><span class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3l1.9 5.1L18 10l-5.1 1.9L11 17l-1.9-5.1L4 10l5.1-1.9z"/><path d="M18.5 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></svg></span><span>Beauty &amp; wellness</span></a><a class="sol__a" href="../../industries/travel-hospitality/"><span class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15.5v-2L13 9V4.5a1.5 1.5 0 0 0-3 0V9l-8 4.5v2l8-2.2V18l-2 1.5V21l3.5-1 3.5 1v-1.5L13 18v-4.7z" transform="translate(1 0)"/></svg></span><span>Travel &amp; hospitality</span></a><a class="sol__a" href="../../industries/automotive/"><span class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16v-4.5L7 6h10l2 5.5V16M3 16h18v3H3z"/><circle cx="8" cy="13" r=".6"/><circle cx="16" cy="13" r=".6"/></svg></span><span>Automotive</span></a><a class="sol__a" href="../../industries/professional-services/"><span class="tile"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20M10.5 8.5l-2 2 2 2M13.5 8.5l2 2-2 2"/></svg></span><span>SaaS &amp; Software</span></a></div>
+      <p class="sol__foot"><a href="../../home-v2/#industries">See all industries <span aria-hidden="true">→</span></a></p>
+    </div>
+    </section>
+  </main>
+</body>
+</html>
