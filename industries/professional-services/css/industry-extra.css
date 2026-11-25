@@ -19,4 +19,5 @@
 .ih-stat--q .ih-stat__s{margin-top:10px}
 
 .ih-res.ih-res--3{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media (max-width:900px) and (min-width:641px){.ih-res.ih-res--3{grid-template-columns:repeat(3,minmax(0,1fr))}.ih-res.ih-res--3 .ih-stat:nth-child(3)::before{display:block}.ih-res.ih-res--3 .ih-stat:nth-child(3){border-top:0}.ih-res.ih-res--3 .ih-stat{padding:26px 16px 24px}}
 @media (max-width:640px){.ih-res.ih-res--3{grid-template-columns:1fr}}
