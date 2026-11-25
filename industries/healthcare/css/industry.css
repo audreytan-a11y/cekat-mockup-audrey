@@ -508,3 +508,7 @@
 .tlg img.tlg__nx{max-height:46px}
 @media (max-width:1100px){.tlg.tlg--9{grid-template-columns:repeat(4,minmax(0,1fr));max-width:880px}.tlg--9 li:last-child{grid-column:1/-1}}
 @media (max-width:767px){.tlg.tlg--9{grid-template-columns:repeat(2,minmax(0,1fr));gap:22px 12px}}
+/* tc9 hc30: card logos ~30% bigger, one height on every card (inline max-height = file's real height, never upscaled) */
+.tcase__logo{height:52px;max-width:210px}
+@media (max-width:900px){.tcase__logo{height:44px;max-width:180px}}
+.tcar .tcase__photo--sociamedic img{max-width:min(82%,502px);max-height:min(126px,170px)}

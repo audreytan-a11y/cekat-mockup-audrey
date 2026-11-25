@@ -267,3 +267,113 @@
 .cl-row em.is-b{color:#1352bf;background:#e4edfc}
 .cl-row em.is-c{color:#067647;background:#dcfae6}
 @media(max-width:640px){.cl-row{gap:10px;padding:10px}.cl-av{width:30px;height:30px;font-size:11px}.cl-who b{font-size:13.5px}.cl-who small{font-size:11.5px}}
+
+/* tc1 case-study card (adapted from cekat.ai/lp/clinic .tcase) */
+.ih-res+.tcase{margin-top:40px}
+.tcase{display:grid;grid-template-columns:minmax(0,45fr) minmax(0,55fr);max-width:1080px;margin:0 auto;background:#fff;border:1px solid #e3eaf6;border-radius:24px;overflow:hidden;box-shadow:0 1px 2px rgba(16,24,40,.04),0 24px 50px -30px rgba(9,33,76,.32)}
+.tcase__photo{margin:0;min-width:0;background:#f3f6fd}
+.tcase__photo img{display:block;width:100%;height:100%;min-height:100%;aspect-ratio:16/10;object-fit:cover;object-position:72% 62%}
+.tcase__photo--logo{display:grid;place-items:center;padding:40px}
+.tcase__photo--logo img{width:auto;height:auto;max-width:70%;max-height:120px;aspect-ratio:auto;object-fit:contain}
+.tcase__body{display:flex;flex-direction:column;justify-content:center;gap:22px;padding:44px 52px;min-width:0}
+.tcase__top{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px 16px}
+.tcase__logo{display:block;width:auto;height:40px;max-width:150px;object-fit:contain}
+.tcase__tag{display:inline-block;padding:4px 12px;border-radius:999px;background:#e6f7fa;color:#007380;font-size:14px;font-weight:600;line-height:1.4}
+.tcase__stat{display:flex;align-items:baseline;flex-wrap:wrap;gap:4px 16px;margin:0}
+.tcase__stat b{font-size:clamp(52px,2.4rem + 3vw,76px);line-height:1;font-weight:700;letter-spacing:-2px;color:#1352bf;font-variant-numeric:tabular-nums}
+.tcase__stat span{font-size:18px;line-height:1.35;font-weight:500;color:var(--navy)}
+.tcase__q{margin:0;padding-top:22px;border-top:1px solid #e5e9ef}
+.tcase__q blockquote{margin:0}
+.tcase__q blockquote p{margin:0;font-size:clamp(19px,1.05rem + .5vw,23px);line-height:1.4;font-weight:500;letter-spacing:-.3px;color:var(--navy);text-wrap:pretty}
+.tcase__q figcaption{margin-top:14px;font-size:15px;line-height:1.45;color:#505f73}
+.tcase__q cite{font-style:normal;font-weight:600;color:var(--navy)}
+.tcase__meta{margin:0;font-size:15px;line-height:1.45;color:#505f73}
+@media (max-width:900px){.tcase{grid-template-columns:minmax(0,1fr)}.tcase__photo img{height:auto;aspect-ratio:4/3}.tcase__photo--logo{min-height:200px}.tcase__body{padding:28px 24px 32px;gap:18px}}
+@media (max-width:400px){.tcase__body{padding:24px 18px 28px}}
+
+/* tc2 testimonial carousel + trusted-by strip (healthcare v2) */
+.ih-res+.tcar{margin-top:40px}
+.tcar{max-width:1080px;margin:0 auto;position:relative}
+.tcar__vp{display:flex;gap:24px;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;overscroll-behavior-x:contain;padding:2px 2px 44px;margin:-2px -2px -28px;outline:none}
+.tcar__vp::-webkit-scrollbar{display:none}
+.tcar__vp:focus-visible{box-shadow:inset 0 0 0 2px #1352bf;border-radius:26px}
+.tcar .tcase{flex:0 0 100%;max-width:none;margin:0;scroll-snap-align:center;scroll-snap-stop:always}
+.tcar .tcase__photo{position:relative}
+.tcar .tcase__photo img{position:absolute;inset:0;height:100%;aspect-ratio:auto}
+.tcar .tcase__photo--logo img{position:static;inset:auto;width:auto;height:auto;max-width:62%;max-height:96px}
+.tcar__nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:0;position:relative}
+.tcar__btn{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#fff;border:1px solid #d9e2f1;color:var(--navy);cursor:pointer;transition:background .2s,border-color .2s,opacity .2s}
+.tcar__btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tcar__btn:hover:not(:disabled){background:#f3f6fd;border-color:#1352bf;color:#1352bf}
+.tcar__btn:focus-visible,.tcar__dot:focus-visible{outline:2px solid #1352bf;outline-offset:2px}
+.tcar__btn:disabled{opacity:.4;cursor:default}
+.tcar__dots{display:flex;align-items:center;gap:4px}
+.tcar__dot{width:24px;height:24px;padding:0;border:0;background:none;display:grid;place-items:center;cursor:pointer}
+.tcar__dot::before{content:"";width:8px;height:8px;border-radius:50%;background:#c9d4e8;transition:background .2s,transform .2s}
+.tcar__dot[aria-current="true"]::before{background:#1352bf;transform:scale(1.15)}
+@media (max-width:900px){.tcar .tcase{grid-template-columns:minmax(0,1fr);grid-template-rows:240px auto;align-content:start}.tcar .tcase__photo{height:240px}.tcar .tcase__photo--logo{min-height:0}.tcar__vp{gap:16px}}
+@media (prefers-reduced-motion:reduce){.tcar__vp{scroll-behavior:auto}}
+/* trusted-by: homepage .logoband2 (styles.css) */
+.ih-trust--b{margin:0}
+.logoband2 .lg--thomson img{max-height:38px}
+.logoband2 .lg--euromedica img,.logoband2 .lg--sociamedic img,.logoband2 .lg--glowliy img{max-height:36px}
+.logoband2 .lg--siloam img{max-width:150px;max-height:24px}
+.logoband2 .lg--sozo-dental img{height:22px;width:auto}
+@media (max-width:760px){.logoband2 .lg--sozo-dental img{height:18px}}
+/* tc3 hc25: up/down badge next to the big stat; logo panel centred */
+.tcase__stat b{display:inline-block}
+.tcase__dir{flex:none;align-self:center;display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#e4edfc;color:#1352bf;margin-left:-4px}
+.tcase__dir svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.tcar .tcase__photo--logo{display:flex;align-items:center;justify-content:center;padding:0}
+.tcar .tcase__photo--logo img{display:block;margin:auto;min-height:0;aspect-ratio:auto}
+@media (max-width:900px){.tcase__dir{width:34px;height:34px}.tcase__dir svg{width:17px;height:17px}}
+/* tc4 hc26: option B, soft green rounded square, slightly tilted, chunky arrow (up and down) */
+.tcase__dir{width:46px;height:46px;border-radius:15px;background:#dcfce7;color:#16a34a;margin-left:-2px;box-shadow:none;transform:rotate(-5deg)}
+.tcase__dir--down{transform:rotate(5deg)}
+.tcase__dir svg{width:26px;height:26px;stroke-width:3.4}
+@media (max-width:900px){.tcase__dir{width:38px;height:38px;border-radius:13px}.tcase__dir svg{width:21px;height:21px;stroke-width:3.2}}
+/* tc5 hc27: trusted-by band moved above How Cekat helps, with section label */
+.ih-trust{padding:8px 0 0;background:#fff}
+.ih-trust .sec-head{margin-bottom:22px}
+.ih-trust .logoband2{margin:0}
+@media (max-width:760px){.ih-trust .sec-head{margin-bottom:16px}}
+/* tc6 hc28: trusted-by — static healthcare row + other-brands marquee (sits above #results) */
+.ih-trust{padding:40px 0 8px;background:#fff}
+.ih-trust__h{display:flex;align-items:center;gap:20px;max-width:640px;margin:0 auto 34px;font-size:18px;line-height:1.3;font-weight:600;letter-spacing:-.01em;color:var(--navy);text-align:center}
+.ih-trust__h::before,.ih-trust__h::after{content:"";flex:1;height:1px;background:#e3e8f0}
+.ih-trust__h span{flex:none}
+.tlg{--lh:30px;--ink:.78;list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));align-items:center;justify-items:center;gap:30px 24px;max-width:1120px}
+.tlg li{display:flex;align-items:center;justify-content:center;min-height:48px;min-width:0;max-width:100%}
+.tlg img{display:block;height:var(--lh);width:auto;max-width:min(100%,132px);object-fit:contain;filter:brightness(0);opacity:var(--ink)}
+.tlg img.tlg__wide{height:calc(var(--lh)*.7);max-width:min(100%,150px)}
+.tlg img.tlg__tall{height:calc(var(--lh)*1.35)}
+.tlg img.tlg__xtall{height:calc(var(--lh)*1.5)}
+.tlg__rule{width:120px;height:1px;background:#e5e9ef;margin:34px auto 30px}
+.tlm{position:relative;overflow:hidden;max-width:1120px;margin:0 auto;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%)}
+.tlm__track{display:flex;width:max-content;animation:tlmScroll 110s linear infinite}
+.tlm:hover .tlm__track{animation-play-state:paused}
+.tlm__list{display:flex;align-items:center;gap:56px;list-style:none;margin:0;padding:0 28px}
+.tlm__list li{display:flex;align-items:center;gap:8px;flex:none;height:48px;font-size:14px;font-weight:600;white-space:nowrap;color:rgba(0,0,0,.45)}
+.tlm__list img{display:block;width:auto;max-width:170px;object-fit:contain;filter:brightness(0);opacity:.45}
+@keyframes tlmScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.tlm__track{animation:none}.tlm{overflow-x:auto}}
+@media (max-width:1100px){.tlg{grid-template-columns:repeat(4,minmax(0,1fr));max-width:880px}}
+@media (max-width:767px){.ih-trust{padding:28px 0 4px}.ih-trust__h{font-size:15px;gap:10px;margin-bottom:26px}.ih-trust__h::before,.ih-trust__h::after{min-width:16px}.ih-trust__h span{flex:0 1 auto}.tlg{--lh:24px;gap:22px 12px;grid-template-columns:repeat(2,minmax(0,1fr))}.tlg img{max-width:min(100%,120px)}.tlg__rule{margin:26px auto 22px}.tlm{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 15%,#000 85%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 15%,#000 85%,transparent 100%)}.tlm__list{gap:40px;padding:0 20px}.tlm__list img{transform:scale(.85);transform-origin:center}.tlm__track{animation-duration:90s}}
+/* tc7 hc29: subtle "Other brands" label split into the divider */
+.tlg__lbl{display:flex;align-items:center;justify-content:center;gap:14px;max-width:260px;margin:34px auto 22px;font-size:12px;line-height:1;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#94a3b8}
+.tlg__lbl::before,.tlg__lbl::after{content:"";flex:1;height:1px;background:#e5e9ef}
+.tlg__lbl span{flex:none}
+@media (max-width:767px){.tlg__lbl{margin:26px auto 16px;font-size:11px;max-width:220px}}
+/* tc8 ind1: rollout — industry row as centred flex (3–7 logos), mark+name logos, mono logo panels, 2-stat grid */
+.tlg.tlg--row{display:flex;flex-wrap:wrap;justify-content:center;gap:30px 18px;max-width:1180px}
+.tlg--row li{flex:0 0 115px}
+.tlg--row li.tlg__t{flex:0 0 auto;gap:8px;font-size:15px;font-weight:700;white-space:nowrap;color:rgba(0,0,0,var(--ink))}
+.tlg img.tlg__mark{width:auto;height:var(--lh);max-width:none;flex:none}
+.tcar .tcase__photo--mono img{filter:brightness(0);opacity:.8}
+.ih-res.ih-res--2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tcar__nav[hidden]{display:none}
+.tcase__logo--mono{filter:brightness(0);opacity:.85}
+/* tc9 ind2: card logos ~30% bigger, one height on every card (inline max-height = file's real height, never upscaled) */
+.tcase__logo{height:52px;max-width:210px}
+@media (max-width:900px){.tcase__logo{height:44px;max-width:180px}}
+@media (max-width:767px){.tlg.tlg--row{gap:22px 12px}.tlg--row li{flex:0 0 calc(50% - 6px)}.tlg--row li.tlg__t{flex:0 0 calc(50% - 6px);font-size:13px}}
