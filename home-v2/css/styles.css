@@ -2658,3 +2658,9 @@ button.more.ts-toggle{background:none;padding:0;display:inline-flex;align-items:
 .ts .tc__logo-br--lg{max-width:110px;max-height:32px}
 /* light line versions of badge logos (Puffy, Yupi, Yummy Choice) in the blue logo band: no solid blobs */
 .logoband2 .logo img[src*="-outline-w.png"]{filter:none!important;opacity:1}
+/* logo-prio: prio-1 brands first + new client logos */
+.logoband2 .lgtrack{animation-duration:281s}
+.logoband2 .lg--raja-oto img,.logoband2 .lg--jual-emas-indonesia img,.logoband2 .lg--umn img{max-height:42px}
+.logoband2 .lg--angke-restaurant img,.logoband2 .lg--primebiz-hotel-cikarang img,.logoband2 .lg--cold-n-brew img{max-height:38px}
+.logoband2 .lg--bank-asa img,.logoband2 .lg--lasalle-college-jakarta img,.logoband2 .lg--darius-tour img,.logoband2 .lg--dariustour img{max-width:150px}
+@media (max-width:760px){.logoband2 .lg--raja-oto img,.logoband2 .lg--jual-emas-indonesia img,.logoband2 .lg--umn img{max-height:30px!important}}
