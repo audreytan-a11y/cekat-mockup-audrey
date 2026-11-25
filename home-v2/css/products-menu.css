@@ -488,3 +488,45 @@
 @keyframes pmClip{from{transform:scaleX(0)}to{transform:none}}
 .dd--mega .ad-leg .l2{background:#93B4F5}
 @media (prefers-reduced-motion:reduce){.dd--mega .rot__s.is-on *,.dd--mega .rot__s.is-on *::after,.dd--mega .rot__s.is-on .pmx-cr__clip{animation:none!important}}
+
+/* au10: mini payment-flow automation visual (.pfm), used in the Products menu + home-v2 Automation card.
+   CSS-only; everything in em, font-size follows container width (design width 34em). */
+.pfm{container-type:inline-size;width:100%;max-width:400px;margin:0 auto}
+.pfm__in{--pfm-navy:#123f9e;--pfm-line:#cdd3dd;font-size:clamp(7.6px,calc(100cqw / 34),11.2px);font-family:var(--font,inherit);line-height:1.25;color:#101828;text-align:left}
+.pfm__main{display:flex;flex-direction:column;align-items:center}
+.pfm__main .pfm__n{width:18.5em}
+.pfm__n{position:relative;display:flex;align-items:center;gap:.6em;padding:.45em .7em .45em .45em;background:#fff;border:1px solid #e6e9ef;border-radius:.85em;box-shadow:0 1px 2px rgba(16,24,40,.04),0 .5em 1.2em -.8em rgba(16,40,90,.22)}
+.pfm__n--trg{border:1.5px solid transparent;background:linear-gradient(#fff,#fff) padding-box,linear-gradient(120deg,#7c4dff,#2563eb 70%,#1352bf) border-box;box-shadow:0 1px 2px rgba(16,24,40,.05),0 .7em 1.5em -.9em rgba(76,61,230,.4)}
+.pfm__tag{position:absolute;left:-1px;bottom:100%;margin-bottom:.25em;padding:.2em .4em;border-radius:.3em;background:var(--pfm-navy);color:#fff;font-size:.82em;font-weight:600;line-height:1.15;white-space:nowrap}
+.pfm__ic{flex:none;display:grid;place-items:center;width:2.1em;height:2.1em;border-radius:.55em;background:#fff;border:1px solid #e8ebf0}
+.pfm__ic svg{width:1.25em;height:1.25em;fill:none;stroke:#1352bf;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.pfm__ic--if{background:#e8f6fd;border-color:#d3eefb}.pfm__ic--if svg{stroke:#0b8fd0}
+.pfm__ic--wa svg{fill:#25d366;stroke:none}
+.pfm__tx{flex:1;min-width:0;display:flex;flex-direction:column}
+.pfm__tx b{font-size:1.12em;font-weight:700;color:#101828;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pfm__tx small{font-size:.93em;color:#667085;margin-top:.1em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.pfm__ln{position:relative;display:block;width:1px;height:1.5em;margin:0 auto;background:var(--pfm-line)}
+.pfm__ln::after{content:"";position:absolute;left:50%;bottom:0;width:.4em;height:.4em;margin-left:-.22em;border-right:1px solid var(--pfm-line);border-bottom:1px solid var(--pfm-line);transform:rotate(45deg)}
+.pfm__ln--tag{height:2.6em}
+.pfm__split{position:relative;height:1em}
+.pfm__split::before{content:"";position:absolute;left:50%;top:0;height:100%;width:1px;background:var(--pfm-line)}
+.pfm__br{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:1em}
+.pfm__col{position:relative;display:flex;flex-direction:column;align-items:center;padding-top:.9em}
+.pfm__col::before{content:"";position:absolute;top:0;height:1px;background:var(--pfm-line);left:50%;right:-.5em}
+.pfm__col+.pfm__col::before{left:-.5em;right:50%}
+.pfm__col::after{content:"";position:absolute;top:0;left:50%;width:1px;height:.9em;background:var(--pfm-line)}
+.pfm__col .pfm__n{align-self:stretch}
+.pfm__pill{position:relative;z-index:1;padding:.25em .8em;border-radius:.45em;background:#f3f7fe;border:1px solid #9fbbea;color:#1d55c4;font-size:.92em;font-weight:500;line-height:1.3;white-space:nowrap}
+.pfm__pill--else{background:#eef0f3;border-color:#e2e5ea;color:#475467}
+.pfm__col .pfm__ln{height:1.2em}
+/* pulse along the lines while visible (light) */
+.pfm__ln{background-image:linear-gradient(transparent,#1352bf 45%,#1352bf 55%,transparent);background-repeat:no-repeat;background-size:100% .9em;background-position:0 -1em;animation:pfmFlow 3.6s linear infinite}
+.pfm__br .pfm__ln{animation-delay:.6s}
+.pfm__br .pfm__col:first-child .pfm__ln+.pfm__n+.pfm__ln{animation-delay:1.1s}
+@keyframes pfmFlow{0%{background-position:0 -1em}20%,100%{background-position:0 3em}}
+@media (prefers-reduced-motion:reduce){.pfm__ln{animation:none;background-image:none}}
+@container (max-width:340px){.pfm__col .pfm__n{gap:.45em;padding:.45em .5em .45em .4em}.pfm__col .pfm__ic{width:1.85em;height:1.85em}.pfm__col .pfm__tx small{font-size:.88em}.pfm__br{column-gap:.8em}.pfm__col::before{right:-.4em}.pfm__col+.pfm__col::before{left:-.4em;right:50%}}
+
+/* au10: home-v2 Automation card */
+.mini__vis .rot__s:has(> .pfm){padding:0;margin:0 -10px}
+.mini__vis .rot__s .pfm{max-width:360px}

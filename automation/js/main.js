@@ -269,18 +269,19 @@
         rotW = $('.pc-rot__w', title), txt = rotW ? $$(':scope > span', rotW) : [],
         i = 0, paused = false, t = null, MS = 3000;
     if (sl.length < 2) return;
+    function ti(k) { var d = sl[k] && sl[k].getAttribute('data-t'); return d != null ? +d : (txt.length ? k % txt.length : 0); }
     function set(k, instant) {
-      var prevS = sl[i], prevT = txt[i];
+      var prevS = sl[i], prevT = txt[ti(i)], tk = ti(k); /* au10: slides can outnumber H1 phrases (data-t picks the phrase) */
       sl.forEach(function (s, j) { s.classList.toggle('is-on', j === k); });
-      txt.forEach(function (s, j) { s.classList.toggle('is-on', j === k); s.classList.remove('is-out'); });
+      txt.forEach(function (s, j) { s.classList.toggle('is-on', j === tk); s.classList.remove('is-out'); });
       dots.forEach(function (d, j) { d.classList.toggle('on', j === k); d.setAttribute('aria-pressed', j === k ? 'true' : 'false'); });
       if (!instant && prevS && prevS !== sl[k]) { prevS.classList.add('is-leaving'); setTimeout(function () { prevS.classList.remove('is-leaving'); }, 420); }
-      if (!instant && prevT && prevT !== txt[k]) { prevT.classList.add('is-out'); setTimeout(function () { prevT.classList.remove('is-out'); }, 350); }
+      if (!instant && prevT && prevT !== txt[tk]) { prevT.classList.add('is-out'); setTimeout(function () { prevT.classList.remove('is-out'); }, 350); }
       i = k;
-      if (txt[k]) title.setAttribute('aria-label', (title.getAttribute('data-pre') || '') + txt[k].textContent);
+      if (txt[tk]) title.setAttribute('aria-label', (title.getAttribute('data-pre') || '') + txt[tk].textContent);
     }
     function tick() { if (!paused && !document.hidden) set((i + 1) % sl.length); }
-    function start() { clearInterval(t); t = setInterval(tick, MS); }
+    function start() { clearTimeout(t); t = setTimeout(function () { tick(); start(); }, +(sl[i].getAttribute('data-ms') || MS)); } /* au10: per-slide duration */
     set(0, true);
     dots.forEach(function (d, j) { d.addEventListener('click', function () { if (j !== i) set(j); if (!reduce) start(); }); });
     if (reduce) return;
