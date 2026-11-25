@@ -439,7 +439,6 @@
 .tcar .tcase__photo{position:relative}
 .tcar .tcase__photo img{position:absolute;inset:0;height:100%;aspect-ratio:auto}
 .tcar .tcase__photo--logo img{position:static;inset:auto;width:auto;height:auto;max-width:62%;max-height:96px}
-.tcar .tcase__photo--glowliy img{max-height:64px}
 .tcar__nav{display:flex;align-items:center;justify-content:center;gap:18px;margin-top:0;position:relative}
 .tcar__btn{width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:#fff;border:1px solid #d9e2f1;color:var(--navy);cursor:pointer;transition:background .2s,border-color .2s,opacity .2s}
 .tcar__btn svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
@@ -459,3 +458,16 @@
 .logoband2 .lg--siloam img{max-width:150px;max-height:24px}
 .logoband2 .lg--sozo-dental img{height:22px;width:auto}
 @media (max-width:760px){.logoband2 .lg--sozo-dental img{height:18px}}
+/* tc3 hc25: up/down badge next to the big stat; logo panel centred */
+.tcase__stat b{display:inline-block}
+.tcase__dir{flex:none;align-self:center;display:inline-grid;place-items:center;width:40px;height:40px;border-radius:50%;background:#e4edfc;color:#1352bf;margin-left:-4px}
+.tcase__dir svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.tcar .tcase__photo--logo{display:flex;align-items:center;justify-content:center;padding:0}
+.tcar .tcase__photo--logo img{display:block;margin:auto;min-height:0;aspect-ratio:auto}
+.tcar .tcase__photo--sociamedic img{max-width:82%;max-height:126px}
+@media (max-width:900px){.tcase__dir{width:34px;height:34px}.tcase__dir svg{width:17px;height:17px}}
+/* tc4 hc26: option B, soft green rounded square, slightly tilted, chunky arrow (up and down) */
+.tcase__dir{width:46px;height:46px;border-radius:15px;background:#dcfce7;color:#16a34a;margin-left:-2px;box-shadow:none;transform:rotate(-5deg)}
+.tcase__dir--down{transform:rotate(5deg)}
+.tcase__dir svg{width:26px;height:26px;stroke-width:3.4}
+@media (max-width:900px){.tcase__dir{width:38px;height:38px;border-radius:13px}.tcase__dir svg{width:21px;height:21px;stroke-width:3.2}}
