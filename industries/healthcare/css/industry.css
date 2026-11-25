@@ -476,3 +476,25 @@
 .ih-trust .sec-head{margin-bottom:22px}
 .ih-trust .logoband2{margin:0}
 @media (max-width:760px){.ih-trust .sec-head{margin-bottom:16px}}
+/* tc6 hc28: trusted-by — static healthcare row + other-brands marquee (sits above #results) */
+.ih-trust{padding:40px 0 8px;background:#fff}
+.ih-trust__h{display:flex;align-items:center;gap:20px;max-width:640px;margin:0 auto 34px;font-size:18px;line-height:1.3;font-weight:600;letter-spacing:-.01em;color:var(--navy);text-align:center}
+.ih-trust__h::before,.ih-trust__h::after{content:"";flex:1;height:1px;background:#e3e8f0}
+.ih-trust__h span{flex:none}
+.tlg{--lh:30px;--ink:.78;list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(8,minmax(0,1fr));align-items:center;justify-items:center;gap:30px 24px;max-width:1120px}
+.tlg li{display:flex;align-items:center;justify-content:center;min-height:48px;min-width:0;max-width:100%}
+.tlg img{display:block;height:var(--lh);width:auto;max-width:min(100%,132px);object-fit:contain;filter:brightness(0);opacity:var(--ink)}
+.tlg img.tlg__wide{height:calc(var(--lh)*.7);max-width:min(100%,150px)}
+.tlg img.tlg__tall{height:calc(var(--lh)*1.35)}
+.tlg img.tlg__xtall{height:calc(var(--lh)*1.5)}
+.tlg__rule{width:120px;height:1px;background:#e5e9ef;margin:34px auto 30px}
+.tlm{position:relative;overflow:hidden;max-width:1120px;margin:0 auto;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%)}
+.tlm__track{display:flex;width:max-content;animation:tlmScroll 110s linear infinite}
+.tlm:hover .tlm__track{animation-play-state:paused}
+.tlm__list{display:flex;align-items:center;gap:56px;list-style:none;margin:0;padding:0 28px}
+.tlm__list li{display:flex;align-items:center;gap:8px;flex:none;height:48px;font-size:14px;font-weight:600;white-space:nowrap;color:rgba(0,0,0,.45)}
+.tlm__list img{display:block;width:auto;max-width:170px;object-fit:contain;filter:brightness(0);opacity:.45}
+@keyframes tlmScroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.tlm__track{animation:none}.tlm{overflow-x:auto}}
+@media (max-width:1100px){.tlg{grid-template-columns:repeat(4,minmax(0,1fr));max-width:880px}}
+@media (max-width:767px){.ih-trust{padding:28px 0 4px}.ih-trust__h{font-size:15px;gap:10px;margin-bottom:26px}.ih-trust__h::before,.ih-trust__h::after{min-width:16px}.ih-trust__h span{flex:0 1 auto}.tlg{--lh:24px;gap:22px 12px;grid-template-columns:repeat(2,minmax(0,1fr))}.tlg img{max-width:min(100%,120px)}.tlg__rule{margin:26px auto 22px}.tlm{-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 15%,#000 85%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 15%,#000 85%,transparent 100%)}.tlm__list{gap:40px;padding:0 20px}.tlm__list img{transform:scale(.85);transform-origin:center}.tlm__track{animation-duration:90s}}
