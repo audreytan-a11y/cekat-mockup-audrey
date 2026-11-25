@@ -1,6 +1,6 @@
 /* Important announcement pop-up (Unlimited AI Credits). Shows once after a short delay; dismissal remembered in localStorage. */
 (function () {
-  var KEY = 'cekat-uc-popup-dismissed-v1', DELAY = 1200;
+  var KEY = 'cekat-uc-popup-dismissed-v1', DELAY = 300;
   var m = document.getElementById('ucPopup'); if (!m) return;
   var store = { get: function () { try { return localStorage.getItem(KEY); } catch (e) { return null; } },
                 set: function () { try { localStorage.setItem(KEY, '1'); } catch (e) {} } };
