@@ -9,3 +9,20 @@
 /* demo numbers are labelled; same small label on all three cards */
 .mini .mini__vis{position:relative}
 .mini__demo{position:absolute;right:12px;bottom:8px;z-index:1;font-size:10.5px;font-weight:500;letter-spacing:.01em;color:#8a97ad;line-height:1}
+/* Compact Broadcast composer, from the Broadcast page “New campaign” panel */
+#broadcasts .mini__vis{justify-content:center;gap:0;padding:8px 10px 22px}
+.bcc{width:100%;background:#fff;border:1px solid #e3eaf6;border-radius:14px;box-shadow:0 12px 28px -18px rgba(8,33,76,.4);padding:7px 8px 8px;display:flex;flex-direction:column;gap:4px;color:#0B1B3F}
+.bcc__h{display:flex;align-items:center;gap:5px;margin:0;padding-bottom:4px;border-bottom:1px solid #eef2f8;font-size:11.5px;font-weight:600;line-height:1.2;color:#0B1B3F;white-space:nowrap}
+.bcc__h img{width:13px;height:13px;flex:none}
+.bcc__h em{margin-left:auto;font-style:normal;font-size:10px;font-weight:500;color:#667085}
+.bcc__row{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:4px 7px;border-radius:9px;background:#f6f9fe;box-shadow:0 0 0 1px #e9eef8}
+.bcc__row>span:first-child{display:grid;gap:0;min-width:0}
+.bcc__row small{font-size:10px;line-height:1.15;color:#667085}
+.bcc__row b{font-size:11.5px;line-height:1.2;font-weight:600;color:#0B1B3F}
+.bcc__ok,.bcc__seg{flex:none;font-size:10.5px;font-weight:600;color:#1A56DB;white-space:nowrap}
+.bcc__seg{font-weight:500;color:#667085}
+.bcc__ok{display:inline-flex;align-items:center;gap:3px}
+.bcc__ok svg{width:11px;height:11px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.bcc__msg{display:flex;align-items:flex-start;gap:6px;padding:5px 7px;border-radius:11px;border-bottom-left-radius:4px;background:#eaf2ff;font-size:11.5px;line-height:1.3;color:#0B1B3F}
+.bcc__msg img{width:13px;height:13px;flex:none;margin-top:1px}
+.bcc__btn{align-self:flex-start;display:inline-flex;align-items:center;min-height:22px;padding:0 9px;border-radius:8px;background:#1A56DB;color:#fff;font-size:11.5px;font-weight:600;line-height:1}
