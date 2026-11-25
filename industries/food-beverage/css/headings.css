@@ -9,4 +9,46 @@
 /* hd3 (final QA): same phone step-heading size as the other industry pages (../../css/headings-fix.css hd3) */
 @media (max-width:640px){.ih-step__h{font-size:min(23px,5.9vw)}}
 .ih-trust__h span{text-wrap:balance}
+/* hd4lg: same balanced trusted-by rows as the other industry pages */
+.tlg.tlg--row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:26px 28px;max-width:1080px;margin-left:auto;margin-right:auto}
+.tlg.tlg--row>li{flex:0 1 168px;width:168px;max-width:100%;min-width:0;min-height:46px;display:flex;align-items:center;justify-content:center}
+.tlg.tlg--row img{display:block;width:auto;height:auto;max-width:100%;max-height:32px;object-fit:contain;object-position:center}
+.tlg.tlg--row img.tlg__wide{max-height:22px}
+.tlg.tlg--row img.tlg__tall{max-height:42px}
+.tlg.tlg--row img.tlg__xtall{max-height:46px}
+.tlg.tlg--row>li.tlg__t,.tlg--solo>li{flex:0 1 auto;width:auto;max-width:none;white-space:nowrap}
+.tlg--row:has(>li:nth-child(9):last-child){max-width:940px}
+.tlg--row:has(>li:nth-child(9):last-child)>li{flex-basis:156px;width:156px}
+.tlg--row:has(>li:nth-child(8):last-child){max-width:780px}
+.tlg--row:has(>li:nth-child(8):last-child)>li{flex-basis:160px;width:160px}
+.tlg--row:has(>li:nth-child(6):last-child){max-width:640px}
+.tlg--row:has(>li:nth-child(6):last-child)>li{flex-basis:180px;width:180px}
+@media (max-width:900px){
+  .tlg--row:has(>li:nth-child(9):last-child),
+  .tlg--row:has(>li:nth-child(6):last-child),
+  .tlg--row:has(>li:nth-child(15):last-child),
+  .tlg--row:has(>li:nth-child(3):last-child){max-width:720px}
+  .tlg--row:has(>li:nth-child(9):last-child)>li,
+  .tlg--row:has(>li:nth-child(6):last-child)>li,
+  .tlg--row:has(>li:nth-child(15):last-child)>li,
+  .tlg--row:has(>li:nth-child(3):last-child)>li{flex:0 1 calc((100% - 56px)/3);width:calc((100% - 56px)/3)}
+  .tlg--row:has(>li:nth-child(8):last-child),
+  .tlg--row:has(>li:nth-child(4):last-child){max-width:760px}
+  .tlg--row:has(>li:nth-child(8):last-child)>li,
+  .tlg--row:has(>li:nth-child(4):last-child)>li{flex:0 1 calc((100% - 84px)/4);width:calc((100% - 84px)/4)}
+  .tlg--row:has(>li:nth-child(5):last-child)>li{flex:0 1 calc((100% - 56px)/3);width:calc((100% - 56px)/3)}
+}
+@media (max-width:520px){
+  .tlg--row:has(>li:nth-child(9):last-child)>li,
+  .tlg--row:has(>li:nth-child(6):last-child)>li,
+  .tlg--row:has(>li:nth-child(15):last-child)>li,
+  .tlg--row:has(>li:nth-child(3):last-child)>li{flex:0 1 calc((100% - 40px)/3);width:calc((100% - 40px)/3)}
+  .tlg--row:has(>li:nth-child(8):last-child)>li,
+  .tlg--row:has(>li:nth-child(5):last-child)>li,
+  .tlg--row:has(>li:nth-child(4):last-child)>li{flex:0 1 calc((100% - 20px)/2);width:calc((100% - 20px)/2)}
+  .tlg.tlg--row{gap:18px 12px}
+  .tlg.tlg--row img{max-height:24px}
+  .tlg.tlg--row img.tlg__wide{max-height:16px}
+  .tlg.tlg--row img.tlg__tall,.tlg.tlg--row img.tlg__xtall{max-height:34px}
+}
 @media (max-width:640px){.ih-h2{font-size:min(28px,7.2vw)}}
