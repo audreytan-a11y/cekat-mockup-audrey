@@ -518,3 +518,8 @@
 .tcar .tcase__tag{flex:none;white-space:nowrap;margin-left:auto}
 @media (max-width:900px){.tcar .tcase__top{min-height:44px}}
 @media (max-width:400px){.tcar .tcase__logo{max-width:calc(100% - 172px)}}
+/* logos: Healthcare row now wraps like the other pages */
+.tlg.tlg--row{display:flex;flex-wrap:wrap;justify-content:center;gap:30px 18px;max-width:1180px}
+.tlg--row li{flex:0 0 115px}
+.tlg--row li.tlg__t{flex:0 0 auto;gap:8px;font-size:15px;font-weight:700;white-space:nowrap;color:rgba(0,0,0,var(--ink))}
+@media (max-width:767px){.tlg.tlg--row{gap:22px 12px}.tlg--row li{flex:0 0 calc(50% - 6px)}.tlg--row li.tlg__t{flex:0 0 calc(50% - 6px);font-size:13px}}
