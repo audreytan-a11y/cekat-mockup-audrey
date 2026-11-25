@@ -59,27 +59,36 @@
     i.addEventListener('click', function () { setTimeout(closeAll, 0); if (nav.classList.contains('menu-open')) toggle.click(); });
   });
 
-  /* generic rotating scenes (.rot) */
+  /* generic rotating scenes (.rot). A rot with data-ms advances on its own timer. */
+  function stepRot(r) {
+    var ss = $$('.rot__s', r);
+    if (ss.length < 2) return;
+    var i = ss.findIndex(function (x) { return x.classList.contains('is-on'); });
+    if (i < 0) i = 0;
+    var hold = +ss[i].dataset.hold || 1;
+    r.__t = (r.__t || 0) + 1;
+    if (r.__t < hold) return;
+    r.__t = 0;
+    ss[i].classList.remove('is-on');
+    var nx = ss[(i + 1) % ss.length]; nx.classList.add('is-on');
+    var dots = r.parentNode.querySelectorAll('.mini__dots i');
+    dots.forEach(function (d, n) { d.classList.toggle('is-on', n === (i + 1) % ss.length); });
+    var stg = r.closest('.stage') || r.parentNode.querySelector('.chrow'); if (stg && nx.dataset.ch) stg.dataset.ch = nx.dataset.ch;
+    $$('[data-seq]', nx).forEach(function (q) { if (q.__reset) q.__reset(); });
+  }
   function tickRot() {
     $$('.rot').forEach(function (r) {
-      var mv = r.closest('.mv');
-      if (mv) return; /* menu rotation lives in products-menu.js */
-      if (!mv && !r.dataset.vis) return;
-      var ss = $$('.rot__s', r), i = ss.findIndex(function (x) { return x.classList.contains('is-on'); });
-      var hold = +ss[i].dataset.hold || 1;
-      r.__t = (r.__t || 0) + 1;
-      if (r.__t < hold) return;
-      r.__t = 0;
-      ss[i].classList.remove('is-on');
-      var nx = ss[(i + 1) % ss.length]; nx.classList.add('is-on');
-      var stg = r.closest('.stage') || r.parentNode.querySelector('.chrow'); if (stg && nx.dataset.ch) stg.dataset.ch = nx.dataset.ch;
-      $$('[data-seq]', nx).forEach(function (q) { if (q.__reset) q.__reset(); });
+      if (r.closest('.mv')) return; /* menu rotation lives in products-menu.js */
+      if (r.dataset.ms) return;
+      if (!r.dataset.vis) return;
+      stepRot(r);
     });
   }
   if (!reduce) {
     $$('.rot').forEach(function (r) {
       if (r.closest('.mv')) return;
       if ('IntersectionObserver' in window) new IntersectionObserver(function (en) { r.dataset.vis = en[0].isIntersecting ? '1' : ''; }).observe(r); else r.dataset.vis = '1';
+      if (r.dataset.ms) setInterval(function () { if (r.dataset.vis) stepRot(r); }, +r.dataset.ms || 3500);
     });
     setInterval(tickRot, 3000);
   }
