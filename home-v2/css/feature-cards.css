@@ -29,14 +29,9 @@
 #broadcasts .hf-bc__pvt img{width:13px;height:13px}
 #broadcasts .hcm{max-width:96%;font-size:11.5px;line-height:1.35;padding:7px 9px;border-radius:14px}
 #broadcasts .hcm--ai{align-self:flex-end;background:linear-gradient(160deg,#1a5fd6,#1352bf);color:#fff;border-bottom-right-radius:6px;box-shadow:0 8px 20px -10px rgba(19,82,191,.6)}
-/* Automation feature card: calmer flow, two slides, dots that don't change the card size */
-#automation .mini__dots{position:absolute;left:0;right:0;bottom:7px;display:flex;justify-content:center;gap:5px;z-index:2;pointer-events:none}
-#automation .mini__dots i{width:5px;height:5px;border-radius:99px;background:#b7c8e6}
-#automation .mini__dots i.is-on{background:#1A56DB}
-#automation .mini__vis .pfm--calm .pfm__in{font-size:clamp(9.5px,calc(100cqw / 30),11.5px)}
-#automation .mini__vis .pfm--calm .pfm__main .pfm__n{width:16.2em}
-#automation .mini__vis .pfm--calm .pfm__n{padding:.58em .85em .58em .5em;gap:.65em}
-#automation .mini__vis .pfm--calm .pfm__ln{height:1.9em}
-#automation .mini__vis .pfm--calm .pfm__split{height:1.25em}
-#automation .mini__vis .pfm--calm .pfm__br{column-gap:1.35em}
-#automation .mini__vis .pfm--calm .pfm__col .pfm__ln{height:1.45em}
+/* Automation card: the menu payment-workflow builder, scaled into the same panel. Trigger border is brand blue, not the purple gradient. */
+#automation{min-width:0}
+#automation .mini__vis{justify-content:center;align-items:center;padding:18px;container-type:size}
+#automation .pfmfit{width:100%;display:flex;justify-content:center;align-items:center}
+#automation .pfmfit .pfm{width:300px;max-width:none;flex:none;zoom:min(1,(100cqi - 8px) / 300px,(100cqb - 8px) / 250px)}
+#automation .pfm__n--trg{border:1.5px solid var(--primary);background:#fff;box-shadow:0 1px 2px rgba(16,24,40,.05),0 .5em 1.2em -.8em rgba(19,82,191,.35)}
