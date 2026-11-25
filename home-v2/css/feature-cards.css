@@ -29,19 +29,6 @@
 #broadcasts .hf-bc__pvt img{width:13px;height:13px}
 #broadcasts .hcm{max-width:96%;font-size:11.5px;line-height:1.35;padding:7px 9px;border-radius:14px}
 #broadcasts .hcm--ai{align-self:flex-end;background:linear-gradient(160deg,#1a5fd6,#1352bf);color:#fff;border-bottom-right-radius:6px;box-shadow:0 8px 20px -10px rgba(19,82,191,.6)}
-/* Automation feature card: the previous Trigger / Chained actions / Otherwise flow */
-#automation .lead3{width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;gap:8px;color:var(--navy)}
-#automation .lead3__s{display:flex;flex-direction:column;align-items:center;gap:4px;text-align:center}
-#automation .lead3__h{display:flex;align-items:center;gap:6px;margin:0;font-size:12px;font-weight:650;line-height:1.2;color:var(--navy)}
-#automation .lead3__n{display:grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--primary);color:#fff;font-size:11px;font-weight:700}
-#automation .lead3__chip{display:inline-flex;align-items:center;gap:5px;padding:4px 8px;border-radius:8px;background:#fff;box-shadow:0 0 0 1px #dbe5f5;font-size:11.5px;font-weight:600;line-height:1.2;color:var(--navy);white-space:nowrap}
-#automation .lead3__chip--trg i{display:grid;place-items:center;width:16px;height:16px;border-radius:5px;background:var(--primary)}
-#automation .lead3__chip--trg svg{width:10px;height:10px;fill:#fff}
-#automation .lead3__if{font-size:11.5px;font-weight:500;color:#667085}
-#automation .lead3__if b{color:var(--primary);font-weight:600}
-#automation .lead3__acts{display:flex;align-items:center;justify-content:center;gap:4px}
-#automation .lead3__ar{width:10px;height:0;border-top:1.5px solid #9dbaf2;position:relative;flex:none}
-#automation .lead3__ar::after{content:"";position:absolute;right:-1px;top:-3.5px;border:3px solid transparent;border-left:4px solid #9dbaf2;border-right:0}
 /* Automation feature card: calmer flow, two slides, dots that don't change the card size */
 #automation .mini__dots{position:absolute;left:0;right:0;bottom:7px;display:flex;justify-content:center;gap:5px;z-index:2;pointer-events:none}
 #automation .mini__dots i{width:5px;height:5px;border-radius:99px;background:#b7c8e6}
