@@ -215,12 +215,12 @@
 
   /* ---------- HERO SYNC (mk13) ----------
      Two whole-unit slides (Compare every source → See which ad works) + dots, in sync with H1 line 2.
-     ONE 3s timer, loops; pauses on hover/focus of the card or headline and while offscreen. Dot click jumps.
+     ONE 1.8s timer, loops; pauses on hover/focus of the card or headline and while offscreen. Dot click jumps.
      Reduced motion: first slide static, dots still switch. */
   (function () {
     var vis = $('#hero-sync'), h1 = $('.hero__title'); if (!vis || !h1) return;
     var sl = $$('.hxa__s', vis), dots = $$('.hx__dots button', vis), txt = $$('.hero__rot > span', h1);
-    var hero = vis.closest('.hero') || vis, i = 0, t = null, MS = 3000;
+    var hero = vis.closest('.hero') || vis, i = 0, t = null, MS = 1800;
     var hover = { card: false, h1: false }, kfocus = false, seen = true;
     if (sl.length < 2) return;
     function set(k) {

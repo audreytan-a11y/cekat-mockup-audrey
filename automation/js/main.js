@@ -258,7 +258,7 @@
   /* ---------- HERO (crm4) — homepage "[data-sync]" pattern ----------
      NOTE: the crm2 3-tab hero card (Kanban / List / Activity, #hero-scenes, .hs__dot step tabs,
      .vseg toggle, 3.5s timer) and its JS were removed in crm4.
-     Now ONE shared timer drives H1 line 2 + illustration slide + dots (MS = 3000), looping forever.
+     Now ONE shared timer drives H1 line 2 + illustration slide + dots (MS = 1800), looping forever.
      Pauses while a mouse is over the card or headline, or keyboard focus is inside; resumes on leave.
      Dot click jumps + restarts the timer. Paused while the hero is off-screen (IntersectionObserver).
      Reduced motion: first pair static, dots still switch. */
@@ -267,7 +267,7 @@
     if (!vis || !title) return;
     var sl = $$('.wv-s', vis), dots = $$('.wv-dots button', vis),
         rotW = $('.pc-rot__w', title), txt = rotW ? $$(':scope > span', rotW) : [],
-        i = 0, paused = false, t = null, MS = 3000;
+        i = 0, paused = false, t = null, MS = 1800;
     if (sl.length < 2) return;
     function ti(k) { var d = sl[k] && sl[k].getAttribute('data-t'); return d != null ? +d : (txt.length ? k % txt.length : 0); }
     function set(k, instant) {

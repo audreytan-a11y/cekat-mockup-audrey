@@ -301,7 +301,7 @@
   var title = null;
   var sl = [].slice.call(vis.querySelectorAll('.hv-s')), 
       dots = [].slice.call(vis.querySelectorAll('.hv-dots button'));
-  var n = sl.length, i = 0, t = null, MS = 3000;
+  var n = sl.length, i = 0, t = null, MS = 1800;
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
   var hover = false, kfocus = false, seen = true;
   function set(k, instant) {

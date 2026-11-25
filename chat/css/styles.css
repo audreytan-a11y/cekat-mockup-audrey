@@ -909,7 +909,7 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (min-width:1025px){.usp-grid .usp-card[data-art="store"]:not(.usp-card--big):not(.usp-card--wide) .scene{padding:4px 14px 6px}}
 @media (min-width:761px) and (max-width:1024px){.usp-grid{grid-template-rows:264px 250px 250px 272px 256px 256px 264px 240px}}
 /* ==========================================================================
-   rev27/28 — hero: synced illustration slides + dots (3.0s)
+   rev27/28 — hero: synced illustration slides + dots (1.8s)
    ========================================================================== */
 /* synced illustration */
 .hero__vis[data-hsync]{display:grid;place-items:center;padding-bottom:36px}
