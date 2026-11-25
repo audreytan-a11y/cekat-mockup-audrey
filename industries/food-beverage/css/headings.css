@@ -1,0 +1,8 @@
+/* hd1 — two-tone headings (navy line + blue line): keep each line whole, no one-word orphans */
+.ih-step__h{font-size:clamp(24px,2.6vw,34px);text-wrap:balance}
+.ih-h2,.ftx__h{text-wrap:balance}
+@media (max-width:900px){.ih-step__h{font-size:clamp(24px,3.6vw,30px)}}
+@media (max-width:640px){.ih-step__h{font-size:clamp(23px,6.4vw,26px)}}
+.ih-step__h>.ih-blue,.ih-h2>.ih-blue{display:block;text-wrap:balance}
+.ih-step__h>br,.ih-h2>br{display:none}
+@media (max-width:640px){h2.ftx__h{font-size:clamp(24px,6.9vw,34px)}}
