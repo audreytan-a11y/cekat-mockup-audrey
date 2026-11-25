@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:opsz,wght@6..144,400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root{--navy:#08214c;--primary:#1352bf;--text:#101828;--sub:#667085;--line:#e4e7ec}
+:root{--navy:#08214c;--primary:#1352bf;--text:#101828;--sub:#667085}
 *{box-sizing:border-box}
 body{margin:0;background:#eef3fb;color:var(--navy);font-family:"Google Sans Flex",Inter,system-ui,sans-serif}
 .note{background:#08214c;color:#fff;text-align:center;font-size:13px;font-weight:600;padding:8px 16px}
@@ -18,113 +18,76 @@ body{margin:0;background:#eef3fb;color:var(--navy);font-family:"Google Sans Flex
 .sol-btn{display:inline-flex;align-items:center;gap:6px;height:38px;padding:0 12px;border-radius:10px;background:#eff6ff;color:var(--primary);font-weight:600;font-size:15px}
 .chev{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.6;transform:rotate(180deg)}
 .stage{display:flex;justify-content:center;padding:18px 24px 48px}
-.panel{width:min(1040px,100%);background:#fff;border:1px solid #e3eaf7;border-radius:20px;box-shadow:0 18px 50px -24px rgba(8,33,76,.35);display:grid;grid-template-columns:210px minmax(0,1fr) 280px;gap:8px;padding:12px;min-height:560px}
-.tabs{display:flex;flex-direction:column;gap:4px;padding:6px}
-.tab{display:flex;align-items:center;justify-content:space-between;gap:8px;text-align:left;border:0;background:transparent;border-radius:12px;padding:12px 12px;font:inherit;color:#344054;cursor:pointer}
-.tab b{display:block;font-size:14px;font-weight:600}
-.tab small{display:block;margin-top:2px;font-size:12px;color:var(--sub);font-weight:500}
-.tab.is-on{background:#f5f8fe;color:var(--primary)}
-.tab.is-on b{color:var(--primary)}
-.mid{display:flex;flex-direction:column;min-width:0;padding:6px 4px 4px}
-.mid[hidden]{display:none}
-.mid h2{margin:0 8px 8px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--sub);font-weight:600}
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;align-content:start}
-.sol-item{display:flex;gap:10px;align-items:flex-start;text-align:left;border:0;background:transparent;border-radius:12px;padding:8px;font:inherit;cursor:pointer;color:var(--text)}
-.sol-item.is-on,.sol-item:hover{background:#f5f8fe}
+.panel{width:min(1040px,100%);background:#fff;border:1px solid #e3eaf7;border-radius:20px;box-shadow:0 18px 50px -24px rgba(8,33,76,.35);display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,320px);gap:16px;padding:16px;min-height:520px}
+.mid{display:flex;flex-direction:column;min-width:0}
+.mid h2{margin:4px 8px 10px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--sub);font-weight:600}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:4px 8px;align-content:start}
+.sol-item{display:flex;gap:10px;align-items:flex-start;text-align:left;border:0;background:transparent;border-radius:12px;padding:10px;font:inherit;cursor:pointer;color:var(--text);min-width:0}
+.sol-item.is-on,.sol-item:hover,.sol-item:focus-visible{background:#f5f8fe;outline:none}
 .sol-ic{flex:none;width:40px;height:40px;border-radius:10px;background:#eaf1ff;display:grid;place-items:center}
 .sol-ic svg{width:20px;height:20px;fill:none;stroke:#1352bf;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.sol-item>span:last-child{min-width:0}
 .sol-item b{display:block;font-size:14px;font-weight:600;line-height:1.25}
-.sol-item small{display:block;margin-top:2px;font-size:12.5px;line-height:1.35;color:var(--sub);font-weight:500}
+.sol-item small{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;margin-top:2px;font-size:12.5px;line-height:1.35;color:var(--sub);font-weight:500;min-height:2.7em}
 .sol-item.is-on b{color:var(--primary)}
-.foot{margin-top:auto;padding:10px 8px 4px;border-top:1px solid #e9eef8}
+.foot{margin-top:auto;padding:12px 8px 4px;border-top:1px solid #e9eef8}
 .foot a{color:var(--primary);font-weight:600;font-size:14px;text-decoration:none}
 .foot a:hover{text-decoration:underline}
-.side{border-radius:16px;background:#f5f8fe;border:1px solid #dbe6f8;padding:12px;display:flex;flex-direction:column;gap:12px;min-height:100%}
-.side img{width:100%;height:148px;object-fit:cover;border-radius:12px;display:block;background:#e6eefb}
-.side .ph{height:148px;border-radius:12px;background:#e6eefb;display:none}
-.side h3{margin:0;font-size:18px;letter-spacing:-.02em;line-height:1.25;color:var(--navy)}
-.side p{margin:6px 0 0;font-size:13.5px;line-height:1.45;color:#475467}
+.side{border-radius:16px;background:#f5f8fe;border:1px solid #dbe6f8;padding:12px;display:flex;flex-direction:column;gap:12px}
+.side img{width:100%;height:160px;object-fit:cover;border-radius:12px;display:block;background:#e6eefb}
+.side h3{margin:0;font-size:18px;letter-spacing:-.02em;line-height:1.25;color:var(--navy);font-weight:700;min-height:1.25em}
+.side p{margin:6px 0 0;font-size:13.5px;line-height:1.45;color:#475467;min-height:4.35em}
 .side a{margin-top:auto;color:var(--primary);font-weight:600;font-size:14px;text-decoration:none}
 .side a:hover{text-decoration:underline}
-.empty{padding:28px 8px;color:var(--sub);font-size:14px;line-height:1.45}
-@media(max-width:900px){.panel{grid-template-columns:1fr}.side{min-height:0}}
 </style>
 </head>
 <body>
-<p class="note">Preview only. Not linked from the site. Live nav is unchanged. Icons are the ones on the live Solutions menu.</p>
+<p class="note">Preview only. Not linked from the site. Live nav is unchanged.</p>
 <div class="bar">
   <img src="../../home-v2/assets/logo-full.svg" alt="Cekat.AI">
   <span class="sol-btn">Solutions <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5 6 7.5 9 4.5"/></svg></span>
 </div>
 <div class="stage">
-  <div class="panel" id="panel">
-    <div class="tabs" role="tablist">
-      <button type="button" class="tab is-on" data-tab="industry"><span><b>By industry</b><small>10 industries</small></span></button>
-      <button type="button" class="tab" data-tab="team"><span><b>By team</b><small>No team pages yet</small></span></button>
-      <button type="button" class="tab" data-tab="usecase"><span><b>By use case</b><small>1 use case</small></span></button>
-    </div>
-    <div class="mid" data-pane="industry">
+  <div class="panel">
+    <div class="mid">
       <h2>By industry</h2>
       <div class="grid" id="industries">
 <button type="button" class="sol-item is-on" data-id="healthcare">
       <span class="sol-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6v6h6v6h-6v6H9v-6H3V9h6z"/></svg></span>
       <span><b>Healthcare &amp; clinics</b><small>Answers patient questions and books appointments.</small></span>
-    </button>
-<button type="button" class="sol-item" data-id="retail">
+    </button><button type="button" class="sol-item" data-id="retail">
       <span class="sol-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14l-1 12H6z"/><path d="M9 8V6.5a3 3 0 0 1 6 0V8"/></svg></span>
       <span><b>Retail</b><small>Answers product questions and follows up with shoppers.</small></span>
-    </button>
-<button type="button" class="sol-item" data-id="food-beverage">
+    </button><button type="button" class="sol-item" data-id="food-beverage">
       <span class="sol-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v7a2 2 0 0 1-2 2 2 2 0 0 1-2-2V3M5 12v9M7 3v7M17 21V3c-2 1.5-3 4-3 7h3"/></svg></span>
       <span><b>Food &amp; beverage</b><small>Books tables and follows up with guests.</small></span>
-    </button>
-<button type="button" class="sol-item" data-id="education">
+    </button><button type="button" class="sol-item" data-id="education">
       <span class="sol-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11.5V16c0 1.4 2.7 3 6 3s6-1.6 6-3v-4.5"/></svg></span>
       <span><b>Education</b><small>Answers parent inquiries and books trial classes.</small></span>
-    </button>
-<button type="button" class="sol-item" data-id="property">
+    </button><button type="button" class="sol-item" data-id="property">
       <span class="sol-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8"/><path d="M5 9.5V20h14V9.5M10 20v-6h4v6"/></svg></span>
       <span><b>Property</b><small>Answers inquiries and books viewings.</small></span>
-    </button>
-<button type="button" class="sol-item" data-id="banking-insurance">
+    </button><button type="button" class="sol-item" data-id="banking-insurance">
       <span class="sol-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-5 9 5z"/><path d="M5 11v7M9.7 11v7M14.3 11v7M19 11v7M3 20h18"/></svg></span>
-      <span><b>Banking &amp; insurance</b><small>Answers financial inquiries and follows up on applications.</small></span>
-    </button>
-<button type="button" class="sol-item" data-id="beauty-wellness">
+      <span><b>Banking &amp; insurance</b><small>Answers financial inquiries and follows up.</small></span>
+    </button><button type="button" class="sol-item" data-id="beauty-wellness">
       <span class="sol-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M11 3l1.9 5.1L18 10l-5.1 1.9L11 17l-1.9-5.1L4 10l5.1-1.9z"/><path d="M18.5 15l.8 2.2 2.2.8-2.2.8-.8 2.2-.8-2.2-2.2-.8 2.2-.8z"/></svg></span>
       <span><b>Beauty &amp; wellness</b><small>Recommends treatments and books appointments.</small></span>
-    </button>
-<button type="button" class="sol-item" data-id="travel-hospitality">
+    </button><button type="button" class="sol-item" data-id="travel-hospitality">
       <span class="sol-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 15.5v-2L13 9V4.5a1.5 1.5 0 0 0-3 0V9l-8 4.5v2l8-2.2V18l-2 1.5V21l3.5-1 3.5 1v-1.5L13 18v-4.7z" transform="translate(1 0)"/></svg></span>
       <span><b>Travel &amp; hospitality</b><small>Answers guests and manages bookings.</small></span>
-    </button>
-<button type="button" class="sol-item" data-id="automotive">
+    </button><button type="button" class="sol-item" data-id="automotive">
       <span class="sol-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 16v-4.5L7 6h10l2 5.5V16M3 16h18v3H3z"/><circle cx="8" cy="13" r=".6"/><circle cx="16" cy="13" r=".6"/></svg></span>
-      <span><b>Automotive</b><small>Answers vehicle inquiries and schedules test drives.</small></span>
-    </button>
-<button type="button" class="sol-item" data-id="professional-services">
+      <span><b>Automotive</b><small>Answers inquiries and books test drives.</small></span>
+    </button><button type="button" class="sol-item" data-id="professional-services">
       <span class="sol-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="11" rx="1.5"/><path d="M2 19h20M10.5 8.5l-2 2 2 2M13.5 8.5l2 2-2 2"/></svg></span>
       <span><b>SaaS &amp; Software</b><small>Answers product inquiries and books demos.</small></span>
     </button>
       </div>
       <p class="foot"><a href="../../home-v2/#industries">See all industries <span aria-hidden="true">→</span></a></p>
     </div>
-    <div class="mid" data-pane="team" hidden>
-      <h2>By team</h2>
-      <p class="empty">There are no team pages on the site yet.</p>
-    </div>
-    <div class="mid" data-pane="usecase" hidden>
-      <h2>By use case</h2>
-      <div class="grid">
-        <a class="sol-item" href="../../solutions/lead-conversion/" style="text-decoration:none">
-          <span class="sol-ic"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12h16M13 6l6 6-6 6"/></svg></span>
-          <span><b>Lead conversion</b><small>Turn ad clicks into closed deals.</small></span>
-        </a>
-      </div>
-    </div>
     <aside class="side" id="side">
       <img id="side-photo" src="../../industries/assets/industries/healthcare.webp" alt="">
-      <div class="ph" id="side-ph"></div>
       <div>
         <h3 id="side-h">Every patient answered.</h3>
         <p id="side-p">An AI agent that answers patient questions, books appointments and follows up on visits.</p>
@@ -134,31 +97,26 @@ body{margin:0;background:#eef3fb;color:var(--navy);font-family:"Google Sans Flex
   </div>
 </div>
 <script>
-const DATA=[{"id": "healthcare", "name": "Healthcare & clinics", "head": "Every patient answered.", "desc": "An AI agent that answers patient questions, books appointments and follows up on visits.", "photo": "../../industries/assets/industries/healthcare.webp", "href": "../../industries/healthcare/"}, {"id": "retail", "name": "Retail", "head": "Retail", "desc": "An AI agent that answers product questions, recommends products and follows up with shoppers.", "photo": "", "href": "../../industries/retail/"}, {"id": "food-beverage", "name": "Food & beverage", "head": "Food & beverage", "desc": "An AI agent that manages table bookings, confirms reservations and follows up with guests.", "photo": "", "href": "../../industries/food-beverage/"}, {"id": "education", "name": "Education", "head": "Education", "desc": "An AI agent that answers parent inquiries, books trial classes and follows up with students.", "photo": "", "href": "../../industries/education/"}, {"id": "property", "name": "Property", "head": "Property", "desc": "An AI agent that answers property inquiries, books viewings and follows up with buyers.", "photo": "", "href": "../../industries/property/"}, {"id": "banking-insurance", "name": "Banking & insurance", "head": "Banking & insurance", "desc": "An AI agent that answers financial inquiries, qualifies applicants and follows up on applications.", "photo": "", "href": "../../industries/banking-insurance/"}, {"id": "beauty-wellness", "name": "Beauty & wellness", "head": "Beauty & wellness", "desc": "An AI agent that recommends treatments, books appointments and follows up with clients.", "photo": "", "href": "../../industries/beauty-wellness/"}, {"id": "travel-hospitality", "name": "Travel & hospitality", "head": "Travel & hospitality", "desc": "An AI agent that answers guests, manages bookings and hands hot leads to your team.", "photo": "", "href": "../../industries/travel-hospitality/"}, {"id": "automotive", "name": "Automotive", "head": "Automotive", "desc": "An AI agent that answers vehicle inquiries, schedules test drives and follows up with buyers.", "photo": "", "href": "../../industries/automotive/"}, {"id": "professional-services", "name": "SaaS & Software", "head": "SaaS & Software", "desc": "An AI agent that answers product inquiries, qualifies leads and books demos.", "photo": "", "href": "../../industries/professional-services/"}];
-const side=document.getElementById('side');
-const photo=document.getElementById('side-photo');
-const ph=document.getElementById('side-ph');
+const DATA=[{"id": "healthcare", "name": "Healthcare & clinics", "head": "Every patient answered.", "desc": "An AI agent that answers patient questions, books appointments and follows up on visits.", "photo": "../../industries/assets/industries/healthcare.webp", "href": "../../industries/healthcare/"}, {"id": "retail", "name": "Retail", "head": "Every shopper answered.", "desc": "An AI agent that answers product questions, recommends products and follows up with shoppers.", "photo": "../../home-v2/assets/industry-cards/retail.webp", "href": "../../industries/retail/"}, {"id": "food-beverage", "name": "Food & beverage", "head": "Every reservation handled.", "desc": "An AI agent that manages table bookings, confirms reservations and follows up with guests.", "photo": "../../home-v2/assets/industry-cards/food.webp", "href": "../../industries/food-beverage/"}, {"id": "education", "name": "Education", "head": "Every parent informed.", "desc": "An AI agent that answers parent inquiries, books trial classes and follows up with students.", "photo": "../../home-v2/assets/industry-cards/education.webp", "href": "../../industries/education/"}, {"id": "property", "name": "Property", "head": "Every inquiry answered.", "desc": "An AI agent that answers property inquiries, books viewings and follows up with buyers.", "photo": "../../home-v2/assets/industry-cards/property.webp", "href": "../../industries/property/"}, {"id": "banking-insurance", "name": "Banking & insurance", "head": "Every inquiry handled.", "desc": "An AI agent that answers financial inquiries, qualifies applicants and follows up on applications.", "photo": "../../home-v2/assets/industry-cards/banking.webp", "href": "../../industries/banking-insurance/"}, {"id": "beauty-wellness", "name": "Beauty & wellness", "head": "Every appointment booked.", "desc": "An AI agent that recommends treatments, books appointments and follows up with clients.", "photo": "../../home-v2/assets/industry-cards/beauty.webp", "href": "../../industries/beauty-wellness/"}, {"id": "travel-hospitality", "name": "Travel & hospitality", "head": "Every trip taken care of.", "desc": "An AI agent that answers guests, manages bookings and hands hot leads to your team.", "photo": "../../home-v2/assets/industry-cards/travel.webp", "href": "../../industries/travel-hospitality/"}, {"id": "automotive", "name": "Automotive", "head": "Every lead followed up.", "desc": "An AI agent that answers vehicle inquiries, schedules test drives and follows up with buyers.", "photo": "../../home-v2/assets/industry-cards/automotive.webp", "href": "../../industries/automotive/"}, {"id": "professional-services", "name": "SaaS & Software", "head": "Every lead engaged.", "desc": "An AI agent that answers product inquiries, qualifies leads and books demos.", "photo": "../../home-v2/assets/industry-cards/saas.webp", "href": "../../industries/professional-services/"}];
 function show(id){
   const d=DATA.find(x=>x.id===id);
+  if(!d) return;
   document.querySelectorAll('.sol-item').forEach(b=>b.classList.toggle('is-on', b.dataset.id===id));
   document.getElementById('side-h').textContent=d.head;
   document.getElementById('side-p').textContent=d.desc;
+  const photo=document.getElementById('side-photo');
+  photo.src=d.photo;
   const a=document.getElementById('side-a');
   a.href=d.href;
   a.innerHTML='See '+d.name+' solutions <span aria-hidden="true">→</span>';
-  if(d.photo){ photo.hidden=false; photo.src=d.photo; ph.style.display='none'; }
-  else { photo.hidden=true; ph.style.display='block'; }
 }
-document.getElementById('industries').addEventListener('click', e=>{
+document.getElementById('industries').addEventListener('pointerenter', e=>{
   const b=e.target.closest('.sol-item');
   if(b) show(b.dataset.id);
-});
-document.querySelector('.tabs').addEventListener('click', e=>{
-  const t=e.target.closest('.tab');
-  if(!t) return;
-  document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('is-on', x===t));
-  document.querySelectorAll('.mid').forEach(p=>{ p.hidden=p.dataset.pane!==t.dataset.tab; });
-  side.hidden=t.dataset.tab!=='industry';
+}, true);
+document.getElementById('industries').addEventListener('focusin', e=>{
+  const b=e.target.closest('.sol-item');
+  if(b) show(b.dataset.id);
 });
 </script>
 </body>
