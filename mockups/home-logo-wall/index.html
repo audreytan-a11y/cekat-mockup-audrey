@@ -21,6 +21,7 @@
 .brandwall .bw-note{margin:0 0 18px;text-align:center;color:#667085;font-size:13px}
 .brandgrid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;width:100%}
 .brandgrid li{display:grid;place-items:center;height:84px;margin:0;padding:14px 16px;background:#fff;border:1px solid #e6ecf6;border-radius:14px}
+.brandgrid li[hidden]{display:none}
 .brandgrid img{max-width:78%;max-height:36px;width:auto;height:auto;object-fit:contain;filter:grayscale(1);opacity:.78;transition:filter .2s,opacity .2s}
 .brandgrid li:hover img{filter:none;opacity:1}
 .brandwall__more{display:inline-flex;align-items:center;gap:6px;margin:18px auto 0;padding:8px 14px;border:1.5px solid var(--primary);border-radius:999px;background:#fff;color:var(--primary);font:inherit;font-size:14px;font-weight:600;cursor:pointer}
@@ -640,12 +641,12 @@
       <li data-batch="0"><img src="../industries/banking-insurance/assets/logos/bosch-car-service.png" alt="Bosch Car Service"></li>
       <li data-batch="0"><img src="../industries/banking-insurance/assets/logos/natures-craft.png" alt="Natures Craft"></li>
       <li data-batch="0"><img src="assets/logos-mono/vio-optical-clinic.png" alt="VIO Optical Clinic"></li>
-      <li data-batch="0"><img src="../industries/education/assets/logos/wall-street-english-color.png" alt="Wall Street English"></li>
-      <li data-batch="0"><img src="../industries/professional-services/assets/logos/rumah-zakat-color.png" alt="Rumah Zakat"></li>
-      <li data-batch="0"><img src="../industries/banking-insurance/assets/logos/hobi-holidays.png" alt="Hobi Holidays"></li>
-      <li data-batch="0"><img src="../industries/banking-insurance/assets/logos/itsu.png" alt="ITSU"></li>
-      <li data-batch="0"><img src="../industries/banking-insurance/assets/logos/celcomdigi.png" alt="Celcomdigi"></li>
-      <li data-batch="0"><img src="../industries/banking-insurance/assets/logos/agung-sedayu-group.png" alt="Agung Sedayu Group"></li>
+      <li data-batch="0" hidden><img src="../industries/education/assets/logos/wall-street-english-color.png" alt="Wall Street English"></li>
+      <li data-batch="0" hidden><img src="../industries/professional-services/assets/logos/rumah-zakat-color.png" alt="Rumah Zakat"></li>
+      <li data-batch="0" hidden><img src="../industries/banking-insurance/assets/logos/hobi-holidays.png" alt="Hobi Holidays"></li>
+      <li data-batch="0" hidden><img src="../industries/banking-insurance/assets/logos/itsu.png" alt="ITSU"></li>
+      <li data-batch="0" hidden><img src="../industries/banking-insurance/assets/logos/celcomdigi.png" alt="Celcomdigi"></li>
+      <li data-batch="0" hidden><img src="../industries/banking-insurance/assets/logos/agung-sedayu-group.png" alt="Agung Sedayu Group"></li>
       <li data-batch="1" hidden><img src="../industries/food-beverage/assets/logos/angke-restaurant.png" alt="Angke Restaurant"></li>
       <li data-batch="1" hidden><img src="../industries/banking-insurance/assets/logos/backpacker-korea.png" alt="Backpacker Korea"></li>
       <li data-batch="1" hidden><img src="../industries/banking-insurance/assets/logos/bank-asa.png" alt="Bank Asa"></li>
@@ -697,20 +698,30 @@
 (function(){
   var wall=document.getElementById('brands');
   var btn=wall.querySelector('.brandwall__more');
-  var items=[].slice.call(wall.querySelectorAll('#brandgrid li'));
-  var maxBatch=Math.max.apply(null, items.map(function(li){return Number(li.dataset.batch)}));
-  var shown=0;
+  var grid=document.getElementById('brandgrid');
+  var items=[].slice.call(grid.querySelectorAll('li'));
+  var steps=1;
+  var ROWS=3;
+  function cols(){
+    var tpl=getComputedStyle(grid).gridTemplateColumns||'';
+    var n=tpl.split(' ').filter(function(part){return part && part!=='none';}).length;
+    return n||1;
+  }
   function paint(){
-    items.forEach(function(li){ li.hidden=Number(li.dataset.batch)>shown; });
-    var all=shown>=maxBatch;
+    var batch=ROWS*cols();
+    var count=Math.min(items.length, steps*batch);
+    items.forEach(function(li,i){ li.hidden=i>=count; });
+    var all=count>=items.length;
     wall.classList.toggle('is-all', all);
     btn.firstChild.textContent=all?'Show less ':'Show more ';
     btn.setAttribute('aria-expanded', all?'true':'false');
   }
   btn.addEventListener('click', function(){
-    if(shown>=maxBatch) shown=0; else shown+=1;
+    if(btn.getAttribute('aria-expanded')==='true') steps=1;
+    else steps+=1;
     paint();
   });
+  window.addEventListener('resize', paint);
   paint();
 })();
 </script>
