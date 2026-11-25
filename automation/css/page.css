@@ -115,32 +115,22 @@
 .fw-msg__b{flex:0 1 auto;max-width:88%;border-radius:12px 12px 4px 12px}
 @media (max-width:560px){.fw-list li{gap:10px;padding:9px 0}.fw-tx b{font-size:12.5px}.fw-tx small,.fw-ch{font-size:11px}.fw-msg__b{padding:6px 9px}.fw-msg__b small{display:none}.fw-msg__b p{font-size:11.5px;line-height:1.4}.fw-msg__b time{margin-top:0}}
 
-/* Automation #how step illustrations: trigger, action, result */
-#how .ax{gap:10px}
-#how .ax__msg{display:flex;align-items:flex-start;gap:8px;max-width:92%;padding:8px 12px;border-radius:14px;font-size:13.5px;line-height:1.4;color:#0B1B3F}
-#how .ax__msg small{display:block;margin-bottom:2px;font-size:11px;font-weight:600;color:#667085}
-#how .ax__msg img{width:16px;height:16px;flex:none;margin-top:2px}
-#how .ax__msg--in{align-self:flex-start;background:#fff;box-shadow:0 0 0 1px #e3eaf6;border-bottom-left-radius:5px}
-#how .ax__msg--ai{align-self:flex-end;background:#1A56DB;color:#fff;border-bottom-right-radius:5px}
-#how .ax__flow,#how .ax__chips{display:flex;align-items:center;gap:8px}
-#how .ax__n{flex:1;min-width:0;padding:8px 10px;border-radius:12px;background:#f6f9fe;box-shadow:0 0 0 1px #e1e9f7}
-#how .ax__n small{display:block;margin-bottom:1px;font-size:10.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;color:#667085}
-#how .ax__n b{display:block;font-size:13px;font-weight:600;line-height:1.25;color:#0B1B3F}
-#how .ax__n--t{background:#eaf2ff;box-shadow:0 0 0 1px #c3d6f8}
-#how .ax__n--a{background:#1A56DB;box-shadow:none}
-#how .ax__n--a small{color:#d6e4ff}
-#how .ax__n--a b{color:#fff}
-#how .ax__ar{flex:none;width:14px;height:14px;fill:none;stroke:#1A56DB;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-#how .ax__drop{display:block;width:0;height:14px;margin:-4px auto;border-left:1.5px solid #9db4e0;position:relative}
-#how .ax__drop::after{content:"";position:absolute;left:-3.5px;bottom:-1px;border:3px solid transparent;border-top:5px solid #9db4e0}
-#how .ax__if{align-self:center;padding:5px 12px;border-radius:999px;background:#fff;box-shadow:0 0 0 1px #c3d6f8;font-size:12.5px;font-weight:600;color:#1A56DB}
-#how .ax__chip{flex:1;min-width:0;padding:8px 10px;border-radius:10px;background:#fff;box-shadow:0 0 0 1px #e3eaf6;font-size:12.5px;font-weight:600;color:#0B1B3F;text-align:center}
-#how .ax__ok{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:#ecfaf1;box-shadow:0 0 0 1px #cdeedb;font-size:13px;font-weight:600;color:#0b6b37}
-#how .ax__ok span{flex:none;width:18px;height:18px;border-radius:50%;background:#12b76a;color:#fff;display:grid;place-items:center;font-size:11px}
-#how .ax__timer{display:flex;align-items:center;gap:8px;padding:8px 12px;border-radius:12px;background:#fff;box-shadow:0 0 0 1px #e3eaf6}
-#how .ax__timer b{font-size:13px;font-weight:700;color:#0B1B3F;white-space:nowrap}
-#how .ax__timer em{margin-left:auto;font-style:normal;font-size:10.5px;font-weight:500;color:#8a97ad;white-space:nowrap}
-@media (max-width:640px){#how .ax__msg,#how .ax__n b,#how .ax__ok{font-size:12.5px}#how .ax__chip{font-size:11.5px;padding:7px 6px}}
+/* Automation #how pictures: same chip / if / arrow language as the overview cards, a step richer */
+#how .flx{display:flex;flex-direction:column;align-items:center;gap:10px;width:100%;max-width:440px}
+#how .flx__chip{display:inline-flex;align-items:center;gap:8px;padding:8px 14px 8px 8px;border-radius:10px;background:#fff;box-shadow:0 0 0 1px #dbe5f5,0 10px 20px -14px rgba(19,82,191,.4);font-size:13.5px;font-weight:600;line-height:1.2;color:#0B1B3F;white-space:nowrap}
+#how .flx__chip i{flex:none;display:grid;place-items:center;width:22px;height:22px;border-radius:7px;background:#1352bf}
+#how .flx__chip svg{width:13px;height:13px;fill:none;stroke:#fff;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+#how .flx__chip small{font-size:11px;font-weight:600;color:#667085}
+#how .flx__if{font-size:13px;font-weight:500;color:#667085;white-space:nowrap}
+#how .flx__if b{color:#1352bf;font-weight:600}
+#how .flx__or{font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;color:#8aa0c4}
+#how .flx__row{display:flex;align-items:center;justify-content:center;gap:8px;flex-wrap:wrap;width:100%}
+#how .flx__pair{display:inline-flex;align-items:center;gap:8px}
+#how .flx__ar{width:16px;height:0;border-top:1.5px solid #9dbaf2;position:relative;flex:none}
+#how .flx__ar::after{content:"";position:absolute;right:-1px;top:-4px;border:3px solid transparent;border-left:4px solid #9dbaf2;border-right:0}
+#how .flx__drop{width:0;height:14px;border-left:1.5px solid #9dbaf2;position:relative}
+#how .flx__drop::after{content:"";position:absolute;left:-3.5px;bottom:-1px;border:3px solid transparent;border-top:5px solid #9dbaf2}
+@media (max-width:640px){#how .flx__chip{font-size:12.5px;padding:7px 10px 7px 7px}#how .flx__if{font-size:12.5px}#how .flx__row{gap:6px}}
 /* au11: "What Cekat Automation does" overview: Trigger -> Chained actions -> Otherwise, lit in turn */
 .aov-nc{display:inline-flex;align-items:center;gap:10px;margin:20px auto 0;padding:8px 18px 8px 8px;border-radius:999px;background:#fff;box-shadow:0 0 0 1px #c9daf8,0 10px 24px -14px rgba(19,82,191,.45);font-size:15px;line-height:1.3;color:var(--body)}
 .aov-nc__pill{display:inline-flex;align-items:center;gap:10px}
