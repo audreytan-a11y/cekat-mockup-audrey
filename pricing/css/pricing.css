@@ -149,3 +149,13 @@
 .pcm-pr{margin-top:6px;font-size:13px}
 .pcm-pr strong{font-size:21px;font-weight:700;letter-spacing:-.01em;line-height:1.15}
 @media (max-width:760px){.pcm-pr{font-size:12.5px}.pcm-pr strong{font-size:17.5px}}
+
+/* compare plans pr13: floating (frozen) header row */
+.pcm-float{position:fixed;top:0;left:0;z-index:45;overflow:hidden;background:#fff;box-shadow:0 1px 0 #e4e7ec,0 10px 18px -12px rgba(16,40,90,.28);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .16s ease,visibility .16s}
+.pcm-float.is-on{opacity:1;visibility:visible;pointer-events:auto}
+.pcm-float .pcm-tb{min-width:0;table-layout:fixed;border-collapse:separate;border-spacing:0;will-change:transform}
+.pcm-float .pcm-tb thead th{background:#fff;border-bottom:0}
+.pcm-float .pcm-tb thead th.is-hi{background:#FAFCFF}
+.pcm-float .pcm-tb thead .pcm-f{background:#F3F7FF;position:relative;z-index:2}
+@media (max-width:760px){.pcm-float .pcm-tb .pcm-f{position:relative;left:auto}}
+@media (prefers-reduced-motion:reduce){.pcm-float{transition:none}}
