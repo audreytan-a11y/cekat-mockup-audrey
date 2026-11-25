@@ -21,17 +21,18 @@
 .brandwall .bw-note{margin:0 0 18px;text-align:center;color:#667085;font-size:13px}
 .brandgrid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;width:100%}
 .brandgrid li{display:grid;place-items:center;height:84px;margin:0;padding:14px 16px;background:#fff;border:1px solid #e6ecf6;border-radius:14px}
-.brandgrid li[hidden]{display:none}
 .brandgrid img{max-width:78%;max-height:36px;width:auto;height:auto;object-fit:contain;filter:grayscale(1);opacity:.78;transition:filter .2s,opacity .2s}
 .brandgrid li:hover img{filter:none;opacity:1}
-.brandwall__more{display:inline-flex;align-items:center;gap:6px;margin:18px auto 0;padding:8px 14px;border:1.5px solid var(--primary);border-radius:999px;background:#fff;color:var(--primary);font:inherit;font-size:14px;font-weight:600;cursor:pointer}
-.brandwall__more svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:transform .2s}
-.brandwall.is-all .brandwall__more svg{transform:rotate(180deg)}
-.brandwall__more:hover{background:#f3f7fe}
 .bw-moreline{margin:14px 0 0;text-align:center;color:#667085;font-size:14px}
 .brandwall .wrap{display:flex;flex-direction:column;align-items:center}
-@media (max-width:1024px){.brandgrid{grid-template-columns:repeat(4,minmax(0,1fr))}}
-@media (max-width:720px){.brandgrid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+@media (max-width:1024px){
+  .brandgrid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .brandgrid li:nth-child(n+29){display:none}
+}
+@media (max-width:720px){
+  .brandgrid{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .brandgrid li:nth-child(n+29){display:grid}
+}
 @media (max-width:520px){.brandgrid{grid-template-columns:repeat(2,minmax(0,1fr))}.brandgrid li{height:76px}}
 
   </style>
@@ -623,108 +624,40 @@
     <h2 id="brands-h">Brands that run on Cekat</h2>
     <p class="bw-note">Placeholder logos, pending the active-client list.</p>
     <ul class="brandgrid" id="brandgrid">
-      <li data-batch="0"><img src="../industries/banking-insurance/assets/logos/siloam.png" alt="Siloam"></li>
-      <li data-batch="0"><img src="../industries/banking-insurance/assets/logos/pln.png" alt="PLN"></li>
-      <li data-batch="0"><img src="../industries/banking-insurance/assets/logos/telkom-university.png" alt="Telkom University"></li>
-      <li data-batch="0"><img src="../industries/banking-insurance/assets/logos/jago.png" alt="Jago"></li>
-      <li data-batch="0"><img src="../industries/banking-insurance/assets/logos/asuransi-sinarmas.png" alt="Asuransi Sinarmas"></li>
-      <li data-batch="0"><img src="../industries/banking-insurance/assets/logos/mnc.png" alt="MNC"></li>
-      <li data-batch="0"><img src="../industries/banking-insurance/assets/logos/tiki-logo.png" alt="TIKI"></li>
-      <li data-batch="0"><img src="../industries/banking-insurance/assets/logos/aice.png" alt="Aice"></li>
-      <li data-batch="0"><img src="assets/logos-mono/ancol.png" alt="Ancol"></li>
-      <li data-batch="0"><img src="assets/logos-mono/kopi-kenangan.png" alt="Kopi Kenangan"></li>
-      <li data-batch="0"><img src="../industries/retail/assets/logos/longchamp.png" alt="Longchamp"></li>
-      <li data-batch="0"><img src="../industries/banking-insurance/assets/logos/propertyguru.png" alt="Propertyguru"></li>
-      <li data-batch="0"><img src="../industries/banking-insurance/assets/logos/yupi.png" alt="Yupi"></li>
-      <li data-batch="0"><img src="../industries/banking-insurance/assets/logos/orange-dental.png" alt="Orange Dental"></li>
-      <li data-batch="0"><img src="../industries/healthcare/assets/logos/euromedica-card.png" alt="Euromedica"></li>
-      <li data-batch="0"><img src="../industries/banking-insurance/assets/logos/bosch-car-service.png" alt="Bosch Car Service"></li>
-      <li data-batch="0"><img src="../industries/banking-insurance/assets/logos/natures-craft.png" alt="Natures Craft"></li>
-      <li data-batch="0"><img src="assets/logos-mono/vio-optical-clinic.png" alt="VIO Optical Clinic"></li>
-      <li data-batch="0" hidden><img src="../industries/education/assets/logos/wall-street-english-color.png" alt="Wall Street English"></li>
-      <li data-batch="0" hidden><img src="../industries/professional-services/assets/logos/rumah-zakat-color.png" alt="Rumah Zakat"></li>
-      <li data-batch="0" hidden><img src="../industries/banking-insurance/assets/logos/hobi-holidays.png" alt="Hobi Holidays"></li>
-      <li data-batch="0" hidden><img src="../industries/banking-insurance/assets/logos/itsu.png" alt="ITSU"></li>
-      <li data-batch="0" hidden><img src="../industries/banking-insurance/assets/logos/celcomdigi.png" alt="Celcomdigi"></li>
-      <li data-batch="0" hidden><img src="../industries/banking-insurance/assets/logos/agung-sedayu-group.png" alt="Agung Sedayu Group"></li>
-      <li data-batch="1" hidden><img src="../industries/food-beverage/assets/logos/angke-restaurant.png" alt="Angke Restaurant"></li>
-      <li data-batch="1" hidden><img src="../industries/banking-insurance/assets/logos/backpacker-korea.png" alt="Backpacker Korea"></li>
-      <li data-batch="1" hidden><img src="../industries/banking-insurance/assets/logos/bank-asa.png" alt="Bank Asa"></li>
-      <li data-batch="1" hidden><img src="assets/logos-mono/cold-n-brew.png" alt="Cold N Brew"></li>
-      <li data-batch="1" hidden><img src="../industries/healthcare/assets/logos/dental-rakyat.png" alt="Dental Rakyat"></li>
-      <li data-batch="1" hidden><img src="assets/logos-mono/dinas-pariwisata-dki.png" alt="Dinas Pariwisata Dki"></li>
-      <li data-batch="1" hidden><img src="assets/logos-mono/diskominfo-tangerang.png" alt="Diskominfo Tangerang"></li>
-      <li data-batch="1" hidden><img src="../industries/healthcare/assets/logos/dokterhub-color.png" alt="Dokterhub"></li>
-      <li data-batch="1" hidden><img src="../industries/banking-insurance/assets/logos/fumida.png" alt="Fumida"></li>
-      <li data-batch="1" hidden><img src="../industries/banking-insurance/assets/logos/gamal.png" alt="Gamal"></li>
-      <li data-batch="1" hidden><img src="../industries/banking-insurance/assets/logos/healthy-go.png" alt="Healthy Go"></li>
-      <li data-batch="1" hidden><img src="assets/logos-mono/icolor.png" alt="Icolor"></li>
-      <li data-batch="1" hidden><img src="../industries/banking-insurance/assets/logos/jual-emas-indonesia.png" alt="Jual Emas Indonesia"></li>
-      <li data-batch="1" hidden><img src="../industries/banking-insurance/assets/logos/klik-indogrosir.png" alt="Klik Indogrosir"></li>
-      <li data-batch="1" hidden><img src="../industries/education/assets/logos/lasalle-college-jakarta.png" alt="Lasalle College Jakarta"></li>
-      <li data-batch="1" hidden><img src="../industries/healthcare/assets/logos/lighthouse.png" alt="Lighthouse"></li>
-      <li data-batch="1" hidden><img src="../industries/banking-insurance/assets/logos/ljn.png" alt="Lintas Jaringan Nusantara"></li>
-      <li data-batch="1" hidden><img src="../industries/education/assets/logos/matana-university-mono.png" alt="Matana University"></li>
-      <li data-batch="1" hidden><img src="../industries/healthcare/assets/logos/mayapada-eye-centre.png" alt="Mayapada Eye Centre"></li>
-      <li data-batch="1" hidden><img src="assets/logos-mono/mganik.png" alt="Mganik"></li>
-      <li data-batch="1" hidden><img src="../industries/banking-insurance/assets/logos/midas-cuan-wordmark.png" alt="Midas Cuan"></li>
-      <li data-batch="1" hidden><img src="assets/logos-mono/moir-salon.png" alt="Moir Salon"></li>
-      <li data-batch="1" hidden><img src="../industries/banking-insurance/assets/logos/netzme.png" alt="Netzme"></li>
-      <li data-batch="1" hidden><img src="assets/logos-mono/paradigm-fitness.png" alt="Paradigm Fitness"></li>
-      <li data-batch="2" hidden><img src="assets/logos-mono/politeknik-multimedia-nusantara.png" alt="Politeknik Multimedia Nusantara"></li>
-      <li data-batch="2" hidden><img src="../industries/property/assets/logos/primebiz-hotel-cikarang.png" alt="Primebiz Hotel Cikarang"></li>
-      <li data-batch="2" hidden><img src="../industries/banking-insurance/assets/logos/puffy-cotton-candy.png" alt="Puffy Cotton Candy"></li>
-      <li data-batch="2" hidden><img src="../industries/banking-insurance/assets/logos/puffy-cotton-candy-id.png" alt="Puffy Cotton Candy Id"></li>
-      <li data-batch="2" hidden><img src="assets/testi-logos/putih-skin-clinic.png" alt="Putih Skin Clinic"></li>
-      <li data-batch="2" hidden><img src="../industries/automotive/assets/logos/raja-oto.png" alt="Raja Oto"></li>
-      <li data-batch="2" hidden><img src="assets/logos-mono/rata.png" alt="Rata"></li>
-      <li data-batch="2" hidden><img src="../industries/banking-insurance/assets/logos/realfood.png" alt="Realfood"></li>
-      <li data-batch="2" hidden><img src="../industries/professional-services/assets/logos/riliv.png" alt="Riliv"></li>
-      <li data-batch="2" hidden><img src="../industries/education/assets/logos/sbm-itb.png" alt="SBM ITB"></li>
-      <li data-batch="2" hidden><img src="../industries/travel-hospitality/assets/logos/smarts-umrah.png" alt="Smarts Umrah"></li>
-      <li data-batch="2" hidden><img src="../industries/banking-insurance/assets/logos/sociamedic.png" alt="Sociamedic"></li>
-      <li data-batch="2" hidden><img src="../industries/banking-insurance/assets/logos/thomson-hospital-kota-damansara.png" alt="Thomson Hospital Kota Damansara"></li>
-      <li data-batch="2" hidden><img src="../industries/property/assets/logos/threeland-property.png" alt="Threeland Property"></li>
-      <li data-batch="2" hidden><img src="../industries/banking-insurance/assets/logos/tjm-autocare.png" alt="Tjm Autocare"></li>
-      <li data-batch="2" hidden><img src="../industries/banking-insurance/assets/logos/tone-wow-mark.png" alt="Tone Wow"></li>
-      <li data-batch="2" hidden><img src="../industries/education/assets/logos/universitas-multimedia-nusantara.png" alt="Universitas Multimedia Nusantara"></li>
-      <li data-batch="2" hidden><img src="../industries/professional-services/assets/logos/vision-plus.png" alt="Vision Plus"></li>
+      <li><img src="../industries/banking-insurance/assets/logos/siloam.png" alt="Siloam"></li>
+      <li><img src="../industries/banking-insurance/assets/logos/pln.png" alt="PLN"></li>
+      <li><img src="../industries/banking-insurance/assets/logos/telkom-university.png" alt="Telkom University"></li>
+      <li><img src="../industries/banking-insurance/assets/logos/jago.png" alt="Jago"></li>
+      <li><img src="../industries/banking-insurance/assets/logos/asuransi-sinarmas.png" alt="Asuransi Sinarmas"></li>
+      <li><img src="../industries/banking-insurance/assets/logos/mnc.png" alt="MNC"></li>
+      <li><img src="../industries/banking-insurance/assets/logos/tiki-logo.png" alt="TIKI"></li>
+      <li><img src="../industries/banking-insurance/assets/logos/aice.png" alt="Aice"></li>
+      <li><img src="assets/logos-mono/ancol.png" alt="Ancol"></li>
+      <li><img src="assets/logos-mono/kopi-kenangan.png" alt="Kopi Kenangan"></li>
+      <li><img src="../industries/retail/assets/logos/longchamp.png" alt="Longchamp"></li>
+      <li><img src="../industries/banking-insurance/assets/logos/propertyguru.png" alt="Propertyguru"></li>
+      <li><img src="../industries/banking-insurance/assets/logos/yupi.png" alt="Yupi"></li>
+      <li><img src="../industries/banking-insurance/assets/logos/bosch-car-service.png" alt="Bosch Car Service"></li>
+      <li><img src="../industries/banking-insurance/assets/logos/celcomdigi.png" alt="Celcomdigi"></li>
+      <li><img src="../industries/education/assets/logos/wall-street-english-color.png" alt="Wall Street English"></li>
+      <li><img src="../industries/professional-services/assets/logos/rumah-zakat-color.png" alt="Rumah Zakat"></li>
+      <li><img src="../industries/healthcare/assets/logos/mayapada-eye-centre.png" alt="Mayapada Eye Centre"></li>
+      <li><img src="../industries/education/assets/logos/sbm-itb.png" alt="SBM ITB"></li>
+      <li><img src="../industries/banking-insurance/assets/logos/itsu.png" alt="ITSU"></li>
+      <li><img src="../industries/banking-insurance/assets/logos/bank-asa.png" alt="Bank Asa"></li>
+      <li><img src="../industries/healthcare/assets/logos/euromedica-card.png" alt="Euromedica"></li>
+      <li><img src="assets/logos-mono/vio-optical-clinic.png" alt="VIO Optical Clinic"></li>
+      <li><img src="../industries/professional-services/assets/logos/vision-plus.png" alt="Vision Plus"></li>
+      <li><img src="../industries/professional-services/assets/logos/riliv.png" alt="Riliv"></li>
+      <li><img src="../industries/banking-insurance/assets/logos/hobi-holidays.png" alt="Hobi Holidays"></li>
+      <li><img src="../industries/education/assets/logos/matana-university-mono.png" alt="Matana University"></li>
+      <li><img src="../industries/education/assets/logos/lasalle-college-jakarta.png" alt="Lasalle College Jakarta"></li>
+      <li><img src="../industries/banking-insurance/assets/logos/thomson-hospital-kota-damansara.png" alt="Thomson Hospital Kota Damansara"></li>
+      <li><img src="../industries/banking-insurance/assets/logos/gamal.png" alt="Gamal"></li>
     </ul>
     <p class="bw-moreline">...and thousands more businesses</p>
-    <button type="button" class="brandwall__more" aria-expanded="false" aria-controls="brandgrid">Show more <svg viewBox="0 0 12 12" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"/></svg></button>
   </div>
 </section>
-<script>
-(function(){
-  var wall=document.getElementById('brands');
-  var btn=wall.querySelector('.brandwall__more');
-  var grid=document.getElementById('brandgrid');
-  var items=[].slice.call(grid.querySelectorAll('li'));
-  var steps=1;
-  var ROWS=3;
-  function cols(){
-    var tpl=getComputedStyle(grid).gridTemplateColumns||'';
-    var n=tpl.split(' ').filter(function(part){return part && part!=='none';}).length;
-    return n||1;
-  }
-  function paint(){
-    var batch=ROWS*cols();
-    var count=Math.min(items.length, steps*batch);
-    items.forEach(function(li,i){ li.hidden=i>=count; });
-    var all=count>=items.length;
-    wall.classList.toggle('is-all', all);
-    btn.firstChild.textContent=all?'Show less ':'Show more ';
-    btn.setAttribute('aria-expanded', all?'true':'false');
-  }
-  btn.addEventListener('click', function(){
-    if(btn.getAttribute('aria-expanded')==='true') steps=1;
-    else steps+=1;
-    paint();
-  });
-  window.addEventListener('resize', paint);
-  paint();
-})();
-</script>
 
 <!-- ============ TESTIMONIALS ============ -->
 <span id="testimonials" style="display:block;height:0;scroll-margin-top:68px"></span>
