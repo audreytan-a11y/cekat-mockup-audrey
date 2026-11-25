@@ -421,3 +421,35 @@
     t.addEventListener('keydown',function(e){var k=e.key,j=k==='ArrowRight'?i+1:k==='ArrowLeft'?i-1:k==='Home'?0:k==='End'?tabs.length-1:-9;if(j===-9)return;e.preventDefault();pick(tabs[(j+tabs.length)%tabs.length],true);});
   });
 })();
+
+/* an12: "Five views" clickable illustration (same tab pattern as CRM Kanban/List) */
+(function () {
+  var root = document.querySelector('[data-avw]'); if (!root) return;
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
+  var caps = Array.prototype.slice.call(root.querySelectorAll('[data-cap]'));
+  function show(v, focus) {
+    tabs.forEach(function (t) {
+      var on = t.dataset.view === v, p = document.getElementById(t.getAttribute('aria-controls'));
+      t.classList.toggle('is-on', on); t.setAttribute('aria-selected', String(on)); t.tabIndex = on ? 0 : -1;
+      p.hidden = !on; p.classList.remove('is-in');
+      if (on) { void p.offsetWidth; p.classList.add('is-in'); if (focus) t.focus(); var bar = t.parentNode; if (bar.scrollWidth > bar.clientWidth) bar.scrollTo({ left: t.offsetLeft - (bar.clientWidth - t.offsetWidth) / 2, behavior: reduce ? 'auto' : 'smooth' }); }
+    });
+    caps.forEach(function (c) { c.hidden = c.dataset.cap !== v; });
+  }
+  var bar = root.querySelector('[role="tablist"]');
+  function edge() { bar.classList.toggle('is-end', bar.scrollLeft + bar.clientWidth >= bar.scrollWidth - 2); }
+  bar.addEventListener('scroll', edge, { passive: true }); window.addEventListener('resize', edge); edge();
+  tabs.forEach(function (t, i) {
+    t.addEventListener('click', function () { show(t.dataset.view); });
+    t.addEventListener('keydown', function (e) {
+      var n = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: tabs.length - 1 }[e.key];
+      if (n === undefined) return; e.preventDefault();
+      show(tabs[(n + tabs.length) % tabs.length].dataset.view, true);
+    });
+  });
+  if ('IntersectionObserver' in window) {
+    var io = new IntersectionObserver(function (en) { if (en[0].isIntersecting) { show(root.querySelector('[role="tab"].is-on').dataset.view); io.disconnect(); } }, { threshold: 0.3 });
+    io.observe(root);
+  } else { show('dashboard'); }
+})();
