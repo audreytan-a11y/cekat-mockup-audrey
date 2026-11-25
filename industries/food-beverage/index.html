@@ -198,16 +198,36 @@
 </section>
 
 <!-- ============ HOW CEKAT HELPS ============ -->
-<style id="fb-ad-css">/* fb-f8 — Click-to-WhatsApp video ad phone (reuses .ta-ph / .ta-vid from the Trackr ad phone) */
-.fb-ad{display:flex;align-items:center;gap:14px;width:100%}
-.fb-ad .ta-ph{width:138px;height:250px;flex:none}
+<style id="fb-ad-css">/* fb-f9 — Click-to-WhatsApp video ad phone (reuses .ta-ph / .ta-vid from the Trackr ad phone) */
+.fb-ad{display:flex;align-items:center;justify-content:center;width:100%}
+.fb-ad .ta-ph{width:184px;height:334px;flex:none;border-radius:30px;padding:7px}
+.fb-ad .ta-ph__scr{border-radius:24px}
 .fb-ad .ta-v{opacity:1}
 .fb-ad .ta-meta{gap:5px}
-.fb-ad__sp{font-size:10px;font-weight:500;color:rgba(255,255,255,.85)}
-.fb-ad__cta{display:inline-flex;align-items:center;gap:5px;padding:5px 10px;border-radius:999px;background:#1A56DB;color:#fff;font-size:10.5px;font-weight:600;white-space:nowrap}
-.fb-ad__cta img{width:12px;height:12px}
-.fb-ad .ih-win{flex:1;min-width:0}
-@media (max-width:640px){.fb-ad{flex-direction:column;gap:14px}.fb-ad .ta-ph{width:124px;height:224px}.fb-ad .ih-win{width:100%}}
+.fb-ad__sp{font-size:11px;font-weight:500;color:rgba(255,255,255,.85)}
+.fb-ad__cta{display:inline-flex;align-items:center;gap:6px;padding:7px 13px;border-radius:999px;background:#1A56DB;color:#fff;font-size:12px;font-weight:600;white-space:nowrap}
+.fb-ad__cta img{width:14px;height:14px}
+@media (max-width:640px){.fb-ad .ta-ph{width:160px;height:290px}}
+/* fb-ads — "See which ad works" card (ported from the Trackr page ad list + phone preview) */
+.fb-ads .ih-card__t{margin-bottom:2px}
+.fb-ads__s{margin:0 0 12px;font-size:12.5px;color:var(--sub)}
+.fb-ads__in{display:flex;align-items:center;gap:12px}
+.fb-ads__list{flex:1;min-width:0;display:grid;gap:4px}
+.fb-ads__row{display:flex;align-items:center;gap:7px;padding:11px 8px;border-radius:10px;font-size:13px;color:var(--body)}
+.fb-ads__row .ic{flex:none;width:12px;height:12px;fill:#9fb3d6}
+.fb-ads__row span{flex:1;min-width:0;line-height:1.25}
+.fb-ads__row b{font-weight:600;color:var(--navy);font-variant-numeric:tabular-nums}
+.fb-ads__row.is-cur{background:#eef4ff;color:var(--navy);font-weight:600}
+.fb-ads__row.is-cur .ic{fill:#1A56DB}
+.fb-ads__pv{flex:none;display:flex;flex-direction:column;align-items:center;gap:6px}
+.fb-ads__ph{position:relative;width:84px;height:150px;border-radius:18px;border:3px solid var(--navy);overflow:hidden;background:#0b1f4d;box-shadow:0 14px 30px -14px rgba(8,33,76,.6)}
+.fb-ads__ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.fb-ads__play{position:absolute;left:50%;top:50%;width:30px;height:30px;margin:-15px 0 0 -15px;border-radius:50%;background:rgba(26,86,219,.92);display:grid;place-items:center;box-shadow:0 0 0 3px rgba(255,255,255,.55)}
+.fb-ads__play .ic{width:12px;height:12px;fill:#fff;margin-left:2px}
+.fb-ads__cap{font-size:11.5px;font-weight:600;color:var(--navy);white-space:nowrap}
+.fb-ads__clk{display:inline-flex;padding:3px 9px;border-radius:999px;background:#eef4ff;border:1px solid #dfe8f8;color:#1A56DB;font-size:11px;font-weight:600;white-space:nowrap}
+@media (max-width:1100px) and (min-width:901px){.fb-ads__row{font-size:12px;padding:10px 6px}}
+@media (max-width:640px){.fb-ads__in{flex-direction:column;align-items:stretch;gap:12px}.fb-ads__row{font-size:12.5px}}
 </style>
 <section class="ih-sec ih-sec--tint" id="how">
   <div class="wrap">
@@ -238,8 +258,11 @@
       <div class="ih-step__copy rv"><p class="ih-step__eb">Promo broadcast</p><h3 class="ih-step__h">Shares promos and new menus.<br><span class="ih-blue">With the right guests.</span></h3><p class="ih-step__p">Send promos, new menu launches, weekday deals or holiday bundles as a WhatsApp broadcast to guest segments, and see who read them.</p></div>
       <div class="ih-step__vis rv" style="--d:.1s" aria-hidden="true"><div class="ih-stage"><div class="ih-stage__main"><div class="ih-card hf-bc"><p class="ih-card__t">Broadcast campaigns<span class="hf-demo">Demo data</span></p><div class="hf-bc__row is-on"><span class="hf-bc__ic"><svg viewBox="0 0 24 24"><path d="M5 8h11v6a5 5 0 0 1-5 5h-1a5 5 0 0 1-5-5z"/><path d="M16 10h1.5a2.5 2.5 0 0 1 0 5H16M8 3v2M11 3v2"/></svg></span><span><b>Weekday breakfast deal</b><small>Segment: Morning regulars</small></span><em>Sent</em></div><div class="hf-bc__row"><span class="hf-bc__ic"><svg viewBox="0 0 24 24"><rect x="4" y="9" width="16" height="11" rx="2"/><path d="M3 9h18M12 9v11M12 9c-2-4-6-4-6-1.5S10 9 12 9zM12 9c2-4 6-4 6-1.5S14 9 12 9z"/></svg></span><span><b>Holiday bundles</b><small>Segment: Visited last December</small></span><em class="is-sch">Scheduled</em></div><div class="hf-cu__st"><span><b>1,240</b>Delivered</span><span><b>1,018</b>Read</span><span><b>186</b>Replied</span></div></div></div></div></div>
     </div><div class="ih-step ih-step--rev">
-      <div class="ih-step__copy rv"><p class="ih-step__eb">Click-to-WhatsApp ads</p><h3 class="ih-step__h">Guests tap your promo.<br><span class="ih-blue">And get answers in the chat.</span></h3><p class="ih-step__p">Run your new-menu or promo video ad on Instagram and Facebook. One tap opens WhatsApp, where the AI answers what’s in it, the price, which outlets have it and opening hours.</p></div>
-      <div class="ih-step__vis rv" style="--d:.1s" aria-hidden="true"><div class="ih-stage"><div class="ih-stage__main"><div class="fb-ad"><div class="ta-ph"><div class="ta-ph__scr ta-vid"><div class="ta-v"><video autoplay muted loop playsinline preload="metadata" tabindex="-1" disablepictureinpicture poster="./assets/video/ad-ai-replies-poster.jpg" src="./assets/video/ad-ai-replies.mp4"></video></div><div class="ta-meta"><span class="fb-ad__sp">Sponsored</span><span class="fb-ad__cta"><img src="./assets/integrations/whatsapp.svg" alt="">Send message</span></div></div></div><div class="ih-win"><div class="ih-win__head"><span class="ih-win__av"><img src="./assets/logo-mark.svg" alt=""></span><span><b>Cekat AI agent</b><small><i></i>New chat</small></span><img class="ih-win__ch" src="./assets/integrations/whatsapp.svg" alt=""></div><div class="ih-win__body"><span class="hf-src"><img src="./assets/integrations/meta.svg" alt="">From a Click-to-WhatsApp ad</span><div class="hcm hcm--in">Hi! What’s in the new Breakfast Bundle?</div><div class="hcm hcm--ai">An egg sandwich, hash brown and iced latte for $9. It’s at every outlet, 7 to 11 AM.<span class="hf-qr"><u class="on">See menu</u><u>Nearest outlet</u></span></div></div></div></div></div></div></div>
+      <div class="ih-step__copy rv"><p class="ih-step__eb">Click-to-WhatsApp ads</p><h3 class="ih-step__h">Guests tap your promo.<br><span class="ih-blue">And get answers in the chat.</span></h3><p class="ih-step__p">Run your new-menu or promo video ad on Instagram and Facebook. One tap opens WhatsApp, where the AI answers what’s in it, the price and which outlets have it.</p></div>
+      <div class="ih-step__vis rv" style="--d:.1s" aria-hidden="true"><div class="ih-stage"><div class="ih-stage__main"><div class="fb-ad"><div class="ta-ph"><div class="ta-ph__scr ta-vid"><div class="ta-v"><video autoplay muted loop playsinline preload="metadata" tabindex="-1" disablepictureinpicture poster="./assets/video/ad-ai-replies-poster.jpg" src="./assets/video/ad-ai-replies.mp4"></video></div><div class="ta-meta"><span class="fb-ad__sp">Sponsored</span><span class="fb-ad__cta"><img src="./assets/integrations/whatsapp.svg" alt="">Send message</span></div></div></div></div></div></div></div>
+    </div><div class="ih-step">
+      <div class="ih-step__copy rv"><p class="ih-step__eb">Ad performance</p><h3 class="ih-step__h">Shows which ad works.<br><span class="ih-blue">Ranked by clicks.</span></h3><p class="ih-step__p">See which promo and new-menu ads bring the most clicks to WhatsApp, so you know which ones to run again.</p></div>
+      <div class="ih-step__vis rv" style="--d:.1s" aria-hidden="true"><div class="ih-stage"><div class="ih-stage__main"><div class="ih-card fb-ads"><p class="ih-card__t">See which ad works<span class="hf-demo">Demo data</span></p><p class="fb-ads__s">Top 3 by clicks</p><div class="fb-ads__in"><div class="fb-ads__list"><div class="fb-ads__row is-cur"><svg class="ic" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z"/></svg><span>Reel · Breakfast Bundle</span><b>3,420</b></div><div class="fb-ads__row"><svg class="ic" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z"/></svg><span>Reel · New iced latte</span><b>2,610</b></div><div class="fb-ads__row"><svg class="ic" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z"/></svg><span>Carousel · Weekend deal</span><b>1,480</b></div></div><div class="fb-ads__pv"><div class="fb-ads__ph"><img src="./assets/video/ad-ai-replies-poster.jpg" alt="" width="360" height="640" loading="lazy"><span class="fb-ads__play"><svg class="ic" viewBox="0 0 24 24"><path d="M7 4.5v15l12-7.5z"/></svg></span></div><span class="fb-ads__cap">Breakfast Bundle</span><span class="fb-ads__clk">3,420 clicks</span></div></div></div></div></div></div>
     </div></div>
     <div class="ih-steps hf-panel" id="hf-p4" role="tabpanel" aria-labelledby="hf-t4" hidden><div class="ih-step">
       <div class="ih-step__copy rv"><p class="ih-step__eb">Visit reminder</p><h3 class="ih-step__h">Reminds them to come.<br><span class="ih-blue">The day before.</span></h3><p class="ih-step__p">Guests get their booking time and outlet the day before, and reply 1 to confirm or 2 to reschedule.</p></div>
