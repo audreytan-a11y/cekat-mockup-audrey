@@ -1,0 +1,11 @@
+/* AW-24 feature cards (v14fc2): Broadcast / Automation / Analytics cards are whole-card links
+   (stretched link on each card title; the whole card is the click target) */
+.mini:has(.mini__link){cursor:pointer}
+.mini__link{display:inherit;align-items:inherit;gap:inherit;color:inherit;text-decoration:none;outline:none}
+.mini__link::after{content:"";position:absolute;inset:0;z-index:5;border-radius:inherit}
+.mini:has(.mini__link):hover{transform:translateY(-4px);box-shadow:var(--sh-2);border-color:#c9d9f5}
+.mini:has(.mini__link:focus-visible){outline:2px solid #1A56DB;outline-offset:4px;box-shadow:var(--sh-2)}
+@media (prefers-reduced-motion:reduce){.mini:has(.mini__link):hover{transform:none}}
+/* demo numbers are labelled; same small label on all three cards */
+.mini .mini__vis{position:relative}
+.mini__demo{position:absolute;right:12px;bottom:8px;z-index:1;font-size:10.5px;font-weight:500;letter-spacing:.01em;color:#8a97ad;line-height:1}
