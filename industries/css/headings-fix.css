@@ -1,0 +1,12 @@
+/* hd2: two-tone step/section headings (navy line + blue line). Same rules as food-beverage/css/headings.css (hd1)
+   so every industry page uses one heading size: each line whole, no one-word orphans. */
+.ih-step__h{font-size:clamp(24px,2.6vw,34px);text-wrap:balance}
+.ih-h2{text-wrap:balance}
+@media (max-width:900px){.ih-step__h{font-size:clamp(24px,3.6vw,30px)}}
+@media (max-width:640px){.ih-step__h{font-size:clamp(23px,6.4vw,26px)}}
+.ih-step__h>.ih-blue,.ih-h2>.ih-blue{display:block;text-wrap:balance}
+.ih-step__h>br,.ih-h2>br{display:none}
+/* desktop: dark sentence = line 1, blue sentence = line 2, never re-wrapped (copy is sized to fit the column) */
+@media (min-width:901px){.ih-step__h,.ih-h2{white-space:nowrap}}
+/* small phones: section headings a touch smaller so "Questions … often ask." never strands a word */
+@media (max-width:640px){.ih-h2{font-size:min(28px,7.2vw)}}

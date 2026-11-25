@@ -1,0 +1,4 @@
+/* AW-23 headings fix (hd2): "Built for your industry. / Pick yours." stays 2 clean lines; balanced on mobile */
+.in-hero__h{text-wrap:balance}
+@media (min-width:901px){.in-hero__h{white-space:nowrap}}
+@media (max-width:900px){.in-hero__h .ih-blue{display:block;text-wrap:balance}.in-hero__h br{display:none}}
