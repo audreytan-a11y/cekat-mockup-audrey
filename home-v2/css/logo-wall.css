@@ -1,5 +1,6 @@
 .brandwall{padding:28px 0 8px;background:#fff}
-.brandwall__title{margin:0 0 18px;text-align:center;color:var(--navy,#08214c);font-size:clamp(26px,3vw,36px);letter-spacing:-.03em;font-weight:700}
+.brandwall__title{margin:0 0 18px;text-align:center;color:var(--navy,#08214c);font-size:clamp(26px,3vw,38px);line-height:1.06;letter-spacing:-.032em;font-weight:600}
+.brandwall__title .ih-blue{white-space:nowrap}
 .brandgrid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:12px;width:100%}
 .brandgrid li{display:grid;place-items:center;height:84px;margin:0;padding:14px 16px;background:#fff;border:1px solid #e6ecf6;border-radius:14px}
 .brandgrid img{max-width:78%;max-height:36px;width:auto;height:auto;object-fit:contain;filter:grayscale(1);opacity:.78;transition:filter .2s,opacity .2s}
