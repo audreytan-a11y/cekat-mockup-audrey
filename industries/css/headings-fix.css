@@ -10,3 +10,7 @@
 @media (min-width:901px){.ih-step__h,.ih-h2{white-space:nowrap}}
 /* small phones: section headings a touch smaller so "Questions … often ask." never strands a word */
 @media (max-width:640px){.ih-h2{font-size:min(28px,7.2vw)}}
+/* hd3 (final QA): phones — step headings one notch smaller so every dark sentence and blue sentence stays on its own line
+   (2 lines total) on all 10 industry pages; same size for every step heading. Trust label wraps evenly (no lone "brands"). */
+@media (max-width:640px){.ih-step__h{font-size:min(23px,5.9vw)}}
+.ih-trust__h span{text-wrap:balance}

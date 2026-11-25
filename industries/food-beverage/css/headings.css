@@ -6,3 +6,7 @@
 .ih-step__h>.ih-blue,.ih-h2>.ih-blue{display:block;text-wrap:balance}
 .ih-step__h>br,.ih-h2>br{display:none}
 @media (max-width:640px){h2.ftx__h{font-size:clamp(24px,6.9vw,34px)}}
+/* hd3 (final QA): same phone step-heading size as the other industry pages (../../css/headings-fix.css hd3) */
+@media (max-width:640px){.ih-step__h{font-size:min(23px,5.9vw)}}
+.ih-trust__h span{text-wrap:balance}
+@media (max-width:640px){.ih-h2{font-size:min(28px,7.2vw)}}

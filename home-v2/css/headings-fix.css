@@ -2,3 +2,9 @@
 .in-hero__h{text-wrap:balance}
 @media (min-width:901px){.in-hero__h{white-space:nowrap}}
 @media (max-width:900px){.in-hero__h .ih-blue{display:block;text-wrap:balance}.in-hero__h br{display:none}}
+/* hd3 (final QA): no gradient text — two-tone section headings use solid blue like the rest of the site */
+.h2 .grad{background:none!important;-webkit-background-clip:border-box;background-clip:border-box;color:#1A56DB;-webkit-text-fill-color:#1A56DB}
+/* Integrations heading: navy line + blue line (2 lines at every width) */
+#integrations .h2 .grad{display:block}
+/* phones: "Built for your industry." stays on one line -> 3 lines become 2 */
+@media (max-width:760px){h2.in-hero__h{font-size:clamp(28px,7.6vw,40px)}}
