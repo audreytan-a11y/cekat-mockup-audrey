@@ -109,3 +109,40 @@
     t.addEventListener('keydown',function(e){ var n=null; if(e.key==='ArrowRight') n=(k+1)%tabs.length; else if(e.key==='ArrowLeft') n=(k-1+tabs.length)%tabs.length; else if(e.key==='Home') n=0; else if(e.key==='End') n=tabs.length-1; if(n!==null){ e.preventDefault(); show(n,true); } });
   });
 })();
+
+/* tc2 testimonial carousel: arrows, dots, swipe (native scroll-snap), keyboard */
+(function () {
+  document.querySelectorAll('[data-tcar]').forEach(function (root) {
+    var vp = root.querySelector('.tcar__vp'), slides = [].slice.call(vp.querySelectorAll('.tcase')),
+        dots = [].slice.call(root.querySelectorAll('.tcar__dot')),
+        prev = root.querySelector('.tcar__prev'), next = root.querySelector('.tcar__next'), cur = -1, raf = 0;
+    if (slides.length < 2) { root.querySelector('.tcar__nav').hidden = true; return; }
+    function base() { return slides[0].offsetLeft; }
+    function index() {
+      var x = vp.scrollLeft, best = 0, d = Infinity;
+      slides.forEach(function (s, i) { var dd = Math.abs(s.offsetLeft - base() - x); if (dd < d) { d = dd; best = i; } });
+      return best;
+    }
+    function paint(i) {
+      if (i === cur) return; cur = i;
+      dots.forEach(function (b, j) { if (j === i) b.setAttribute('aria-current', 'true'); else b.removeAttribute('aria-current'); });
+      slides.forEach(function (s, j) { s.setAttribute('aria-hidden', j === i ? 'false' : 'true'); });
+      prev.disabled = i === 0; next.disabled = i === slides.length - 1;
+    }
+    function go(i) {
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      vp.scrollTo({ left: slides[i].offsetLeft - base(), behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+      paint(i);
+    }
+    prev.addEventListener('click', function () { go(index() - 1); });
+    next.addEventListener('click', function () { go(index() + 1); });
+    dots.forEach(function (b, j) { b.addEventListener('click', function () { go(j); }); });
+    vp.addEventListener('scroll', function () { cancelAnimationFrame(raf); raf = requestAnimationFrame(function () { paint(index()); }); }, { passive: true });
+    root.addEventListener('keydown', function (ev) {
+      if (ev.key === 'ArrowLeft') { ev.preventDefault(); go(index() - 1); }
+      else if (ev.key === 'ArrowRight') { ev.preventDefault(); go(index() + 1); }
+    });
+    addEventListener('resize', function () { var i = cur; cur = -1; vp.scrollLeft = slides[i].offsetLeft - base(); paint(i); });
+    paint(0);
+  });
+})();
