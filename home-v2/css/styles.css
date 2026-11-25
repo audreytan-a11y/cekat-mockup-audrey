@@ -1476,13 +1476,13 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 /* stack v3: full-width royal-blue logo band + full map card below */
 .logoband2{position:relative;margin:48px 0 0;padding:40px 0;background:linear-gradient(180deg,#114BAF,#0F47A5);display:flex;flex-direction:column;gap:28px;-webkit-mask-image:none}
 .logoband2 .lgrow{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 12%,#000 88%,transparent 100%)}
-.logoband2 .lgtrack{display:flex;gap:0;width:max-content;animation:lgmove 80s linear infinite}
+.logoband2 .lgtrack{display:flex;gap:0;width:max-content;animation:lgmove 236s linear infinite}
 .logoband2 .lgrow--rev .lgtrack{animation-direction:reverse;animation-duration:90s}
 .logoband2 .logo,.logoband2 .logo:hover{width:auto;height:46px;padding:0 34px;display:flex;align-items:center;background:none;border:0;border-radius:0;box-shadow:none;transform:none}
 .logoband2 .logo img,.logoband2 .logo:hover img{display:block;width:auto;height:auto;max-height:32px;max-width:128px;object-fit:contain;filter:brightness(0) invert(1)!important;opacity:1;transform:none}
 .logoband2 .lg--pln img{max-height:42px}
 .logoband2 .lg--healthy-go img,.logoband2 .lg--kopi-kenangan img,.logoband2 .lg--mnc img,.logoband2 .lg--vio-optical-clinic img,.logoband2 .lg--rata img,.logoband2 .lg--politeknik-multimedia-nusantara img,.logoband2 .lg--aice img{max-height:38px}
-.logoband2 .lg--hachi-group img,.logoband2 .lg--kb-insurance img,.logoband2 .lg--sekolah-ciputra img,.logoband2 .lg--siloam img{max-width:156px;max-height:24px}
+.logoband2 .lg--hachi-group img,.logoband2 .lg--kb-insurance img,.logoband2 .lg--sekolah-ciputra img,.logoband2 .lg--siloam img,.logoband2 .lg--agung-sedayu-group img,.logoband2 .lg--scarlett img,.logoband2 .lg--gamal img{max-width:156px;max-height:24px}
 .logoband2 .lg--moir-salon img,.logoband2 .lg--dokterhub img,.logoband2 .lg--mganik img,.logoband2 .lg--rumah-zakat img{max-width:120px}
 #map.map{margin-top:48px;padding:36px 48px 28px;border-radius:24px}
 #map .map__canvas{aspect-ratio:1000/372!important;overflow:visible!important;max-width:1000px;width:100%!important;margin:0 auto!important}
