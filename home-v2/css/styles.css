@@ -2665,7 +2665,7 @@ button.more.ts-toggle{background:none;padding:0;display:inline-flex;align-items:
 .logoband2 .lg--bank-asa img,.logoband2 .lg--lasalle-college-jakarta img,.logoband2 .lg--darius-tour img,.logoband2 .lg--dariustour img{max-width:150px}
 @media (max-width:760px){.logoband2 .lg--raja-oto img,.logoband2 .lg--jual-emas-indonesia img,.logoband2 .lg--umn img{max-height:30px!important}}
 /* white logos on the blue band, about 35% larger; duration scales with the wider track */
-.logoband2{padding:46px 0}
+.logoband2{padding:26px 0}
 .logoband2 .logo,.logoband2 .logo:hover{height:62px;padding:0 46px}
 .logoband2 .logo img,.logoband2 .logo:hover img{max-height:43px;max-width:173px}
 .logoband2 .lg--pln img{max-height:57px}
@@ -2678,7 +2678,7 @@ button.more.ts-toggle{background:none;padding:0;display:inline-flex;align-items:
 .logoband2 .lg--sozo-dental img{height:30px}
 .logoband2 .lgtrack{animation-duration:375s}
 @media (max-width:760px){
-  .logoband2{padding:34px 0}
+  .logoband2{padding:19px 0}
   .logoband2 .logo,.logoband2 .logo:hover{height:49px;padding:0 27px}
   .logoband2 .logo img{max-height:32px!important;max-width:135px!important}
   .logoband2 .lg--pln img,.logoband2 .lg--healthy-go img{max-height:41px!important}
