@@ -38,6 +38,10 @@
 #mm-solutions .sol__foot a:hover{text-decoration:underline;background:none}
 #mm-solutions .sol__side{border-radius:16px;background:#f5f8fe;border:1px solid #dbe6f8;padding:12px;display:flex;flex-direction:column}
 #mm-solutions .sol__photo{width:100%;height:160px;object-fit:cover;border-radius:12px;display:block;background:#e6eefb;margin:0 0 12px}
+#mm-solutions .sol__photo[src*="industry-cards/retail.webp"],
+#mm-solutions .sol__photo[src*="industry-cards/beauty.webp"],
+#mm-solutions .sol__photo[src*="industry-cards/automotive.webp"],
+#mm-solutions .sol__photo[src*="industry-cards/travel.webp"]{object-position:center top}
 #mm-solutions .sol__side-h{margin:0;font-size:18px;letter-spacing:-.02em;line-height:1.25;color:var(--navy,#08214c);font-weight:700}
 #mm-solutions .sol__side-p{margin:6px 0 0;font-size:13.5px;line-height:1.45;color:#475467}
 #mm-solutions .sol__side-a{margin-top:14px;color:var(--primary,#1352bf);font-weight:600;font-size:14px;text-decoration:none;padding:0;background:none}
