@@ -28,7 +28,7 @@ html.uac-lock,body.uac-lock{overflow:hidden}
 .uac-badge{margin-top:22px;width:100%}
 .uac-badge__stage{position:relative;height:84px;perspective:700px;border-radius:22px}
 .uac-w{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;border-radius:22px;background:#FFC81E;color:#08214c;font:900 36px/1.08 Inter,sans-serif;letter-spacing:.02em;box-shadow:0 14px 30px -10px rgba(3,12,32,.45);opacity:0;transform-origin:50% 0;transform:rotateX(90deg);backface-visibility:hidden;-webkit-backface-visibility:hidden}
-.uac-w--2{font-size:24px;letter-spacing:.03em}
+.uac-w--2{font-size:22px;letter-spacing:.02em;line-height:1.15;white-space:nowrap}
 .uac-w.is-on{opacity:1;transform:rotateX(0);transition:transform .6s cubic-bezier(.2,.8,.2,1) .1s,opacity .2s .1s;transform-origin:50% 100%}
 .uac-w.is-out{opacity:1;transform:rotateX(-90deg);transform-origin:50% 0;transition:transform .55s cubic-bezier(.6,0,.8,.4),opacity .1s .5s}
 .uac-w:not(.is-on):not(.is-out){transform:rotateX(90deg)}
@@ -65,7 +65,7 @@ html.uac-lock,body.uac-lock{overflow:hidden}
   .uac-badge{margin-top:14px}
   .uac-badge__stage{height:62px;border-radius:16px}
   .uac-w{font-size:26px;border-radius:16px}
-  .uac-w--2{font-size:17px}
+  .uac-w--2{font-size:15px;letter-spacing:.01em;line-height:1.15}
   .uac-pill{font-size:10.5px;padding:6px 12px}
   .uac-head{margin:14px 0 8px;gap:11px}
   .uac-ico{width:40px;height:40px;border-radius:12px}
