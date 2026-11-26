@@ -352,3 +352,15 @@
 .avw__segs li{grid-template-columns:1fr auto;gap:6px 10px;padding:10px 12px;font-size:13px}
 .avw__segs .avw__fb{grid-column:1/-1;grid-row:2}
 }
+
+/* avw segmentation tab: reuse sgx chips + contact list, no segment bars */
+.avw__sgx{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;width:100%;padding:8px 0 4px}
+.avw__sgx .sgx-f{width:100%}
+.avw__sgx .sgx-chip{font-size:13px;padding:7px 13px}
+.avw__sgx .sgx-list{max-width:520px}
+.avw__pane:not([hidden]):has(.avw__sgx){display:flex;flex-direction:column}
+@media (max-width:640px){
+  .avw__sgx{gap:10px}
+  .avw__sgx .sgx-chip{font-size:12.5px;padding:6px 11px;white-space:normal;text-align:center;max-width:100%}
+  .avw__sgx .sgx-list{max-width:100%}
+}

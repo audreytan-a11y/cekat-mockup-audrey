@@ -1269,10 +1269,10 @@ svg use{pointer-events:none}
 .fl-tbl .pmx-src__h{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px}
 .fl-tbl .pmx-src__h b{font-size:19px;color:var(--navy)}
 .fl-tbl .pmx-src__h small{font-size:14px;color:var(--sub)}
-.fl-tbl .pmx-src table{width:100%;border-collapse:collapse;font-size:15px;font-variant-numeric:tabular-nums}
+.fl-tbl .pmx-src table{width:100%;border-collapse:collapse;table-layout:fixed;font-size:15px;font-variant-numeric:tabular-nums}
 .fl-tbl .pmx-src th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--sub);font-weight:600;text-align:right;padding:9px 6px;border-bottom:1px solid #e6ebf3}
 .fl-tbl .pmx-src td{padding:11px 6px;text-align:right;color:var(--navy);border-bottom:1px solid #f0f3f9;white-space:nowrap}
-.fl-tbl .pmx-src th:first-child,.fl-tbl .pmx-src td:first-child{text-align:left}
+.fl-tbl .pmx-src th:first-child,.fl-tbl .pmx-src td:first-child{text-align:left;width:44%}
 .fl-tbl .pmx-src td b{color:#1A56DB}
 .fl-tbl .pmx-src tbody tr:first-child td{background:#f5f8ff}
 .fl-tbl .pmx-src tfoot td{font-weight:700;border-bottom:0;padding-top:14px}
@@ -1283,7 +1283,7 @@ svg use{pointer-events:none}
   
   .fl-tbl .pmx-src__h b{font-size:16px}.fl-tbl .pmx-src__h small{font-size:12.5px}
   .fl-tbl .pmx-src table{font-size:14px}
-  .fl-tbl .pmx-src th:nth-child(2),.fl-tbl .pmx-src td:nth-child(2),.fl-tbl .pmx-src th:nth-child(4),.fl-tbl .pmx-src td:nth-child(4){display:none}
+  
   .fl-tbl .pmx-si{width:24px;height:24px;margin-right:8px}.fl-tbl .pmx-si svg{width:14px;height:14px}
 }
 
@@ -1326,7 +1326,7 @@ svg use{pointer-events:none}
 .fl-act__send{padding:9px 16px;border-radius:10px;background:var(--c1);color:#fff;font-size:13px;font-weight:600}
 @media (max-width:640px){
   .fl-card{padding:14px 14px 10px}
-  .fl-tbl .pmx-src th:nth-child(2),.fl-tbl .pmx-src td:nth-child(2),.fl-tbl .pmx-src th:nth-child(4),.fl-tbl .pmx-src td:nth-child(4){display:none}
+  
   .fl-sync__body{height:190px}
   .fl-ads{padding:16px 12px}
 }
