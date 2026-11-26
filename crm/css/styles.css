@@ -2490,3 +2490,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (min-width:761px){.hero,.chero{display:flex!important;flex-direction:column;justify-content:center;min-height:calc(100vh - 68px)!important;min-height:min(calc(100svh - 68px),1000px)!important;padding-bottom:32px!important}.hero+section,.chero+section{padding-top:56px!important}}
 /* final QA: card titles wrap evenly (no single word left on line 2) */
 .bt h3{text-wrap:balance}
+
+/* keep line ends whole after the draw animation */
+@keyframes adfull{to{stroke-dasharray:none;stroke-dashoffset:0}}
+.rot__s.is-on .ad-svg path.ad-l1{animation:addraw 1.3s .15s ease-out forwards,adfull .01s 1.5s forwards}
+.rot__s.is-on .ad-svg path.ad-l2{animation:addraw 1.3s .35s ease-out forwards,adfull .01s 1.7s forwards}

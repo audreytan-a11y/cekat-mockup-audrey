@@ -2485,3 +2485,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (prefers-reduced-motion:reduce){.js-fb .fb-auto .fb-rule,.js-fb .fb-auto .fb-chat>*{opacity:1;animation:none!important}}
 @media (max-width:640px){.fb-auto{padding:10px}.fb-auto .fb-kb{gap:5px}.fb-auto .fb-kb__col p{font-size:10px;padding:5px 4px}.fb-auto .fb-kc{padding:6px;gap:4px}.fb-auto .fb-kc img{width:12px;height:12px}.fb-auto .fb-kc b{font-size:11px}.fb-auto .fb-kc span{font-size:10px}.fb-rule{font-size:11px}}
 .feature-block__visual{min-width:0}
+
+/* keep line ends whole after the draw animation */
+@keyframes adfull{to{stroke-dasharray:none;stroke-dashoffset:0}}
+.rot__s.is-on .ad-svg path.ad-l1{animation:addraw 1.3s .15s ease-out forwards,adfull .01s 1.5s forwards}
+.rot__s.is-on .ad-svg path.ad-l2{animation:addraw 1.3s .35s ease-out forwards,adfull .01s 1.7s forwards}

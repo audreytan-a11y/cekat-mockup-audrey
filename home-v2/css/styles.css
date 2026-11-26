@@ -2685,3 +2685,8 @@ button.more.ts-toggle{background:none;padding:0;display:inline-flex;align-items:
   .logoband2 .lg--raja-oto img,.logoband2 .lg--jual-emas-indonesia img,.logoband2 .lg--umn img{max-height:41px!important}
   .logoband2 .lg--sozo-dental img{height:24px}
 }
+
+/* keep line ends whole after the draw animation */
+@keyframes adfull{to{stroke-dasharray:none;stroke-dashoffset:0}}
+.rot__s.is-on .ad-svg path.ad-l1{animation:addraw 1.3s .15s ease-out forwards,adfull .01s 1.5s forwards}
+.rot__s.is-on .ad-svg path.ad-l2{animation:addraw 1.3s .35s ease-out forwards,adfull .01s 1.7s forwards}

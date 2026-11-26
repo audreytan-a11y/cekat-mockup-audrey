@@ -2539,3 +2539,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 .simple.sol .sol__foot a:hover{text-decoration:underline;background:none}
 @media (max-width:1024px){.simple.sol{width:auto;padding:0 0 12px}.sol__grid{gap:0 6px}.simple.sol .sol__a{padding:9px 6px;gap:8px}.sol__h{padding:4px 6px 6px}}
 @media (max-width:400px){.simple.sol .sol__a,.simple.sol .sol__foot a{font-size:13.5px}}
+
+/* keep line ends whole after the draw animation */
+@keyframes adfull{to{stroke-dasharray:none;stroke-dashoffset:0}}
+.rot__s.is-on .ad-svg path.ad-l1{animation:addraw 1.3s .15s ease-out forwards,adfull .01s 1.5s forwards}
+.rot__s.is-on .ad-svg path.ad-l2{animation:addraw 1.3s .35s ease-out forwards,adfull .01s 1.7s forwards}

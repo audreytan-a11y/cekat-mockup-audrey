@@ -2414,3 +2414,8 @@ button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
 @media (max-width:560px){.pcv--hub .hb{transform:translateY(-14px)}.hb-app--tl{top:-18px;left:-8px}.hb-app--tr{top:-16px;right:-8px}.hb-app--ml{bottom:-20px}.hb-app--br{bottom:-22px;right:-8px}.hb-app--bl{left:-10px}.hb-app--mr{right:-10px}}
 @media (max-width:560px){.pcv--hub .hb{transform:translateY(8px)}.hb-app--tl{top:-14px}.hb-app--tr{top:-12px}.hb-app--ml{bottom:-14px}.hb-app--br{bottom:-16px}}
 @media (max-width:560px){.hb-app--ml{display:none}}
+
+/* keep line ends whole after the draw animation */
+@keyframes adfull{to{stroke-dasharray:none;stroke-dashoffset:0}}
+.rot__s.is-on .ad-svg path.ad-l1{animation:addraw 1.3s .15s ease-out forwards,adfull .01s 1.5s forwards}
+.rot__s.is-on .ad-svg path.ad-l2{animation:addraw 1.3s .35s ease-out forwards,adfull .01s 1.7s forwards}
