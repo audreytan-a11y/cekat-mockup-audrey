@@ -385,3 +385,12 @@
 @media (max-width:400px){.tcar .tcase__logo{max-width:calc(100% - 172px)}}
 /* light outline versions of badge logos (Puffy, Yupi, Yummy Choice): keep their grey line art instead of a black silhouette */
 .tlg img[src*="-outline.png"],.tlm__list img[src*="-outline.png"]{filter:none!important;opacity:1!important}
+
+/* Show trust logos in brand color. Monochrome source files with no color version keep .tlg__mono so they stay visible. */
+.ih-trust--color{--ink:1}
+.ih-trust--color .tlg img,
+.ih-trust--color .tlm__list img{filter:none;opacity:1}
+.ih-trust--color .tlg img.tlg__mono{filter:brightness(0);opacity:.78}
+.ih-trust--color .tlm__list img.tlg__mono{filter:brightness(0);opacity:.45}
+.ih-trust--color .tlg img[src*="-outline.png"],
+.ih-trust--color .tlm__list img[src*="-outline.png"]{filter:none!important;opacity:1!important}
