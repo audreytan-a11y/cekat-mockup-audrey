@@ -201,9 +201,25 @@
 
 /* Serious infrastructure */
 .ab-infra{
+  position:relative;
   padding:96px 0;
-  background:#fff;
+  overflow:hidden;
+  background:
+    radial-gradient(80% 70% at 50% 0%, rgba(16,104,229,.16), transparent 58%),
+    radial-gradient(55% 65% at 100% 100%, rgba(19,82,191,.10), transparent 55%),
+    linear-gradient(180deg, #e7f1ff 0%, #d9e9ff 52%, #e3edfc 100%);
 }
+.ab-infra::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:radial-gradient(rgba(19,82,191,.12) 1.15px, transparent 1.25px);
+  background-size:22px 22px;
+  -webkit-mask-image:radial-gradient(ellipse at 50% 40%, #000 35%, transparent 82%);
+  mask-image:radial-gradient(ellipse at 50% 40%, #000 35%, transparent 82%);
+  pointer-events:none;
+}
+.ab-infra .wrap{position:relative;z-index:1}
 .ab-infra .sec-head{margin-bottom:48px;max-width:820px}
 .ab-stats{
   display:grid;
@@ -222,8 +238,6 @@
   border-radius:24px;
   padding:36px 32px 34px;
   box-shadow:var(--sh-2);
-  background-image:
-    radial-gradient(80% 70% at 50% 0%, rgba(16,104,229,.08), transparent 62%);
 }
 .ab-stat__ic{
   width:48px;height:48px;
