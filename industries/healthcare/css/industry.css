@@ -523,5 +523,43 @@
 .tlg--row li{flex:0 0 115px}
 .tlg--row li.tlg__t{flex:0 0 auto;gap:8px;font-size:15px;font-weight:700;white-space:nowrap;color:rgba(0,0,0,var(--ink))}
 @media (max-width:767px){.tlg.tlg--row{gap:22px 12px}.tlg--row li{flex:0 0 calc(50% - 6px)}.tlg--row li.tlg__t{flex:0 0 calc(50% - 6px);font-size:13px}}
+
+/* Healthcare test: show this page's trust logos in brand color. Other industry pages keep their own CSS. */
+.ih-trust--color{--ink:1}
+.ih-trust--color .tlg img,
+.ih-trust--color .tlm__list img{filter:none;opacity:1}
+/* Source files that are white/black/navy marks with no color version in the repo: keep them visible as black, and list in the report. */
+.ih-trust--color .tlg img[src*="euromedica.png"],
+.ih-trust--color .tlg img[src*="vio-optical-clinic.png"],
+.ih-trust--color .tlg img[src*="sozo-dental.svg"],
+.ih-trust--color .tlg img[src*="ekles-clinic.png"],
+.ih-trust--color .tlm__list img[src*="moir-salon.png"],
+.ih-trust--color .tlm__list img[src*="bosch-car-service.png"],
+.ih-trust--color .tlm__list img[src*="celcomdigi.png"],
+.ih-trust--color .tlm__list img[src*="itsu.png"],
+.ih-trust--color .tlm__list img[src*="gamal.png"],
+.ih-trust--color .tlm__list img[src*="kopi-kenangan.png"],
+.ih-trust--color .tlm__list img[src*="telkom-university.png"],
+.ih-trust--color .tlm__list img[src*="ancol.png"],
+.ih-trust--color .tlm__list img[src*="mganik.png"],
+.ih-trust--color .tlm__list img[src*="rata.png"],
+.ih-trust--color .tlm__list img[src*="hachi-group.png"],
+.ih-trust--color .tlm__list img[src*="politeknik-multimedia-nusantara.png"],
+.ih-trust--color .tlm__list img[src*="scarlett.png"],
+.ih-trust--color .tlm__list img[src*="graha-pesona-cikeas.png"]{filter:brightness(0);opacity:.78}
+.ih-trust--color .tlm__list img[src*="moir-salon.png"],
+.ih-trust--color .tlm__list img[src*="bosch-car-service.png"],
+.ih-trust--color .tlm__list img[src*="celcomdigi.png"],
+.ih-trust--color .tlm__list img[src*="itsu.png"],
+.ih-trust--color .tlm__list img[src*="gamal.png"],
+.ih-trust--color .tlm__list img[src*="kopi-kenangan.png"],
+.ih-trust--color .tlm__list img[src*="telkom-university.png"],
+.ih-trust--color .tlm__list img[src*="ancol.png"],
+.ih-trust--color .tlm__list img[src*="mganik.png"],
+.ih-trust--color .tlm__list img[src*="rata.png"],
+.ih-trust--color .tlm__list img[src*="hachi-group.png"],
+.ih-trust--color .tlm__list img[src*="politeknik-multimedia-nusantara.png"],
+.ih-trust--color .tlm__list img[src*="scarlett.png"],
+.ih-trust--color .tlm__list img[src*="graha-pesona-cikeas.png"]{opacity:.45}
 /* light outline versions of badge logos (Puffy, Yupi, Yummy Choice): keep their grey line art instead of a black silhouette */
 .tlg img[src*="-outline.png"],.tlm__list img[src*="-outline.png"]{filter:none!important;opacity:1!important}
