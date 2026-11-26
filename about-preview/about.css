@@ -15,14 +15,14 @@
   gap:56px;
   align-items:center;
 }
-.ab-hero__copy .eyebrow{margin-bottom:18px}
+.ab-hero__copy .eyebrow{margin-bottom:14px}
 .ab-hero h1{
-  font-size:clamp(40px,5.4vw,68px);
-  line-height:1.04;
-  letter-spacing:-.035em;
+  font-size:clamp(26px,3vw,38px);
+  line-height:1.15;
+  letter-spacing:-.032em;
   font-weight:650;
   color:var(--navy);
-  margin:0 0 22px;
+  margin:0 0 18px;
 }
 .ab-hero__lead{
   max-width:540px;
@@ -31,53 +31,29 @@
   color:var(--body);
   text-wrap:pretty;
 }
-.ab-hero__line{
-  margin:18px 0 0;
-  max-width:540px;
-  font-size:16.5px;
-  line-height:1.5;
-  font-weight:600;
-  color:var(--navy);
-  text-wrap:pretty;
-}
-@media (min-width:901px){
-  .ab-hero__rest{display:block;}
-}
-.ab-hero__copy .ab-vision{
-  margin-top:32px;
-}
-
-.ab-vision{
-  background:#fff;
-  border:1px solid #dce6f6;
-  border-radius:24px;
-  padding:28px 28px 30px;
-  box-shadow:var(--sh-2);
-  position:relative;
-}
-.ab-vision::before{
-  content:"";
-  position:absolute;
-  left:0;top:20px;bottom:20px;
-  width:4px;
-  border-radius:0 4px 4px 0;
-  background:linear-gradient(180deg,var(--sky),var(--primary) 60%,var(--navy));
-}
-.ab-vision__label{
-  font-size:12px;
+.ab-hero__lead strong{
   font-weight:700;
-  letter-spacing:.08em;
-  text-transform:uppercase;
-  color:var(--primary);
-  margin:0 0 12px;
+  color:var(--navy);
 }
-.ab-vision__t{
-  font-size:clamp(18px,1.7vw,22px);
+.ab-hero__line{
+  position:relative;
+  margin:24px 0 0;
+  max-width:540px;
+  padding:4px 0 4px 18px;
+  font-size:clamp(20px,2.15vw,26px);
   line-height:1.4;
   letter-spacing:-.022em;
-  font-weight:600;
+  font-weight:650;
   color:var(--navy);
   text-wrap:pretty;
+}
+.ab-hero__line::before{
+  content:"";
+  position:absolute;
+  left:0;top:4px;bottom:4px;
+  width:3px;
+  border-radius:3px;
+  background:linear-gradient(180deg,var(--sky),var(--primary) 55%,var(--navy));
 }
 
 .ab-logo{
@@ -392,7 +368,6 @@
   .ab-stats,
   .ab-off__grid{grid-template-columns:1fr;gap:16px}
   .ab-hero__grid{gap:20px}
-  .ab-vision{padding:24px 22px 24px 26px}
   .ab-logo{min-height:0;margin:-8px auto 0;max-width:280px}
   .ab-logo img{width:100%;opacity:.14}
   .ab-ml{padding:80px 0}
@@ -403,7 +378,6 @@
 @media (max-width:640px){
   .wrap{padding:0 20px}
   .ab-hero{padding:80px 0 48px}
-  .ab-hero h1{font-size:36px}
   .ab-tile{padding:26px 20px 24px}
   .ab-stat{padding:28px 22px 26px}
 }
