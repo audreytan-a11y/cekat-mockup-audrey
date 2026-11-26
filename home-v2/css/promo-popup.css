@@ -2,6 +2,7 @@
 .uac-scrim{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:20px;background:rgba(6,20,48,.66);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .35s ease,visibility .35s}
 .uac-scrim.is-open{opacity:1;visibility:visible;pointer-events:auto}
 html.uac-lock,body.uac-lock{overflow:hidden}
+.uac-vh{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
 
 .uac-card{position:relative;width:min(600px,100%);max-height:min(92vh,820px);overflow:auto;overscroll-behavior:contain;border-radius:28px;color:#fff;background:linear-gradient(135deg,#1352bf 0%,#1068e5 55%,#0b3f95 100%);box-shadow:0 40px 100px -20px rgba(3,12,32,.7),0 0 0 1px rgba(255,255,255,.08);transform:translateY(18px) scale(.98);transition:transform .4s cubic-bezier(.2,.7,.2,1);font-family:"Google Sans Flex","Inter",system-ui,sans-serif}
 .uac-scrim.is-open .uac-card{transform:none}
@@ -19,7 +20,7 @@ html.uac-lock,body.uac-lock{overflow:hidden}
 
 .uac-inner{position:relative;z-index:2;padding:92px 40px 36px;display:flex;flex-direction:column}
 
-.uac-hero{width:fit-content;max-width:100%;margin:0 auto 28px;text-align:center}
+.uac-hero{width:fit-content;max-width:100%;margin:0 auto 22px;text-align:center}
 .uac-cekat{font:900 42px/1 Inter,sans-serif;letter-spacing:.2em;margin:0 0 8px;margin-right:-.2em;text-transform:uppercase;text-shadow:0 4px 24px rgba(0,0,0,.25)}
 .uac-unl{display:flex;align-items:flex-end;justify-content:center;margin:0;font:900 82px/.9 Inter,sans-serif;letter-spacing:-.035em;white-space:nowrap;color:#fff;filter:drop-shadow(0 10px 22px rgba(3,12,32,.35))}
 .uac-shield{height:.86em;width:auto;margin-right:.03em;flex:none;overflow:visible;color:#fff}
@@ -33,7 +34,7 @@ html.uac-lock,body.uac-lock{overflow:hidden}
 .uac-w.is-out{opacity:1;transform:rotateX(-90deg);transform-origin:50% 0;transition:transform .55s cubic-bezier(.6,0,.8,.4),opacity .1s .5s}
 .uac-w:not(.is-on):not(.is-out){transform:rotateX(90deg)}
 
-.uac-pill{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;padding:7px 14px;border-radius:99px;background:rgba(255,255,255,.16);color:#fff;font:700 11.5px/1 Inter,sans-serif;letter-spacing:.12em;box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
+.uac-pill{display:inline-flex;align-items:center;gap:8px;align-self:flex-start;margin:0 0 14px;padding:7px 14px;border-radius:99px;background:rgba(255,255,255,.16);color:#fff;font:700 11.5px/1 Inter,sans-serif;letter-spacing:.12em;box-shadow:inset 0 0 0 1px rgba(255,255,255,.22)}
 .uac-pill i{width:7px;height:7px;border-radius:50%;background:#fff;box-shadow:0 0 0 3px rgba(255,255,255,.22)}
 
 .uac-head{display:flex;align-items:center;gap:14px;margin:18px 0 10px}
@@ -41,7 +42,8 @@ html.uac-lock,body.uac-lock{overflow:hidden}
 .uac-ico svg{width:26px;height:20px;fill:none;stroke:#fff;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
 .uac-head h2{margin:0;font:700 28px/1.1 "Google Sans Flex",Inter,sans-serif;letter-spacing:-.02em;color:#fff}
 
-.uac-p{margin:0 0 16px;font:400 15.5px/1.55 "Google Sans Flex",Inter,sans-serif;color:rgba(255,255,255,.88)}
+.uac-p{margin:0 0 20px;font:400 15.5px/1.55 "Google Sans Flex",Inter,sans-serif;color:rgba(255,255,255,.88)}
+.uac-p strong{font-weight:700;color:#fff}
 
 .uac-chips{display:flex;flex-wrap:wrap;gap:9px;margin-bottom:22px}
 .uac-chips span{display:inline-flex;align-items:center;gap:7px;padding:8px 14px 8px 10px;border-radius:99px;background:rgba(255,255,255,.14);box-shadow:inset 0 0 0 1px rgba(255,255,255,.2);font:600 14px/1 Inter,sans-serif;color:#fff}
@@ -59,19 +61,19 @@ html.uac-lock,body.uac-lock{overflow:hidden}
   .uac-logo{top:20px;left:22px;height:20px}
   .uac-x{top:12px;right:12px}
   .uac-inner{padding:62px 22px 22px}
-  .uac-hero{margin-bottom:20px}
+  .uac-hero{margin-bottom:16px}
   .uac-cekat{font-size:30px}
   .uac-unl{font-size:52px}
   .uac-badge{margin-top:14px}
   .uac-badge__stage{height:62px;border-radius:16px}
   .uac-w{font-size:26px;border-radius:16px}
   .uac-w--2{font-size:15px;letter-spacing:.01em;line-height:1.15}
-  .uac-pill{font-size:10.5px;padding:6px 12px}
+  .uac-pill{font-size:10.5px;padding:6px 12px;margin-bottom:12px}
   .uac-head{margin:14px 0 8px;gap:11px}
   .uac-ico{width:40px;height:40px;border-radius:12px}
   .uac-ico svg{width:22px}
   .uac-head h2{font-size:23px}
-  .uac-p{font-size:14px;margin-bottom:14px}
+  .uac-p{font-size:14px;margin-bottom:16px}
   .uac-chips{gap:7px;margin-bottom:16px}
   .uac-chips span{font-size:12.5px;padding:7px 11px 7px 8px}
   .uac-foot{flex-direction:column;align-items:stretch;gap:12px}
