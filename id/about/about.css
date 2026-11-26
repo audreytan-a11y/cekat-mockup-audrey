@@ -284,8 +284,11 @@
 .ab-stat--logo{
   justify-content:center;
 }
+.ab-stat--logo .ab-stat__ic{
+  margin-bottom:22px;
+}
 .ab-stat--logo .ab-stat__k{
-  margin:0 0 16px;
+  margin:0 0 22px;
   font-size:13px;
   font-weight:700;
   letter-spacing:.08em;
@@ -294,8 +297,9 @@
 }
 .ab-stat__logo{
   display:block;
-  width:min(100%, 248px);
+  width:min(100%, 170px);
   height:auto;
+  opacity:.88;
 }
 
 /* Our Offices */
@@ -388,4 +392,5 @@
   .ab-hero{padding:48px 0;}
   .ab-tile{padding:26px 20px 24px}
   .ab-stat{padding:28px 22px 26px}
+  .ab-stat__logo{width:min(100%, 140px)}
 }
