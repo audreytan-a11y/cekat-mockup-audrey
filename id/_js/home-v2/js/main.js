@@ -247,7 +247,7 @@
   (function () {
     var el = $('.tw__t'), tw = $('.tw');
     if (!el || reduce) { if (tw) tw.classList.add('is-static'); return; }
-    var phrases = ['Lebih fleksibel.', 'Balas lebih cepat.', 'Pelanggan lebih senang.'];
+    var phrases = ['Lebih fleksibel.', 'Balas lebih cepat.', 'Pelanggan senang.'];
     var p = 0, n = phrases[0].length, dir = -1; // start by showing first phrase, then delete
     function render() { el.textContent = phrases[p].slice(0, n); }
     function step() {
@@ -547,7 +547,7 @@
 (function(){
   var wrap=document.querySelector('.ts-wrap'); if(!wrap) return;
   var bs=document.querySelectorAll('.ts-toggle');
-  function set(o){ wrap.classList.toggle('is-open',o); bs.forEach(function(b){ b.setAttribute('aria-expanded',o?'true':'false'); var l=b.querySelector('b'); if(l) l.textContent=o?'Lebih sedikit cerita':'Lebih banyak cerita'; }); }
+  function set(o){ wrap.classList.toggle('is-open',o); bs.forEach(function(b){ b.setAttribute('aria-expanded',o?'true':'false'); var l=b.querySelector('b'); if(l) l.textContent=o?'Lebih sedikit testimoni':'Lebih banyak testimoni'; }); }
   bs.forEach(function(b){ b.addEventListener('click',function(){ var o=!wrap.classList.contains('is-open'); set(o); if(!o){ var h=document.getElementById('stories'); if(h) h.scrollIntoView({block:'start',behavior:'smooth'}); } }); });
 })();
 /* TS-V2 JS END */
