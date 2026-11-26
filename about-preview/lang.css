@@ -1,0 +1,33 @@
+.langtog{display:inline-flex;align-items:center;gap:8px;margin-left:14px;font-size:13px;font-weight:700;letter-spacing:.06em;flex:none}
+.langtog a{color:#98a2b3;text-decoration:none}
+.langtog a[aria-current="page"]{color:#1352bf}
+.langtog i{color:#d0d5dd;font-style:normal;font-weight:500}
+@media (max-width:1024px){.langtog{margin-left:auto;margin-right:8px}}
+
+/* Product heroes: wrap rotating line 2 so it never collides with the visual */
+@media (min-width:1024px){
+  .chero__copy{min-width:0;max-width:100%}
+  .chero__title{max-width:100%}
+  .chero .pc-rot__w{width:auto;max-width:100%;min-width:0;height:auto;min-height:1.16em}
+  .chero .pc-rot__w>span{white-space:normal}
+}
+@media (min-width:1024px) and (max-width:1360px){
+  .chero .pc-rot__w{min-height:2.32em}
+}
+
+/* Broadcast fan-out: size recipient bubbles to the ID message + tick.
+   Widen the visual only on desktop; mobile keeps the original --bcw + zoom. */
+.bcx__p{height:auto;min-height:58px;overflow:visible}
+.bcx__m{display:inline-flex;align-items:center;gap:5px;width:auto;max-width:100%;white-space:nowrap;padding:3px 7px;box-sizing:border-box}
+.bcx__m em{flex:none}
+.bcx__tk{flex:none}
+@media (min-width:561px){
+  .bcx{--bcw:560px;grid-template-columns:210px 1fr 228px}
+}
+@media (max-width:560px){
+  .bcx__m{white-space:normal;align-items:flex-start}
+  .bcx__m em{margin-top:1px}
+}
+
+/* Final CTA subtitle: balance lines so a single word is not left on line 2 */
+.ftx__sub{text-wrap:balance}
