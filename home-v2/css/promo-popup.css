@@ -23,7 +23,7 @@ html.uac-lock,body.uac-lock{overflow:hidden}
 .uac-hero{width:fit-content;max-width:100%;margin:0 auto 22px;text-align:center}
 .uac-cekat{font:900 42px/1 Inter,sans-serif;letter-spacing:.2em;margin:0 0 8px;margin-right:-.2em;text-transform:uppercase;text-shadow:0 4px 24px rgba(0,0,0,.25)}
 .uac-unl{display:flex;align-items:flex-end;justify-content:center;margin:0;font:900 82px/.9 Inter,sans-serif;letter-spacing:-.035em;white-space:nowrap;color:#fff;filter:drop-shadow(0 10px 22px rgba(3,12,32,.35))}
-.uac-shield{height:.86em;width:auto;margin-right:.03em;flex:none;overflow:visible;color:#fff}
+.uac-shield{height:.72em;width:auto;margin-right:.03em;flex:none;overflow:visible;color:#fff}
 .uac-unl span{display:block;line-height:.86}
 
 .uac-badge{margin-top:22px;width:100%}
