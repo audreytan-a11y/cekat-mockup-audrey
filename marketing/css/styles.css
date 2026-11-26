@@ -1674,3 +1674,65 @@ svg use{pointer-events:none}
 /* Analyze feature cards: 12px title-to-subtitle, consistent gap before tabs/body */
 .usp-grid--analyze .usp-card__art .scene{align-items:flex-start;justify-content:flex-start;padding-top:16px}
 .usp-grid--analyze .a-bars .mx{width:100%}
+
+/* hxa hero cards: one-line title + pill label, no cramped wraps, visible rows/names.
+   At 1440 the hero copy needs ~702px for the ID H1, so the card is only ~322px wide.
+   Use a container query to go compact below 380px and spacious when the card is wider. */
+.hxa__card{container-type:inline-size;container-name:hxacard}
+.hxa__h{display:flex;align-items:center;justify-content:flex-start;gap:6px 8px;margin:0 0 12px;min-width:0;flex-wrap:wrap}
+.hxa__h b{font-size:15px;line-height:1.2;font-weight:600;color:var(--navy);white-space:nowrap;flex:0 0 auto;min-width:auto;overflow:visible}
+.hxa__h small{flex:0 0 auto;margin-left:0;max-width:none;font-size:10.5px;font-weight:600;color:#475467;background:#f3f6fc;border:1px solid #e6ecf6;border-radius:999px;padding:3px 8px;white-space:nowrap;line-height:1.2}
+@media (max-width:600px){.a-capi .hxa__h small{display:inline-flex}}
+
+.hxa .mx .hbar{grid-template-columns:110px 1fr 52px;font-size:12.5px}
+.hxa .mx .hbar span{white-space:nowrap}
+.a-metric .hbar{grid-template-columns:110px 1fr 56px}
+.a-metric .hbar span,.usp-grid--analyze .a-bars .hbar span{white-space:nowrap}
+
+/* Compact default: list + phone fit a ~320px card without overlap */
+.hxa .ads{display:flex;align-items:center;gap:8px;min-width:0}
+.hxa .ads__list{min-width:0;flex:1 1 auto}
+.hxa .ads__row{min-width:0;font-size:10.5px;padding:8px 6px}
+.hxa .ads__row span{white-space:nowrap;overflow:visible}
+.hxa .pv{flex:0 0 68px;width:68px;max-width:68px;display:flex;flex-direction:column;align-items:center;gap:5px}
+.hxa .phone{width:56px;height:100px}
+.hxa .phone__cap{white-space:normal;text-align:center;font-size:9.5px;line-height:1.25;width:100%;max-width:68px}
+.hxa .phone__clk{white-space:nowrap;max-width:68px;justify-content:center;padding:2px 5px;font-size:9.5px}
+
+.hxa .lk-t{white-space:nowrap;letter-spacing:0;font-size:8.5px}
+.hxa .lk-src{flex:1.35 1 0;min-width:0}
+.hxa .lk-aud{flex:1 1 0;min-width:0}
+.hxa .lk-mid{width:28px;flex:none}
+.hxa .lk-nm{overflow:visible;text-overflow:clip;white-space:nowrap}
+.hxa .lk-src li{white-space:nowrap;grid-template-columns:18px max-content max-content;gap:4px;font-size:11px}
+.hxa .lk-tag{padding:1px 5px;font-size:9px}
+.hxa .pc-lk{gap:0;min-width:0}
+.hxa .pc-lk .pc-panel{padding:8px!important}
+
+@container hxacard (max-width:379px){
+  .hxa .ads{flex-direction:column;align-items:stretch;gap:8px}
+  .hxa .ads__row{font-size:11px;padding:8px 8px}
+  .hxa .pv{flex:0 0 auto;width:auto;max-width:none;flex-direction:row;justify-content:flex-start;align-items:center;gap:10px}
+  .hxa .phone{width:52px;height:92px;flex:none}
+  .hxa .phone__cap{text-align:left;max-width:none;width:auto;font-size:10px;line-height:1.3}
+  .hxa .phone__clk{max-width:none;font-size:10px;padding:2px 6px}
+}
+
+@container hxacard (min-width:380px){
+  .hxa__h{justify-content:space-between;gap:8px 10px}
+  .hxa__h b{font-size:16px}
+  .hxa__h small{margin-left:auto;font-size:11px;padding:3px 9px}
+  .hxa .ads{gap:10px}
+  .hxa .ads__row{font-size:12.5px;padding:11px 8px}
+  .hxa .pv{flex-basis:88px;width:88px;max-width:88px}
+  .hxa .phone{width:68px;height:120px}
+  .hxa .phone__cap{font-size:10px;max-width:88px}
+  .hxa .phone__clk{max-width:88px;padding:2px 6px;font-size:10px}
+  .hxa .lk-t{font-size:10px}
+  .hxa .lk-src{flex:1.45 1 0}
+  .hxa .lk-mid{width:40px}
+  .hxa .lk-src li{grid-template-columns:20px max-content max-content;gap:6px;font-size:12.5px}
+  .hxa .lk-tag{padding:2px 6px;font-size:9.5px}
+  .hxa .pc-lk .pc-panel{padding:12px!important}
+}
+

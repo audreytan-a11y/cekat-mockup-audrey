@@ -81,7 +81,7 @@
     { v: ['3.1%', '1.9%', '1.3%', '1.0%'], n: [3.1, 1.9, 1.3, 1.0] },
     { v: ['$18,600', '$7,400', '$5,200', '$3,100'], n: [18600, 7400, 5200, 3100] }
   ];
-  var SRC_NAMES = ['Paid Ads', 'Organic', 'Creators', 'Links'];
+  var SRC_NAMES = ['Iklan Berbayar', 'Organik', 'Kreator', 'Link'];
   $$('[data-metric]').forEach(function (root) {
     var tabs = $$('.mx__tab', root), bars = $$('.hbar', root), top = $('.mx__top b', root);
     var auto = root.getAttribute('data-auto') !== '0';
@@ -115,8 +115,8 @@
      Sources: <video data-src>, attached by JS (hero at load, phone on first view); reduced motion loads posters only.
      The phone copies use ?v=mk7 so Chrome doesn't cancel a second media request for the hero's identical URL. */
   var CLIPS = [
-    { name: 'AI replies in 3s', poster: './assets/video/ad-ai-replies-poster.jpg' },
-    { name: 'Demo walkthrough', poster: './assets/video/ad-demo-walkthrough-poster.jpg' }
+    { name: 'AI balas dalam 3 detik', poster: './assets/video/ad-ai-replies-poster.jpg' },
+    { name: 'Panduan demo', poster: './assets/video/ad-demo-walkthrough-poster.jpg' }
   ];
   function vsrc(x) { // attach the source of one <video data-src> (hero at load, phone on first view)
     var u = x.getAttribute('data-src'); if (!u) return;
@@ -186,7 +186,7 @@
       cur = k;
       rows.forEach(function (r, j) { r.classList.toggle('is-cur', j === k); });
       cap.textContent = CLIPS[k].name;
-      var ck = $('.phone__clk', card), rb = rows[k] && $('b', rows[k]); if (ck && rb) ck.textContent = rb.textContent + ' clicks';
+      var ck = $('.phone__clk', card), rb = rows[k] && $('b', rows[k]); if (ck && rb) ck.textContent = rb.textContent + ' klik';
       clip.load(k);
     }
     function step(k) { show(k); clip.run(function () { step((k + 1) % CLIPS.length); }); }
