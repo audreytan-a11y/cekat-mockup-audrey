@@ -1,0 +1,72 @@
+/* Even line lengths on short text; fewer lone last words on long paragraphs.
+   Applies in every locale, including Chinese, Japanese, and Korean. */
+
+/* Match a BEM class whether or not other classes follow it. */
+/* Longer body copy first; short-text rules below override this. */
+p, li, dd, blockquote, figcaption,
+[class*="__p "], [class$="__p"],
+[class*="__body "], [class$="__body"],
+[class*="__copy "], [class$="__copy"],
+[class*="__desc "], [class$="__desc"],
+[class*="__text "], [class$="__text"],
+[class*="__prose "], [class$="__prose"]{
+  text-wrap: pretty;
+}
+
+/* Headings, titles, subtitles, leads, banner, pills, and other short blocks (~1–4 lines) */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5,
+[class*="__h "], [class$="__h"],
+[class*="__h1 "], [class$="__h1"],
+[class*="__h2 "], [class$="__h2"],
+[class*="__h3 "], [class$="__h3"],
+[class*="__title "], [class$="__title"],
+[class*="__heading "], [class$="__heading"],
+[class*="__headline "], [class$="__headline"],
+[class*="__sub "], [class$="__sub"],
+[class*="__subtitle "], [class$="__subtitle"],
+[class*="__tagline "], [class$="__tagline"],
+[class*="__eyebrow "], [class$="__eyebrow"],
+[class*="__lead "], [class$="__lead"],
+[class*="__kicker "], [class$="__kicker"],
+[class*="__tag "], [class$="__tag"],
+[class*="__caption "], [class$="__caption"],
+[class*="__quote "], [class$="__quote"],
+[class*="__label "], [class$="__label"],
+[class*="__lbl "], [class$="__lbl"],
+[class*="__eb "], [class$="__eb"],
+.uab,
+.uab__a,
+.chip,
+.pill,
+.fpill,
+.pm-pill,
+.hf-tab,
+.hf-lead,
+.hf-eb,
+.consult-cta,
+.btn,
+.hbtn{
+  text-wrap: balance;
+}
+
+/* CJK: same rules, so a single character or word is not left alone on the last line */
+html:lang(zh) p, html:lang(zh) li, html:lang(zh) dd, html:lang(zh) blockquote,
+html:lang(ja) p, html:lang(ja) li, html:lang(ja) dd, html:lang(ja) blockquote,
+html:lang(ko) p, html:lang(ko) li, html:lang(ko) dd, html:lang(ko) blockquote{
+  text-wrap: pretty;
+}
+html:lang(zh) :is(h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,[class*="__h "],[class$="__h"],[class*="__title "],[class$="__title"],[class*="__sub "],[class$="__sub"],[class*="__lead "],[class$="__lead"],[class*="__eyebrow "],[class$="__eyebrow"],.uab__a),
+html:lang(ja) :is(h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,[class*="__h "],[class$="__h"],[class*="__title "],[class$="__title"],[class*="__sub "],[class$="__sub"],[class*="__lead "],[class$="__lead"],[class*="__eyebrow "],[class$="__eyebrow"],.uab__a),
+html:lang(ko) :is(h1,h2,h3,h4,h5,h6,.h1,.h2,.h3,[class*="__h "],[class$="__h"],[class*="__title "],[class$="__title"],[class*="__sub "],[class$="__sub"],[class*="__lead "],[class$="__lead"],[class*="__eyebrow "],[class$="__eyebrow"],.uab__a){
+  text-wrap: balance;
+}
+
+/* Japanese (and other CJK) brand-wall title: the blue line is longer than in English
+   and overflows 320px when forced onto one line. Let it wrap and stay balanced. */
+html:lang(ja) .brandwall__title .ih-blue,
+html:lang(zh) .brandwall__title .ih-blue,
+html:lang(ko) .brandwall__title .ih-blue{
+  white-space: normal;
+  text-wrap: balance;
+}

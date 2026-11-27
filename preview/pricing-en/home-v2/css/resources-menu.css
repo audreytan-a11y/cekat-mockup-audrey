@@ -1,0 +1,68 @@
+/* Resources dropdown: same tile + stroke-icon style as Industries / Products.
+   Loaded last. Desktop and mobile (hamburger) share this markup. */
+
+#mm-resources.simple{
+  min-width:280px;
+  padding:12px 10px;
+  display:grid;
+  gap:2px;
+}
+#mm-resources .res__a{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:10px;
+  border-radius:12px;
+  text-decoration:none;
+  color:var(--text,#101828);
+  font-size:14px;
+  line-height:1.25;
+  background:transparent;
+}
+#mm-resources .res__a.is-on,
+#mm-resources .res__a:hover,
+#mm-resources .res__a:focus-visible{
+  background:#f5f8fe;
+  outline:none;
+}
+#mm-resources .res__tile{
+  flex:none;
+  width:40px;
+  height:40px;
+  border-radius:10px;
+  background:#eaf1ff;
+  display:grid;
+  place-items:center;
+}
+#mm-resources .res__ic,
+#mm-resources .res__tile svg{
+  width:20px;
+  height:20px;
+  fill:none !important;
+  stroke:#1352bf;
+  stroke-width:1.7;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+#mm-resources .res__a b{
+  display:block;
+  font-size:14px;
+  font-weight:600;
+  line-height:1.25;
+  color:var(--text,#101828);
+}
+#mm-resources .res__a.is-on b,
+#mm-resources .res__a:hover b,
+#mm-resources .res__a:focus-visible b{
+  color:var(--primary,#1352bf);
+}
+
+@media (max-width:1024px){
+  #mm-resources.simple{
+    min-width:0;
+    width:auto;
+    padding:4px 0 12px;
+    gap:0;
+  }
+  #mm-resources .res__a{padding:8px 4px;gap:10px}
+}

@@ -1,0 +1,32 @@
+/* Thin announcement bar above the nav. Height is measured into --uab-h. */
+html.uab-on{--uab-h:44px}
+html.uab-on body{padding-top:var(--uab-h)}
+html.uab-on .nav{top:var(--uab-h)}
+html.uab-on .top{top:var(--uab-h)}
+html.uab-on header.fixed.top-0,
+html.uab-on header.fixed{top:var(--uab-h)!important}
+html.uab-on{scroll-padding-top:calc(var(--uab-h) + 72px)}
+/* .nav has backdrop-filter, so the fixed mobile menu is positioned against the nav, not the viewport. Leave its top at 68px. */
+
+.uab{
+  position:fixed;top:0;left:0;right:0;z-index:80;
+  display:flex;align-items:center;justify-content:center;
+  min-height:44px;padding:8px 48px;
+  background:#1068e5;color:#fff;
+  font-family:Inter,"Google Sans Flex",system-ui,sans-serif;
+  text-align:center;
+}
+.uab__a{
+  color:#fff;font-weight:800;
+  font-size:clamp(12.5px,3.3vw,15px);
+  letter-spacing:.01em;line-height:1.25;text-decoration:none;
+}
+.uab__a:hover{text-decoration:underline;text-underline-offset:3px}
+.uab__x{
+  position:absolute;right:6px;top:50%;transform:translateY(-50%);
+  width:36px;height:36px;border:0;border-radius:999px;
+  background:transparent;color:#fff;cursor:pointer;
+  display:grid;place-items:center;
+}
+.uab__x:hover,.uab__x:focus-visible{background:rgba(255,255,255,.18);outline:none}
+.uab__x svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2.2;stroke-linecap:round}
