@@ -1,5 +1,6 @@
 /* Plan-duration toggle on /unlimited and /en/unlimited.
-   Prices: deck monthly base minus the selected discount, rounded to the nearest Rp1,000. */
+   English prices: Chat app monthly base minus the selected discount, rounded to the nearest dollar.
+   Enterprise is Custom (no price). The Indonesian page has no prices. */
 (function () {
   var DISCOUNT = { "3": 0.05, "6": 0.1, "12": 0.2 };
   var TERM = {
@@ -7,8 +8,7 @@
     id: { "3": "Langganan 3 bulan", "6": "Langganan 6 bulan", "12": "Langganan 12 bulan" }
   };
 
-  function roundRp(n) { return Math.round(n / 1000) * 1000; }
-  function formatRp(n) { return "Rp" + n.toLocaleString("en-US"); }
+  function formatUsd(n) { return "$" + Math.round(n).toLocaleString("en-US"); }
 
   function langOf(root) {
     return (root.getAttribute("data-lang") || document.documentElement.lang || "en").slice(0, 2);
@@ -30,7 +30,7 @@
       var base = Number(el.getAttribute("data-monthly"));
       if (!isFinite(base)) return;
       var out = el.querySelector("[data-price]") || el;
-      out.textContent = formatRp(roundRp(base * (1 - off)));
+      out.textContent = formatUsd(base * (1 - off));
     });
   }
 
