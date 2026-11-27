@@ -4,11 +4,11 @@
   if (document.getElementById("uab")) return;
   var lang = (document.documentElement.getAttribute("lang") || "").toLowerCase();
   var copy = {
-    id: { label: "Cekat Unlimited AI Credits - Mulai 1 Desember", href: "/unlimited", region: "Pengumuman", close: "Tutup pengumuman" },
-    ko: { label: "Cekat Unlimited AI Credits - 12월 1일 시작", href: "/kr/unlimited", region: "공지", close: "공지 닫기" },
-    ja: { label: "Cekat Unlimited AI Credits - 12月1日開始", href: "/jp/unlimited", region: "お知らせ", close: "お知らせを閉じる" },
-    zh: { label: "Cekat Unlimited AI Credits - 12月1日开始", href: "/cn/unlimited", region: "公告", close: "关闭公告" },
-    en: { label: "Cekat Unlimited AI Credits - Starts December 1", href: "/en/unlimited", region: "Announcement", close: "Dismiss announcement" }
+    id: { label: "Cekat Unlimited AI Credits - Mulai 1 Desember", href: "/cekat-mockup-audrey/preview/unlimited-id/", region: "Pengumuman", close: "Tutup pengumuman" },
+    ko: { label: "Cekat Unlimited AI Credits - 12월 1일 시작", href: "/cekat-mockup-audrey/preview/unlimited/", region: "공지", close: "공지 닫기" },
+    ja: { label: "Cekat Unlimited AI Credits - 12月1日開始", href: "/cekat-mockup-audrey/preview/unlimited/", region: "お知らせ", close: "お知らせを閉じる" },
+    zh: { label: "Cekat Unlimited AI Credits - 12月1日开始", href: "/cekat-mockup-audrey/preview/unlimited/", region: "公告", close: "关闭公告" },
+    en: { label: "Cekat Unlimited AI Credits - Starts December 1", href: "/cekat-mockup-audrey/preview/unlimited/", region: "Announcement", close: "Dismiss announcement" }
   };
   var key = "en";
   if (lang.indexOf("id") === 0) key = "id";

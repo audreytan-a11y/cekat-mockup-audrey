@@ -38,6 +38,8 @@ var h=location.hash.replace('#','');if(['chat','crm','trackr'].indexOf(h)>-1)go(
   function isCustomName(s){return /custom|kustom|맞춤|カスタム|定制/i.test(String(s||''))}
   function isFreeName(s){s=String(s||'').replace(/\s+/g,' ').trim();return /^(free|gratis)\b/i.test(s)||/無料/.test(s)||/무료/.test(s)||/免费/.test(s)}
   function isExcludedPlan(s){return isStarterName(s)||isCustomName(s)||isFreeName(s)}
+  /* Global: Starter also gets the checklist Unlimited pill. Free/Custom never do. /harga is unchanged. */
+  function skipUnlim(s){return isIdr?isExcludedPlan(s):(isCustomName(s)||isFreeName(s))}
   function isCreditText(s){
     s=String(s||'').replace(/\s+/g,' ').trim();
     if(/kustom|custom/i.test(s)) return false;
@@ -79,7 +81,7 @@ var h=location.hash.replace('#','');if(['chat','crm','trackr'].indexOf(h)>-1)go(
   });
   [].slice.call(document.querySelectorAll('.pp')).forEach(function(card){
     var name=card.querySelector('.pp__name');
-    if(name && (isExcludedPlan(name.textContent))) return;
+    if(name && skipUnlim(name.textContent)) return;
     [].slice.call(card.querySelectorAll('.pp__list li span, .pp__list li')).forEach(function(el){
       if(el.matches && el.matches('li') && el.querySelector('span')) return;
       if(!isCreditText(el.textContent)) return;
@@ -95,7 +97,7 @@ var h=location.hash.replace('#','');if(['chat','crm','trackr'].indexOf(h)>-1)go(
     heads.forEach(function(h,i){
       var b=h.querySelector('b');
       var n=b?b.textContent:'';
-      if(isExcludedPlan(n)) skip[i]=true;
+      if(skipUnlim(n)) skip[i]=true;
     });
     [].slice.call(tb.querySelectorAll('tr')).forEach(function(tr){
       var cells=[].slice.call(tr.cells||tr.querySelectorAll('th,td'));
