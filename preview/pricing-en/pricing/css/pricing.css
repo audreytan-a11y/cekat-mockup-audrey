@@ -11,16 +11,23 @@
 .pbill__opt.is-on .pbill__save{background:rgba(255,255,255,.22);color:#fff}
 .pp__pop{display:inline-block;margin-left:8px;background:#E8F0FF;color:#1E5BD8;font-size:12px;font-weight:750;padding:3px 8px;border-radius:999px;vertical-align:2px}
 .pp__qnote,.pbill__banner,.pbill__badge{display:none !important}
-.prp--idr .pp__price b{font-size:clamp(22px,2.1vw,30px);letter-spacing:-.03em}
 .pp__list strong{font-weight:700;color:var(--pn)}
-.pp__was{flex:1 0 100%;margin:0 0 2px;font-size:14px;font-weight:500;color:#98a2b3;text-decoration:line-through;letter-spacing:0;line-height:1.2}
-.prp--idr .pp__was{font-size:13px}
 .pcm-was{display:block;margin:0 0 2px;font-size:12px;font-weight:500;color:#98a2b3;text-decoration:line-through}
-.pp__unlim-slot{display:none;min-height:40px;margin:-6px 0 16px}
-.prp.is-quarter .pp__unlim-slot{display:block}
-.prp.is-quarter .pp__price{margin-bottom:10px;min-height:52px}
+/* Amount + /bulan or /month stay on one line; strikethrough stays on the line above.
+   Fluid size is per-card container, so sibling cards in the same grid stay consistent. */
+.pp__was{display:block;margin:0 0 2px;font-size:14px;font-weight:500;color:#98a2b3;text-decoration:line-through;letter-spacing:0;line-height:1.2}
+.prp--idr .pp__was{font-size:13px}
 .pp__unlim{display:inline-flex;align-items:center;justify-content:center;gap:6px;max-width:100%;padding:7px 14px;background:#FEF3C7;border:1px solid #F6C445;color:#0B1B3F;font-size:13px;font-weight:700;letter-spacing:-.01em;line-height:1.2;border-radius:999px;white-space:nowrap;box-sizing:border-box}
-.pp__unlim-slot.is-empty .pp__unlim{visibility:hidden}
+/* Under-price yellow pill: Indonesian /harga only */
+.prp--idr .pp__unlim-slot{display:none;min-height:40px;margin:-6px 0 16px}
+.prp--idr.is-quarter .pp__unlim-slot{display:block}
+.prp--idr.is-quarter .pp__price{margin-bottom:10px;min-height:52px}
+.prp--idr .pp__unlim-slot.is-empty .pp__unlim{visibility:hidden}
+/* Global: no under-price pill; on 3 months+ the credits checklist line becomes the pill */
+.prp:not(.prp--idr) .pp__unlim-slot{display:none!important}
+.prp:not(.prp--idr).is-quarter .pp__price{min-height:52px}
+.prp:not(.prp--idr).is-quarter .pp__list li.is-unlim{align-items:center}
+.prp:not(.prp--idr).is-quarter .pp__list li.is-unlim>svg{display:none}
 @media(max-width:430px){.pp__unlim{white-space:normal;text-align:center;font-size:12.5px}}
 
 @media(max-width:700px){.pbill{border-radius:22px;width:100%}.pbill__opt{flex:1 1 calc(50% - 6px)}}
@@ -36,12 +43,16 @@
 .prp .wrap{max-width:1240px}
 .ppan[hidden]{display:none}
 .pgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px;align-items:stretch}
-.pp{display:flex;flex-direction:column;padding:28px 24px;background:#fff;border:1px solid #e4e7ec;border-radius:20px;box-shadow:0 1px 2px rgba(16,40,90,.04)}
+.pp{display:flex;flex-direction:column;padding:28px 24px;background:#fff;border:1px solid #e4e7ec;border-radius:20px;box-shadow:0 1px 2px rgba(16,40,90,.04);container-type:inline-size}
 .pp__name{font-size:19px;font-weight:600;color:var(--pn);letter-spacing:-.01em}
-.pp__price{margin:14px 0 20px;display:flex;flex-wrap:wrap;align-items:baseline;column-gap:6px;row-gap:2px;min-height:46px;color:var(--pn)}
-.pp__price b{font-size:40px;line-height:1;font-weight:600;letter-spacing:-.03em}
-.pp__price span{font-size:15px;color:#667085}
-.pp__price--c{align-items:flex-end}.pp__price--c b{font-size:36px;font-weight:700;letter-spacing:-.025em;color:var(--pn);padding-bottom:1px}
+.pp__price{margin:14px 0 20px;display:block;min-height:46px;color:var(--pn);white-space:nowrap}
+.pp__price b{font-size:clamp(20px,14cqi,40px);line-height:1;font-weight:600;letter-spacing:-.03em}
+.pp__price span{font-size:15px;color:#667085;margin-left:6px}
+.pp__price--c{display:flex;flex-wrap:nowrap;align-items:flex-end;white-space:nowrap}
+.pp__price--c b{font-size:clamp(20px,12cqi,36px);font-weight:700;letter-spacing:-.025em;color:var(--pn);padding-bottom:1px}
+.prp--idr .pp__price b{font-size:clamp(16px,9.2cqi,30px);letter-spacing:-.03em}
+/* Global Free cards: keep CTA aligned with siblings, center the price in the space above it */
+.prp:not(.prp--idr) .pp.is-free .pp__price{display:flex;align-items:center;column-gap:6px;white-space:nowrap}
 .pp__btn{display:flex;align-items:center;justify-content:center;height:44px;border-radius:12px;font-size:15px;font-weight:600;background:var(--pa);color:#fff;transition:background .2s,transform .2s}
 .pp__btn:hover{background:#174bb5;transform:translateY(-1px)}
 .pp__btn--o{background:#fff;color:var(--pa);box-shadow:inset 0 0 0 1.5px var(--pa)}

@@ -52,6 +52,14 @@ var h=location.hash.replace('#','');if(['chat','crm','trackr'].indexOf(h)>-1)go(
     if(/AI 额度/.test(orig)) return '<strong>Unlimited</strong> AI 额度';
     return '<strong>Unlimited</strong> AI Credits';
   }
+  function unlimitedPillHTML(orig){
+    var label='Unlimited AI Credits';
+    if(/AIクレジット/.test(orig)) label='Unlimited AIクレジット';
+    else if(/AI 크레딧/.test(orig)) label='Unlimited AI 크레딧';
+    else if(/AI 额度/.test(orig)) label='Unlimited AI 额度';
+    return '<span class="pp__unlim">∞ '+label+'</span>';
+  }
+  var isIdr=plans&&plans.classList.contains('prp--idr');
 
   /* Cache monthly prices on plan cards and the compare table. */
   [].slice.call(document.querySelectorAll('.pp__price')).forEach(function(el){
@@ -126,21 +134,30 @@ var h=location.hash.replace('#','');if(['chat','crm','trackr'].indexOf(h)>-1)go(
   }
   function renderCredits(on){
     [].slice.call(document.querySelectorAll('[data-credits-orig]')).forEach(function(el){
+      var li=el.closest&&el.closest('.pp__list li');
+      if(!isIdr&&li){
+        if(on){el.innerHTML=unlimitedPillHTML(el.getAttribute('data-credits-orig-text')||'');li.classList.add('is-unlim');}
+        else{el.innerHTML=el.getAttribute('data-credits-orig');li.classList.remove('is-unlim');}
+        return;
+      }
       if(on) el.innerHTML=unlimitedHTML(el.getAttribute('data-credits-orig-text')||'');
       else el.innerHTML=el.getAttribute('data-credits-orig');
     });
   }
 
-  [].slice.call(document.querySelectorAll('.pp')).forEach(function(card){
-    if(card.querySelector('.pp__unlim-slot')) return;
-    var price=card.querySelector('.pp__price'); if(!price) return;
-    var name=card.querySelector('.pp__name');
-    var skip=name && (isExcludedPlan(name.textContent));
-    var slot=document.createElement('div');
-    slot.className='pp__unlim-slot'+(skip?' is-empty':'');
-    slot.innerHTML='<span class="pp__unlim">∞ Unlimited AI Credits</span>';
-    price.insertAdjacentElement('afterend', slot);
-  });
+  /* Under-price pill is Indonesian /harga only; global pages use the checklist pill. */
+  if(isIdr){
+    [].slice.call(document.querySelectorAll('.pp')).forEach(function(card){
+      if(card.querySelector('.pp__unlim-slot')) return;
+      var price=card.querySelector('.pp__price'); if(!price) return;
+      var name=card.querySelector('.pp__name');
+      var skip=name && (isExcludedPlan(name.textContent));
+      var slot=document.createElement('div');
+      slot.className='pp__unlim-slot'+(skip?' is-empty':'');
+      slot.innerHTML='<span class="pp__unlim">∞ Unlimited AI Credits</span>';
+      price.insertAdjacentElement('afterend', slot);
+    });
+  }
 
   function setBill(period){
 
